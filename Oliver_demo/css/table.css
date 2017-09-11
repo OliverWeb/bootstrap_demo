@@ -1,0 +1,24 @@
+/*控制表格的样式*/
+.table th, .table td {
+  text-align: center;
+  vertical-align:middle!important;
+}
+.mcrouter_title{
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+}
+/*删除确认按钮*/
+.bootbox-body{
+    font-size: 16px;
+}
+.modal-footer{
+  margin-top: 0;
+}
+#myModal .modal-dialog{
+    width: 60%;
+    top: 20%;
+}
+#myModal .modal-footer{
+  text-align: center;
+}

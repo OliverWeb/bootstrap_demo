@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- BEGIN META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Olive Enterprise">
+  <!-- END META -->
+
+  <!-- BEGIN SHORTCUT ICON -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- END SHORTCUT ICON -->
+  <title>
+    node后台管理系统
+  </title>
+  <!-- BEGIN STYLESHEET-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- BOOTSTRAP CSS -->
+  <link href="css/bootstrap-reset.css" rel="stylesheet">
+  <!-- BOOTSTRAP CSS -->
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <!-- FONT AWESOME ICON CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- THEME BASIC CSS -->
+  <link href="css/style-responsive.css" rel="stylesheet">
+  <!-- THEME RESPONSIVE CSS -->
+  <link href="assets/morris.js-0.4.3/morris.css" rel="stylesheet">
+  <!-- MORRIS CHART CSS -->
+  <!--dashboard calendar-->
+  <link href="css/clndr.css" rel="stylesheet">
+  <!-- CALENDER CSS -->
+  <!--[if lt IE 9]>
+<script src="js/html5shiv.js">
+</script>
+<script src="js/respond.min.js">
+</script>
+<![endif]-->
+  <!-- END STYLESHEET-->
+</head>
+
+<body>
+  <!-- BEGIN SECTION -->
+  <section id="container">
+    <!-- 相同部分开始 -->
+    <header class="header white-bg">
+      <!-- SIDEBAR TOGGLE BUTTON -->
+      <div class="sidebar-toggle-box">
+        <div data-placement="right" class="fa fa-bars tooltips">
+        </div>
+      </div>
+      <!-- SIDEBAR TOGGLE BUTTON  END-->
+      <a href="index.html" class="logo">
+          NODE
+          <span>
+            后台管理系统
+          </span>
+        </a>
+      <!-- START HEADER  NAV -->
+      <!-- 提示消息窗口 -->
+      <nav class="nav notify-row" id="top_menu" style="margin-left:15px;">
+
+        <ul class="nav top-menu">
+          <!-- START NOTIFY NOTIFICATION BAR  顶部提醒消息 -->
+
+          <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-bell-o">
+                </i>
+                <span class="badge bg-warning">
+                  0
+                </span>
+              </a>
+          </li>
+          <!-- END NOTIFY NOTIFICATION BAR -->
+
+        </ul>
+
+
+      </nav>
+      <!-- END HEADER NAV -->
+
+      <!-- START USER LOGIN DROPDOWN  -->
+
+      <div class="top-nav ">
+        <ul class="nav pull-right top-menu">
+          <li>
+            <input type="text" class="form-control search" placeholder="Search">
+          </li>
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="img/avatar1_small.jpg">
+                <span class="username">
+                  Pruthvi
+                </span>
+                <b class="caret">
+                </b>
+              </a>
+            <ul class="dropdown-menu extended logout">
+              <li class="log-arrow-up">
+              </li>
+              <li>
+                <a href="login.html">
+                    <i class="fa fa-key">
+                    </i>
+                    Log Out
+                  </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- END USER LOGIN DROPDOWN  -->
+    </header>
+    <aside>
+      <div id="sidebar" class="nav-collapse">
+        <ul class="sidebar-menu" id="nav-accordion">
+          <li>
+            <a href="index.html" class="active">
+                <i class="fa fa-dashboard">
+                </i>
+                <span>
+                    首页
+                </span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-laptop">
+                </i>
+                <span>
+                  MCROUTE
+                </span>
+                <span class="label label-success span-sidebar">
+                  4
+                </span>
+              </a>
+            <ul class="sub">
+              <li>
+                <a href="editable_table.html">
+                    POOLS
+                  </a>
+              </li>
+              <li>
+                <a href="horizontal_menu.html">
+                    RELIABILITY
+                  </a>
+              </li>
+              <li>
+                <a href="language_switch_bar.html">
+                    COOL-WARM
+                  </a>
+              </li>
+              <li>
+                <a href="email_template.html" target="_blank">
+                    SHADOW
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-book">
+                </i>
+                <span>
+                  NODE
+                </span>
+                <span class="label label-info span-sidebar">
+                  4
+                </span>
+              </a>
+            <ul class="sub">
+              <li>
+                <a href="general.html">
+                    物理节点管理
+                  </a>
+              </li>
+              <li>
+                <a href="buttons.html">
+                    Mcrouter节点
+                  </a>
+              </li>
+              <li>
+                <a href="widget.html">
+                    Memcache节点
+                  </a>
+              </li>
+              <li>
+                <a href="slider.html">
+                    GetNode
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <!-- 图表 -->
+          <li class="sub-menu">
+            <a href="javascript:;">
+                <i class=" fa fa-bar-chart-o">
+                </i>
+                <span>
+                  Charts
+                </span>
+                <span class="label label-warning span-sidebar">
+                  4
+                </span>
+              </a>
+            <ul class="sub">
+              <li>
+                <a href="flot_chart.html">
+                    Flot Charts
+                  </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+                <i class="fa fa-sitemap">
+                </i>
+                <span>
+                  Multi level Menu
+                </span>
+              </a>
+            <ul class="sub">
+              <li>
+                <a href="javascript:;">
+                    Menu Item 1
+                  </a>
+              </li>
+              <li class="sub-menu">
+                <a href="boxed_page.html">
+                    Menu Item 2
+                    <span class="label label-primary">
+                      1
+                    </span>
+                  </a>
+                <ul class="sub">
+                  <li>
+                    <a href="javascript:;">
+                        Item 2.1
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        Menu Item 3
+                        <span class="label label-primary">
+                          3
+                        </span>
+                      </a>
+                    <ul class="sub">
+                      <li>
+                        <a href="javascript:;">
+                            Item 3.1
+                          </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;">
+                            Item 3.2
+                          </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;">
+                            Item 3.2
+                          </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+   <!-- 相同部分结束 -->
+    <section id="main-content">
+      <!-- BEGIN WRAPPER  -->
+      <section class="wrapper">
+        <!-- BEGIN ROW   头部标签-->
+        <div class="row state-overview">
+          <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+              <div class="symbol">
+                <i class="fa fa-tags blue">
+                  </i>
+              </div>
+              <div class="value">
+                <h1 class="count">
+                    0
+                  </h1>
+                <p>
+                  Total Sale
+                </p>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+              <div class="symbol">
+                <i class="fa fa-money red">
+                  </i>
+              </div>
+              <div class="value">
+                <h1 class=" count2">
+                    0
+                  </h1>
+                <p>
+                  Total Profit
+                </p>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+              <div class="symbol">
+                <i class="fa fa-user yellow">
+                  </i>
+              </div>
+              <div class="value">
+                <h1 class=" count3">
+                    0
+                  </h1>
+                <p>
+                  New Users
+                </p>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+              <div class="symbol">
+                <i class="fa fa-shopping-cart purple">
+                  </i>
+              </div>
+              <div class="value">
+                <h1 class=" count4">
+                    0
+                  </h1>
+                <p>
+                  New Orders
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- END ROW  头部标签结束 -->
+        <!-- BEGIN ROW  -->
+
+
+        <!-- BEGIN ROW  -->
+
+        <!-- END ROW  -->
+        <!-- BEGIN ROW  -->
+
+        <!-- END ROW  -->
+      </section>
+      <!-- END WRAPPER  -->
+    </section>
+    <!-- END MAIN CONTENT -->
+    <!-- BEGIN FOOTER -->
+    <footer class="site-footer" style="position:fixed;bottom:0;width:100%;z-index:-1;">
+      <div class="text-center">
+        &copy; 18557531520
+        <a href="" target="_blank">
+            Sunmit Bug
+          </a>
+        <a href="#" class="go-top">
+            <i class="fa fa-angle-up">
+            </i>
+          </a>
+      </div>
+    </footer>
+    <!-- END  FOOTER -->
+  </section>
+  <!-- END SECTION -->
+  <!-- BEGIN JS -->
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <!-- BASIC JQUERY 1.8.3 LIB. JS -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- BOOTSTRAP JS -->
+  <script src="js/jquery.dcjqaccordion.2.7.js"></script>
+  <!-- ACCORDIN JS -->
+  <script src="js/jquery.scrollTo.min.js"></script>
+  <!-- SCROLLTO JS -->
+  <script src="js/jquery.nicescroll.js"></script>
+  <!-- NICESCROLL JS -->
+  <script src="js/respond.min.js"></script>
+  <!-- RESPOND JS -->
+  <script src="js/jquery.sparkline.js"></script>
+  <!-- SPARKLINE JS -->
+  <script src="js/sparkline-chart.js"></script>
+  <!-- SPARKLINE CHART JS -->
+  <script src="js/common-scripts.js"></script>
+  <!-- BASIC COMMON JS -->
+  <script src="js/count.js"></script>
+  <!-- COUNT JS -->
+  <!--Morris-->
+  <script src="assets/morris.js-0.4.3/morris.min.js"></script>
+  <!-- MORRIS JS -->
+  <script src="assets/morris.js-0.4.3/raphael-min.js"></script>
+  <!-- MORRIS  JS -->
+  <script src="js/chart.js"></script>
+  <!-- CHART JS -->
+  <!--Calendar-->
+  <script src="js/calendar/clndr.js"></script>
+  <!-- CALENDER JS -->
+  <script src="js/calendar/evnt.calendar.init.js"></script>
+  <!-- CALENDER EVENT JS -->
+  <script src="js/calendar/moment-2.2.1.js"></script>
+  <!-- CALENDER MOMENT JS -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <!-- UNDERSCORE JS -->
+  <script src="assets/jquery-knob/js/jquery.knob.js"></script>
+  <!-- JQUERY KNOB JS -->
+  <script>
+    //knob
+    $(".knob").knob();
+  </script>
+  <!-- END JS -->
+</body>
+
+</html>
