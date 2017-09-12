@@ -29,7 +29,47 @@ $(".pool_delete").click(function(){
   });
 
 });
-//模态框设置
-//$('.pool_edit').click(function(){
-    $('#myModal').modal('show');
+//模态框- 分片池设置
+$('.pool_edit').click(function(){
+
+    $('#setModal').modal('show');
+});
+// 产看信息模态框
+//$('.pool_view').click(function(){
+    $('#viewModal').modal('show');
 //});
+//键盘按键弹起时执行
+//键盘按键弹起时执行
+$(function(){
+　　 view_result=[];
+      _view_result=[];
+    $('.view_list li').each(function(index){
+        view_result.push($(this).html());
+        _view_result.push($(this).html());
+    });
+    view_result.sort();
+    _view_result.sort();
+});
+	function viewsearch(){
+		var str = $.trim($('#view_detail').val().toString());//去掉两头空格
+		if( str == ''){
+      $(".view_list").empty();
+      for(var key in _view_result){
+          $(".view_list").append("<li>"+view_result[key]+"</li>");
+      }
+			return false;
+		}
+    $(".view_list").empty();
+    for(var key in view_result){
+      if(view_result[key].indexOf(str)!=-1){
+        $(".view_list").append("<li>"+view_result[key]+"</li>");
+      }
+    }
+
+		// //var parent = $('.search_view');
+		// $('.view_list li').removeClass('on');
+		// //选择包含文本框值的所有加上focus类样式，并把它（们）移到ul的最前面
+		// //$(".view_list li").hide
+		// //$(".view_list li").hide();
+		// $(".view_list li:contains('" + index + "')").addClass("on");
+	};
