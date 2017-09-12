@@ -35,9 +35,9 @@ $('.pool_edit').click(function(){
     $('#setModal').modal('show');
 });
 // 产看信息模态框
-//$('.pool_view').click(function(){
+$('.pool_view').click(function(){
     $('#viewModal').modal('show');
-//});
+});
 //键盘按键弹起时执行
 //键盘按键弹起时执行
 $(function(){
@@ -65,11 +65,4 @@ $(function(){
         $(".view_list").append("<li>"+view_result[key]+"</li>");
       }
     }
-
-		// //var parent = $('.search_view');
-		// $('.view_list li').removeClass('on');
-		// //选择包含文本框值的所有加上focus类样式，并把它（们）移到ul的最前面
-		// //$(".view_list li").hide
-		// //$(".view_list li").hide();
-		// $(".view_list li:contains('" + index + "')").addClass("on");
 	};
