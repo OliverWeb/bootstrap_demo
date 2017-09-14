@@ -28,7 +28,8 @@
   <!-- THEME BASIC CSS -->
   <link href="css/style-responsive.css" rel="stylesheet">
   <link href="css/table.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap-select.css">
+  <link id="linkcss" rel="stylesheet" href="css/bootstrap-select.css">
+  <link rel="stylesheet" href="css/form.css">
   <!-- THEME BASIC RESPONSIVE  CSS -->
   <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -298,34 +299,117 @@
                   <tr>
                     <td class="" style="width:20%;" rowspan="2" >路由前缀名称</td>
                     <td class="" style="text-align:left;">
-                      <form class="form-inline" style="display:inline-block;">
-                          <div class="form-group">
-                            <select id="lunch" class="selectpicker" data-live-search="true" title="===请选择=== ">
-                              <option>Hot Dog, Fries and a Soda</option>
-                              <option>Burger, Shake and a Smile</option>
-                              <option>Sugar, Spice and all things nice</option>
-                              <option>Baby Back Ribs</option>
-                              <option>dsfssdfedf</option>
-                            </select>
-                          </div>
-                        </form>
-                      <a href="javascript:;">
-                          <span class="label label-danger">Delete</span>
-                      </a>
-                      <a href="javascript:;">
-                          <span class="label label-success">添加备份</span>
-                      </a>
-                      备份比例<input type="text" name="" value="">%
-                      <input type="text" name="" value="">
-                      <a href="javascript:;">
-                          <span class="label label-danger">删除备份</span>
-                      </a>
+                    <table class="add_server_one">
+
+                      <tbody class="add_server_one_body">
+                        <tr>
+                          <td style="padding-left:0;">
+                            <form role="form" style="display:inline-block">
+                              	<div class="form-group">
+                              		<select class="form-control" style="width:230px;text-align:center;">
+                              			<option>1</option>
+                              			<option>2</option>
+                              			<option>3</option>
+                              			<option>4</option>
+                              			<option>5</option>
+                              		</select>
+
+                              	</div>
+                              </form>
+                            <a href="javascript:;">
+                                <span class="label label-danger">Delete</span>
+                            </a>
+                            <a href="javascript:;" class="add_backup">
+                                <span class="label label-success">添加备份</span>
+                            </a>
+                            <div style="display:none;"  class="add_backup_box">
+                              <span style="color:#72d0eb;display:inline-block;">备份比例</span>
+                              <div class="" style="display:inline-block; width:150px;">
+                                <div class="progress progress-striped active" style="margin-bottom:-3%;">
+                                  <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 10%;">
+                                    <span class="sr-only">10% 完成</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <form class="form-inline" style="display:inline-block;">
+                                  <div class="form-group">
+                                    <select  class="selectpicker" data-live-search="true" title="===请选择=== ">
+                                      <option>Hot Dog, Fries and a Soda</option>
+                                      <option>Burger, Shake and a Smile</option>
+                                      <option>Sugar, Spice and all things nice</option>
+                                      <option>Baby Back Ribs</option>
+                                      <option>dsfssdfedf</option>
+                                    </select>
+                                  </div>
+                                </form>
+                              <a href="javascript:;" class="delete_backup">
+                                  <span class="label label-danger">删除备份</span>
+                              </a>
+
+                            </div>
+
+                          </td>
+                        </tr>
+                        <!-- <tr>
+                          <td>
+                            <form class="form-inline" style="display:inline-block;">
+                                <div class="form-group">
+                                  <select id="lunch" class="selectpicker" data-live-search="true" title="===请选择=== ">
+                                    <option>Hot Dog, Fries and a Soda</option>
+                                    <option>Burger, Shake and a Smile</option>
+                                    <option>Sugar, Spice and all things nice</option>
+                                    <option>Baby Back Ribs</option>
+                                    <option>dsfssdfedf</option>
+                                  </select>
+                                </div>
+                              </form>
+                            <a href="javascript:;">
+                                <span class="label label-danger">Delete</span>
+                            </a>
+                            <a href="javascript:;" class="add_backup">
+                                <span class="label label-success">添加备份</span>
+                            </a>
+                            <div style="display:none;"  class="add_backup_box">
+                              <span style="color:#72d0eb;display:inline-block;">备份比例</span>
+                              <div class="" style="display:inline-block; width:150px;">
+                                <div class="progress progress-striped active" style="margin-bottom:-3%;">
+                                  <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 10%;">
+                                    <span class="sr-only">10% 完成</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <form class="form-inline" style="display:inline-block;">
+                                  <div class="form-group">
+                                    <select id="lunch" class="selectpicker" data-live-search="true" title="===请选择=== ">
+                                      <option>Hot Dog, Fries and a Soda</option>
+                                      <option>Burger, Shake and a Smile</option>
+                                      <option>Sugar, Spice and all things nice</option>
+                                      <option>Baby Back Ribs</option>
+                                      <option>dsfssdfedf</option>
+                                    </select>
+                                  </div>
+                                </form>
+                              <a href="javascript:;" class="delete_backup">
+                                  <span class="label label-danger">删除备份</span>
+                              </a>
+
+                            </div>
+                          </td>
+                        </tr> -->
+                      </tbody>
+                    </table>
                     </td>
                   </tr>
                   <tr>
 
                     <td style="text-align:left;">
-                      <a href="javascript:;">
+                      <a href="javascript:;" class="add_server_btn">
                         <span class="label label-success" >添加服务器</span>
                       </a>
                     </td>
@@ -370,8 +454,7 @@
   <!-- ACCORDING JS -->
   <script src="js/jquery.scrollTo.min.js"></script>
   <!-- SCROLLTO JS  -->
-  <script src="js/jquery.nicescroll.js">
-  </script>
+  <script src="js/jquery.nicescroll.js"></script>
   <!-- NICESCROLL JS  -->
   <script src="assets/data-tables/jquery.dataTables.js"></script>
   <!-- DATATABLE JS  -->
@@ -380,7 +463,8 @@
   <script src="js/respond.min.js"></script>
   <!-- RESPOND JS  -->
   <script src="js/common-scripts.js"></script>
-  <script src="js/bootstrap-select.js"></script>
+  <script id="scriptjs" class="123" src="js/bootstrap-select.js"></script>
+  <script src="js/form.js"></script>
   <!-- BASIC COMMON JS  -->
   <!-- <script src="js/editable-table.js"></script> -->
   <!-- EDITABLE TABLE JS  -->
