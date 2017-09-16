@@ -1,6 +1,17 @@
 //进行表格添加//进行表格添加
 $("#add_pool").click(function() {
-  var add_pool = '<tr class=""><td class=""><input type = "text" name = "id" value = "1" ><a class="pool_delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td><td>编辑服务器</td > <td>查看详细信息</td> </tr>';
+  var add_pool =`<tr class="">
+                    <td class="" width="45%">
+                        <div class="" style="width:30%;display:inline-block;">
+                          <input class="form-control" type="text" name="id" value="" placeholder="请输入名称">
+                        </div>
+                        <a class="pool_delete" href="javascript:;">
+                          <span class="label label-danger">Delete</span>
+                        </a>
+                    </td>
+                    <td><a class="pool_edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
+                    <td><a class="pool_view" href="javascript:;"><span class="label label-primary">Detail</span></a></td>
+                  </tr>`;
   $('#pool_name_set').append(add_pool);
 });
 //表格删除
@@ -66,3 +77,25 @@ $(function(){
       }
     }
 	};
+
+//异步进行提交分片池配置
+function fenpianchi_submit() {
+    var poolName= $('#poolName').val();
+    var datas="poolname="+poolName+"&"+
+      $.ajax({
+        type: "POST",
+        dataType: "json",//服务端接收的数据类型
+        url: "/users/login" ,
+        data: datas,
+        success: function (result) {
+          console.log(result);//打印服务端返回的数据(调试用)
+          if (result.resultCode == 200) {
+            alert("SUCCESS");
+          }
+          ;
+        },
+        error : function() {
+          alert("异常！");
+        }
+      });
+};
