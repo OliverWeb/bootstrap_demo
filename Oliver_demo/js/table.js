@@ -41,13 +41,17 @@ $(".pool_delete").click(function(){
 
 });
 //模态框- 分片池设置
-$('.pool_edit').click(function(){
+// $('.pool_edit').click(function(){
+//
+//     $('#setModal').modal('show');
+// });
+$('body').on("click",".pool_edit",function(){
 
     $('#setModal').modal('show');
 });
 // 产看信息模态框
-$('.pool_view').click(function(){
-    $('#viewModal').modal('show');
+$('body').on("click",".pool_view",function(){
+  $('#viewModal').modal('show');
 });
 //键盘按键弹起时执行
 //键盘按键弹起时执行
@@ -99,3 +103,24 @@ function fenpianchi_submit() {
         }
       });
 };
+$('body').on("click",".pool_submit_btn",function(){
+  fenpianchi_submit();
+});
+// var str='3,4,5,6';
+// var arr=str.split(',');
+// $('#my_multi_select3').selectpicker('val', arr);
+// $("#my_multi_select3").append($("<option value=" + ">" + AA + "</option>"));
+// $('.multi-select').selectpicker();
+                //
+                // var optionString = "";
+                //
+                // for (i = 0; i <3; i++) {
+                //     optionString += "<option value=\'"+"AA" +"\'>" + "AAAA" + "</option>";
+                // }
+                // console.log(optionString);
+                // var myobj = document.getElementById("my_multi_select3");
+                // if (myobj.options.length == 0)
+                // {
+                //     $("#my_multi_select3").html(optionString);
+                //     $("#my_multi_select3").selectpicker('refresh');
+                // }
