@@ -153,6 +153,7 @@
             if (x.support.ownLast)
                 for (n in e) return v.call(e, n);
             for (n in e);
+
             return n === t || v.call(e, n)
         },
         isEmptyObject: function (e) {

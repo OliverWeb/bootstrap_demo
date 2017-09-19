@@ -139,38 +139,16 @@
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="editable_table.html">
                 <i class="fa fa-laptop">
                 </i>
                 <span>
-                  MCROUTE
+                  POOL
                 </span>
                 <span class="label label-success span-sidebar">
                   4
                 </span>
               </a>
-            <ul class="sub">
-              <li>
-                <a href="editable_table.html">
-                    POOLS
-                  </a>
-              </li>
-              <li>
-                <a href="horizontal_menu.html">
-                    RELIABILITY
-                  </a>
-              </li>
-              <li>
-                <a href="language_switch_bar.html">
-                    COOL-WARM
-                  </a>
-              </li>
-              <li>
-                <a href="email_template.html" target="_blank">
-                    SHADOW
-                  </a>
-              </li>
-            </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
@@ -303,8 +281,9 @@
                     <th class="">池信息</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="">
+                <tbody class="pool_set_box">
+                <!-- 分片次配置start -->
+                  <tr class="pool_set">
                     <td class="" width="45%">
                         <div class="" style="width:30%;display:inline-block;">
                             <form  id="pool" class="" action="index.html" method="post">
@@ -318,6 +297,7 @@
                     <td><a class="pool_edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
                     <td><a class="pool_view" href="javascript:;"><span class="label label-primary">Detail</span></a></td>
                   </tr>
+                <!-- 分片次配置start -->
                 </tbody>
                 <tfoot>
                   <tr>
@@ -377,7 +357,7 @@
                             <div class="form-group last">
                               <div class="">
                                 <select name="country" class="multi-select" multiple="" id="my_multi_select3">
-                                  <option value="AF">
+                                  <option value="AF" selected>
                                     Afghanistan
                                   </option>
                                   <option value="AL">
@@ -389,18 +369,7 @@
                                   <option value="FZ">
                                       少年
                                   </option>
-                                  <option value="FZ">
-                                      少年
-                                  </option>
-                                  <option value="FZ">
-                                      少年
-                                  </option>
-                                  <option value="FZ">
-                                      少年
-                                  </option>
-                                  <option value="FZ">
-                                      少年
-                                  </option>
+
                                 </select>
                               </div>
                             </div>
@@ -492,11 +461,6 @@
 
 
 
-    <script src="js/jquery.js" ></script><!-- BASIC JS LIABRARY -->
-    <script src="js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS  -->
-    <script src="js/jquery.dcjqaccordion.2.7.js"></script><!-- ACCORDING JS -->
-    <script src="js/jquery.scrollTo.min.js" ></script><!-- SCROLLTO JS  -->
-    <script src="js/jquery.nicescroll.js" > </script><!-- NICESCROLL JS  -->
     <script src="js/respond.min.js" ></script><!-- RESPOND JS  -->
     <script src="assets/fuelux/js/spinner.min.js"></script><!-- FUELUX JS  -->
     <script src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script><!-- BOOTSTRAP FILEUPLOAD JS  -->
@@ -508,11 +472,12 @@
     <script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script><!-- BOOTSTRAP DATERANGEPICKER JS  -->
     <script src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"> </script><!-- BOOTSTRAP COLORPICKER JS  -->
     <script src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script><!-- BOOTSTRAP TIMEPICKER JS  -->
-    <script src="assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
-    <script src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
     <script src="js/bootstrap-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
-    <script src="js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
-    <script src="js/advanced-form-components.js" ></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+    <script src="assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
+    <script src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+
+    <script src="js/common-scripts.js" ></script>
+    <script src="js/advanced-form-components.js" ></script>
     <script src="js/table.js"></script>
 </body>
 
