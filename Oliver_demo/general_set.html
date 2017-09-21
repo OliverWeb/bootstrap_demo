@@ -114,48 +114,17 @@
     <aside>
       <div id="sidebar" class="nav-collapse">
         <ul class="sidebar-menu" id="nav-accordion">
-          <li>
-            <a href="index.html" class="active">
-                <i class="fa fa-dashboard">
-                </i>
-                <span>
-                    首页
-                </span>
-              </a>
-          </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="editable_table.html">
                 <i class="fa fa-laptop">
                 </i>
                 <span>
-                  MCROUTE
+                  POOL
                 </span>
-                <span class="label label-success span-sidebar">
+                <!-- <span class="label label-success span-sidebar">
                   4
-                </span>
+                </span> -->
               </a>
-            <ul class="sub">
-              <li>
-                <a href="editable_table.html">
-                    POOLS
-                  </a>
-              </li>
-              <li>
-                <a href="horizontal_menu.html">
-                    RELIABILITY
-                  </a>
-              </li>
-              <li>
-                <a href="language_switch_bar.html">
-                    COOL-WARM
-                  </a>
-              </li>
-              <li>
-                <a href="email_template.html" target="_blank">
-                    SHADOW
-                  </a>
-              </li>
-            </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
@@ -168,24 +137,24 @@
                   4
                 </span>
               </a>
-            <ul class="sub">
+            <ul class="sub node-sub">
               <li>
-                <a href="general.html">
+                <a href="node-manager.html">
                     物理节点管理
                   </a>
               </li>
               <li>
-                <a href="buttons.html">
+                <a href="mcrouter.html">
                     Mcrouter节点
                   </a>
               </li>
               <li>
-                <a href="widget.html">
+                <a href="memcached.html">
                     Memcache节点
                   </a>
               </li>
               <li>
-                <a href="slider.html">
+                <a href="getnode.html">
                     GetNode
                   </a>
               </li>
@@ -193,81 +162,15 @@
           </li>
           <!-- 图表 -->
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="echart.html">
                 <i class=" fa fa-bar-chart-o">
                 </i>
                 <span>
                   Charts
                 </span>
-                <span class="label label-warning span-sidebar">
-                  4
-                </span>
               </a>
-            <ul class="sub">
-              <li>
-                <a href="flot_chart.html">
-                    Flot Charts
-                  </a>
-              </li>
+          </li>
 
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-                <i class="fa fa-sitemap">
-                </i>
-                <span>
-                  Multi level Menu
-                </span>
-              </a>
-            <ul class="sub">
-              <li>
-                <a href="javascript:;">
-                    Menu Item 1
-                  </a>
-              </li>
-              <li class="sub-menu">
-                <a href="boxed_page.html">
-                    Menu Item 2
-                    <span class="label label-primary">
-                      1
-                    </span>
-                  </a>
-                <ul class="sub">
-                  <li>
-                    <a href="javascript:;">
-                        Item 2.1
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                    <a href="javascript:;">
-                        Menu Item 3
-                        <span class="label label-primary">
-                          3
-                        </span>
-                      </a>
-                    <ul class="sub">
-                      <li>
-                        <a href="javascript:;">
-                            Item 3.1
-                          </a>
-                      </li>
-                      <li>
-                        <a href="javascript:;">
-                            Item 3.2
-                          </a>
-                      </li>
-                      <li>
-                        <a href="javascript:;">
-                            Item 3.2
-                          </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
         </ul>
       </div>
     </aside>
@@ -517,7 +420,9 @@
   <!-- <script src="js/editable-table.js"></script> -->
   <!-- EDITABLE TABLE JS  -->
   <script>
-
+	  $(function(){
+		  $('.node-sub').show();
+	  });
   </script>
   <!-- END JS -->
 </body>

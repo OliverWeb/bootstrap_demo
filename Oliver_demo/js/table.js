@@ -112,7 +112,7 @@ $('body').on("click", ".pool_edit", function() {
     $('.multi-select').multiSelect('refresh'); //刷新多选下拉标签
     },
     error:function(){
-      alert("服务器异常");
+      console.log("服务器异常");
     }
   });
   if(index!=-1){
@@ -191,7 +191,7 @@ function fenpianchi_submit() {
     success: function(result) {
       console.dir(result); //打印服务端返回的数据(调试用)
       if (result.resultCode == 200) {
-        alert("SUCCESS");
+        console.log("SUCCESS");
       };
     },
     error: function() {
@@ -234,7 +234,7 @@ function pool_name_list() {
       });
     },
     error: function() {
-      alert("服务器异常");
+      console.log("服务器异常");
     }
   });
 }

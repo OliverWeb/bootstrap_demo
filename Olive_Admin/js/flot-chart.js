@@ -95,9 +95,9 @@ $(function() {
 });
 
     $(function() {
-	 
+
 	 'use strict';
-	 
+
         var data1 = [];
         var totalPoints = 300;
         function GetData() {
@@ -154,9 +154,9 @@ $(function() {
     });
 
     $(function() {
-	
+
 	'use strict';
-	
+
         var data = [{
             label: "Paid Signup",
             data: 60
@@ -190,10 +190,10 @@ $(function() {
     });
 
     $(function() {
-	
-	
+
+
 	'use strict';
-	
+
         var data = [{
             label: "Premium Member",
             data: 40
@@ -212,7 +212,7 @@ $(function() {
                 pie: {
                     show: true,
                     innerRadius: 0.5
-                    
+
                 }
             },
             legend: {
@@ -232,9 +232,9 @@ $(function() {
     });
 
     $(function() {
-	
+
 	'use strict';
-	
+
         var data24Hours = [
             [0, 601],
             [1, 520],
@@ -395,9 +395,9 @@ $(function() {
     });
 
     $(function() {
-	
-	
-	
+
+
+
         var data1 = GenerateSeries(0);
         var data2 = GenerateSeries(100);
         var data3 = GenerateSeries(200);
