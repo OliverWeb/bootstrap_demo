@@ -8,7 +8,7 @@ var Nestable = function () {
         if (window.JSON) {
             output.val(window.JSON.stringify(list.nestable('serialize')));
         } else {
-            output.val('JSON browser support required for this demo.');
+            output.val('JSON browser support required for this login.');
         }
     };
     $('#nestable_list_1').nestable({
