@@ -7,10 +7,10 @@
   },
   {
     "servers": [
-      "192.168.177.153:9527 ",
-      "192.168.177.154:9527 "
+      "192.168.177.156:9527 ",
+      "192.168.177.157:9527 "
     ],
-    "key": "/cache-center/mcroutersetup/shardedpools/pool1"
+    "key": "/cache-center/mcroutersetup/shardedpools/pool"
   },
   {
     "servers": [
