@@ -1,0 +1,10 @@
+{
+  "route_prefix_title":"路由前缀名称",
+  "route_operate":["pool01"],
+  "operate_policy":
+  [{
+	"route_prefixlicy": "路由前缀",
+	  "router_operate_pool": ["pool02"]
+	}
+  ]
+}

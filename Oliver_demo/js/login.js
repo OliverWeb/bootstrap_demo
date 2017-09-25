@@ -78,7 +78,7 @@ $('body').on('click','.node_login',function () {
 		//点击跳转后的页面
 	window.location.href="index.html"+"?"+"username="+username;
 		$.ajax({
-			url:"./json/pool.json",             //pageContext这个一个根路径的变量,记得进行拼接
+			url:"./json/router.json",             //pageContext这个一个根路径的变量,记得进行拼接
 			type:"post",
 			data:data,
 			// data:JSON.stringify({"name":name,"pwd":pwd}),

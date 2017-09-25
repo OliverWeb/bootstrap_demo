@@ -2,68 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/css/highlight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/highlight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/pool_copy_set.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/后台数据.docx" afterPath="$PROJECT_DIR$/Oliver_demo/后台数据.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Oliver_demo/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/css/login.css" afterPath="$PROJECT_DIR$/Oliver_demo/css/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/echart.html" afterPath="$PROJECT_DIR$/Oliver_demo/echart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/getnode.html" afterPath="$PROJECT_DIR$/Oliver_demo/getnode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/index.html" afterPath="$PROJECT_DIR$/Oliver_demo/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/chart.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/chart.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/login.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/login.html" afterPath="$PROJECT_DIR$/Oliver_demo/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" afterPath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/memcached.html" afterPath="$PROJECT_DIR$/Oliver_demo/memcached.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/node-manager.html" afterPath="$PROJECT_DIR$/Oliver_demo/node-manager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" afterPath="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/css/table.css" afterPath="$PROJECT_DIR$/Oliver_demo/css/pool-name-set.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/general_set.html" afterPath="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/advanced-form-components.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/advanced-form-components.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/bootstrap-select.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/bootstrap-select.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/bootstrap-switch.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/bootstrap-switch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/common-scripts.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/common-scripts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/count.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/count.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/draggable-portlet.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/draggable-portlet.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/echarts.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/echarts.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/editable-table.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/editable-table.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/form-component.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/form-component.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/form-validation-script.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/form-validation-script.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/ga.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/ga.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/general-set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/gmaps-scripts.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/gmaps-scripts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/gmaps.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/gmaps.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/gritter.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/gritter.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/hover-dropdown.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/hover-dropdown.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/html5shiv.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/html5shiv.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery-1.8.3.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery-1.8.3.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery-ui-1.9.2.custom.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery-ui-1.9.2.custom.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.customSelect.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.customSelect.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.dcjqaccordion.2.7.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.dcjqaccordion.2.7.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.nicescroll.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.nicescroll.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.scrollTo.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.scrollTo.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.sparkline.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.sparkline.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.stepy.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.stepy.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.tagsinput.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.tagsinput.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.ui.touch-punch.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.ui.touch-punch.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/jquery.validate.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.validate.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/modernizr.custom.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/modernizr.custom.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/morris-script.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/morris-script.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/nestable.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/nestable.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/respond.min.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/respond.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/sliders.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/sliders.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/sparkline-chart.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/sparkline-chart.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/tasks.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/tasks.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/toucheffects.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/toucheffects.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/js/tree.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/lib/tree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" afterPath="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/json/pool.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/router.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,40 +28,7 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pool_name_set.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_name_set.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pool-name-set.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="189" column="22" lean-forward="false" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="22" />
-              <folding>
-                <marker date="1506322346602" expanded="true" signature="385:1198" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="431:884" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="478:509" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="510:663" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="731:858" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="755:858" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="7457:8293" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="7497:8023" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="7538:7569" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="7570:7879" ph="..." />
-                <marker date="1506322346602" expanded="true" signature="7633:7854" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -127,37 +40,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>particles</find>
-      <find>validity</find>
-      <find>particles-js</find>
-      <find>count-particles</find>
-      <find>usernameTip</find>
-      <find>btn-block</find>
-      <find>img/avatar1_small.jpg</find>
-      <find>Size</find>
-      <find>switch_box</find>
-      <find>是否生效</find>
-      <find>size</find>
-      <find>pool_delete</find>
-      <find>Delete</find>
-      <find>did_creat_length</find>
-      <find>attr</find>
-      <find>key</find>
-      <find>删除</find>
-      <find>fenpianchi_submit</find>
-      <find>indexof</find>
-      <find>title_value</find>
-      <find>0:</find>
       <find>pool_edit</find>
-      <find>index</find>
-      <find>_data_length</find>
-      <find>click_index</find>
-      <find>ajax</find>
-      <find>pool_name_list</find>
-      <find>刷新</find>
-      <find>保存</find>
+      <find>提交</find>
       <find>_data</find>
+      <find>data</find>
+      <find>pool_name</find>
+      <find>pool_name_list</find>
+      <find>data_length</find>
+      <find>add_backup</find>
+      <find>点击编辑按钮进行操作的</find>
+      <find>add_strategy</find>
+      <find>ajax</find>
+      <find>jpg</find>
+      <find>请求地址</find>
+      <find>第一次</find>
+      <find>data_server_list</find>
+      <find>pageContext</find>
+      <find>notifyResultToast</find>
+      <find>查看</find>
+      <find>操作策略</find>
+      <find>editable</find>
+      <find>pool_input_name</find>
+      <find>title_value</find>
+      <find>pool_name_title</find>
+      <find>保存</find>
+      <find>fenpianchi_submit</find>
+      <find>complete</find>
+      <find>编辑</find>
+      <find>_data_server_list</find>
+      <find>删除</find>
+      <find>general</find>
     </findStrings>
+    <replaceStrings>
+      <replace>cmrsdk.toast</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -174,12 +90,16 @@
         <option value="$PROJECT_DIR$/Oliver_demo/css/pool-name-set.css" />
         <option value="$USER_HOME$/Downloads/bootstrap-switch-master/docs/examples.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/index.html" />
-        <option value="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/chart.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/pool_copy_set.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
+        <option value="$PROJECT_DIR$/Oliver_demo/json/pool_all.json" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" />
+        <option value="$PROJECT_DIR$/Oliver_demo/json/router.json" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
       </list>
     </option>
@@ -234,17 +154,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
             </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
-              <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
-              <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
-              <item name="js" type="cbb8eebc:String" user="js" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -255,23 +164,6 @@
             <path>
               <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="Oliver_demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="Oliver_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="Oliver_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -329,12 +221,12 @@
       <updated>1506131487902</updated>
       <workItem from="1506131490324" duration="7932000" />
       <workItem from="1506215209246" duration="7244000" />
-      <workItem from="1506298639222" duration="17275000" />
+      <workItem from="1506298639222" duration="33880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32451000" />
+    <option name="totallyTimeSpent" value="49056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,18 +239,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1119403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15191898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -368,7 +260,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -623,30 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/pool_name.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/pool.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/pool_all.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/chart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -679,18 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_general_set.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        <state relative-caret-position="338">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
           <folding>
             <marker date="1506321548700" expanded="true" signature="554:2396" ph="..." />
             <marker date="1506321548700" expanded="false" signature="571:586" ph="..." />
@@ -772,117 +631,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js">
+    <entry file="file://$PROJECT_DIR$/cache-center-manager/src/main/webapp/jsp/server_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1506298509693" expanded="true" signature="489:2331" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="506:521" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="522:2323" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="555:575" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="576:938" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="619:635" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="636:922" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="686:716" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="717:904" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="986:1054" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1103:1170" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1190:1203" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1228:2312" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1251:1286" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1329:1363" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1364:1735" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1429:1447" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1448:1720" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1527:1703" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1622:1633" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1771:1791" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1792:2174" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1837:1853" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1854:2156" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="1906:1936" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="1937:2136" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2228:2298" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2711:6425" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2723:6414" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2734:3019" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="2764:2774" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="2814:2830" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2831:3014" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="2864:2895" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="2896:3007" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3030:6221" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3066:6209" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3083:6195" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3099:5933" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3117:5916" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3163:5897" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3217:5873" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3241:5846" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="3275:3290" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3291:5821" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="3341:3361" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3362:3885" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="3421:3437" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3438:3852" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="3504:3534" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3535:3818" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="3949:4051" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="4117:4218" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="4255:4268" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="4293:5793" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="4333:4368" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="4428:4462" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="4463:4970" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="4545:4563" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="4564:4938" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="4660:4904" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="4789:4800" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="5023:5043" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5044:5587" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="5105:5121" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5122:5552" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="5190:5220" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5221:5516" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5658:5762" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5949:6176" ph="..." />
-            <marker date="1506298509693" expanded="false" signature="5976:5992" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="5993:6159" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="6055:6140" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="6232:6401" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="6258:6389" ph="..." />
-            <marker date="1506298509693" expanded="true" signature="6309:6384" ph="..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/pool_all.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/pool_name.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_name_set.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="261" column="67" lean-forward="false" selection-start-line="261" selection-start-column="52" selection-end-line="261" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/router.json">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="189" column="22" lean-forward="false" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="22" />
+        <state relative-caret-position="426">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding>
-            <marker date="1506322346602" expanded="true" signature="385:1198" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="431:884" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="478:509" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="510:663" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="731:858" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="755:858" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="7457:8293" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="7497:8023" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="7538:7569" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="7570:7879" ph="..." />
-            <marker date="1506322346602" expanded="true" signature="7633:7854" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="385:1198" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="431:884" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="478:509" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="510:663" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="731:858" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="755:858" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="8466:9302" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="8506:9032" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="8547:8578" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="8579:8888" ph="..." />
+            <marker date="1506339592925" expanded="true" signature="8642:8863" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="36" column="87" lean-forward="false" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
+          <folding>
+            <marker date="1506337709240" expanded="true" signature="7572:8155" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="7589:7604" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="7605:8147" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="7638:7658" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="7659:8021" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="7702:7718" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="7719:8005" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="7769:7799" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="7800:7987" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8069:8137" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8535:10506" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8547:10495" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8558:8843" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="8588:8598" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="8638:8654" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8655:8838" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="8688:8719" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8720:8831" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8854:10302" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8890:10290" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8907:10276" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8923:10014" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8941:9997" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="8987:9978" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9041:9954" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9065:9927" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="9099:9114" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9115:9902" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="9165:9185" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9186:9709" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="9245:9261" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9262:9676" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="9328:9358" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9359:9642" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="9773:9875" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10030:10257" ph="..." />
+            <marker date="1506337709240" expanded="false" signature="10057:10073" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10074:10240" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10136:10221" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10313:10482" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10339:10470" ph="..." />
+            <marker date="1506337709240" expanded="true" signature="10390:10465" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_general_set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1171">
+          <caret line="149" column="31" lean-forward="true" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
