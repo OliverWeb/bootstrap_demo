@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/后台数据.docx" afterPath="$PROJECT_DIR$/Oliver_demo/后台数据.docx" />
+    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="默认的">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/login.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" afterPath="$PROJECT_DIR$/Oliver_demo/pool_general_set.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Oliver_demo/json/pool.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/router.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -221,12 +214,20 @@
       <updated>1506131487902</updated>
       <workItem from="1506131490324" duration="7932000" />
       <workItem from="1506215209246" duration="7244000" />
-      <workItem from="1506298639222" duration="33880000" />
+      <workItem from="1506298639222" duration="33951000" />
     </task>
+    <task id="LOCAL-00001" summary="默认的">
+      <created>1506340041077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1506340041077</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49056000" />
+    <option name="totallyTimeSpent" value="49127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -293,6 +294,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="默认的" />
+    <option name="LAST_COMMIT_MESSAGE" value="默认的" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
