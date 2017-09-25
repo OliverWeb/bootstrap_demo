@@ -1,5 +1,4 @@
  $(document).ready(function() {
- 
  'use strict'; 
 
            Morris.Area({

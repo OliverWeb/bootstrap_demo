@@ -17,6 +17,7 @@
       <label class="col-md-2 control-label" for="username">用户名:</label>
       <div class="col-md-5">
         <input id="username" type="text" class="form-control" autofocus placeholder="请输入用户名" required pattern="^[a-zA-Z0-9]{8,16}$">
+        <span class="glyphicon glyphicon-user form-control-feedback user_icon"></span>
       </div>
       <label id="usernameTip" class="col-md-5 hide control-default">请输入8至16位的英文或数字.</label>
     </div>
@@ -24,13 +25,14 @@
       <label class="col-md-2 control-label" for="password">密码:</label>
       <div class="col-md-5">
         <input id="password" type="password" class="form-control" placeholder="请输入密码" required pattern="^[a-zA-Z0-9]{6,12}$">
+        <span class="glyphicon glyphicon-lock form-control-feedback key_icon"></span>
       </div>
       <label id="passwordTip" class="col-md-5 hide control-default">请输入6至12位的数字.</label>
     </div>
     <div class="form-group">
       <label class="col-md-2 control-label"></label>
       <div class="col-md-5">
-        <input id="node_login"  value="登陆" type="button" class="btn node_submit control-success btn-block">
+        <button id="node_login" type="button" class="btn node_submit btn-success btn-block">登陆</button>
       </div>
     </div>
   </form>
@@ -41,7 +43,7 @@
 </div>
 <!-- particles.js container -->
 <div id="particles-js" style="background: url('login/login.png');"></div>
-<script src="js/jquery.js"></script>
+<script src="js/lib/jquery.js"></script>
 <script src="login/js/particles.js"></script>
 <script src="login/js/app.js"></script>
 <script src="login/js/lib/stats.js"></script>

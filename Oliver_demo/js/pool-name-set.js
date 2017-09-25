@@ -5,22 +5,16 @@ $("#add_pool").click(function() {
     var did_creat=$(".pool_edit");
     console.log(did_creat.length);
     did_creat_length=did_creat.length;
-    // var did_creat_key= $(did_creat[did_creat.length-1]).attr("key");
   }else{
 	  did_creat_length=0;
   }
-
-  // for(var i=0;i<did_creat.length;i++){
-  //   var did_creat_key=$(did_creat[i].find("span").attr("key"));
-  // }
-
   var add_pool = `<tr class="">
                     <td class="" width="45%">
                         <div class="" style="width:30%;display:inline-block;">
                           <input class="form-control pool_input_name" type="text" name="id" value="" placeholder="请输入名称">
                         </div>
-                        <a class="pool_delete" href="javascript:;">
-                          <span class="label label-danger">Delete</span>
+                        <a class="pool_delete" href="javascript:;" key=${did_creat_length}>
+                          <span class="label label-danger" >Delete</span>
                         </a>
                     </td>
                     <td><a class="pool_edit" key=${did_creat_length} href="javascript:;"><span class="label label-success">Edit</span></a></td>
@@ -28,9 +22,14 @@ $("#add_pool").click(function() {
                   </tr>`;
   $('#pool_name_set').append(add_pool);
 });
-//表格删除
+//表格删除请求
 $("body").on("click",".pool_delete",function() {
   var _this = this;
+  var delete_key=$(this).attr("key");
+  var datas= "poolname="+$(this).prev().find("input").val();
+  // console.log(_data_length);
+  // console.log(delete_key);
+  // console.log(datas);
   bootbox.confirm({
     message: "是否确认删除池?如果是请点击Yes否则点击No!",
     buttons: {
@@ -46,8 +45,24 @@ $("body").on("click",".pool_delete",function() {
     callback: function(result) {
       console.log('This was logged in the callback: ' + result);
       if (result) {
-        console.log($(_this).parent().parent().remove());
-        setTimeout(function(){location.reload()},100);
+	      if(delete_key<_data_length){
+		      $.ajax({
+		       type: "POST",
+		       dataType: "json", //服务端接收的数据类型
+		       url: pageContext,               // todo   点击删除   进行提交地址
+		       data: datas,
+		       success: function(result) {
+		          console.log(result);
+			         $(_this).parent().parent().remove();
+			         setTimeout(function(){location.reload()},100);
+		       },
+		       error: function() {
+		         console.log("删除提交异常");
+		       }
+		      });
+	      }else{
+		      $(_this).parent().parent().remove();
+	      }
       } else {
         console.log("取消");
       }
@@ -62,23 +77,23 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
   $('#setModal').modal('show');
   title_value=$(this).parent().prev().find("input").val();   //用于提交数据用
   if($(this).attr("key")){
-	  click_index=$(this).attr("key");
-    var index=$(this).attr("key");
+	  click_index=parseFloat($(this).attr("key"));
   }else{
-    var index=-1;   //判断是页面的初始数据还是新增的数据
+    click_index=-1;   //判断是页面的初始数据还是新增的数据
   }
   $.ajax({     //返回所有池的名称
-    url: "./json/pool_all.json",               // todo 请求所有池数据
+    url: "./json/pool_all.json",               // todo 请求所有池数据  变量:pageContext
     contentType: "application/json",
     type: "get",
     // data:JSON.stringify({"name":name,"pwd":pwd}),
     dataType: "json",
     success:function(data){
-    if(index!=-1){     //页面初始数据     新添加的数据,未加载的要进行全部显示
-      if(index+1>_data_length) {
+    if(click_index!=-1){     //页面初始数据     新添加的数据,未加载的要进行全部显示
+      if(click_index+1>_data_length) {
+	      console.log("进来了");
 	      data_no=data.servers;
       }else{
-	      var data_did = _data[index].servers;
+	      var data_did = _data[click_index].servers;
 	      console.log("已经加入的数据的个数:" + data_did.length);    //已加入数据的个数
 	      console.log("这里数据总的个数:" + data.servers.length); //总的数据个数
 	      var data_no = data.servers.filter(
@@ -87,6 +102,7 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
 		      });
       }
     }else{
+	    console.log("数据被清空");
       data_did=[];
       data_no=data.servers;
     }
@@ -107,12 +123,11 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
       console.log("服务器异常");
     }
   });
-  if(index!=-1){                  //得到总的key值
-	  console.log("0:"+_data_length);
+  if(click_index!=-1){                  //得到总的key值
 	  $('.multi-select').empty();//清空下拉标签
-    if(_data_length>index){
-	    console.log("点击的下标:"+index);      //对已添加的数量进行判断
-	    _data[index].servers.map(function(value,key){
+    if(_data_length>click_index){
+	    console.log("点击的下标:"+click_index);      //对已添加的数量进行判断
+	    _data[click_index].servers.map(function(value,key){
 		    $('.multi-select').append($("<option value='" +
 			    value +
 			    "'"  +
@@ -172,13 +187,19 @@ function fenpianchi_submit() {
   }
 	console.log("servers:"+servers);
   var poolName = title_value;
-  var datas = "poolname=" + poolName+"&"+"servers="+servers;
+	if(click_index<_data_length){
+		var  old_dataservers=_data[click_index].servers;
+		var old_poolname=_data[click_index].key.substring(_data[click_index].key.lastIndexOf("/")+1);
+		var datas = "poolname=" + poolName+"&"+"servers="+servers+"&"+"old_poolname="+old_poolname+"&"+"old_dataservers="+old_dataservers;   //把原先存在的数据加上
+	}else{
+		var datas = "poolname=" + poolName+"&"+"servers="+servers;     //如果在原先的数据进行修改的时候,把原先数据也进行提交
+	}
   // var datas={"'poolname'":poolName,"'servers'":servers};
   console.log(datas);
   $.ajax({
     type: "POST",
     dataType: "json", //服务端接收的数据类型
-    url: pageContext,               // todo  保存提交地址
+    url: pageContext,               // todo  点击保存提交的请求地址
     data: datas,
     success: function(result) {
       console.dir(result); //打印服务端返回的数据(调试用)
@@ -193,38 +214,56 @@ function fenpianchi_submit() {
   });
 };
 $('body').on("click", ".pool_submit_btn", function() {
-	fenpianchi_submit();
-  //location.reload();        //保存后进行刷子你页面
+	fenpianchi_submit();          //分片次进行提交
+  location.reload();        //保存后进行刷子你页面
 });
-//分片池配置首页的请求加载  start
-function pool_name_list() {
-  $('.pool_set_box').empty();
-  $.ajax({
-    url: "./json/pool.json",                // todo 刚进入页面的请求地址   路径:pageContext
-    contentType: "application/json",
-    type: "get",
-    // data:JSON.stringify({"name":name,"pwd":pwd}),
-    dataType: "json",
-    success: function(data) {
-      _data=data;      //这里把数据传给全局
-	    _data_length=data.length;      //返回数据的长度
-      data.map(function(value, key) {
-        var pool_name_html =`  <tr class="pool_set">
+
+/*分片次第一次加载pool_name*/
+function pool_name(){
+	$('.pool_set_box').empty();
+	$.ajax({
+		url: "./json/pool_name.json",                // todo 第一次仅请求池的名称地址--- 路径:pageContext
+		contentType: "application/json",
+		type: "get",
+		// data:JSON.stringify({"name":name,"pwd":pwd}),
+		dataType: "json",
+		success: function(data) {
+			// _data=data;      //这里把数据传给全局
+			// _data_length=data.length;      //返回数据的长度
+			data.map(function(value, key) {
+				var pool_name_html =`  <tr class="pool_set">
               <td class="" width="45%">
                   <div class="" style="width:30%;display:inline-block;">
                       <form  id="pool" class="" method="post">
-                        <input disabled="disabled" name="poolNameb" class="form-control pool_input_name" type="text" value="${value.key.substring(value.key.lastIndexOf("/")+1)}" placeholder="请输入名称">
+                        <input disabled="disabled" name="poolNameb" class="form-control pool_input_name" type="text" value="${value.substring(value.lastIndexOf("/")+1)}" placeholder="请输入名称">
                       </form>
                   </div>
-                  <a class="pool_delete" href="javascript:;">
-                    <span class="label label-danger">Delete</span>
-                  </a>
+                  <a class="pool_delete" href="javascript:;" key=${key}><span class="label label-danger" >Delete</span></a>
               </td>
               <td><a class="pool_edit" key=${key} href="javascript:;"><span class="label label-success">Edit</span></a></td>
               <td><a class="pool_view" key=${key} href="javascript:;"><span class="label label-primary">Detail</span></a></td>
             </tr>`;
-        $('.pool_set_box').append(pool_name_html);
-      });
+				$('.pool_set_box').append(pool_name_html);
+			});
+		},
+		error: function() {
+			console.log("服务器异常");
+		},
+		complete:function(){
+			pool_name_list();  //第一次请求加载完以后这里进行第二次请求
+		}
+	});
+}
+//分片池配置首页的请求加载  start
+function pool_name_list() {
+  $.ajax({
+    url: "./json/pool.json",                // todo  ---请求池名称以及servers数据()--- 路径:pageContext
+    contentType: "application/json",
+    type: "get",
+    dataType: "json",
+    success: function(data) {
+      _data=data;                   //这里把数据传给全局
+	    _data_length=data.length;     //返回数据的长度
     },
     error: function() {
       console.log("服务器异常");
@@ -233,7 +272,7 @@ function pool_name_list() {
 }
 // todo 页面刚开始加载时候的执行的函数
 $(function() {
-  pool_name_list();
+	pool_name();
 });
 //分片池首页的请求加载  end
 

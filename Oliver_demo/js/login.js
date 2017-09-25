@@ -75,6 +75,8 @@ $('body').on('click','.node_login',function () {
 		var password=$('#password').val();
 		var data="username="+username+"&"+"username="+password;
 		console.log(data);
+		//点击跳转后的页面
+	window.location.href="index.html"+"?"+"username="+username;
 		$.ajax({
 			url:"./json/pool.json",             //pageContext这个一个根路径的变量,记得进行拼接
 			type:"post",

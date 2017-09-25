@@ -1,3 +1,36 @@
+/*开关设置按钮*/
+.switch_box{
+  width:70px;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  z-index: 0;
+}
+.node_switch_contain{
+  width: 102px;
+  margin-left: 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.node_switch_contain span{
+  text-align: center;
+  z-index: 1;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fff;
+  background: #337ab7;
+}
+
+
 /*控制表格的样式*/
 input::-webkit-input-placeholder{
     color: #000;opacity:0.4;
@@ -71,7 +104,7 @@ color: #c2c2c2;
     border-bottom: 1px #eee solid;
     padding: 2px 10px;
     color: #555;
-    font-size: 14px;e
+    font-size: 14px;
 }
 .view_list li:hover{
     background-color: #147692;
@@ -84,3 +117,4 @@ color: #c2c2c2;
   height:300px;
   vertical-align: top!important;
 }
+

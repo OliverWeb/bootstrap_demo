@@ -54,3 +54,7 @@
 .hide {
 	display: none;
 }
+.user_icon,.key_icon{
+	right: 15px !important;
+	color: #777;
+}

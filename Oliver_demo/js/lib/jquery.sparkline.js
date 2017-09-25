@@ -202,7 +202,7 @@
 (function (document, Math, undefined) {
     (function (factory) {
             if (typeof define === 'function' && define.amd) {
-                define(['jquery'], factory);
+                define(['lib/jquery'], factory);
             } else if (jQuery && !jQuery.fn.sparkline) {
                 factory(jQuery);
             }
