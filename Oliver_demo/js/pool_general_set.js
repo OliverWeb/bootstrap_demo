@@ -31,12 +31,74 @@ function  PoolGeneralHtml() {
                           </td>
                       </tr>`
       });
-      /* todo 操作策略*/
-			for(var key in data.policies){
+      /* todo 操作策略变量*/
+      var operatePolicyHTml="";
+      var policy_router_index=0;
+			for(var key in data.policies){ //添加的策略
+				var policy_router_arr=[];   //将数组进行判空
 				console.log("属性：" + key + ",值："+ data.policies[key]);
-				return  operatePolicyHTml=``;
+				policy_router_arr=data.policies[key].split(",");
+				console.log(policy_router_arr);
+				policy_router_arr.map(function(value,index){
+								operatePolicyChildHTml=`<select class="selectpicker option-search" data-live-search="true" title="Please select a ...">
+																			<option value="" key=${index}></option>        
+																		</select>`;
+				});
+				operatePolicyHTml=operatePolicyHTml+`<table class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
+                  <tbody id="operate_policy">
+                    <tr>
+                      <td class="policy_router" style="width:20%;" >前缀路由</td>
+                      <td class="" style="text-align:left;">
+                        <div class="" style="width:30%;display:inline-block;">
+                            <input class="form-control pre_router_name" type="text"  key={policy_router_index++} value=${key} placeholder="请输入名称">
+                        </div>
+                    </tr>
+                    <tr>
+                      <td>操作路由池</td>
+                      <td>
+                       <table>
+                         <tr>
+                           <td>
+                             <table class="add_server_one">
+                               <tbody class="add_server_one_body">
+                                 <tr>
+                                   <td style="padding-left:0;">
+                                      <div class="form-group" style="display:inline-block">
+																		      ${operatePolicyChildHTml}
+																		    </div>
+                                     <a href="javascript:;" class="delte_route_operate_default">
+                                         <span class="label label-danger">Delete</span>
+                                     </a>
+                                   </td>
+                                 </tr>
+                               </tbody>
+                             </table>
+                           </td>
+                         </tr>
+                         <tr>
+
+                           <td style="text-align:left;">
+                             <a href="javascript:;" class="add_server_btn">
+                               <span class="label label-success" >添加服务器</span>
+                             </a>
+                           </td>
+                         </tr>
+
+                       </table>
+                      </td>
+                    </tr>
+                    <tr >
+                      <td colspan="2">
+                        <a href="javascript:;" class="delte_policy">
+                            <span class="label label-danger">删除该策略</span>
+                        </a></td>
+                    </tr>
+                  </tbody>
+                </table>`;
 			}
-			var general_set_data=`<div class="adv-table editable-table ">
+			//策略end
+			//整个布局变量
+			var general_set_data=`<div class="adv-table editable-table">     
               <table class="table table-striped table-hover table-bordered"  align="center">
                 <caption class="mcrouter_title">路由前缀</caption>
                 <tbody>
@@ -65,7 +127,6 @@ function  PoolGeneralHtml() {
                     </td>
                   </tr>
                   <tr>
-
                     <td style="text-align:left;">
                       <a href="javascript:;" class="add_server_btn">
                         <span class="label label-success" >添加服务器</span>
@@ -75,7 +136,9 @@ function  PoolGeneralHtml() {
                 </tbody>
               </table>
               <div class="strategy_box">
-                  <div class="mcrouter_title">操作策略</div >     
+                  <div class="mcrouter_title">操作策略</div >  
+                    <!--操作策略-->
+                    ${operatePolicyHTml}
               </div>
               <a href="javascript:;" class="add_strategy">
               <span class="label label-success">添加策略</span>
@@ -175,7 +238,7 @@ $('body').on("click",".add_strategy",function(){
 																		        <option>Hot Dog, Fries and a Soda</option>
 																		      </select>
 																		    </div>
-                                     <a href="javascript:;" class="dele_row">
+                                     <a href="javascript:;" class="delte_route_operate_default">
                                          <span class="label label-danger">Delete</span>
                                      </a>
                                      
