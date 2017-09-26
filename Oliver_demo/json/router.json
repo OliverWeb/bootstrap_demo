@@ -1,10 +1,8 @@
 {
-  "route_prefix_title":"路由前缀名称",
-  "route_operate":["pool01"],
-  "operate_policy":
-  [{
-	"route_prefixlicy": "路由前缀",
-	  "router_operate_pool": ["pool02"]
-	}
-  ]
+  "name": "/cache-center/mcroutersetup/normall",
+  "wildcard": ["pool02","pool03"],
+  "policies": {
+	"策略1": "pool1",
+	"策略2": "poll,pool1"
+  }
 }
