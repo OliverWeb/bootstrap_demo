@@ -5,9 +5,18 @@ function  PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/router.json",               // 用常规设置获取进行请求地址(用户查看信息)  变量：pageContext
+		url: "./json/router.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function(data){   // 加载页面展示的数据
-			// console.log(data);
+			if(JSON.stringify(data) =="{}"){
+				data={
+					"name": "''",
+					"wildcard": ["===请选择==="],
+					"policies": {
+						"''": "===请选择==="
+					}
+				};
+			}
+
 			routeOperateHtml="";
 			 wildardHtml="";
 			 /* todo 加载所有option */
@@ -175,7 +184,7 @@ function  PoolGeneralHtml() {
 	 $.ajax({
 		 type: "get",
 		 dataType: "json", //服务端接收的数据类型
-		 url: "./json/routerlist.json",               // 用常规设置获取进行请求地址(用户查看信息)  变量：pageContext
+		 url: "./json/routerlist.json",               // 请求选择框中的所有选项option  变量：pageContext
 		 success: function (data) {
 			 selectlist =data;   //  todo  展示所有的option 选择
 		 },
@@ -286,8 +295,9 @@ $('body').on("click",".add_strategy",function(){
 });
 //提交内容的地址的
 $('body').on("click",'.submit_general_set_data',function(){
+	  route_prefix_title="";
 		router_selected=[];                // select中的选择项
-	var route_prefix_title=$("#route_prefix_title").val();              // todo 路由前缀的名称
+	  route_prefix_title=$("#route_prefix_title").val();              // todo 路由前缀的名称
 	$('#route_operate .filter-option').map(function(key,value){        //todo  获取路由操作中的值
 		router_selected.push($(value).html());
 	});
@@ -308,25 +318,46 @@ $('body').on("click",'.submit_general_set_data',function(){
 			}
 		);
 	});
-	var Routealiases="";
-	if(router_selected!="===请选择==="){
-				 var datas={
-					"aliases":route_prefix_title,
-					"&wildcard":router_selected,
-					 "policies":policyArr
-	};
-					console.log(datas);
-				$.ajax({
-					type: "post",
-					dataType: "json", //服务端接收的数据类型
-					url: "./json/router.json",               // 用常规设置获取进行请求地址(用户查看信息)  变量：pageContext
-					data:datas,
-					success: function(data) {
-						console.log("提交成功");
-					},
-					error:function(){
-						console.log("提交出现异常");
-					}
-				});
+	console.log(router_selected);
+
+	if(router_selected=="===请选择==="||route_prefix_title==""){
+		if(route_prefix_title==""){
+			alert("请输入路由前缀名称");
+		}else if(router_selected=="===请选择==="){
+			alert("请选择路由操作的池名称");
+		}
+	}else{
+		policyArr.map(function (value,key) {               //对操作的策略进行判断是否为空
+			if( value.Routealiases=="" && value.Routepool.length!=0  ){
+				alert("前缀名称和路由操作必须都进行填写或两者都不填");
+			}else if(value.Routealiases!=""&&value.Routepool.length==0){
+				alert("前缀名称和路由操作必须都进行填写或两者都不填!");
+			}
+		});
+
+		if(policyArr.length==0){
+				console.log("操作策略填写内容为空");
+		}
+		if(router_selected.length==0){
+			alert("默认路由配置的路由操作请添加");
+		}
+		var datas={
+			"aliases":route_prefix_title,
+			"wildcard":router_selected,
+			"policies":policyArr
+		};
+		console.log(datas);
+		$.ajax({
+			type: "post",
+			dataType: "json", //服务端接收的数据类型
+			url: "./json/router.json",               // 提交地址 变量：pageContext
+			data:datas,
+			success: function(data) {
+				console.log("提交成功");
+			},
+			error:function(){
+				console.log("提交出现异常");
+			}
+		});
 	}
 });
