@@ -61,7 +61,7 @@ a (visited,hover,Activated):	#2A3542 (light Black)
 
 
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
 
 
 
@@ -1061,7 +1061,6 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 /**/
 
 .panel-body.chart-texture {
-	background: url("../img/chart-texture.jpg");
 	-webkit-border-radius: 4px 4px 0px 0px;
 	border-radius: 4px 4px 0px 0px;
 }
@@ -5220,13 +5219,11 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 /*lock screen*/
 
 .lock-screen {
-	background: #02bac6 url("../img/lock-bg.jpg");
 	background-size: cover;
 	background-repeat: repeat;
 }
 
 .login-screen {
-	background: #02bac6 url("../img/lock-bg.jpg");
 	background-size: cover;
 	background-repeat: repeat;
 }

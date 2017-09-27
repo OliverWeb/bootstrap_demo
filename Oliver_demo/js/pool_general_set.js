@@ -12,7 +12,7 @@ function  PoolGeneralHtml() {
 					"name": "''",
 					"wildcard": ["===请选择==="],
 					"policies": {
-						"''": "===请选择==="
+						"''": ["===请选择==="]
 					}
 				};
 			}
@@ -20,7 +20,8 @@ function  PoolGeneralHtml() {
 			routeOperateHtml="";
 			 wildardHtml="";
 			 /* todo 加载所有option */
-			selectlist.map(function (value,key) {             // todo 每个遍历所有option
+			 defaultSelect=selectlist;      //默认路由配置中的数组
+			defaultSelect.map(function (value,key) {             // todo 每个遍历所有option
 				return  routeOperateHtml=routeOperateHtml+`<option key=${key}>${value}</option>`;
 			});
 			/* todo 默认路由配置*/
@@ -47,7 +48,7 @@ function  PoolGeneralHtml() {
 				var policy_router_arr=[];   //将数组进行判空
 				operatePolicyChildHTml="";    //将策略中的select 进行清空
 				// console.log("属性：" + key + ",值："+ data.policies[key]);
-				policy_router_arr=data.policies[key].split(",");
+				policy_router_arr=data.policies[key];
 				policy_router_arr.map(function(value,index){           // todo 操作池中中select,进行填充
 								operatePolicyChildHTml=operatePolicyChildHTml+`<tr class="router_policy_selcte">
                                    <td style="padding-left:0;">
@@ -167,7 +168,7 @@ function  PoolGeneralHtml() {
 			routerPolicyKey=0;
 			for(var key in data.policies){     //这列是进行遍历有多少个操作策略
 				// console.log(data.policies[key].split(","));
-				data.policies[key].split(",").map(function(value,key){     //  操作策略的操作路由池
+				data.policies[key].map(function(value,key){     //  操作策略的操作路由池
 					$(".add_strategy_box").eq(routerPolicyKey).find("select.selectpicker").eq(key).selectpicker('val', value);
 				});
 				routerPolicyKey++;
@@ -301,6 +302,18 @@ $('body').on("click",'.submit_general_set_data',function(){
 	$('#route_operate .filter-option').map(function(key,value){        //todo  获取路由操作中的值
 		router_selected.push($(value).html());
 	});
+	/*数组去重 start*/
+	router_selected_did = [];
+//遍历数组
+	for(var i = 0;i<router_selected.length;i++){
+		if(router_selected_did.indexOf(router_selected[i]) == -1){  //判断在s数组中是否存在，不存在则push到s数组中
+			router_selected_did.push(router_selected[i]);
+		}
+	}
+	/*数组去重 end*/
+
+
+
 	// todo 操作策略参数
 	var  policyArr=[],
 			Routepool=[];
@@ -312,18 +325,27 @@ $('body').on("click",'.submit_general_set_data',function(){
 			}
 
 		});
+		/*对数组进行屈从start*/
+		var Routepool_did = [];
+//遍历数组
+		for(var i = 0;i<Routepool.length;i++){
+			if(Routepool_did.indexOf(Routepool[i]) == -1){  //判断在s数组中是否存在，不存在则push到s数组中
+				Routepool_did.push(Routepool[i]);
+			}
+		}
+		/*对数组进行屈从end*/
 		policyArr.push(
 			{"Routealiases":$(value).find(".pre_router_name").val(),
-				"Routepool":Routepool
+				"Routepool":Routepool_did
 			}
 		);
 	});
-	console.log(router_selected);
+	console.log(router_selected_did);
 
-	if(router_selected=="===请选择==="||route_prefix_title==""){
+	if(router_selected_did=="===请选择==="||route_prefix_title==""){
 		if(route_prefix_title==""){
 			alert("请输入路由前缀名称");
-		}else if(router_selected=="===请选择==="){
+		}else if(router_selected_did=="===请选择==="){
 			alert("请选择路由操作的池名称");
 		}
 	}else{
@@ -338,12 +360,12 @@ $('body').on("click",'.submit_general_set_data',function(){
 		if(policyArr.length==0){
 				console.log("操作策略填写内容为空");
 		}
-		if(router_selected.length==0){
+		if(router_selected_did.length==0){
 			alert("默认路由配置的路由操作请添加");
 		}
 		var datas={
 			"aliases":route_prefix_title,
-			"wildcard":router_selected,
+			"wildcard":router_selected_did,
 			"policies":policyArr
 		};
 		console.log(datas);
@@ -361,3 +383,21 @@ $('body').on("click",'.submit_general_set_data',function(){
 		});
 	}
 });
+/*对option重复option进行判定*/
+$("body").on('click','#route_operate .bootstrap-select',function () {
+	console.log(123);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
