@@ -2,7 +2,7 @@
   "name": "/cache-center/mcroutersetup/normall",
   "wildcard": ["pool02","pool03"],
   "policies": {
-	"策略1": "pool1",
-	"策略2": "poll,pool1"
+	"策略1": "pool01",
+	"策略2": "pool02,pool03"
   }
 }

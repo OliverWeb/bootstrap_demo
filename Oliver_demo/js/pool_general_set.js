@@ -6,13 +6,12 @@ function  PoolGeneralHtml() {
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/router.json",               // 用常规设置获取进行请求地址(用户查看信息)  变量：pageContext
-		success: function(data){
-			//默认路由操作片段
+		success: function(data){   // 加载页面展示的数据
 			// console.log(data);
 			routeOperateHtml="";
 			 wildardHtml="";
 			 /* todo 加载所有option */
-			selectlist.map(function (value,key) {             //遍历所有option
+			selectlist.map(function (value,key) {             // todo 每个遍历所有option
 				return  routeOperateHtml=routeOperateHtml+`<option key=${key}>${value}</option>`;
 			});
 			/* todo 默认路由配置*/
@@ -21,7 +20,7 @@ function  PoolGeneralHtml() {
       	return wildardHtml=wildardHtml+`</tr>
 											<td style="padding-left:0;" key="${key}">
                           <div class="form-group" style="display:inline-block">
-												      <select class="selectpicker option-search router_operate" data-live-search="true" title="Please select ...">
+												      <select class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
 												        ${routeOperateHtml}
 												      </select>
 												   </div>  
@@ -32,25 +31,35 @@ function  PoolGeneralHtml() {
                       </tr>`
       });
       /* todo 操作策略变量*/
-      var operatePolicyHTml="";
-      var policy_router_index=0;
-			for(var key in data.policies){ //添加的策略
+      var operatePolicyHTml="",
+          policy_router_index=0,       //  浅醉路由的的名称下标
+          RouterPolicyIndex=0;         //  操作策略的--table--子内容的下标
+			for(var key in data.policies){ // todo  进行循环有多少个策略
 				var policy_router_arr=[];   //将数组进行判空
-				console.log("属性：" + key + ",值："+ data.policies[key]);
+				operatePolicyChildHTml="";    //将策略中的select 进行清空
+				// console.log("属性：" + key + ",值："+ data.policies[key]);
 				policy_router_arr=data.policies[key].split(",");
-				console.log(policy_router_arr);
-				policy_router_arr.map(function(value,index){
-								operatePolicyChildHTml=`<select class="selectpicker option-search" data-live-search="true" title="Please select a ...">
-																			<option value="" key=${index}></option>        
-																		</select>`;
+				policy_router_arr.map(function(value,index){           // todo 操作池中中select,进行填充
+								operatePolicyChildHTml=operatePolicyChildHTml+`<tr class="router_policy_selcte">
+                                   <td style="padding-left:0;">
+                                      <div class="form-group" style="display:inline-block">
+		                                      <select key=${index} class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																								${routeOperateHtml}     
+																					</select>
+																		   </div>
+                                     <a href="javascript:;" class="delte_route_operate_default">
+                                         <span class="label label-danger">Delete</span>
+                                     </a>
+                                   </td>
+                                 </tr>`;
 				});
-				operatePolicyHTml=operatePolicyHTml+`<table class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
-                  <tbody id="operate_policy">
+				operatePolicyHTml=operatePolicyHTml+`<table key=${RouterPolicyIndex++} class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
+                  <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
                       <td class="" style="text-align:left;">
                         <div class="" style="width:30%;display:inline-block;">
-                            <input class="form-control pre_router_name" type="text"  key={policy_router_index++} value=${key} placeholder="请输入名称">
+                            <input class="form-control pre_router_name" type="text"  key=${policy_router_index++} value=${key} placeholder="请输入名称">
                         </div>
                     </tr>
                     <tr>
@@ -61,16 +70,8 @@ function  PoolGeneralHtml() {
                            <td>
                              <table class="add_server_one">
                                <tbody class="add_server_one_body">
-                                 <tr>
-                                   <td style="padding-left:0;">
-                                      <div class="form-group" style="display:inline-block">
+                                  <!--操作路由池中select的个数-->
 																		      ${operatePolicyChildHTml}
-																		    </div>
-                                     <a href="javascript:;" class="delte_route_operate_default">
-                                         <span class="label label-danger">Delete</span>
-                                     </a>
-                                   </td>
-                                 </tr>
                                </tbody>
                              </table>
                            </td>
@@ -149,9 +150,20 @@ function  PoolGeneralHtml() {
             </div>`;
 			$(".general_set_box").append(general_set_data);
 			$('.option-search').selectpicker('refresh');
+			//对路由此操作的进行选定
 			data.wildcard.map(function (value,key) {
 				$('select.router_operate').eq(key).selectpicker('val', value);               //默认路由配置
 			});
+			// todo 对操作路由进行选定
+			routerPolicyKey=0;
+			for(var key in data.policies){     //这列是进行遍历有多少个操作策略
+				// console.log(data.policies[key].split(","));
+				data.policies[key].split(",").map(function(value,key){     //  操作策略的操作路由池
+					$(".add_strategy_box").eq(routerPolicyKey).find("select.selectpicker").eq(key).selectpicker('val', value);
+				});
+				routerPolicyKey++;
+			}
+			//操作路由选定结束
 		},
 		error: function() {
 			console.log("常规设置请求异常");
@@ -165,7 +177,7 @@ function  PoolGeneralHtml() {
 		 dataType: "json", //服务端接收的数据类型
 		 url: "./json/routerlist.json",               // 用常规设置获取进行请求地址(用户查看信息)  变量：pageContext
 		 success: function (data) {
-			 selectlist =data;   //选择列表的数据
+			 selectlist =data;   //  todo  展示所有的option 选择
 		 },
 		 complete:function(){
 			 PoolGeneralHtml();
@@ -194,7 +206,7 @@ $("body").on("click",".add_server_btn",function(){
   var add_server_html=`<tr>
     <td style="padding-left:0;">
       <div class="form-group" style="display:inline-block">
-		      <select class="selectpicker option-search" data-live-search="true" title="Please select ...">
+		      <select class="selectpicker option-search" data-live-search="true" title="===请选择===">
 		        ${routeOperateHtml}
 		      </select>
 		    </div>
@@ -214,7 +226,7 @@ $("body").on('click','.delte_policy',function(){
 //添加策略
 $('body').on("click",".add_strategy",function(){
   var addstrategy=`<table class="add_strategy_box table table-striped table-hover table-bordered"  align="center">
-                  <tbody id="operate_policy">
+                  <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
                       <td class="" style="text-align:left;">
@@ -234,8 +246,8 @@ $('body').on("click",".add_strategy",function(){
                                  <tr>
                                    <td style="padding-left:0;">
                                       <div class="form-group" style="display:inline-block">
-																		      <select class="selectpicker option-search" data-live-search="true" title="Please select a ...">
-																		        <option>Hot Dog, Fries and a Soda</option>
+																		      <select class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		        ${routeOperateHtml}
 																		      </select>
 																		    </div>
                                      <a href="javascript:;" class="delte_route_operate_default">
@@ -274,10 +286,35 @@ $('body').on("click",".add_strategy",function(){
 });
 //提交内容的地址的
 $('body').on("click",'.submit_general_set_data',function(){
-	var route_prefix_title=$("#route prefix_title").val();
-	var router_selected =$('#route_operate .filter-option').html();
-	if(router_selected!="Please select ..."){
-				var datas="aliases="+route_prefix_title+"&wildcard="+router_selected;
+		router_selected=[];                // select中的选择项
+	var route_prefix_title=$("#route_prefix_title").val();              // todo 路由前缀的名称
+	$('#route_operate .filter-option').map(function(key,value){        //todo  获取路由操作中的值
+		router_selected.push($(value).html());
+	});
+	// todo 操作策略参数
+	var  policyArr=[],
+			Routepool=[];
+	$(".add_strategy_box").map(function(key,value){      //对操作策略进行循环便利
+			Routepool=[];
+		$(value).find(".filter-option").map(function(key,value){
+			if($(value).html() != "===请选择==="){
+				Routepool.push($(value).html());
+			}
+
+		});
+		policyArr.push(
+			{"Routealiases":$(value).find(".pre_router_name").val(),
+				"Routepool":Routepool
+			}
+		);
+	});
+	var Routealiases="";
+	if(router_selected!="===请选择==="){
+				 var datas={
+					"aliases":route_prefix_title,
+					"&wildcard":router_selected,
+					 "policies":policyArr
+	};
 					console.log(datas);
 				$.ajax({
 					type: "post",
