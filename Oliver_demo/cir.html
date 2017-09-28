@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery显示圆形统计插件circliful</title>
+	<link href="css/lib/jquery.circliful.css" rel="stylesheet" type="text/css" />
+	<script src="js/lib/jquery-1.8.3.min.js"></script>
+	
+	<script src="js/lib/jquery.circliful.min.js"></script>
+</head>
+<body>
+<div class="ol">
+	 <button class="al">nohao</button>
+</div>
+
+
+<script>
+$(function(){
+	
+
+});
+$(".al").click(function () {
+	var ol=`<div style="width: 80px">
+		<div  class="myStat2" data-dimension="50" data-text="35%" data-info="" data-width="4" data-fontsize="12" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee"></div>
+</div>`;
+	$(".ol").append(ol);
+	
+});
+</script>
+
+</body>
+</html>

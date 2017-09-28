@@ -256,10 +256,10 @@ $('body').on("click", ".add_strategy", function () {
                              <table class="add_server_one">
 
                                <tbody class="add_server_one_body">
-                                 <tr>
+                                 <tr class="select_option_box">
                                    <td style="padding-left:0;">
                                       <div class="form-group" style="display:inline-block">
-																		      <select data-size="9" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		      <select key="0" data-size="9" class="selectpicker option-search" data-live-search="true" title="===请选择===">
 																		        ${routeOperateHtml}
 																		      </select>
 																		    </div>
@@ -310,11 +310,17 @@ $('body').on("click", '.submit_general_set_data', function () {
 //遍历数组
 	for (var i = 0; i < router_selected.length; i++) {
 		if (router_selected_did.indexOf(router_selected[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-			router_selected_did.push(router_selected[i]);
+			router_selected_did.push("PoolRoute|" +router_selected[i]);
 		}
 	}
 	/*数组去重 end*/
-
+	for(var i=0; i<router_selected_did.length; i++) {
+		if(router_selected_did[i] == "===请选择===") {
+			router_selected_did.splice(i, 1);
+			break;
+		}
+	}
+console.log(router_selected_did);
 
 	// todo 操作策略参数
 	var policyArr = [],
@@ -332,7 +338,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 //遍历数组
 		for (var i = 0; i < Routepool.length; i++) {
 			if (Routepool_did.indexOf(Routepool[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-				Routepool_did.push(Routepool[i]);
+				Routepool_did.push("PoolRoute|"+ Routepool[i]);
 			}
 		}
 		/*对数组进行屈从end*/
@@ -343,7 +349,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-	console.log(router_selected_did);
+
 
 	if (router_selected_did == "===请选择===" || route_prefix_title == "") {
 		if (route_prefix_title == "") {
@@ -366,10 +372,14 @@ $('body').on("click", '.submit_general_set_data', function () {
 		if (router_selected_did.length == 0) {
 			alert("默认路由配置的路由操作请添加");
 		}
+    var dataobj={};
+		policyArr.map(function(value,index){
+			dataobj[value.Routealiases]=value.Routepool;
+		});
 		var datas = {
 			"aliases": route_prefix_title,
-			"wildcard": router_selected_did,
-			"policies": policyArr
+			"wildcard":JSON.stringify(router_selected_did),
+			"policies": JSON.stringify(dataobj)
 		};
 		console.log(datas);
 		$.ajax({
