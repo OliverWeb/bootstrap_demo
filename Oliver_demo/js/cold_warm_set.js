@@ -5,7 +5,7 @@ function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/router.json",               // 常规设置获取进行请求地址  变量：pageContext
+		url: "./json/cold_warm.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
 			if (JSON.stringify(data) == "{}") {
 				data = {
@@ -28,7 +28,7 @@ function PoolGeneralHtml() {
 			var wildcardLength = data.wildcard.length;
 			data.wildcard.map(function (value, key) {             //默认路由配置
 				return wildardHtml = wildardHtml + `<tr class="select_option_box">
-											<td class="02"  style="padding-left:0;" key="${key}">
+											<td  style="padding-left:0;" key="${key}">
 													<a href="javascript:;" class="add_backup">
 															<span class="label label-success">Cold</span>
 													</a>
@@ -60,6 +60,7 @@ function PoolGeneralHtml() {
 				operatePolicyChildHTml = "";    //将策略中的select 进行清空
 				// console.log("属性：" + key + ",值："+ data.policies[key]);
 				policy_router_arr = data.policies[key];
+
 				policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
 					operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
                                    <td style="padding-left:0;">
@@ -187,16 +188,22 @@ function PoolGeneralHtml() {
             </div>`;
 			$(".general_set_box").append(general_set_data);
 			$('.option-search').selectpicker('refresh');
-			//对路由此操作的进行选定
+			//对路由池操作的进行选定,默认路由进行操作选中
 			data.wildcard.map(function (value, key) {
-				$('select.router_operate').eq(key).selectpicker('val', value);               //默认路由配置
+
+				$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
+				$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
 			});
 			// todo 对操作路由进行选定
 			routerPolicyKey = 0;
+			console.log($(".strategy_box table.add_strategy_box").eq(0).find(".router_policy_selcte").eq(0).find("select").eq(0).selectpicker('val', "pool06"));
 			for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
-				// console.log(data.policies[key].split(","));
+				console.log(routerPolicyKey);
 				data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
-					$(".add_strategy_box").eq(routerPolicyKey).find("select.selectpicker").eq(key).selectpicker('val', value);
+
+					$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
+					$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
+
 				});
 				routerPolicyKey++;
 			}
@@ -453,8 +460,6 @@ $(function () {
 		var arr_select = [];
 		var selectIndex = $(this).attr("key");
 		var tr_length = $(this).parent().parent().parent().parent().find("tr");
-		console.log(selectIndex);
-
 		tr_length.map(function (key, value) {
 			if (key != selectIndex) {
 				if ($(value).find('.filter-option').html() != "===请选择===") {
@@ -465,7 +470,7 @@ $(function () {
 				arr_select.push(arr_optioned);
 			}
 		});
-		console.log(arr_select);
+
 		arr_select.map(function (value, key) {
 			$(_this).find('[value=' + value + ']').hide();
 			$('.selectpicker').selectpicker('refresh');

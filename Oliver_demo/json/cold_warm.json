@@ -2,62 +2,33 @@
   "name": "222",
   "wildcard": [
 	{
-	  "cold": "local_pool1",
-	  "warm": "local_pool2"
+	  "cold": "pool01",
+	  "warm": "pool02"
 	},
 	{
-	  "cold": "local_pool1",
-	  "warm": "local_pool5"
+	  "cold": "pool03",
+	  "warm": "pool04"
 	}
   ],
   "policies": {
-	"bbb": [
+	"策略01": [
 	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool2"
+		"cold": "pool04",
+		"warm": "pool03"
 	  },
 	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool4"
-	  },
-	  "PoolRoute|local_pool3", "PoolRoute|remote_pool"
-	],
-	"a": [
-	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool2"
-	  },
-	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool5"
+		"cold": "pool02",
+		"warm": "pool05"
 	  }
 	],
-	"b": [
+	"策略02": [
 	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool2"
+		"cold": "pool03",
+		"warm": "pool04"
 	  },
 	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool5"
-	  }
-	],
-	"bb": [
-	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool2"
-	  },
-	  {
-		"type": "WarmUpRoute",
-		"cold": "local_pool1",
-		"warm": "local_pool5"
+		"cold": "pool05",
+		"warm": "pool01"
 	  }
 	]
   }
