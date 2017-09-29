@@ -1,0 +1,17 @@
+{
+  "name": "/cache-center/mcroutersetup/normall",
+  "wildcard":{
+	"cold":["pool01","pool02"],
+	"cold":["pool03","pool04"]
+  },
+  "policies": {
+	"策略1": {
+	  "cold":["pool01","pool02"],
+	  "cold":["pool03","pool04"]
+	},
+	"策略2": {
+	  "cold":["pool01","pool02"],
+	  "cold":["pool03","pool04"]
+	}
+  }
+}

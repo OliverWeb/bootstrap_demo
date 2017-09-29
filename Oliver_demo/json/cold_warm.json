@@ -1,0 +1,64 @@
+{
+  "name": "222",
+  "wildcard": [
+	{
+	  "cold": "local_pool1",
+	  "warm": "local_pool2"
+	},
+	{
+	  "cold": "local_pool1",
+	  "warm": "local_pool5"
+	}
+  ],
+  "policies": {
+	"bbb": [
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool2"
+	  },
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool4"
+	  },
+	  "PoolRoute|local_pool3", "PoolRoute|remote_pool"
+	],
+	"a": [
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool2"
+	  },
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool5"
+	  }
+	],
+	"b": [
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool2"
+	  },
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool5"
+	  }
+	],
+	"bb": [
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool2"
+	  },
+	  {
+		"type": "WarmUpRoute",
+		"cold": "local_pool1",
+		"warm": "local_pool5"
+	  }
+	]
+  }
+}

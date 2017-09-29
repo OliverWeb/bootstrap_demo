@@ -27,7 +27,7 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- THEME BASIC CSS -->
   <link href="css/style-responsive.css" rel="stylesheet">
-  <link href="css/pool-name-set.css" rel="stylesheet">
+  <link href="css/physical_warm_set.css" rel="stylesheet">
   <!-- THEME BASIC RESPONSIVE  CSS -->
   <!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
@@ -86,9 +86,9 @@
           </li>
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="img/avatar1_small.jpg">
+                <img alt="" src="">
                 <span class="username">
-                  Pruthvi
+                  Oliver
                 </span>
                 <b class="caret">
                 </b>
@@ -137,7 +137,7 @@
               </a>
             <ul class="sub node-sub">
               <li>
-                <a href="node-manager.html">
+                <a href="physical-node-manager.html">
                     物理节点管理
                   </a>
               </li>
@@ -179,19 +179,10 @@
       <section class="wrapper site-min-height">
         <section class="panel">
           <div class="panel-body">
-            <div class="adv-table editable-table ">
-              <table style="width:14%;" class="table table-striped table-hover table-bordered dataTable" id="" aria-describedby="editable-sample_info">
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="" alt="">
-                      <span class="label label-primary">
-                      192.168.13045
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="server_list_contain">
+              <ul class="server_list clearfix" >
+               <!--这里的ip的html-->
+              </ul>
               <div class="btn-group">
                 <button id="add_servers" class="btn btn-success green">
                    添加服务<i class="fa fa-plus"></i>
@@ -212,26 +203,28 @@
                     <h4 class="modal-title" id="myModalLabel" style="font-weight:bold;">添加服务</h4>
                 </div>
                 <div class="modal-body">
+                  <form id="server_form" action="">
                     <table class="table table-striped table-hover table-bordered"  align="center">
                       <tbody>
-                        <tr>
-                          <td>ip</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
-                        <tr>
-                          <td>安装用户非root</br>(会安装在此用户路径下)</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
-                        <tr>
-                          <td>安装用户密码</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
-                        <tr>
-                          <td>root权限密码</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
+                      <tr>
+                        <td>ip</td>
+                        <td><input  autofocus required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control"  id="ip1" type="text" name="Name" value="" placeholder="请输入名称"></td>
+                      </tr>
+                      <tr>
+                        <td>安装用户非root</br>(会安装在此用户路径下)</td>
+                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="text"  id="ip2"  name="no-root" value="" placeholder="请输入名称"></td>
+                      </tr>
+                      <tr>
+                        <td>安装用户密码</td>
+                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="text" id="ip3"  name="password" value="" placeholder="请输入名称"></td>
+                      </tr>
+                      <tr>
+                        <td>root权限密码</td>
+                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="text" id="ip4" name="root-password" value="" placeholder="请输入名称"></td>
+                      </tr>
                       </tbody>
                     </table>
+                  </form>
                 </div>
                 <div class="modal-footer" style="text-align:center;">
                     <button type="button" class="btn btn-success add_servers_save" data-dismiss="modal">保存</button>
@@ -241,14 +234,7 @@
     </section>
     <!-- END MAIN CONTENT -->
     <!-- BEGIN FOOTER -->
-    <footer class="site-footer">
-      <div class="text-center">
-        2013 &copy; Olive Admin by <a href="" target="_blank">Custom Theme</a>.
-        <a href="http://www.mycodes.net" class="go-top">
-               <i class="fa fa-angle-up"></i>
-               </a>
-      </div>
-    </footer>
+    
     <!-- END FOOTER -->
   </section>
   <!-- END SECTION -->
@@ -272,7 +258,7 @@
   <script src="js/lib/respond.min.js"></script>
   <!-- RESPOND JS  -->
   <script src="js/lib/common-scripts.js"></script>
-  <script src="js/node.js"></script>
+  <script src="js/physical-node-manager.js"></script>
   <!-- BASIC COMMON JS  -->
   <!-- <script src="js/editable-pool-name-set.js"></script> -->
   <!-- EDITABLE TABLE JS  -->
