@@ -1,25 +1,25 @@
 // Mcrouter js
-$(function () {
-	/*获取链接*/
-	var url = window.location.search;
+		$(function () {
+			/*获取链接*/
+			var url = window.location.search;
 //    alert(url.length);
 //    alert(url.lastIndexOf('='));
-	console.log(url);
-	var mcrouerIpsIndex=url.indexOf('mcrouerIps');
-			 url=url.substring(mcrouerIpsIndex);
-	var 	IpsIndex=url.indexOf("&");
-	if(IpsIndex!=-1){
-		var IpValur=url.substring("mcrouerIps".length+1,IpsIndex);
-	}
-	$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
-	/*赋值结束 end*/
-	/*页面进行请求咱咱先布局*/
-	$.ajax({
-		type:"get",
-		url:"./json/mcrouter.json",
-		success:function (data) {
-			console.log(data);
-		},
+			console.log(url);
+			var mcrouerIpsIndex=url.indexOf('mcrouerIps');
+			url=url.substring(mcrouerIpsIndex);
+			var 	IpsIndex=url.indexOf("&");
+			if(IpsIndex!=-1){
+				var IpValur=url.substring("mcrouerIps".length+1,IpsIndex);
+			}
+			$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
+			/*赋值结束 end*/
+			/*页面进行请求咱咱先布局*/
+			$.ajax({
+				type:"get",
+				url:"./json/mcrouter.json",
+				success:function (data) {
+					console.log(data);
+				},
 		error:function (data) {
 			console.log("获取数据异常");
 		}

@@ -98,7 +98,7 @@ function PoolGeneralHtml() {
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
                       <td class="" style="text-align:left;">
                         <div class="" style="width:30%;display:inline-block;">
-                            <input class="form-control pre_router_name" type="text"  key=${policy_router_index++} value=${key} placeholder="请输入名称">
+                            <input class="form-control pre_router_name inputVal" type="text"  key=${policy_router_index++} value=${key} placeholder="请输入名称">
                         </div>
                     </tr>
                     <tr>
@@ -294,7 +294,7 @@ $('body').on("click", ".add_strategy", function () {
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
                       <td class="" style="text-align:left;">
                         <div class="" style="width:30%;display:inline-block;">
-                            <input class="form-control pre_router_name" type="text"  value="" placeholder="请输入名称">
+                            <input class="form-control pre_router_name inputVal" type="text"  value="" placeholder="请输入名称">
                         </div>
                     </tr>
                     <tr>
@@ -471,10 +471,25 @@ $(function () {
 			$(_this).find('[value=' + value + ']').hide();
 			$('.selectpicker').selectpicker('refresh');
 		});
+	});
+	/*操作策略的的名字不能重复*/
+	$('body').on('blur','.pre_router_name',function () {
+		$(this).removeClass("inputVal");
+		var input_value=$(this).val();
+		pre_router_name_arr=[];
+		$('.inputVal').map(function (key,value) {
+			if($(value).val()!=""){
+				pre_router_name_arr.push($(value).val());
+			}
+		});
 
+		pre_router_name_arr.map(function (value,key) {
+			if(input_value==value){
+				alert(("前缀路由名字重复"));
+				return false;
+			}
 
-
-
+		});
 	});
 });
 
