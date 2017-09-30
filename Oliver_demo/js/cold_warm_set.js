@@ -17,13 +17,18 @@ function PoolGeneralHtml() {
 				};
 			}
 
-			routeOperateHtml = "";
+			routeOperateHtml_cold = "";
+			routeOperateHtml_warm = "";
 			wildardHtml = "";
 			/* todo 加载所有option */
 			defaultSelect = selectlist;      //默认路由配置中的数组
-			defaultSelect.map(function (value, key) {             // todo 每个遍历所有option
-				return routeOperateHtml = routeOperateHtml + `<option value=${value} key=${key}>${value}</option>`;
+			defaultSelect.cold.map(function (value, key) {             // todo 每个遍历所有option
+				return routeOperateHtml_cold = routeOperateHtml_cold + `<option value=${value} key=${key}>${value}</option>`;
 			});
+			defaultSelect.warm.map(function (value, key) {             // todo 每个遍历所有option
+				return routeOperateHtml_warm = routeOperateHtml_warm + `<option value=${value} key=${key}>${value}</option>`;
+			});
+
 			/* todo 默认路由配置*/
 			var wildcardLength = data.wildcard.length;
 			data.wildcard.map(function (value, key) {             //默认路由配置
@@ -33,16 +38,16 @@ function PoolGeneralHtml() {
 															<span class="label label-success">Cold</span>
 													</a>
                           <div class="form-group" style="display:inline-block">
-												      <select key="${key}" data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-												        ${routeOperateHtml}
+												      <select key="${key}" data-size="9" data-type="cold" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+												        ${routeOperateHtml_cold}
 												      </select>
 												   </div>  
                             <a href="javascript:;" class="add_backup">
 															<span class="label label-success">Warm</span>
 														</a>
 														<div class="form-group" style="display:inline-block">
-													      <select key="${key}" data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-													        ${routeOperateHtml}
+													      <select key="${key}" data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+													        ${routeOperateHtml_warm}
 													      </select>
 													   </div> 
 														<a href="javascript:;" class="delte_route_operate_default">
@@ -68,16 +73,16 @@ function PoolGeneralHtml() {
                                          <span class="label label-success">Cold</span>
                                      	</a>
                                       <div class="form-group" style="display:inline-block">
-		                                      <select data-size="9" key=${index} class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																								${routeOperateHtml}     
+		                                      <select data-size="9" key=${index} data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																								${routeOperateHtml_cold}     
 																					</select>
 																		  </div>
 																		  <a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Warm</span>
                                      	</a>
                                      	<div class="form-group" style="display:inline-block">
-		                                      <select data-size="9" key=${index} class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																								${routeOperateHtml}     
+		                                      <select data-size="9" key=${index} data-type="warm" class=" selectpicker option-search" data-live-search="true" title="===请选择===">
+																								${routeOperateHtml_warm}     
 																					</select>
 																		  </div>
                                      <a href="javascript:;" class="delte_route_operate_default">
@@ -196,9 +201,9 @@ function PoolGeneralHtml() {
 			});
 			// todo 对操作路由进行选定
 			routerPolicyKey = 0;
-			console.log($(".strategy_box table.add_strategy_box").eq(0).find(".router_policy_selcte").eq(0).find("select").eq(0).selectpicker('val', "pool06"));
+
 			for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
-				console.log(routerPolicyKey);
+
 				data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
 
 					$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
@@ -257,16 +262,16 @@ $("body").on("click", ".add_server_btn", function () {
 				<span class="label label-success">Cold</span>
 			</a>
 	    <div class="form-group" style="display:inline-block">
-	      <select key=${add_num} data-size="9" class="selectpicker option-search" data-live-search="true" title="===请选择===">
-	        ${routeOperateHtml}
+	      <select key=${add_num} data-size="9" data-type="cold" class=" selectpicker option-search" data-live-search="true" title="===请选择===">
+	        ${routeOperateHtml_cold}
 	      </select>
 	    </div>
       <a href="javascript:;" class="add_backup">
 				<span class="label label-success">Warm</span>
 			</a>
 			<div class="form-group" style="display:inline-block">
-		      <select key=${add_num} data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-		        ${routeOperateHtml}
+		      <select key=${add_num} data-size="9" data-type="cold" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+		        ${routeOperateHtml_warm}
 		      </select>
 		  </div> 
 			<a href="javascript:;" class="delte_route_operate_default">
@@ -307,16 +312,16 @@ $('body').on("click", ".add_strategy", function () {
                                          <span class="label label-success">Cold</span>
                                      	</a>
                                       <div class="form-group" style="display:inline-block">
-																		      <select key="0" data-size="9" class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																		        ${routeOperateHtml}
+																		      <select key="0" data-size="9"  data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		        ${routeOperateHtml_cold}
 																		      </select>
 																		  </div>
 																		  <a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Warm</span>
                                      	</a>
                                      	<div class="form-group" style="display:inline-block">
-																		      <select key="0" data-size="9" class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																		        ${routeOperateHtml}
+																		      <select key="0" data-size="9" data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		        ${routeOperateHtml_warm}
 																		      </select>
 																		  </div>
                                      	<a href="javascript:;" class="delte_route_operate_default">
@@ -355,88 +360,77 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
+	var judge_router_reporte,judge_polic_name=1,judge_polic_option=1;
 	route_prefix_title = "";
 	router_selected = [];                // select中的选择项
 	route_prefix_title = $("#route_prefix_title").val();              // todo 路由前缀的名称
-	$('#route_operate .filter-option').map(function (key, value) {        //todo  获取路由操作中的值
-		router_selected.push($(value).html());
+	/*冷暖池处理对象start */
+	/*默认路由配置*/
+	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
+		router_selected_obj={};
+		/*处理提交的时候的选择内容为"===请选择==="*/
+		if($(value).find("select").eq(0).val()!=""&&$(value).find("select").eq(1).val()!=""){
+			router_selected_obj.type="WarmUpRoute";
+			router_selected_obj.cold="PoolRoute|"+$(value).find("select").eq(0).val();
+			router_selected_obj.warm="PoolRoute|"+$(value).find("select").eq(1).val();
+			router_selected.push( router_selected_obj );
+		}else{
+				judge_router_reporte=true;        /*默认路由操作判断*/
+		}
 	});
-	/*数组去重 start*/
-	router_selected_did = [];
-//遍历数组
-	for (var i = 0; i < router_selected.length; i++) {
-		if (router_selected_did.indexOf(router_selected[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-			router_selected_did.push("PoolRoute|" + router_selected[i]);
-		}
-	}
-	/*数组去重 end*/
-	for (var i = 0; i < router_selected_did.length; i++) {
-		if (router_selected_did[i] == "===请选择===") {
-			router_selected_did.splice(i, 1);
-			break;
-		}
-	}
-	console.log(router_selected_did);
-
-	// todo 操作策略参数
+	/*冷暖池处理对象 end*/
+	// todo 操作策略参数操作数据传参数
 	var policyArr = [],
-		Routepool = [];
+		  Routepool = [];
+			policiesArr={};
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
+		router_policy=[];
 		Routepool = [];
-		$(value).find(".filter-option").map(function (key, value) {
-			if ($(value).html() != "===请选择===") {
-				Routepool.push($(value).html());
-			}
-
-		});
-		/*对数组进行屈从start*/
-		var Routepool_did = [];
-//遍历数组
-		for (var i = 0; i < Routepool.length; i++) {
-			if (Routepool_did.indexOf(Routepool[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-				Routepool_did.push("PoolRoute|" + Routepool[i]);
-			}
+		if($(value).find("input.pre_router_name").val()!=""){
+			$(value).find("tr.select_option_box").map(function (key, value) {   //对操作策略子内容进行处理
+				if($(value).find("select").eq(0).val()!="" && $(value).find("select").eq(1).val()!=""){
+					router_policy_obj={};
+					router_policy_obj.type="WarmUpRoute";
+					router_policy_obj.cold="PoolRoute|"+$(value).find("select").eq(0).val();
+					router_policy_obj.warm="PoolRoute|"+$(value).find("select").eq(1).val();
+					router_policy.push( router_policy_obj );
+					judge_polic_option=0;
+				}else{
+					judge_polic_option=1;
+				}
+			});
+			policiesArr[$(value).find("input.pre_router_name").val()]=router_policy;
+			judge_polic_name=0
+		}else{
+			judge_polic_name=1;
 		}
-		/*对数组进行屈从end*/
-		policyArr.push(
-			{
-				"Routealiases": $(value).find(".pre_router_name").val(),
-				"Routepool": Routepool_did
-			}
-		);
+
 	});
-
-
-	if (router_selected_did == "===请选择===" || route_prefix_title == "") {
-		if (route_prefix_title == "") {
-			alert("请输入路由前缀名称");
-		} else if (router_selected_did == "===请选择===") {
-			alert("请选择路由操作的池名称");
-		}
+	/* 判断内容是否可以满足提交的需求  start*/
+  console.log(judge_polic_name);
+	 if(route_prefix_title==""){
+		 alert("请填写路由前缀名称");
+	 }else if (router_selected.length == 0) {
+		alert("请填写默认路由操作");
+	}else if(judge_router_reporte){
+	 	  alert("请将路由填写完成");
+	 }else if(judge_polic_name==1 && judge_polic_option!=1){
+			alert("路由策略的名字为空");
+	 }else if(judge_polic_name!=1 && judge_polic_option==1){
+		 alert("操作路由池没有进行选择");
 	} else {
-		policyArr.map(function (value, key) {               //对操作的策略进行判断是否为空
-			if (value.Routealiases == "" && value.Routepool.length != 0) {
-				alert("前缀名称和路由操作必须都进行填写或两者都不填");
-			} else if (value.Routealiases != "" && value.Routepool.length == 0) {
-				alert("前缀名称和路由操作必须都进行填写或两者都不填!");
-			}
-		});
-
-		if (policyArr.length == 0) {
-			console.log("操作策略填写内容为空");
-		}
-		if (router_selected_did.length == 0) {
-			alert("默认路由配置的路由操作请添加");
-		}
-		var dataobj = {};
-		policyArr.map(function (value, index) {
-			dataobj[value.Routealiases] = value.Routepool;
-		});
-		var datas = {
-			"aliases": route_prefix_title,
-			"wildcard": JSON.stringify(router_selected_did),
-			"policies": JSON.stringify(dataobj)
-		};
+	 	if(JSON.stringify(policiesArr)=="{}"){
+	 		var datas={
+			  "name": route_prefix_title,
+			  "wildcard": JSON.stringify(router_selected)
+		  }
+	  }else{
+		  var datas = {
+			  "name": route_prefix_title,
+			  "wildcard": JSON.stringify(router_selected),
+			  "policies": policiesArr
+		  };
+	  }
 		console.log(datas);
 		$.ajax({
 			type: "post",
@@ -452,22 +446,24 @@ $('body').on("click", '.submit_general_set_data', function () {
 		});
 	}
 });
-/*对于重复option事情的处理*/
+/*对于选着重复option事情的处理*/
 $(function () {
-	$('body').on('shown.bs.select', '.selectpicker', function (e) {
+	$('body').on('shown.bs.select', '.selectpicker', function (e) {    //当选择页面出现的时候进行一个逻辑处理
 		$('.selectpicker').selectpicker('refresh');
 		var _this = this;
 		var arr_select = [];
-		var selectIndex = $(this).attr("key");
-		var tr_length = $(this).parent().parent().parent().parent().find("tr");
+		var selectIndex = $(this).attr("key");      //获取当前被选中的内容,
+		var tr_length = $(this).parent().parent().parent().parent().find("tr");      //  将所有的tr进行遍历
 		tr_length.map(function (key, value) {
 			if (key != selectIndex) {
 				if ($(value).find('.filter-option').html() != "===请选择===") {
+					console.log($(_this).data("type"));
+
 					var arr_optioned = $(value).find('.filter-option').html();
 				} else {
-					var arr_optioned = "pool";
+					var arr_optioned = "pool";       /*默认操作的特殊处理*/
 				}
-				arr_select.push(arr_optioned);
+				arr_select.push(arr_optioned);          //已经被选中的的加入这个数组
 			}
 		});
 
@@ -475,6 +471,10 @@ $(function () {
 			$(_this).find('[value=' + value + ']').hide();
 			$('.selectpicker').selectpicker('refresh');
 		});
+
+
+
+
 	});
 });
 

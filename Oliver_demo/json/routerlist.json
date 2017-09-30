@@ -1,11 +1,21 @@
-["pool01",
-  "pool02",
-  "pool03",
-  "pool04",
-  "pool05",
-  "pool06",
-  "pool07",
-  "pool08",
-  "pool09",
-  "pool010"
-]
+{
+  "cold": [
+    "pool01",
+    "pool02",
+    "pool03",
+    "pool04",
+    "pool05",
+    "pool06"
+
+  ],
+  "warm": [
+    "pool11",
+    "pool22",
+    "pool33",
+    "pool44",
+    "pool55",
+    "pool66",
+    "pool77",
+    "pool88"
+  ]
+}
