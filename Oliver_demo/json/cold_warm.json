@@ -8,7 +8,7 @@
 	{
 	  "cold": "pool03",
 	  "warm": "pool22"
-	}
+	},"pool33","pool44"
   ],
   "policies": {
 	"策略01": [

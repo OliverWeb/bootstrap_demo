@@ -20,6 +20,7 @@ function PoolGeneralHtml() {
 			routeOperateHtml_cold = "";
 			routeOperateHtml_warm = "";
 			wildardHtml = "";
+			default_wildardHtml = "";
 			/* todo 加载所有option */
 			defaultSelect = selectlist;      //默认路由配置中的数组
 			defaultSelect.cold.map(function (value, key) {             // todo 每个遍历所有option
@@ -32,7 +33,8 @@ function PoolGeneralHtml() {
 			/* todo 默认路由配置*/
 			var wildcardLength = data.wildcard.length;
 			data.wildcard.map(function (value, key) {             //默认路由配置
-				return wildardHtml = wildardHtml + `<tr class="select_option_box">
+				if(typeof (value)=="object"){
+					return wildardHtml = wildardHtml + `<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}">
 													<a href="javascript:;" class="add_backup">
 															<span class="label label-success">Cold</span>
@@ -55,6 +57,25 @@ function PoolGeneralHtml() {
                             </a>
                           </td>
                       </tr>`
+				}else{
+					/*添加默认的路由*/
+					return   default_wildardHtml=default_wildardHtml+`<tr class="select_option_box">
+											<td  style="padding-left:0;" key="${key}"> 
+                            <a href="javascript:;" class="add_backup">
+															<span class="label label-success">Warm</span>
+														</a>
+														<div class="form-group" style="display:inline-block">
+													      <select key="${key}" data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+													        ${routeOperateHtml_warm}
+													      </select>
+													   </div> 
+														<a href="javascript:;" class="delte_route_operate_default">
+                                <span class="label label-danger">Delete</span>
+                            </a>
+                          </td>
+                      </tr>`;
+
+				}
 			});
 			/* todo 操作策略变量*/
 			var operatePolicyHTml = "",
@@ -158,7 +179,7 @@ function PoolGeneralHtml() {
               <!--默认池end-->
               <table class="table table-striped table-hover table-bordered"  align="center">
               		<caption class="mcrouter_title">默认路由配置</caption>
-                <tbody>
+                <tbody class="add_defalut_html">
                   <tr>
                     <td class="" style="width:20%;" rowspan="2" >路由操作</td>
                     <td class="" style="text-align:left;">
@@ -166,6 +187,23 @@ function PoolGeneralHtml() {
 
                       <tbody class="add_server_one_body" id="route_operate">
                           ${wildardHtml}
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:left;">
+                      <a href="javascript:;" class="add_server_btn">
+                        <span class="label label-success" >添加服务器</span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
+                    <td class="" style="text-align:left;">
+                    <table class="add_server_one">
+                      <tbody class="add_server_one_body" id="route_operate">
+                       		${default_wildardHtml}
                       </tbody>
                     </table>
                     </td>

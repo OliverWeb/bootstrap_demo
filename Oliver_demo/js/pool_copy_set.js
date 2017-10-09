@@ -5,7 +5,7 @@ function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/router.json",               // 常规设置获取进行请求地址  变量：pageContext
+		url: "./json/copy.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
 			if (JSON.stringify(data) == "{}") {
 				data = {
@@ -20,7 +20,7 @@ function PoolGeneralHtml() {
 			routeOperateHtml = "";
 			wildardHtml = "";
 			/* todo 加载所有option */
-			defaultSelect = selectlist;      //默认路由配置中的数组
+			defaultSelect = selectlist;      //默认路由配置中的数
 			defaultSelect.map(function (value, key) {             // todo 每个遍历所有option
 				return routeOperateHtml = routeOperateHtml + `<option value=${value} key=${key}>${value}</option>`;
 			});
@@ -38,11 +38,9 @@ function PoolGeneralHtml() {
                                 <span class="label label-danger">Delete</span>
                             </a>
                             <a href="javascript:;" class="add_backup">
-													<span class="label label-success">添加备份</span>
-												</a>
-												
-												<div style="display:none;"  class="add_backup_box">
-												
+															<span class="label label-success">添加备份</span>
+														</a>
+														<div style="display:none;"  class="add_backup_box">
 													<div class="form-group" style="display:inline-block">
 												      <select key="${key}" data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
 												        ${routeOperateHtml}
@@ -53,10 +51,8 @@ function PoolGeneralHtml() {
 													</a>
 													<span style="color:#72d0eb;display:inline-block;">备份比例</span>
 													<div class="" style="width:20%;display:inline-block;">
-                          <input class="form-control" type="text" value="" placeholder="例如:100%">
-                     						 </div>
-														
-												
+                          <input class="form-control percentage" type="text" value="" placeholder="例如:0.1">
+                     		 </div>
 												</div>
                           </td>
                       </tr>`
@@ -81,7 +77,26 @@ function PoolGeneralHtml() {
                                      <a href="javascript:;" class="delte_route_operate_default">
                                          <span class="label label-danger">Delete</span>
                                      </a>
-                                     
+                                      <a href="javascript:;" class="add_backup">
+				<span class="label label-success">添加备份</span>
+			</a>
+			<div style="display:none;"  class="add_backup_box">
+			
+				<div class="form-group" style="display:inline-block">
+			      <select  data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+			        ${routeOperateHtml}
+			      </select>
+			   </div> 
+				<a href="javascript:;" class="delete_backup">
+					<span class="label label-danger">删除备份</span>
+				</a>
+				<span style="color:#72d0eb;display:inline-block;">备份比例</span>
+				<div class="" style="width:20%;display:inline-block;">
+        <input class="form-control percentage" type="text" value="" placeholder="例如:0.1">
+               </div>
+					
+			
+			</div>
                                    </td>
                                  </tr>`;
 				});
@@ -182,16 +197,35 @@ function PoolGeneralHtml() {
             </div>`;
 			$(".general_set_box").append(general_set_data);
 			$('.option-search').selectpicker('refresh');
-			//对路由此操作的进行选定
+			//对默认路由此操作的option进行选定
+			// console.log(data.wildcard);
 			data.wildcard.map(function (value, key) {
-				$('select.router_operate').eq(key).selectpicker('val', value);               //默认路由配置
+				/*对返回数据的类型进行判断*/
+				if(typeof (value)=="object"){
+					$('#route_operate .select_option_box').eq(key).find('.add_backup_box').css("display","inline-block");
+					$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value.pool);               //默认路由配置
+					$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(1).selectpicker('val', value.shadows[0].target);  //默认路由配置
+					$('#route_operate .select_option_box').eq(key).find('input').val(value.shadows[0].key_fraction_range[1]);
+
+				}else if(typeof (value)=="string"){
+					$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value);               //默认路由配置
+				}
 			});
-			// todo 对操作路由进行选定
+
+			// todo 对操作策略进行选定
 			routerPolicyKey = 0;
 			for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
-				// console.log(data.policies[key].split(","));
+
 				data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
-					$(".add_strategy_box").eq(routerPolicyKey).find("select.selectpicker").eq(key).selectpicker('val', value);
+					if(typeof (value)=="object"){
+						$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find(".add_backup_box").css("display","inline-block");
+						$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value.pool);
+						$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(1).selectpicker('val', value.shadows[0].target);
+						$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("input").val(value.shadows[0].key_fraction_range[1]);
+					}else if(typeof (value)=="string"){
+						$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value);
+					}
+
 				});
 				routerPolicyKey++;
 			}
@@ -208,7 +242,7 @@ function selectOption() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/routerlist.json",               // 请求选择框中的所有选项option  变量：pageContext
+		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  变量：pageContext
 		success: function (data) {
 			selectlist = data;   //  todo  展示所有的option 选择
 		},
@@ -249,27 +283,26 @@ $("body").on("click", ".add_server_btn", function () {
       <a href="javascript:;" class="delte_route_operate_default">
           <span class="label label-danger">Delete</span>
       </a>
-                               <a href="javascript:;" class="add_backup">
-													<span class="label label-success">添加备份</span>
-												</a>
-												
-												<div style="display:none;"  class="add_backup_box">
-												
-													<div class="form-group" style="display:inline-block">
-												      <select  data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-												        ${routeOperateHtml}
-												      </select>
-												   </div> 
-													<a href="javascript:;" class="delete_backup">
-														<span class="label label-danger">删除备份</span>
-													</a>
-													<span style="color:#72d0eb;display:inline-block;">备份比例</span>
-													<div class="" style="width:20%;display:inline-block;">
-                          <input class="form-control" type="text" value="" placeholder="例如:100%">
-                     						 </div>
-														
-												
-												</div>
+      <a href="javascript:;" class="add_backup">
+				<span class="label label-success">添加备份</span>
+			</a>
+			<div style="display:none;"  class="add_backup_box">
+			
+				<div class="form-group" style="display:inline-block">
+			      <select  data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+			        ${routeOperateHtml}
+			      </select>
+			   </div> 
+				<a href="javascript:;" class="delete_backup">
+					<span class="label label-danger">删除备份</span>
+				</a>
+				<span style="color:#72d0eb;display:inline-block;">备份比例</span>
+				<div class="" style="width:20%;display:inline-block;">
+        <input class="form-control percentage" type="text" value="" placeholder="例如:0.1">
+               </div>
+					
+			
+			</div>
     </td>
   </tr>`;
 	$(this).parent().parent().prev().find(".add_server_one_body").append(add_server_html);
@@ -309,7 +342,26 @@ $('body').on("click", ".add_strategy", function () {
                                      <a href="javascript:;" class="delte_route_operate_default">
                                          <span class="label label-danger">Delete</span>
                                      </a>
-                                     
+                                     <a href="javascript:;" class="add_backup">
+				<span class="label label-success">添加备份</span>
+			</a>
+			<div style="display:none;"  class="add_backup_box">
+			
+				<div class="form-group" style="display:inline-block">
+			      <select  data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+			        ${routeOperateHtml}
+			      </select>
+			   </div> 
+				<a href="javascript:;" class="delete_backup">
+					<span class="label label-danger">删除备份</span>
+				</a>
+				<span style="color:#72d0eb;display:inline-block;">备份比例</span>
+				<div class="" style="width:20%;display:inline-block;">
+        <input class="form-control percentage" type="text" value="" placeholder="例如:0.1">
+               </div>
+					
+			
+			</div>
                                    </td>
                                  </tr>
 
@@ -345,46 +397,45 @@ $('body').on("click", '.submit_general_set_data', function () {
 	route_prefix_title = "";
 	router_selected = [];                // select中的选择项
 	route_prefix_title = $("#route_prefix_title").val();              // todo 路由前缀的名称
-	$('#route_operate .filter-option').map(function (key, value) {        //todo  获取路由操作中的值
-		router_selected.push($(value).html());
-	});
-	/*数组去重 start*/
+	/* router_selected_did 提交的路由操作的内容*/
 	router_selected_did = [];
-//遍历数组
-	for (var i = 0; i < router_selected.length; i++) {
-		if (router_selected_did.indexOf(router_selected[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-			router_selected_did.push("PoolRoute|" +router_selected[i]);
+	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
+		if($(value).find("select").eq(1).val()!=""){
+			router_selected_did.push({
+				"type": "PoolRoute",
+				"pool":  "PoolRoute|"+$(value).find("select").eq(0).val(),
+				"shadows": [{
+					"target": "PoolRoute|"+$(value).find("select").eq(1).val(),
+					"index_range": [0, 2],
+					"key_fraction_range": [0, $(value).find(".percentage").val()]
+				}]
+			});
+		}else{
+			router_selected_did.push("PoolRoute|"+$(value).find("select").eq(0).val());
 		}
-	}
-	/*数组去重 end*/
-	for(var i=0; i<router_selected_did.length; i++) {
-		if(router_selected_did[i] == "===请选择===") {
-			router_selected_did.splice(i, 1);
-			break;
-		}
-	}
-	console.log(router_selected_did);
-
+	});
 	// todo 操作策略参数
-	var policyArr = [],
-		Routepool = [];
+	var policyArr = [];
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
+		Routepool_did = [];
 		Routepool = [];
-		$(value).find(".filter-option").map(function (key, value) {
-			if ($(value).html() != "===请选择===") {
-				Routepool.push($(value).html());
+		$(value).find(".router_policy_selcte").map(function (key, value) {
+			if($(value).find('select').eq(1).val()!=""){
+				Routepool_did.push({
+					"type": "PoolRoute",
+					"pool":  "PoolRoute|"+$(value).find('select').eq(0).val(),
+					"shadows": [{
+						"target": "PoolRoute|"+$(value).find('select').eq(1).val(),
+						"index_range": [0, 2],
+						"key_fraction_range": [0, $(value).find(".percentage").val()]
+					}]
+				});
+			}else{
+				Routepool_did.push("PoolRoute|"+$(value).find('select').eq(0).val());
 			}
 
 		});
-		/*对数组进行屈从start*/
-		var Routepool_did = [];
-//遍历数组
-		for (var i = 0; i < Routepool.length; i++) {
-			if (Routepool_did.indexOf(Routepool[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-				Routepool_did.push("PoolRoute|"+ Routepool[i]);
-			}
-		}
-		/*对数组进行屈从end*/
+
 		policyArr.push(
 			{
 				"Routealiases": $(value).find(".pre_router_name").val(),
@@ -392,12 +443,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-
-
-	if (router_selected_did == "===请选择===" || route_prefix_title == "") {
+	if (router_selected_did.length == 0 || route_prefix_title == "") {
 		if (route_prefix_title == "") {
 			alert("请输入路由前缀名称");
-		} else if (router_selected_did == "===请选择===") {
+		} else if (router_selected_did.length == 0) {
 			alert("请选择路由操作的池名称");
 		}
 	} else {
@@ -420,15 +469,15 @@ $('body').on("click", '.submit_general_set_data', function () {
 			dataobj[value.Routealiases]=value.Routepool;
 		});
 		var datas = {
-			"aliases": route_prefix_title,
-			"wildcard":JSON.stringify(router_selected_did),
-			"policies": JSON.stringify(dataobj)
+			"name": route_prefix_title,
+			"wildcard":router_selected_did,
+			"policies": dataobj
 		};
 		console.log(datas);
 		$.ajax({
 			type: "post",
 			dataType: "json", //服务端接收的数据类型
-			url: "./json/router.json",               // 提交地址 变量：pageContext
+			url: "./json/copy.json",               // 提交地址 变量：pageContext
 			data: datas,
 			success: function (data) {
 				console.log("提交成功");
@@ -447,7 +496,7 @@ $(function () {
 		var arr_select = [];
 		var selectIndex = $(this).attr("key");
 		var tr_length=$(this).parent().parent().parent().parent().find("tr");
-		console.log(selectIndex);
+		// console.log(selectIndex);
 
 		tr_length.map(function (key, value) {
 			if (key != selectIndex) {
@@ -459,7 +508,7 @@ $(function () {
 				arr_select.push(arr_optioned);
 			}
 		});
-		console.log(arr_select);
+		// console.log(arr_select);
 		arr_select.map(function (value, key) {
 			$(_this).find('[value=' + value + ']').hide();
 			$('.selectpicker').selectpicker('refresh');
