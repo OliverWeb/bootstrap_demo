@@ -7,6 +7,7 @@ function PoolGeneralHtml() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/copy.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
+
 			if (JSON.stringify(data) == "{}") {
 				data = {
 					"name": "''",
@@ -244,7 +245,13 @@ function selectOption() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  变量：pageContext
 		success: function (data) {
-			selectlist = data;   //  todo  展示所有的option 选择
+			if(data.status=="success"){
+				selectlist = data.message;   //  todo  展示所有的option 选择
+			}else{
+				alert(data.message);
+			}
+
+
 		},
 		complete: function () {
 			PoolGeneralHtml();

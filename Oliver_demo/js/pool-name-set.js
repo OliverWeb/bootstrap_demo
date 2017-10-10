@@ -70,42 +70,50 @@ $("body").on("click",".pool_delete",function() {
 //未加载数据进行处理方法;
 function join_server(){
 	$.ajax({     //返回所有池的名称
-		url: pageContext+"/config/getserverslist",               // todo 请求所有池数据  变量:pageContext
+		url:"./json/pool_all.json",         // todo 请求所有池数据  变量:pageContext
 		contentType: "application/json",
 		type: "get",
 		// data:JSON.stringify({"name":name,"pwd":pwd}),
 		dataType: "json",
 		success:function(data){
-			if(click_index!=-1){     //页面初始数据     新添加的数据,未加载的要进行全部显示
-				if(click_index+1>_data_length) {
-					console.log("进来了");
-					data_no=data.servers;
+			if(data.status=="success"){
+				data=data.message;
+				console.log(data);
+				if(click_index!=-1){     //页面初始数据     新添加的数据,未加载的要进行全部显示
+					if(click_index+1>_data_length) {
+						console.log("进来了");
+						data_no=data.servers;
+					}else{
+						var data_did = _data_server_list;
+						console.log("已经加入的数据的个数:" + data_did.length);    //已加入数据的个数
+						console.log("这里数据总的个数:" + data.servers.length); //总的数据个数
+						var data_no = data.servers.filter(
+							function (e) {
+								return data_did.indexOf(e) < 0;
+							});
+					}
 				}else{
-					var data_did = _data_server_list;
-					console.log("已经加入的数据的个数:" + data_did.length);    //已加入数据的个数
-					console.log("这里数据总的个数:" + data.servers.length); //总的数据个数
-					var data_no = data.servers.filter(
-						function (e) {
-							return data_did.indexOf(e) < 0;
-						});
+					console.log("数据被清空");
+					data_did=[];
+					data_no=data.servers;
 				}
+				console.log("未加入数据的个数"+data_no.length);  //未加入的数据的个数
+				//将未加入的数据进行遍历
+				data_no.map(function(value,key){
+					$('.multi-select').append($("<option value='" +
+						value +
+						"'"  +
+						"selected"+
+						">" +
+						value+
+						"</option>"));
+				});
+				$('.multi-select').multiSelect('refresh'); //刷新多选下拉标签
+
 			}else{
-				console.log("数据被清空");
-				data_did=[];
-				data_no=data.servers;
+				alert(data.message);
 			}
-			console.log("未加入数据的个数"+data_no.length);  //未加入的数据的个数
-			//将未加入的数据进行遍历
-			data_no.map(function(value,key){
-				$('.multi-select').append($("<option value='" +
-					value +
-					"'"  +
-					"selected"+
-					">" +
-					value+
-					"</option>"));
-			});
-			$('.multi-select').multiSelect('refresh'); //刷新多选下拉标签
+
 		},
 		error:function(){
 			console.log("服务器异常");
@@ -132,26 +140,32 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
 		$.ajax({
 			type: "POST",
 			dataType: "json", //服务端接收的数据类型
-			url: pageContext+"/mcrouter/getmcrouterconfig",               // 用pool_name 进行请求地址
+			url: "./json/pool_name.json",               // 用pool_name 进行请求地址
 			data: "poolname="+pool_input_name,
 			success: function(data) {
-				_data_server_list=data;       //这里_data为
-				if(click_index!=-1){                  //得到总的key值
-					$('.multi-select').empty();//清空下拉标签
-					if(_data_length>click_index){
-						console.log("点击的下标:"+click_index);      //对已添加的数量进行判断
-						_data_server_list.map(function(value,key){
-							$('.multi-select').append($("<option value='" +
-								value +
-								"'"  +
-								">" +
-								value+
-								"</option>"));
-						});
+				if(data.status=="success"){
+					data=data.message;
+					_data_server_list=data;       //这里_data为
+					if(click_index!=-1){                  //得到总的key值
+						$('.multi-select').empty();//清空下拉标签
+						if(_data_length>click_index){
+							console.log("点击的下标:"+click_index);      //对已添加的数量进行判断
+							_data_server_list.map(function(value,key){
+								$('.multi-select').append($("<option value='" +
+									value +
+									"'"  +
+									">" +
+									value+
+									"</option>"));
+							});
+						}
+					}else{
+						$('.multi-select').empty();//清空下拉标签
 					}
 				}else{
-					$('.multi-select').empty();//清空下拉标签
+					alert(data.message);
 				}
+
 			},
 			complete:function(){
 				join_server();     //加载去servers列表数据请求
@@ -182,16 +196,22 @@ $('body').on("click", ".pool_view", function() {
 		$.ajax({
 			type: "POST",
 			dataType: "json", //服务端接收的数据类型
-			url: pageContext,               // 用poolname获取servers进行请求地址(用户查看信息)
+			url: "./json/pool_name.json",               // 用poolname获取servers进行请求地址(用户查看信息)
 			data: "poolname="+pool_input_name_view,
 			success: function(data) {
-				_data_server_list=data;           //这里_data为
-				if(view_key<_data_length){
-					_data_server_list.map(function(value, key) {
-						var view_list =`<li>${value}</li>`;
-						$('.view_list').append(view_list);
-					});
+				if(data.status=="success"){
+					data=data.message;
+					_data_server_list=data;           //这里_data为
+					if(view_key<_data_length){
+						_data_server_list.map(function(value, key) {
+							var view_list =`<li>${value}</li>`;
+							$('.view_list').append(view_list);
+						});
+					}
+				}else{
+					alert(data.message);
 				}
+
 			},
 			error: function() {
 				console.log("提交异常");
@@ -266,15 +286,17 @@ $('body').on("click", ".pool_submit_btn", function() {
 function pool_name(){
 	$('.pool_set_box').empty();
 	$.ajax({
-		url: pageContext+"/config/getMcrouterSharedPoolsList",                // todo 第一次仅请求池的名称地址--- 路径:pageContext
+		url: "./json/pool_name.json",                // todo 第一次仅请求池的名称地址--- 路径:pageContext
 		contentType: "application/json",
 		type: "get",
 		// data:JSON.stringify({"name":name,"pwd":pwd}),
 		dataType: "json",
-		success: function(data) {
-			_data_length=data.length;     //返回数据的长度
-			data.map(function(value, key) {
-				var pool_name_html =`  <tr class="pool_set">
+		success: function(data){
+			if(data.status=="success"){
+				data=data.message;
+				_data_length=data.length;     //返回数据的长度
+				data.map(function(value, key) {
+					var pool_name_html =`  <tr class="pool_set">
               <td class="" width="45%">
                   <div class="" style="width:30%;display:inline-block;">
                       <form  id="pool" class="" method="post">
@@ -286,8 +308,12 @@ function pool_name(){
               <td><a class="pool_edit" key=${key} href="javascript:;"><span class="label label-success">Edit</span></a></td>
               <td><a class="pool_view" key=${key} href="javascript:;"><span class="label label-primary">Detail</span></a></td>
             </tr>`;
-				$('.pool_set_box').append(pool_name_html);
-			});
+					$('.pool_set_box').append(pool_name_html);
+				});
+			}else{
+				alert(data.message);
+			}
+
 		},
 		error: function() {
 			console.log("服务器异常");

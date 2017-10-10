@@ -1,1 +1,35 @@
-{}
+{
+  "name": "222",
+  "wildcard": [
+	{
+	  "cold": "pool01",
+	  "warm": "pool11"
+	},
+	{
+	  "cold": "pool03",
+	  "warm": "pool22"
+	},"pool33","pool44","pool55"
+  ],
+  "policies": {
+	"策略01": [
+	  {
+		"cold": "pool04",
+		"warm": "pool33"
+	  },
+	  {
+		"cold": "pool02",
+		"warm": "pool55"
+	  },"pool66"
+	],
+	"策略02": [
+	  {
+		"cold": "pool03",
+		"warm": "pool44"
+	  },
+	  {
+		"cold": "pool05",
+		"warm": "pool11"
+	  },"pool66","pool77"
+	]
+  }
+}
