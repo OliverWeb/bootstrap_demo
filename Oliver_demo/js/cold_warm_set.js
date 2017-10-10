@@ -32,6 +32,7 @@ function PoolGeneralHtml() {
 
 			/* todo 默认路由配置*/
 			var wildcardLength = data.wildcard.length;
+			var default_type_key=0;
 			data.wildcard.map(function (value, key) {             //默认路由配置
 				if(typeof (value)=="object"){
 					return wildardHtml = wildardHtml + `<tr class="select_option_box">
@@ -56,8 +57,9 @@ function PoolGeneralHtml() {
                                 <span class="label label-danger">Delete</span>
                             </a>
                           </td>
-                      </tr>`
-				}else{
+                      </tr>`;
+					default_type_key++;
+				}else if(value!="===请选择==="){
 					/*添加默认的路由*/
 					return   default_wildardHtml=default_wildardHtml+`<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}"> 
@@ -84,11 +86,14 @@ function PoolGeneralHtml() {
 			for (var key in data.policies) { // todo  进行循环有多少个策略
 				var policy_router_arr = [];   //将数组进行判空
 				operatePolicyChildHTml = "";    //将策略中的select 进行清空
+				operate_default_wildardHtml="";   //默认策略的添加
 				// console.log("属性：" + key + ",值："+ data.policies[key]);
 				policy_router_arr = data.policies[key];
 
 				policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
-					operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
+
+					if(typeof (value)==="object"){
+						operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
                                    <td style="padding-left:0;">
                                    		<a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Cold</span>
@@ -112,8 +117,25 @@ function PoolGeneralHtml() {
                                      
                                    </td>
                                  </tr>`;
+					}else if(value!="===请选择==="){
+						operate_default_wildardHtml=operate_default_wildardHtml+`<tr class="select_option_box">
+											<td  style="padding-left:0;" key="${key}"> 
+                            <a href="javascript:;" class="add_backup">
+															<span class="label label-success">Warm</span>
+														</a>
+														<div class="form-group" style="display:inline-block">
+													      <select key="${index}" data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+													        ${routeOperateHtml_warm}
+													      </select>
+													   </div> 
+														<a href="javascript:;" class="delte_route_operate_default">
+                                <span class="label label-danger">Delete</span>
+                            </a>
+                          </td>
+                      </tr>`;
+					}
 				});
-				operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
+				operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="parent_box add_strategy_box table table-striped table-hover table-bordered"  align="center">   
                   <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
@@ -148,7 +170,26 @@ function PoolGeneralHtml() {
                        </table>
                       </td>
                     </tr>
-                    <tr >
+                    
+                    <!--策略中添加变量-->
+                    <tr>
+                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
+                    <td class="" style="text-align:left;">
+                    <table class="">
+                      <tbody class="add_defalut_box">
+                       		${operate_default_wildardHtml}
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:left;">
+                      <a href="javascript:;" class="add_default_router">
+                        <span class="label label-success" >添加服务器</span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr >
                       <td colspan="2">
                         <a href="javascript:;" class="delte_policy">
                             <span class="label label-danger">删除该策略</span>
@@ -179,7 +220,7 @@ function PoolGeneralHtml() {
               <!--默认池end-->
               <table class="table table-striped table-hover table-bordered"  align="center">
               		<caption class="mcrouter_title">默认路由配置</caption>
-                <tbody class="add_defalut_html">
+                <tbody class="parent_box add_defalut_html">
                   <tr>
                     <td class="" style="width:20%;" rowspan="2" >路由操作</td>
                     <td class="" style="text-align:left;">
@@ -201,8 +242,8 @@ function PoolGeneralHtml() {
                   <tr>
                     <td class="" style="width:20%;" rowspan="2" >默认路由</td>
                     <td class="" style="text-align:left;">
-                    <table class="add_server_one">
-                      <tbody class="add_server_one_body" id="route_operate">
+                    <table class="add_defalut_content">
+                      <tbody class="add_defalut_box">
                        		${default_wildardHtml}
                       </tbody>
                     </table>
@@ -210,7 +251,7 @@ function PoolGeneralHtml() {
                   </tr>
                   <tr>
                     <td style="text-align:left;">
-                      <a href="javascript:;" class="add_server_btn">
+                      <a href="javascript:;" class="add_default_router">
                         <span class="label label-success" >添加服务器</span>
                       </a>
                     </td>
@@ -232,21 +273,28 @@ function PoolGeneralHtml() {
 			$(".general_set_box").append(general_set_data);
 			$('.option-search').selectpicker('refresh');
 			//对路由池操作的进行选定,默认路由进行操作选中
+			var deault_key=0;
 			data.wildcard.map(function (value, key) {
-
-				$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
-				$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
+				if(typeof (value)=="object"){
+					$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
+					$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
+					deault_key++;
+				}else{
+					$('.add_defalut_content tr').eq(key-deault_key).find("select").selectpicker('val', value);
+				}
 			});
 			// todo 对操作路由进行选定
 			routerPolicyKey = 0;
-
 			for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
-
+				var deault_policy_key=0;
 				data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
-
-					$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
-					$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
-
+					if(typeof (value)=="object"){
+						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
+						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
+						deault_policy_key++;
+					}else{
+						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_defalut_box").find(".select_option_box").eq(key-deault_policy_key).find("select").selectpicker('val', value);
+					}
 				});
 				routerPolicyKey++;
 			}
@@ -290,6 +338,28 @@ $(function () {
 $('body').on("click", ".delte_route_operate_default", function () {
 	$(this).parent().parent().remove();
 });
+//添加默认路由数据
+$("body").on("click", ".add_default_router", function () {
+	var  warm_index=$(this).parents(".parent_box").find("[data-type=warm]").length;
+
+	var default_router_child=`<tr class="select_option_box">
+											<td  style="padding-left:0;" > 
+                            <a href="javascript:;" class="add_backup">
+															<span class="label label-success">Warm</span>
+														</a>
+														<div class="form-group" style="display:inline-block">
+													      <select key=${warm_index} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+													        ${routeOperateHtml_warm}
+													      </select>
+													   </div> 
+														<a href="javascript:;" class="delte_route_operate_default">
+                                <span class="label label-danger">Delete</span>
+                            </a>
+                          </td>
+                      </tr>`;
+	$(this).parent().parent().prev().find(".add_defalut_box").append(default_router_child);
+	$('.selectpicker').selectpicker('refresh');
+});
 // 添加路由前缀名称的一条数据
 $("body").on("click", ".add_server_btn", function () {
 	var add_num = $(this).parent().parent().prev().find(".select_option_box").length;
@@ -308,7 +378,7 @@ $("body").on("click", ".add_server_btn", function () {
 				<span class="label label-success">Warm</span>
 			</a>
 			<div class="form-group" style="display:inline-block">
-		      <select key=${add_num} data-size="9" data-type="cold" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+		      <select key=${add_num} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
 		        ${routeOperateHtml_warm}
 		      </select>
 		  </div> 
@@ -326,7 +396,7 @@ $("body").on('click', '.delte_policy', function () {
 });
 //添加策略
 $('body').on("click", ".add_strategy", function () {
-	var addstrategy = `<table class="add_strategy_box table table-striped table-hover table-bordered"  align="center">
+	var addstrategy = `<table class="parent_box add_strategy_box table table-striped table-hover table-bordered"  align="center">
                   <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
@@ -358,7 +428,7 @@ $('body').on("click", ".add_strategy", function () {
                                          <span class="label label-success">Warm</span>
                                      	</a>
                                      	<div class="form-group" style="display:inline-block">
-																		      <select key="0" data-size="9" data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		      <select key="0" data-size="9" data-type="warm" class="selectpicker option-search" data-live-search="true" title="===请选择===">
 																		        ${routeOperateHtml_warm}
 																		      </select>
 																		  </div>
@@ -385,6 +455,25 @@ $('body').on("click", ".add_strategy", function () {
                        </table>
                       </td>
                     </tr>
+                    <!--添加一条策略-->
+                    <tr>
+                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
+                    <td class="" style="text-align:left;">
+                    <table class="">
+                      <tbody class="add_defalut_box">
+                       		
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:left;">
+                      <a href="javascript:;" class="add_default_router zz">
+                        <span class="label label-success" >添加服务器</span>
+                      </a>
+                    </td>
+                  </tr>
+                    
                     <tr >
                       <td colspan="2">
                         <a href="javascript:;" class="delte_policy">
@@ -416,16 +505,24 @@ $('body').on("click", '.submit_general_set_data', function () {
 				judge_router_reporte=true;        /*默认路由操作判断*/
 		}
 	});
+	/*默认路由的配置中的默认路由进行提交*/
+	$('.add_defalut_content .add_defalut_box tr').map(function(key,value){
+		if($(value).find("select").val()!=""){
+			router_selected.push($(value).find("select").val());
+		}
+	});
+  // console.log(router_selected);
 	/*冷暖池处理对象 end*/
 	// todo 操作策略参数操作数据传参数
 	var policyArr = [],
 		  Routepool = [];
 			policiesArr={};
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
+		// console.log($(value).find(".operate_policy").find("input.pre_router_name").val());
 		router_policy=[];
 		Routepool = [];
-		if($(value).find("input.pre_router_name").val()!=""){
-			$(value).find("tr.select_option_box").map(function (key, value) {   //对操作策略子内容进行处理
+		if($(value).find(".operate_policy").find("input.pre_router_name").val()!=""){
+			$(value).find(".operate_policy").find(".add_server_one_body tr").map(function (key, value) {   //对操作策略子内容进行处理
 				if($(value).find("select").eq(0).val()!="" && $(value).find("select").eq(1).val()!=""){
 					router_policy_obj={};
 					router_policy_obj.type="WarmUpRoute";
@@ -437,7 +534,14 @@ $('body').on("click", '.submit_general_set_data', function () {
 					judge_polic_option=1;
 				}
 			});
-			policiesArr[$(value).find("input.pre_router_name").val()]=router_policy;
+
+				$(value).find(".add_defalut_box tr").map(function (key,value) {
+					if($(value).find("select").val()!="") {
+						router_policy.push("PoolRoute|"+$(value).find("select").val());
+					}
+				});
+
+			policiesArr[$(value).find(".operate_policy").find("input.pre_router_name").val()]=router_policy;
 			judge_polic_name=0
 		}else{
 			judge_polic_name=1;
@@ -445,7 +549,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 
 	});
 	/* 判断内容是否可以满足提交的需求  start*/
-  console.log(judge_polic_name);
+  // console.log(judge_polic_name);
 	 if(route_prefix_title==""){
 		 alert("请填写路由前缀名称");
 	 }else if (router_selected.length == 0) {
@@ -484,32 +588,60 @@ $('body').on("click", '.submit_general_set_data', function () {
 		});
 	}
 });
-/*对于选着重复option事情的处理*/
+/*对于选择重复option事情的处理*/
 $(function () {
 	$('body').on('shown.bs.select', '.selectpicker', function (e) {    //当选择页面出现的时候进行一个逻辑处理
 		$('.selectpicker').selectpicker('refresh');
 		var _this = this;
+
 		var arr_select = [];
 		var selectIndex = $(this).attr("key");      //获取当前被选中的内容,
-		var tr_length = $(this).parent().parent().parent().parent().find("tr");      //  将所有的tr进行遍历
-		tr_length.map(function (key, value) {
-			if (key != selectIndex) {
-				if ($(value).find('.filter-option').html() != "===请选择===") {
-					console.log($(_this).data("type"));
-
-					var arr_optioned = $(value).find('.filter-option').html();
-				} else {
-					var arr_optioned = "pool";       /*默认操作的特殊处理*/
+		console.log("下标"+selectIndex);
+		/*这里是冷池的操作*/
+		// console.log($(_this).data("type"));
+		/*这里是冷池*/
+		if($(_this).data("type")=="cold"){
+			var tr_length = $(this).parent().parent().parent().parent().find("tr");      //  将所有的tr进行遍历
+			// console.log(tr_length);
+			tr_length.map(function (key, value) {
+				if (key != selectIndex) {      /*这里是遍历出自己本身内容*/
+					if ($(value).find('.filter-option').html() != "===请选择===") {
+						// console.log($(_this).data("type"));
+						var arr_optioned = $(value).find('.filter-option').html();
+					} else {
+						var arr_optioned = "pool";       /*默认操作的特殊处理*/
+					}
+					arr_select.push(arr_optioned);          //已经被选中的的加入这个数组
 				}
-				arr_select.push(arr_optioned);          //已经被选中的的加入这个数组
-			}
-		});
+			});
+			arr_select.map(function (value, key) {
+				$(_this).find('[value=' + value + ']').hide();
+				$('.selectpicker').selectpicker('refresh');
+			});
 
-		arr_select.map(function (value, key) {
-			$(_this).find('[value=' + value + ']').hide();
-			$('.selectpicker').selectpicker('refresh');
-		});
+		}else{
+			/*这里是对warm进行去重*/
+			var  tr_length= $(this).parents(".parent_box ").find("[data-type=warm]");
+			// console.log(tr_length);
+			tr_length.map(function (key, value) {
+				if (key != selectIndex) {      /*这里是遍历出自己本身内容*/
+					if ($(value).val()!= "") {
+						// console.log($(_this).data("type"));
+						var arr_optioned = $(value).val();
+					} else {
+						var arr_optioned = "pool";       /*默认操作的特殊处理*/
+					}
+					arr_select.push(arr_optioned);          //已经被选中的的加入这个数组
+				}
+			});
+			// console.log(arr_select);
+			arr_select.map(function (value, key) {
+				$(_this).find('[value=' + value + ']').hide();
+				$('.selectpicker').selectpicker('refresh');
+			});
+		}
 	});
+
 	/*操作策略的的名字不能重复*/
 	$('body').on('blur','.pre_router_name',function () {
 		$(this).removeClass("inputVal");
