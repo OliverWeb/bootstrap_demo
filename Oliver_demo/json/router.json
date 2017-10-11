@@ -1,10 +1,13 @@
 {
-  "name": "/cache-center/mcroutersetup/normall",
-  "wildcard": ["pool01","pool04"],
-  "policies": {
-	"策略1": ["pool01","pool04"],
-	"策略2": ["pool02","pool03"]
-  }
+  "message": {
+	"name": "/cache-center/mcroutersetup/normall",
+	"wildcard": ["pool01","pool04"],
+	"policies": {
+	  "策略1": ["pool01","pool04"],
+	  "策略2": ["pool02","pool03"]
+	}
+  },
+  "status":"success"
 }
 
 

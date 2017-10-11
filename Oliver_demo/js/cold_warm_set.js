@@ -7,35 +7,38 @@ function PoolGeneralHtml() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/cold_warm.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
-			if (JSON.stringify(data) == "{}") {
-				data = {
-					"name": "''",
-					"wildcard": ["===请选择==="],
-					"policies": {
-						"''": ["===请选择==="]
-					}
-				};
-			}
+			if(data.status=="success"){
+				if (data.message=="") {
+					data = {
+						"name": "''",
+						"wildcard": [{}],
+						"policies": {
+							"''": [{}]
+						}
+					};
+				}else{
+					data=data.message;
+				}
 
-			routeOperateHtml_cold = "";
-			routeOperateHtml_warm = "";
-			wildardHtml = "";
-			default_wildardHtml = "";
-			/* todo 加载所有option */
-			defaultSelect = selectlist;      //默认路由配置中的数组
-			defaultSelect.cold.map(function (value, key) {             // todo 每个遍历所有option
-				return routeOperateHtml_cold = routeOperateHtml_cold + `<option value=${value} key=${key}>${value}</option>`;
-			});
-			defaultSelect.warm.map(function (value, key) {             // todo 每个遍历所有option
-				return routeOperateHtml_warm = routeOperateHtml_warm + `<option value=${value} key=${key}>${value}</option>`;
-			});
+				routeOperateHtml_cold = "";
+				routeOperateHtml_warm = "";
+				wildardHtml = "";
+				default_wildardHtml = "";
+				/* todo 加载所有option */
+				defaultSelect = selectlist;      //默认路由配置中的数组
+				defaultSelect.cold.map(function (value, key) {             // todo 每个遍历所有option
+					return routeOperateHtml_cold = routeOperateHtml_cold + `<option value=${value} key=${key}>${value}</option>`;
+				});
+				defaultSelect.warm.map(function (value, key) {             // todo 每个遍历所有option
+					return routeOperateHtml_warm = routeOperateHtml_warm + `<option value=${value} key=${key}>${value}</option>`;
+				});
 
-			/* todo 默认路由配置*/
-			var wildcardLength = data.wildcard.length;
-			var default_type_key=0;
-			data.wildcard.map(function (value, key) {             //默认路由配置
-				if(typeof (value)=="object"){
-					return wildardHtml = wildardHtml + `<tr class="select_option_box">
+				/* todo 默认路由配置*/
+				var wildcardLength = data.wildcard.length;
+				var default_type_key=0;
+				data.wildcard.map(function (value, key) {             //默认路由配置
+					if(typeof (value)=="object"){
+						return wildardHtml = wildardHtml + `<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}">
 													<a href="javascript:;" class="add_backup">
 															<span class="label label-success">Cold</span>
@@ -58,10 +61,10 @@ function PoolGeneralHtml() {
                             </a>
                           </td>
                       </tr>`;
-					default_type_key++;
-				}else if(value!="===请选择==="){
-					/*添加默认的路由*/
-					return   default_wildardHtml=default_wildardHtml+`<tr class="select_option_box">
+						default_type_key++;
+					}else if(value!="===请选择==="){
+						/*添加默认的路由*/
+						return   default_wildardHtml=default_wildardHtml+`<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}"> 
                             <a href="javascript:;" class="add_backup">
 															<span class="label label-success">Warm</span>
@@ -77,23 +80,23 @@ function PoolGeneralHtml() {
                           </td>
                       </tr>`;
 
-				}
-			});
-			/* todo 操作策略变量*/
-			var operatePolicyHTml = "",
-				policy_router_index = 0,       //  浅醉路由的的名称下标
-				RouterPolicyIndex = 0;         //  操作策略的--table--子内容的下标
-			for (var key in data.policies) { // todo  进行循环有多少个策略
-				var policy_router_arr = [];   //将数组进行判空
-				operatePolicyChildHTml = "";    //将策略中的select 进行清空
-				operate_default_wildardHtml="";   //默认策略的添加
-				// console.log("属性：" + key + ",值："+ data.policies[key]);
-				policy_router_arr = data.policies[key];
+					}
+				});
+				/* todo 操作策略变量*/
+				var operatePolicyHTml = "",
+					policy_router_index = 0,       //  浅醉路由的的名称下标
+					RouterPolicyIndex = 0;         //  操作策略的--table--子内容的下标
+				for (var key in data.policies) { // todo  进行循环有多少个策略
+					var policy_router_arr = [];   //将数组进行判空
+					operatePolicyChildHTml = "";    //将策略中的select 进行清空
+					operate_default_wildardHtml="";   //默认策略的添加
+					// console.log("属性：" + key + ",值："+ data.policies[key]);
+					policy_router_arr = data.policies[key];
 
-				policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
+					policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
 
-					if(typeof (value)==="object"){
-						operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
+						if(typeof (value)==="object"){
+							operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
                                    <td style="padding-left:0;">
                                    		<a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Cold</span>
@@ -117,8 +120,8 @@ function PoolGeneralHtml() {
                                      
                                    </td>
                                  </tr>`;
-					}else if(value!="===请选择==="){
-						operate_default_wildardHtml=operate_default_wildardHtml+`<tr class="select_option_box">
+						}else if(value!="===请选择==="){
+							operate_default_wildardHtml=operate_default_wildardHtml+`<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}"> 
                             <a href="javascript:;" class="add_backup">
 															<span class="label label-success">Warm</span>
@@ -133,9 +136,9 @@ function PoolGeneralHtml() {
                             </a>
                           </td>
                       </tr>`;
-					}
-				});
-				operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="parent_box add_strategy_box table table-striped table-hover table-bordered"  align="center">   
+						}
+					});
+					operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="parent_box add_strategy_box table table-striped table-hover table-bordered"  align="center">   
                   <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
@@ -197,10 +200,10 @@ function PoolGeneralHtml() {
                     </tr>
                   </tbody>
                 </table>`;
-			}
-			//策略end
-			//整个布局变量
-			var general_set_data = `<div class="adv-table editable-table">     
+				}
+				//策略end
+				//整个布局变量
+				var general_set_data = `<div class="adv-table editable-table">     
               <table class="table table-striped table-hover table-bordered"  align="center">
                 <caption class="mcrouter_title">路由前缀</caption>
                 <tbody>
@@ -270,35 +273,39 @@ function PoolGeneralHtml() {
                 <span class="label label-success">保存</span>
               </a>
             </div>`;
-			$(".general_set_box").append(general_set_data);
-			$('.option-search').selectpicker('refresh');
-			//对路由池操作的进行选定,默认路由进行操作选中
-			var deault_key=0;
-			data.wildcard.map(function (value, key) {
-				if(typeof (value)=="object"){
-					$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
-					$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
-					deault_key++;
-				}else{
-					$('.add_defalut_content tr').eq(key-deault_key).find("select").selectpicker('val', value);
-				}
-			});
-			// todo 对操作路由进行选定
-			routerPolicyKey = 0;
-			for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
-				var deault_policy_key=0;
-				data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
+				$(".general_set_box").append(general_set_data);
+				$('.option-search').selectpicker('refresh');
+				//对路由池操作的进行选定,默认路由进行操作选中
+				var deault_key=0;
+				data.wildcard.map(function (value, key) {
 					if(typeof (value)=="object"){
-						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
-						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
-						deault_policy_key++;
+						$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
+						$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
+						deault_key++;
 					}else{
-						$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_defalut_box").find(".select_option_box").eq(key-deault_policy_key).find("select").selectpicker('val', value);
+						$('.add_defalut_content tr').eq(key-deault_key).find("select").selectpicker('val', value);
 					}
 				});
-				routerPolicyKey++;
+				// todo 对操作路由进行选定
+				routerPolicyKey = 0;
+				for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
+					var deault_policy_key=0;
+					data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
+						if(typeof (value)=="object"){
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
+							deault_policy_key++;
+						}else{
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_defalut_box").find(".select_option_box").eq(key-deault_policy_key).find("select").selectpicker('val', value);
+						}
+					});
+					routerPolicyKey++;
+				}
+				//操作路由选定结束
+			}else{
+				alert(data.message);
 			}
-			//操作路由选定结束
+
 		},
 		error: function () {
 			console.log("常规设置请求异常");
@@ -313,7 +320,15 @@ function selectOption() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/routerlist.json",               // 请求选择框中的所有选项option  变量：pageContext
 		success: function (data) {
-			selectlist = data;   //  todo  展示所有的option 选择
+			if(data.status=="success"){
+				if(data.message!=""){
+					data=data.message;
+					selectlist = data;   //  todo  展示所有的option 选择
+				}
+			}else{
+				alert(data.message);
+			}
+
 		},
 		complete: function () {
 			PoolGeneralHtml();
@@ -562,10 +577,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 		 alert("操作路由池没有进行选择");
 	} else {
 	 	if(JSON.stringify(policiesArr)=="{}"){
-	 		var datas={
-			  "name": route_prefix_title,
-			  "wildcard": JSON.stringify(router_selected)
-		  }
+	 		alert("请添加策略");
 	  }else{
 		  var datas = {
 			  "name": route_prefix_title,
@@ -581,6 +593,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 			data: datas,
 			success: function (data) {
 				console.log("提交成功");
+
 			},
 			error: function () {
 				console.log("提交出现异常");

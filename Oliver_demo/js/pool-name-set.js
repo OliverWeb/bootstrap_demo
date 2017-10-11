@@ -46,15 +46,26 @@ $("body").on("click",".pool_delete",function() {
 		      $.ajax({
 		       type: "POST",
 		       dataType: "json", //服务端接收的数据类型
-		       url: pageContext,               // todo   点击删除   进行提交地址
+		       url: "./json/copy.json",               // todo   点击删除   进行提交地址
 		       data: datas,
-		       success: function(result) {
-		          console.log(result);
-			         $(_this).parent().parent().remove();
-			         setTimeout(function(){location.reload()},100);
+		       success: function(data) {
+		           if(data.status=="success"){
+			           $(_this).parent().parent().remove();
+			           setTimeout(function(){location.reload()},100);
+		           }else{
+			           $('.tip-message').html(data.message);
+			           $('#messageModal').modal('show');
+			           setTimeout(function(){
+				           $('#messageModal').modal('hide');
+			           },1000);
+		           };
 		       },
 		       error: function() {
-		         console.log("删除提交异常");
+			       $('.tip-message').html("服务器异常");
+			       $('#messageModal').modal('show');
+			       setTimeout(function(){
+				       $('#messageModal').modal('hide');
+			       },1000);
 		       }
 		      });
 	      }else{
@@ -116,7 +127,11 @@ function join_server(){
 
 		},
 		error:function(){
-			console.log("服务器异常");
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
 		}
 	});
 }
@@ -150,14 +165,16 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
 						$('.multi-select').empty();//清空下拉标签
 						if(_data_length>click_index){
 							console.log("点击的下标:"+click_index);      //对已添加的数量进行判断
-							_data_server_list.map(function(value,key){
-								$('.multi-select').append($("<option value='" +
-									value +
-									"'"  +
-									">" +
-									value+
-									"</option>"));
-							});
+							if(JSON.stringify(_data_server_list) != "{}"){
+								_data_server_list.map(function(value,key){
+									$('.multi-select').append($("<option value='" +
+										value +
+										"'"  +
+										">" +
+										value+
+										"</option>"));
+								});
+							};
 						}
 					}else{
 						$('.multi-select').empty();//清空下拉标签
@@ -171,7 +188,11 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
 				join_server();     //加载去servers列表数据请求
 			},
 			error: function() {
-				console.log("编辑获取提交异常");
+				$('.tip-message').html("编辑获取异常");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
 			}
 		});
 	}else{
@@ -186,11 +207,13 @@ $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进�
 });
 //  todo 查看加入列表信息 信息模态框
 $('body').on("click", ".pool_view", function() {
+	$(".viw_title").val("");
 	$('.view_list').empty();
 	$('#viewModal').modal('show');
 	var view_key=$(this).attr("key");   //点击的key值
 	pool_input_name_view=$(this).parent().prev().prev().find('.pool_input_name').val();
 	console.log(pool_input_name_view);
+	$(".viw_title").val(pool_input_name_view);
 	_data_server_list=[];
 	if(pool_input_name_view){
 		$.ajax({
@@ -214,7 +237,11 @@ $('body').on("click", ".pool_view", function() {
 
 			},
 			error: function() {
-				console.log("提交异常");
+				$('.tip-message').html("服务器异常");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
 			}
 		});
 	}
@@ -265,16 +292,30 @@ function fenpianchi_submit() {
   $.ajax({
     type: "POST",
     dataType: "json", //服务端接收的数据类型
-    url: pageContext,               // todo  点击保存提交的请求地址
+    url:"./json/demo.json",               // todo  点击保存提交的请求地址
     data: datas,
-    success: function(result) {
-      cnsole.log("保存成功");
+    success: function(data) {
+      if(data.status=="success"){
+	      $('.tip-message').html("保存成功");
+	      $('#messageModal').modal('show');
+	      setTimeout(function(){
+		      $('#messageModal').modal('hide');
+		      location.reload();
+	      },1000);
+      }else{
+	      $('.tip-message').html(data.message);
+	      $('#messageModal').modal('show');
+	      setTimeout(function(){
+		      $('#messageModal').modal('hide');
+	      },1000);
+      }
     },
-	  complete:function () {
-		  location.reload();        //保存后进行刷子你页面
-	  },
     error: function() {
-       console.log("提交异常");
+	    $('.tip-message').html("提交异常");
+	    $('#messageModal').modal('show');
+	    setTimeout(function(){
+		    $('#messageModal').modal('hide');
+	    },1000);
     }
   });
 };
@@ -295,8 +336,9 @@ function pool_name(){
 			if(data.status=="success"){
 				data=data.message;
 				_data_length=data.length;     //返回数据的长度
-				data.map(function(value, key) {
-					var pool_name_html =`  <tr class="pool_set">
+				if(JSON.stringify(data) != "{}"){
+					data.map(function(value, key) {
+						var pool_name_html =`  <tr class="pool_set">
               <td class="" width="45%">
                   <div class="" style="width:30%;display:inline-block;">
                       <form  id="pool" class="" method="post">
@@ -308,15 +350,21 @@ function pool_name(){
               <td><a class="pool_edit" key=${key} href="javascript:;"><span class="label label-success">Edit</span></a></td>
               <td><a class="pool_view" key=${key} href="javascript:;"><span class="label label-primary">Detail</span></a></td>
             </tr>`;
-					$('.pool_set_box').append(pool_name_html);
-				});
+						$('.pool_set_box').append(pool_name_html);
+					});
+				}
+
 			}else{
 				alert(data.message);
 			}
 
 		},
 		error: function() {
-			console.log("服务器异常");
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
 		}
 	});
 }

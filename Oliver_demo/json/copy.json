@@ -1,22 +1,7 @@
 {
-  "name": "路由前缀名称test",
-  "wildcard": [ {
-	"type": "PoolRoute",
-	"pool": "pool01",
-	"shadows": [{
-	  "target": "pool11",
-	  "index_range": [0, 2],
-	  "key_fraction_range": [0, 0.1]
-	}]}, {
-	"type": "PoolRoute",
-	"pool": "pool02",
-	"shadows": [{
-	  "target": "pool12",
-	  "index_range": [0, 2],
-	  "key_fraction_range": [0, 0.2]
-	}]}, "pool03", "pool04" ],
-  "policies": {
-	"a": [ {
+  "message": {
+	"name": "路由前缀名称test",
+	"wildcard": [ {
 	  "type": "PoolRoute",
 	  "pool": "pool01",
 	  "shadows": [{
@@ -29,23 +14,47 @@
 	  "shadows": [{
 		"target": "pool12",
 		"index_range": [0, 2],
-		"key_fraction_range": [0, 0.1]
+		"key_fraction_range": [0, 0.2]
 	  }]}, "pool03", "pool04" ],
-	"b": [ {
-	  "type": "PoolRoute",
-	  "pool": "pool05",
-	  "shadows": [{
-		"target": "pool03",
-		"index_range": [0, 2],
-		"key_fraction_range": [0, 0.1]
-	  }]}, {
-	  "type": "PoolRoute",
-	  "pool": "pool04",
-	  "shadows": [{
-		"target": "pool14",
-		"index_range": [0, 2],
-		"key_fraction_range": [0, 0.1]
-	  }]}, "pool06", "pool07" ]
+	"policies": {
+	  "a": [ {
+		"type": "PoolRoute",
+		"pool": "pool01",
+		"shadows": [{
+		  "target": "pool11",
+		  "index_range": [0, 2],
+		  "key_fraction_range": [0, 0.1]
+		}]}, {
+		"type": "PoolRoute",
+		"pool": "pool02",
+		"shadows": [{
+		  "target": "pool12",
+		  "index_range": [0, 2],
+		  "key_fraction_range": [0, 0.1]
+		}]}, "pool03", "pool04" ],
+	  "b": [ {
+		"type": "PoolRoute",
+		"pool": "pool05",
+		"shadows": [{
+		  "target": "pool03",
+		  "index_range": [0, 2],
+		  "key_fraction_range": [0, 0.1]
+		}]}, {
+		"type": "PoolRoute",
+		"pool": "pool04",
+		"shadows": [{
+		  "target": "pool14",
+		  "index_range": [0, 2],
+		  "key_fraction_range": [0, 0.1]
+		}]}, "pool06", "pool07" ]
 
-  }
+	}
+  },
+  "status":"success"
 }
+
+
+
+
+
+

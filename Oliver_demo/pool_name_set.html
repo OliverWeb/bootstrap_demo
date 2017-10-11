@@ -289,6 +289,26 @@
           </div>
       </div>
   </div>
+    <!--消息提示框-->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
+          </div>
+          <div class="modal-body">
+            <div class="tip-message" style="font-size: 16px"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger"  data-dismiss="modal">关闭</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   <!-- 查看信息模态框 -->
   <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -303,11 +323,14 @@
                 <table class="table table-striped table-hover table-bordered"  align="center">
                   <thead>
                     <tr>
-                      <th>已加入服务器</th>
+                      <th colspan="2">已加入服务器</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td style="width:15%;">
+                        <input disabled type="text" class="viw_title pool_name_title  form-control" value="">
+                      </td>
                       <td id="view_td">
                         <!-- multi-select 弹窗 start -->
                         <div class="view_contain">
@@ -330,7 +353,7 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
 </div>
   </section>
   <!-- END SECTION -->

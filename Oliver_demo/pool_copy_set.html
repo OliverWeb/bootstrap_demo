@@ -43,7 +43,7 @@
 			left: 0px; margin-left: -10px; top:-5px; cursor: pointer;border:1px #ddd solid;box-sizing:border-box;}
 		.node_progress_btn:hover{border-color:#F7B824;}
 		.add_backup_box{
-			width: 50%;
+			width: 55%;
 		}
 	</style>
 </head>
@@ -168,6 +168,21 @@
 		</section>
 	
 	</section>
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="tip-message" style="font-size: 16px;text-align: center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- BEGIN JS -->
