@@ -12,7 +12,7 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 				}else{
 					var IpValur=url.substring("ip".length+1);
 				}
-				console.log(IpValur);
+				// console.log(IpValur);
 				$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
 			}
 			/*赋值结束 end*/
@@ -28,7 +28,7 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 					}else{
 
 					}
-					console.log(data);
+					// console.log(data);
 				},
 		error:function (data) {
 			console.log("获取数据异常");
@@ -40,23 +40,51 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 		$('#add_mcrouter_modle').modal('show');
 	});
 	$(".add_servers_mcrouter").click(function(){
-		if("请求成功"){
-			var mcrouter_list=`
-    <tr>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    </tr>`;
-			$(".add_mcrouter_list").append(mcrouter_list);
-		}
+		if(false){
+			$('.tip-message').html("请将内容填写完整!!!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		};
+		var datas=$("form").serialize();
+		// console.log(datas);
+		data_ip=$('#ip1').val();
+		console.log(datas);
+			$.ajax({
+				type:"get",
+				url:"./json/mcrouter.json",               //页面初次加载数据请求的地址   根路径pageContext
+				success:function (data) {
+					if(data.status=="success"){
+						if(data.message!=""){
+							var mcrouter_list=`
+											    <tr>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    <td>1</td>
+											    </tr>`;
+							$(".add_mcrouter_list").append(mcrouter_list);
+							$('#add_server_modal').modal('hide');
+						}
+					}
+				},
+				error:function(){
+
+				}
+			});
+
+
+
+
 	});
 });
