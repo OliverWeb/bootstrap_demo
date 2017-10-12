@@ -303,12 +303,20 @@ function PoolGeneralHtml() {
 				}
 				//操作路由选定结束
 			}else{
-				alert(data.message);
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
 			}
 
 		},
 		error: function () {
-			console.log("常规设置请求异常");
+			$('.tip-message').html("常规设置请求异常");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
 		}
 	});
 };
@@ -326,7 +334,11 @@ function selectOption() {
 					selectlist = data;   //  todo  展示所有的option 选择
 				}
 			}else{
-				alert(data.message);
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
 			}
 
 		},
@@ -566,25 +578,32 @@ $('body').on("click", '.submit_general_set_data', function () {
 	/* 判断内容是否可以满足提交的需求  start*/
   // console.log(judge_polic_name);
 	 if(route_prefix_title==""){
-		 alert("请填写路由前缀名称");
+		 $('.tip-message').html("请填写路由前缀名称");
+		 $('#messageModal').modal('show');
 	 }else if (router_selected.length == 0) {
-		alert("请填写默认路由操作");
+		 $('.tip-message').html("请将默认路由配置填写完整!");
+		 $('#messageModal').modal('show');
 	}else if(judge_router_reporte){
-	 	  alert("请将路由填写完成");
+		 $('.tip-message').html("请将路由填写完成");
+		 $('#messageModal').modal('show');
 	 }else if(judge_polic_name==1 && judge_polic_option!=1){
-			alert("路由策略的名字为空");
+		 $('.tip-message').html("路由策略的名字为空");
+		 $('#messageModal').modal('show');
 	 }else if(judge_polic_name!=1 && judge_polic_option==1){
-		 alert("操作路由池没有进行选择");
+		 $('.tip-message').html("请选择操作路由池");
+		 $('#messageModal').modal('show');
 	} else {
-	 	if(JSON.stringify(policiesArr)=="{}"){
-	 		alert("请添加策略");
-	  }else{
-		  var datas = {
-			  "name": route_prefix_title,
-			  "wildcard": JSON.stringify(router_selected),
-			  "policies": policiesArr
+		  if(JSON.stringify(policiesArr)=="{}"){
+			  $('.tip-message').html("请将操作策略填写完整");
+			  $('#messageModal').modal('show');
+			  return;
+		  }else{
+			  var datas = {
+				  "name": route_prefix_title,
+				  "wildcard": JSON.stringify(router_selected),
+				  "policies": JSON.stringify(policiesArr)
+			  };
 		  };
-	  }
 		console.log(datas);
 		$.ajax({
 			type: "post",
@@ -592,11 +611,28 @@ $('body').on("click", '.submit_general_set_data', function () {
 			url: "./json/router.json",               // 提交地址 变量：pageContext
 			data: datas,
 			success: function (data) {
-				console.log("提交成功");
+				if(data.status=="success"){
+						$('.tip-message').html("保存成功");
+						$('#messageModal').modal('show');
+						setTimeout(function(){
+							$('#messageModal').modal('hide');
+							// location.reload()
+						},1000);
+				}else{
+					$('.tip-message').html(data.message);
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+					},1000);
+				}
 
 			},
 			error: function () {
-				console.log("提交出现异常");
+				$('.tip-message').html("提交异常");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
 			}
 		});
 	}
@@ -668,7 +704,8 @@ $(function () {
 
 		pre_router_name_arr.map(function (value,key) {
 			if(input_value==value){
-				alert(("前缀路由名字重复"));
+				$('.tip-message').html("前缀路由名字重复");
+				$('#messageModal').modal('show');
 				return false;
 			}
 

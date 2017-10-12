@@ -1,43 +1,53 @@
- $(document).ready(function() {
- 'use strict'; 
 
-           Morris.Area({
-            element: 'hero-area',
-            data: [{
-                period: '2005',
-                iphone: 2250
-            }, {
-                period: '2006',
-                iphone: 4550
-            }, {
-                period: '2007',
-                iphone: 7750
-            }, {
-                period: '2008',
-                iphone: 5750
-            }, {
-                period: '2009',
-                iphone: 10000
-            }, {
-                period: '2010',
-                iphone: 9000
-            }, {
-                period: '2011',
-                iphone: 8000
-            }, {
-                period: '2012',
-                iphone: 7000
-            }],
-            xkey: 'period',
-            ykeys: ['iphone'],
-            labels: ['iPhone'],
-            hideHover: 'auto',
-            lineWidth: 2,
-            pointSize: 10,
-            lineColors: ['#72d0eb'],
-           
-            fillOpacity: 1.0,
-            smooth: true
-		//pointFillColors: ['#00ff00']
-        });
-      });
+var myChart = echarts.init(document.getElementById('main'));
+option = {
+	title: {
+		text: '堆叠区域图'
+	},
+	tooltip: {
+		trigger: 'axis',
+		axisPointer: {
+			type: 'cross',
+			label: {
+				backgroundColor: '#6a7985'
+			}
+		}
+	},
+	legend: {
+		data: ['NODE']
+	},
+	toolbox: {
+		feature: {
+			saveAsImage: {}
+		}
+	},
+	grid: {
+		left: '3%',
+		right: '4%',
+		bottom: '3%',
+		containLabel: true
+	},
+	xAxis: [
+		{
+			type: 'category',
+			boundaryGap: false,
+			data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+		}
+	],
+	yAxis: [
+		{
+			type: 'value'
+		}
+	],
+	series: [
+
+		{
+			name: 'node',
+			type: 'line',
+			stack: '总量',
+			areaStyle: {normal: {}},
+			data: [110, 182, 191, 150, 130, 330, 310, 130, 152]
+		}
+	]
+};
+myChart.setOption(option);

@@ -241,7 +241,10 @@ function PoolGeneralHtml() {
 		  }
 		},
 		error: function () {
-			console.log("常规设置请求异常");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
 		}
 	});
 };
@@ -422,7 +425,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 		if($(value).find("select").eq(1).val()!=""&&$(value).find("select").eq(0).val()!=""){
 			router_selected_did.push({
 				"type": "PoolRoute",
-				"pool":  "PoolRoute|"+$(value).find("select").eq(0).val(),
+				"pool":  $(value).find("select").eq(0).val(),
 				"shadows": [{
 					"target": "PoolRoute|"+$(value).find("select").eq(1).val(),
 					"key_fraction_range": [0, $(value).find(".percentage").val()]
@@ -447,7 +450,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 				}else{
 					Routepool_did.push({
 						"type": "PoolRoute",
-						"pool":  "PoolRoute|"+$(value).find('select').eq(0).val(),
+						"pool":  $(value).find('select').eq(0).val(),
 						"shadows": [{
 							"target": "PoolRoute|"+$(value).find('select').eq(1).val(),
 							"index_range": [0, 2],
@@ -504,10 +507,9 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		});
 		if(JSON.stringify(dataobj)=="{}"){
-			var datas = {
-				"aliases": route_prefix_title,
-				"wildcard":JSON.stringify(router_selected_did),
-			};
+			$('.tip-message').html("请将操作策略填写完整");
+			$('#messageModal').modal('show');
+			return;
 		}else{
 			var datas = {
 				"aliases": route_prefix_title,
@@ -528,7 +530,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 						$('#messageModal').modal('show');
 						setTimeout(function(){
 							$('#messageModal').modal('hide');
-							location.reload()
+							location.reload();
 						},1000);
 					}
 				}else{

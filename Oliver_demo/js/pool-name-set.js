@@ -138,6 +138,11 @@ function join_server(){
 //模态框- 分片池设置, 进行选择已加入服务和未加入服务
 $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进行操作的
   pool_input_name=$(this).parent().prev().find('.pool_input_name').val();
+  if(pool_input_name==""){
+	  $('.tip-message').html("请填写池名称");
+	  $('#messageModal').modal('show');
+	  return;
+  }
 	$('.pool_name_title').val(pool_input_name);
   $('#setModal').modal('show');
   title_value=$(this).parent().prev().find("input").val();   //用于提交数据用

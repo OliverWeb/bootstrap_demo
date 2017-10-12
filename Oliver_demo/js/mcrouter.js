@@ -1,23 +1,33 @@
+var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 // Mcrouter js
 		$(function () {
 			/*获取链接*/
 			var url = window.location.search;
-//    alert(url.length);
-//    alert(url.lastIndexOf('='));
-			console.log(url);
-			var mcrouerIpsIndex=url.indexOf('mcrouerIps');
-			url=url.substring(mcrouerIpsIndex);
-			var 	IpsIndex=url.indexOf("&");
-			if(IpsIndex!=-1){
-				var IpValur=url.substring("mcrouerIps".length+1,IpsIndex);
+			var mcrouerIpsIndex=url.indexOf('ip');
+			if(mcrouerIpsIndex!=-1){
+				url=url.substring(mcrouerIpsIndex);
+				var 	IpsIndex=url.indexOf("&");
+				if(IpsIndex!=-1){
+					var IpValur=url.substring("ip".length+1,IpsIndex);
+				}else{
+					var IpValur=url.substring("ip".length+1);
+				}
+				console.log(IpValur);
+				$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
 			}
-			$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
 			/*赋值结束 end*/
 			/*页面进行请求咱咱先布局*/
 			$.ajax({
 				type:"get",
-				url:"./json/mcrouter.json",
+				url:"./json/mcrouter.json",               //页面初次加载数据请求的地址   根路径pageContext
 				success:function (data) {
+					if(data.status=="success"){
+						if(data.message!=""){
+
+						}
+					}else{
+
+					}
 					console.log(data);
 				},
 		error:function (data) {

@@ -14,17 +14,17 @@
   <title>Editable Table</title>
 
   <!-- BEGIN STYLESHEET -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/lib/bootstrap.min.css" rel="stylesheet">
   <!-- BOOTSTRAP CSS -->
-  <link href="css/bootstrap-reset.css" rel="stylesheet">
+  <link href="css/lib/bootstrap-reset.css" rel="stylesheet">
   <!-- BOOTSTRAP CSS -->
   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
   <!-- FONT AWESOME ICON STYLESHEET -->
 
   <!-- DATATABLE CSS -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/lib/style.css" rel="stylesheet">
   <!-- THEME BASIC CSS -->
-  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="css/lib/style-responsive.css" rel="stylesheet">
   <link href="css/pool-name-set.css" rel="stylesheet">
   <!-- THEME BASIC RESPONSIVE  CSS -->
   <!--[if lt IE 9]>
@@ -140,12 +140,12 @@
                   </a>
               </li>
               <li>
-                <a href="mcrouter.html">
+                <a href="mcrouterList.html">
                     Mcrouter节点
                   </a>
               </li>
               <li>
-                <a href="memcached.html">
+                <a href="memcachedList.html">
                     Memcache节点
                   </a>
               </li>
@@ -179,9 +179,9 @@
           <div class="panel-body">
             <div class="adv-table editable-table ">
               <div class="btn-group" style="margin-bottom:10px;">
-                <button id="add_servers" class="btn btn-success green" style="margin-right:8px;">
+               <!-- <button id="add_servers" class="btn btn-success green" style="margin-right:8px;">
                    刷新
-                </button>
+                </button>-->
                 <button id="add_mcrouter" class="btn btn-success green">
                    添加mcrouter实例<i class="fa fa-plus"></i>
                 </button>
@@ -228,47 +228,43 @@
                       <tbody>
                         <tr>
                             <td>日志文件路径</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="logPath" value="" placeholder="请输入日志文件路径"></td>
                         </tr>
                         <tr>
                             <td>处理客户端请求线程数量</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="numProxies" value="" placeholder="请输入处理客户端请求线程数量"></td>
                         </tr>
                         <tr>
                           <td>监听端口号</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="port" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>配置文件路径</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="configFile" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>默认路由前缀</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="routePrefix" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>大数据分段发送截取长度</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="bigValueSplitThreshold" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>客户端最大链接数</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="maxClientOutstandingRequest" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>是否开启流量控制</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
-                        <tr>
-                          <td>是否开启流量控制</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="destinationRateLimiting" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>限制发送请求的速度<br>(需开启流控)</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="targetMaxInflightRequest" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>未发送数据缓存最大值</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="targetMaxPendingRequests" value="" placeholder="请输入名称"></td>
                         </tr>
                       </tbody>
                     </table>

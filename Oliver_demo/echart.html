@@ -7,11 +7,11 @@
 	<meta name="author" content="Custom Theme">
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<title>Chart</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-	<link href="css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<link href="css/lib/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+	<link href="css/lib/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
 	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON STYLESHEET -->
-	<link href="css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
-	<link href="css/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
+	<link href="css/lib/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+	<link href="css/lib/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
 	<!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
 	<script src="js/lib/respond.min.js"></script>
@@ -126,12 +126,12 @@
 							</a>
 						</li>
 						<li>
-							<a href="mcrouter.html">
+							<a href="mcrouterList.html">
 								Mcrouter节点
 							</a>
 						</li>
 						<li>
-							<a href="memcached.html">
+							<a href="memcachedList.html">
 								Memcache节点
 							</a>
 						</li>
@@ -185,61 +185,7 @@
 <script src="js/lib/jquery.nicescroll.js"></script><!-- NICESCROLL JS  -->
 <script src="js/lib/respond.min.js"></script><!-- RESPOND JS  -->
 <script src="js/lib/common-scripts.js"></script><!-- BASIC COMMON JS  -->
-<script type="text/javascript">
-	var myChart = echarts.init(document.getElementById('main'));
-	option = {
-		title: {
-			text: '堆叠区域图'
-		},
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'cross',
-				label: {
-					backgroundColor: '#6a7985'
-				}
-			}
-		},
-		legend: {
-			data: ['NODE']
-		},
-		toolbox: {
-			feature: {
-				saveAsImage: {}
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis: [
-			{
-				type: 'category',
-				boundaryGap: false,
-				data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-			}
-		],
-		yAxis: [
-			{
-				type: 'value'
-			}
-		],
-		series: [
-
-			{
-				name: 'node',
-				type: 'line',
-				stack: '总量',
-				areaStyle: {normal: {}},
-				data: [110, 182, 191, 150, 130, 330, 310, 130, 152]
-			}
-		]
-	};
-	myChart.setOption(option);
-</script>
-<!-- END JS -->
+<script src="js/chart.js"></script><!-- BASIC COMMON JS  -->
 <script>
 	$(function () {
 		$('.node-sub').show();

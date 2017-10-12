@@ -5,15 +5,18 @@ $(function () {
 //    alert(url.lastIndexOf('='));
 	console.log(url);
 	var mcrouerIpsIndex=url.indexOf('mcrouerIps');
-	url=url.substring(mcrouerIpsIndex);
-	var 	IpsIndex=url.indexOf("&");
-	if(IpsIndex!=-1){
-		var IpValur=url.substring("mcrouerIps".length+1,IpsIndex);
-	}else{
-		var IpValur=url.substring("mcrouerIps".length+1);
+	if(mcrouerIpsIndex!=-1){
+		url=url.substring(mcrouerIpsIndex);
+		var 	IpsIndex=url.indexOf("&");
+		if(IpsIndex!=-1){
+			var IpValur=url.substring("mcrouerIps".length+1,IpsIndex);
+		}else{
+			var IpValur=url.substring("mcrouerIps".length+1);
+		}
+		$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
+		/*赋值结束 end*/
 	}
-	$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
-	/*赋值结束 end*/
+
 	// memcached js
 	$("#add_memcached").click(function(){  //点击添加的时候
 		console.log(1);

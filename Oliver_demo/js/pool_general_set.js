@@ -422,10 +422,9 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		});
 		if(JSON.stringify(dataobj)=="{}"){
-			var datas = {
-				"aliases": route_prefix_title,
-				"wildcard":JSON.stringify(router_selected_did),
-			};
+			$('.tip-message').html("请将操作策略填写完整");
+			$('#messageModal').modal('show');
+			return;
 		}else{
 			var datas = {
 				"aliases": route_prefix_title,
