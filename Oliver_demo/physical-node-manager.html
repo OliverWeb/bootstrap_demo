@@ -82,7 +82,7 @@
       <div class="top-nav ">
         <ul class="nav pull-right top-menu">
           <li>
-            <input type="text" class="form-control search" placeholder="Search">
+            <input type="text" class="form-control search" required="true" placeholder="Search">
           </li>
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -208,26 +208,26 @@
                       <tbody>
                       <tr>
                         <td>ip</td>
-                        <td><input  autofocus required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control"  id="ip1" type="text" name="ip" value="" placeholder="请输入IP"></td>
+                        <td><input  autofocus required="required" pattern="^[a-zA-Z0-9]{4,16}$" class="form-control"  id="ip1" type="text" name="ip" value="" placeholder="请输入IP"></td>
                       </tr>
                       <tr>
                         <td>安装用户非root</br>(会安装在此用户路径下)</td>
-                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="text"  id="ip2"  name="user" value="" placeholder="请输入"></td>
+                        <td><input required="required" pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="text"  id="ip2"  name="user" value="" placeholder="请输入"></td>
                       </tr>
                       <tr>
                         <td>安装用户密码</td>
-                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="password" id="ip3"  name="pwd" value="" placeholder="请输入密码"></td>
+                        <td><input required="required" pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="password" id="ip3"  name="pwd" value="" placeholder="请输入密码"></td>
                       </tr>
                       <tr>
                         <td>root权限密码</td>
-                        <td><input required pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="password" id="ip4" name="rootpwd" value="" placeholder="请输入密码"></td>
+                        <td><input required="required" pattern="^[a-zA-Z0-9]{4,16}$" class="form-control" type="password" id="ip4" name="rootpwd" value="" placeholder="请输入密码"></td>
                       </tr>
                       </tbody>
                     </table>
                   </form>
                 </div>
                 <div class="modal-footer" style="text-align:center;">
-                    <button type="button" class="btn btn-success add_servers_save">保存</button>
+                    <button  type="button" class="btn btn-success add_servers_save">保存</button>
                 </div>
             </div>
         </div>

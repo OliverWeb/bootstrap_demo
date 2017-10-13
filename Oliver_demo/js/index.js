@@ -56,6 +56,7 @@ $(":radio").click(function(){
 				$('#messageModal').modal('show');
 				setTimeout(function(){
 					$('#messageModal').modal('hide');
+					location.reload();
 				},1000);
 			}
 		},error:function(){

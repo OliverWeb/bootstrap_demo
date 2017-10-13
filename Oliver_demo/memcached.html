@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- BEGIN META -->
   <meta charset="utf-8">
@@ -9,7 +7,6 @@
   <meta name="description" content="">
   <meta name="author" content="Custom Theme">
   <!-- END META -->
-
   <!-- BEGIN SHORTCUT ICON -->
   <link rel="shortcut icon" href="img/favicon.ico">
   <!-- END SHORTCUT ICON -->
@@ -86,7 +83,7 @@
           </li>
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="img/avatar1_small.jpg">
+                <img alt="" src="">
                 <span class="username">
                   Pruthvi
                 </span>
@@ -199,11 +196,11 @@
                         <td>运行状态</td>
                         <td>绑定IP</td>
                         <td>TCP端口</td>
-                        <td>监听端口号</td>
                         <td>UDP端口</td>
                         <td>内存</td>
                         <td>连接数</td>
                         <td>用户名</td>
+                        <td>PID文件路径</td>
                         <td>操作</td>
                       </tr>
                     </tbody>
@@ -224,40 +221,38 @@
                 </div>
                 <div class="modal-body">
                     <table class="table table-striped table-hover table-bordered"  align="center">
-                      <tbody>
+                      <form action="">
+                        <tbody>
                         <tr>
-                            <td>绑定IP</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td>绑定IP</td>
+                          <td><input class="form-control" type="text" name="ipAddress" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
-                            <td>TCP端口</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
-                        </tr>
-                        <tr>
-                          <td>监听端口号</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td>TCP端口</td>
+                          <td><input class="form-control" type="text" name="port" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>UDP端口</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="udpPort" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>内存</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="memoryMaxSize" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>连接数</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="connectNum" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>用户名</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="user" value="" placeholder="请输入名称"></td>
                         </tr>
                         <tr>
                           <td>PID文件路径</td>
-                          <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                          <td><input class="form-control" type="text" name="pidFile" value="" placeholder="请输入名称"></td>
                         </tr>
-                      </tbody>
+                        </tbody>
+                      </form>
                     </table>
                 </div>
                 <div class="modal-footer" style="text-align:center;">
@@ -265,10 +260,23 @@
                 </div>
             </div>
         </div>
+        
     </section>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN FOOTER -->
-    <!-- END FOOTER -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
+          </div>
+          <div class="modal-body">
+            <div class="tip-message" style="font-size: 16px;text-align: center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- END SECTION -->
 
