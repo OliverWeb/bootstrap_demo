@@ -34,19 +34,21 @@ $(function () {
 											    <td>${value.connectNum}</td>
 											    <td>${value.user}</td>
 											    <td>${value.pidFile}</td>
-											    <td>
+											    <td style="width:13%;">
 													   <button type="button" class="btn btn-primary">
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class="btn btn-default">
-													    启动<i class="fa fa-heart">
+													   <button type="button" class="btn btn-success">
+													    启动<i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
-													   <button type="button" class="btn btn-success">
+													   <button type="button" class="btn btn-info">
 													     查看<i class="fa fa-exclamation-circle">
 													     </i>
 													   </button>
+															
+													
 											    </td>
 											    </tr>`;
 						$(".add_memcached_list").append(memcached_list);

@@ -2,6 +2,11 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 // Mcrouter js
 		$(function () {
 			/*监听表单框的中的(是否开启流量控制)*/
+			if($("#md_3").is(":checked")){
+				$('.flightRequest').removeAttr("disabled");
+			}else{
+				$(".flightRequest").attr("disabled","disabled");
+			}
 			$("#md_3").change(function () {
 					if($("#md_3").is(":checked")){
 						$('.flightRequest').removeAttr("disabled");
@@ -36,18 +41,31 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 							data.message.map(function(value,key){
 								var mcrouter_list=`
 											    <tr>
-											    <td><div class="openbox on">启用</div></td>
-											    <td>${value.logPath}</td>
-											    <td>${value.numProxies}</td>
-											    <td>${value.port}</td>
-											    <td>${value.configFile}</td>
-											    <td>${value.routePrefix}</td>
-											    <td>${value.bigValueSplitThreshold}</td>
-											    <td>${value.targetMaxInflightRequest}</td>
-											    <td>${value.targetMaxPendingRequests}</td>
-											    <td>${value.maxClientOutstandingRequest}</td>
-											    <td>${value.destinationRateLimiting}</td>
-											    <td>${value.key}</td>
+											    <td><div class="openbox on">已启用</div></td>
+											    <td class="logPath">${value.logPath}</td>
+											    <td class="numProxies">${value.numProxies}</td>
+											    <td class="port">${value.port}</td>
+											    <td class="configFile">${value.configFile}</td>
+											    <td class="routePrefix">${value.routePrefix}</td>
+											    <td class="bigValueSplitThreshold">${value.bigValueSplitThreshold}</td>
+											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
+											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
+											    <td class="maxClientOutstandingRequest">${value.maxClientOutstandingRequest}</td>
+											    <td class="destinationRateLimiting">${value.destinationRateLimiting}</td>
+											    <td>
+											    		<button type="button" class="modify btn btn-primary">
+													      修改<i class="fa fa-pencil-square-o">
+													   </i>
+													  </button>
+													   <button type="button" class="opnen btn btn-success">
+													    启动<i class="glyphicon glyphicon-off">
+													    </i>
+													  </button>
+													   <button type="button" class="view btn btn-info">
+													     查看<i class="fa fa-exclamation-circle">
+													     </i>
+													   </button>
+                          </td>
 											    </tr>`;
 								$(".add_mcrouter_list").append(mcrouter_list);
 							});
@@ -60,11 +78,24 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 		}
 	});
 	/*页面进行请求咱咱先布局  end*/
-
-	$("#add_mcrouter").click(function(){
+	$("body").on("click",".modify",function(){     //点击编辑,修改
+		$('#add_mcrouter_modle').modal('show');
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+	});
+	$("#add_mcrouter").click(function(){         //点击添加的
+		document.getElementById('server_form').reset();
 		$('#add_mcrouter_modle').modal('show');
 	});
-	$(".add_servers_mcrouter").click(function(){
+	$(".add_servers_mcrouter").click(function(){      //点击保存
 		if(false){      //所填内容的判断
 			$('.tip-message').html("请将内容填写完整!!!");
 			$('#messageModal').modal('show');
