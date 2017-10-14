@@ -1,12 +1,14 @@
+var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 $(function () {
 	server_li_html=[];
 	$.ajax({
 		type: "get",
 		url: "./json/iplist.json",
 		success:function (data) {
-			console.log(data);
-			data.map(function (value,key) {
-				server_li_html=server_li_html+` <li>
+			if(data.status=="success"){
+				if(data.message!=""){
+					data.message.map(function (value,key) {
+						server_li_html=server_li_html+` <li>
                   <div class="sk_item_pic">
                     <a href="#" class="sk_item_pic_lk">
                       <img src="img/ip.png" title="" class="sk_item_img">
@@ -14,8 +16,13 @@ $(function () {
                     </a>
                   </div>
                 </li>`;
-			});
-			$('.server_list').append(server_li_html);
+					});
+					$('.server_list').append(server_li_html);
+				}
+			}else{
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+			}
 		},
 		error:function () {
 			$('.tip-message').html("服务器异常");

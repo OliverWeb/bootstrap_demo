@@ -12,6 +12,27 @@
 .server_list_contain .server_list li:hover{
 	background-color: #f9f9f9;
 }
+/*启用和禁用的样式*/
+.openbox{
+	border: 1px solid #d2d2d2;
+	width: 50px;
+	height: 22px;
+	line-height: 22px;
+	border-radius: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+.on{
+	border-color: #5FB878;
+	background-color: #5FB878;
+	color: #fff;
+}
+.off{
+	background-color: #fff;
+	color: #999;
+}
+
 /*每个li的样式*/
 .sk_item_pic {
 	position: relative;
@@ -25,3 +46,83 @@
 .sk_item_name{
 	margin-top:10px;
 }
+/*开关按钮mcrouter*/
+.modal-body td{
+		text-align: center;
+}
+ .row {
+	 width: 100%;
+	 display: block;
+	 text-align: left;
+ }
+input[type="checkbox"] {
+	display: none;
+}
+input[type="checkbox"] + label {
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	position: relative;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	margin: 0px 20px;
+	box-sizing: border-box;
+}
+input[type="checkbox"] + label:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+
+
+#md_3:checked + label.green {
+	background: #AEDCAE;
+}
+
+#md_3:checked + label.green:after {
+	background: #5CB85C;
+}
+
+#md_3:checked + label:after {
+	left: calc(100% - 20px);
+}
+
+#md_3 + label {
+	background: #ddd;
+	border-radius: 20px;
+	height: 10px;
+}
+#md_3 + label:after {
+	background: #fff;
+	border-radius: 50%;
+	top: -5px;
+	box-shadow: 0px 0px 3px #aaa;
+}
+#mds_3:checked + label.green {
+	background: #AEDCAE;
+}
+#mds_3:checked + label.green:after {
+	background: #5CB85C;
+}
+#mds_3:checked + label:after {
+	left: calc(100% - 20px);
+}
+#mds_3 + label {
+	background: #ddd;
+	height: 3px;
+}
+#mds_3 + label:after {
+	background: #fff;
+	border-radius: 50%;
+	top: -9px;
+	box-shadow: 0px 0px 3px #aaa;
+}
+
