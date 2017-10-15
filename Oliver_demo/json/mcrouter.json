@@ -9,7 +9,7 @@
   "targetMaxPendingRequests":"targetMaxPendingRequests",
   "maxClientOutstandingRequest":"maxClientOutstandingRequest",
   "destinationRateLimiting":"destinationRateLimiting",
-  "disabled": "1",
+  "disabled": "0",
   "key": "tmpPrefix"
   },
   {

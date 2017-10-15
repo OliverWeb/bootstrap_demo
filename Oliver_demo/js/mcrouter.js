@@ -1,4 +1,4 @@
-var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
+	var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 // Mcrouter js
 		$(function () {
 			/*监听表单框的中的(是否开启流量控制)*/
@@ -41,7 +41,7 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 							data.message.map(function(value,key){
 								var mcrouter_list=`
 											    <tr>
-											    <td><div class="openbox on">已启用</div></td>
+											    <td><div class='openbox ${value.disabled==1?"on":"off"} '>${value.disabled==1?"已开启":"已禁用"}</div></td>
 											    <td class="logPath">${value.logPath}</td>
 											    <td class="numProxies">${value.numProxies}</td>
 											    <td class="port">${value.port}</td>
@@ -57,8 +57,8 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class="opnen btn btn-success">
-													    启动<i class="glyphicon glyphicon-off">
+													   <button type="button" class='btn ${value.disabled==1?"btn-success on":"btn-default off"}'>
+													   ${value.disabled==1?"开启":"禁用"}<i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
 													   <button type="button" class="view btn btn-info">
@@ -81,15 +81,15 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 	$("body").on("click",".modify",function(){     //点击编辑,修改
 		$('#add_mcrouter_modle').modal('show');
 		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
+		$("input[name='numProxies']").val( $(this).parent().parent().find(".numProxies").html());
+		$("input[name='port']").val( $(this).parent().parent().find(".port").html());
+		$("input[name='configFile']").val( $(this).parent().parent().find(".configFile").html());
+		$("input[name='routePrefix']").val( $(this).parent().parent().find(".routePrefix").html());
+		$("input[name='bigValueSplitThreshold']").val( $(this).parent().parent().find(".bigValueSplitThreshold").html());
+		$("input[name='targetMaxInflightRequest']").val( $(this).parent().parent().find(".targetMaxInflightRequest").html());
+		$("input[name='targetMaxPendingRequests']").val( $(this).parent().parent().find(".targetMaxPendingRequests").html());
+		$("input[name='maxClientOutstandingRequest']").val( $(this).parent().parent().find(".maxClientOutstandingRequest").html());
+		$("input[name='destinationRateLimiting']").val( $(this).parent().parent().find(".destinationRateLimiting").html());
 	});
 	$("#add_mcrouter").click(function(){         //点击添加的
 		document.getElementById('server_form').reset();
@@ -104,11 +104,18 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 			},1000);
 			return;
 		};
+
+		/*变淡序列化,进行提交表单信息*/
 		var datas=$("form").serialize();
+		if($("#md_3").is(":checked")){
+			datas=datas+"&disabled=0"+"&targetMaxInflightRequest"+$('.targetMaxInflightRequest').val();
+		}else{
+			datas=datas+"&disabled=0";
+		}
 		// console.log(datas);
 		data_ip=$('#ip1').val();
 		var dataArr=datas.split("&");
-
+    console.log(datas);
 		var parentObj=[];
 		dataArr.map(function(value,key){
 			childObj={};
@@ -116,7 +123,8 @@ var pageContext = document.location.pathname.substr(0, document.location.pathnam
 			childObj[childArr[0]]=childArr[1];
 			parentObj.push(childObj);
 		});
-		console.log(parentObj);
+		
+		// console.log(parentObj);
 			$.ajax({
 				type:"get",
 				url:"./json/mcrouter.json",               // 点击保存数据请求的地址   根路径pageContext
