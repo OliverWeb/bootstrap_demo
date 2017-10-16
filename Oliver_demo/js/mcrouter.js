@@ -35,7 +35,7 @@
 				type:"get",
 				url:"./json/mcrouter.json",               //页面初次加载数据请求的地址   根路径pageContext
 				success:function (data) {
-					console.log(data);
+					// console.log(data);
 					if(data.status=="success"){
 						if(data.message!=""){
 							data.message.map(function(value,key){
@@ -48,20 +48,20 @@
 											    <td class="configFile">${value.configFile}</td>
 											    <td class="routePrefix">${value.routePrefix}</td>
 											    <td class="bigValueSplitThreshold">${value.bigValueSplitThreshold}</td>
-											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
-											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
 											    <td class="maxClientOutstandingRequest">${value.maxClientOutstandingRequest}</td>
 											    <td class="destinationRateLimiting">${value.destinationRateLimiting}</td>
-											    <td>
-											    		<button type="button" class="modify btn btn-primary">
+											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
+											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
+											    <td style="width: 210px">
+											    		<button type="button" class="modify btn btn-primary btn-sm">
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class='btn ${value.disabled==1?"btn-success on":"btn-default off"}'>
-													   ${value.disabled==1?"开启":"禁用"}<i class="glyphicon glyphicon-off">
+													   <button type="button" class='btn btn-sm opneBtn ${value.disabled==1?"btn-success  on":"btn-default off"}'>
+													  <span> ${value.disabled==1?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
-													   <button type="button" class="view btn btn-info">
+													   <button type="button" class="view btn btn-sm btn-info">
 													     查看<i class="fa fa-exclamation-circle">
 													     </i>
 													   </button>
@@ -80,24 +80,90 @@
 	/*页面进行请求咱咱先布局  end*/
 	$("body").on("click",".modify",function(){     //点击编辑,修改
 		$('#add_mcrouter_modle').modal('show');
-		$("input[name='logPath']").val( $(this).parent().parent().find(".logPath").html());
-		$("input[name='numProxies']").val( $(this).parent().parent().find(".numProxies").html());
-		$("input[name='port']").val( $(this).parent().parent().find(".port").html());
-		$("input[name='configFile']").val( $(this).parent().parent().find(".configFile").html());
-		$("input[name='routePrefix']").val( $(this).parent().parent().find(".routePrefix").html());
-		$("input[name='bigValueSplitThreshold']").val( $(this).parent().parent().find(".bigValueSplitThreshold").html());
-		$("input[name='targetMaxInflightRequest']").val( $(this).parent().parent().find(".targetMaxInflightRequest").html());
-		$("input[name='targetMaxPendingRequests']").val( $(this).parent().parent().find(".targetMaxPendingRequests").html());
-		$("input[name='maxClientOutstandingRequest']").val( $(this).parent().parent().find(".maxClientOutstandingRequest").html());
-		$("input[name='destinationRateLimiting']").val( $(this).parent().parent().find(".destinationRateLimiting").html());
+		$("input.logPath").val( $(this).parent().parent().find(".logPath").html());
+		$("input.numProxies").val( $(this).parent().parent().find(".numProxies").html());
+		$("input.port").val( $(this).parent().parent().find(".port").html());
+		$("input.configFile").val( $(this).parent().parent().find(".configFile").html());
+		$("input.routePrefix").val( $(this).parent().parent().find(".routePrefix").html());
+		$("input.bigValueSplitThreshold").val( $(this).parent().parent().find(".bigValueSplitThreshold").html());
+		$("input.maxClientOutstandingRequest").val( $(this).parent().parent().find(".maxClientOutstandingRequest").html());
+		$("input.targetMaxInflightRequest").val( $(this).parent().parent().find(".targetMaxInflightRequest").html());
+		$("input.targetMaxPendingRequests").val( $(this).parent().parent().find(".destinationRateLimiting").html());
 	});
 	$("#add_mcrouter").click(function(){         //点击添加的
 		document.getElementById('server_form').reset();
 		$('#add_mcrouter_modle').modal('show');
 	});
+	/*点击开启和关闭的*/
+	$('body').on('click','.opneBtn',function(){
+		$(this).attr("disabled","disabled");
+		var _this=this;
+		$.ajax({
+			url:"./json/mcrouter.json",                          //操作开启和关闭的的请求地址
+			type:"get",
+			success:function(data){
+				if(data.status=="success"){
+					$('.tip-message').html("设置成功!");
+					if($(_this).hasClass("on")){     //判断是开启还是禁用
+						$(_this).find("span").html("禁用");
+						$(_this).removeClass("on btn-success").addClass("off btn-default");
+						$(_this).parent().parent().first().find(".openbox").removeClass("on").addClass("off").html("已禁用");
+
+					}else{
+						$(_this).find("span").html("开启");
+						$(_this).removeClass("off btn-default").addClass("on btn-success");
+						$(_this).parent().parent().first().find(".openbox").removeClass("off").addClass("on").html("已开启");
+					};
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+						// location.reload();
+					},1000);
+					$(_this).removeAttr("disabled");
+				}else{
+					$('.tip-message').html(data.message);
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+					},1000);
+					// location.reload();
+				}
+			},
+			error:function(){
+				$('.tip-message').html("服务器异常");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
+			}
+		});
+	});
 	$(".add_servers_mcrouter").click(function(){      //点击保存
-		if(false){      //所填内容的判断
-			$('.tip-message').html("请将内容填写完整!!!");
+		/*判断之前的判断*/
+		var numexp = /^([0-9]|[1-9]\d|[1-9]\d{2}|[1-9]\d{3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/;      //正则验证
+		if($("input.logPath").val()==""){      //所填内容的判断
+			$('.tip-message').html("请将日志文件路径填写完整!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if($("input.numProxies").val()==""){
+			$('.tip-message').html("请将请求线程数量填写完整!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if($("input.configFile").val()==""){
+			$('.tip-message').html("请将配置文件路径填写完整!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if($("input.routePrefix").val()==""){
+			$('.tip-message').html("请将默认路由前缀填写完整!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
@@ -107,23 +173,31 @@
 
 		/*变淡序列化,进行提交表单信息*/
 		var datas=$("form").serialize();
+		if($("input.port").val()!=""){
+			datas=datas+"&port="+$("input.port").val();
+		}
+		if($("input.bigValueSplitThreshold").val()!=""){
+			datas=datas+"&bigValueSplitThreshold="+$("input.bigValueSplitThreshold").val();
+		}
+		if($("input.targetMaxInflightRequest").val()!=""){
+			datas=datas+"&targetMaxInflightRequest="+$("input.targetMaxInflightRequest").val();
+		}
 		if($("#md_3").is(":checked")){
-			datas=datas+"&disabled=0"+"&targetMaxInflightRequest"+$('.targetMaxInflightRequest').val();
+			datas=datas+"&destinationRateLimiting=0"+"&targetMaxInflightRequest"+$('input.targetMaxInflightRequest').val();
 		}else{
-			datas=datas+"&disabled=0";
+			datas=datas+"&destinationRateLimiting=1";
 		}
 		// console.log(datas);
 		data_ip=$('#ip1').val();
-		var dataArr=datas.split("&");
-    console.log(datas);
-		var parentObj=[];
-		dataArr.map(function(value,key){
-			childObj={};
-			var childArr=value.split("=");
-			childObj[childArr[0]]=childArr[1];
-			parentObj.push(childObj);
-		});
-		
+		// var dataArr=datas.split("&");
+		// console.log(datas);
+		// var parentObj=[];
+		// dataArr.map(function(value,key){
+		// 	childObj={};
+		// 	var childArr=value.split("=");
+		// 	childObj[childArr[0]]=childArr[1];
+		// 	parentObj.push(childObj);
+		// });
 		// console.log(parentObj);
 			$.ajax({
 				type:"get",

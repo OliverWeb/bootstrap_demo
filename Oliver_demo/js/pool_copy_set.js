@@ -284,8 +284,11 @@ $('body').on('click', ".add_backup", function () {
 });
 //表单的删除的备份事件
 $("body").on('click', ".delete_backup", function () {
-
+	$(this).prev().find("select").val("");
+	// console.log($(this).prev().find("select").val());
 	$(this).parent().css("display", "none");
+	$('.selectpicker').selectpicker('refresh');
+
 });
 //删除默认路由配置
 $('body').on("click", ".delte_route_operate_default", function () {

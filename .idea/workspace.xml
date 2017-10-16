@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="默认的">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oliver_demo/json/memcachedView.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/css/node.css" afterPath="$PROJECT_DIR$/Oliver_demo/css/node.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/getnode.html" afterPath="$PROJECT_DIR$/Oliver_demo/getnode.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/json/mcrouter.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/mcrouter.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/memcached.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/json/cold_warm.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/cold_warm.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" afterPath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/memcached.html" afterPath="$PROJECT_DIR$/Oliver_demo/memcached.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,59 +30,7 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="mcrouter.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouter.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="272" column="95" lean-forward="false" selection-start-line="272" selection-start-column="71" selection-end-line="272" selection-end-column="95" />
-              <folding>
-                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mcrouter.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/js/mcrouter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="114" column="26" lean-forward="true" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
-              <folding>
-                <marker date="1508064314486" expanded="true" signature="1366:2889" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2257:2868" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2328:2429" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2383:2404" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2536:2665" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2618:2640" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2730:2836" ph="..." />
-                <marker date="1508064314486" expanded="true" signature="2787:2810" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/css/node.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mcrouter.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/json/mcrouter.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,40 +43,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>PoolRoute|</find>
-      <find>pool_edit</find>
-      <find>hide</find>
-      <find>池名称</find>
-      <find>data</find>
-      <find>data-type</find>
-      <find>input</find>
-      <find>设置</find>
-      <find>consol</find>
-      <find>add_server_modal</find>
-      <find>保存</find>
-      <find>节点</find>
-      <find>messageModal</find>
-      <find>load</find>
-      <find>刷新</find>
-      <find>ajax</find>
-      <find>add_mcrouter</find>
-      <find>click</find>
-      <find>opnen</find>
-      <find>view</find>
-      <find>modify</find>
+      <find>operate_default_wildardHtml</find>
       <find>修改</find>
-      <find>show</find>
-      <find>add_mcrouter_list</find>
+      <find>是否开启流量控制</find>
+      <find>流控</find>
+      <find>提交</find>
+      <find>请将日志文件路径填写完整</find>
+      <find>日志文件路径</find>
+      <find>请将日志文件路径填写完整!</find>
       <find>logPath</find>
-      <find>numProxies</find>
+      <find>destinationRateLimitin</find>
+      <find>destinationRateLimiting</find>
+      <find>maxClientOutstandingRequest</find>
+      <find>targetMaxInflightRequest</find>
+      <find>body</find>
+      <find>btn btn-sm</find>
+      <find>ajax</find>
+      <find>load</find>
+      <find>开启</find>
+      <find>*</find>
+      <find>message</find>
+      <find>绑定</find>
+      <find>保存</find>
       <find>datas</find>
-      <find>d</find>
-      <find>name</find>
-      <find>md_3</find>
+      <find>opneBtn</find>
+      <find>modify</find>
+      <find>add_mcrouter_modle</find>
+      <find>show</find>
+      <find>刷新</find>
+      <find>keu</find>
+      <find>&lt;span style=&quot;color: #797979&quot;&gt;绑定IP&lt;/span&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>cmrsdk.toast</replace>
       <replace>delte_route_operate_default</replace>
+      <replace>添加路由池</replace>
+      <replace>&gt;Warm&lt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -132,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cir.html" />
         <option value="$PROJECT_DIR$/js/jquery.circliful.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/cir.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/cold__warm_set.html" />
@@ -148,8 +102,6 @@
         <option value="$PROJECT_DIR$/Oliver_demo/json/pool_name.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/router.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/copy.json" />
-        <option value="$PROJECT_DIR$/Oliver_demo/json/cold_warm.json" />
-        <option value="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/index.json" />
@@ -171,18 +123,21 @@
         <option value="$PROJECT_DIR$/Oliver_demo/js/memcacehd.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/physical.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/physical-node-manager.html" />
-        <option value="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/memcachedList.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/mcrouterList.js" />
-        <option value="$PROJECT_DIR$/Oliver_demo/getnode.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/memcached.json" />
-        <option value="$PROJECT_DIR$/Oliver_demo/memcached.html" />
-        <option value="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/mcrouter.json" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/json/cold_warm.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/css/node.css" />
         <option value="$PROJECT_DIR$/Oliver_demo/mcrouter.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/json/memcachedView.json" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/memcached.html" />
+        <option value="$PROJECT_DIR$/Oliver_demo/getnode.html" />
       </list>
     </option>
   </component>
@@ -236,17 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -281,11 +225,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bootstrap_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootstrap_demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.chrisrm.idea.config" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.HTML" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -298,19 +253,19 @@
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\js" />
-      <recent name="G:\miggu\bootstrap_demo\Oliver_demo" />
-      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\json" />
-      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\img" />
-      <recent name="G:\miggu\bootstrap_demo" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\miggu\bootstrap_demo\Oliver_demo\css\lib" />
       <recent name="G:\miggu\bootstrap_demo\Oliver_demo" />
       <recent name="G:\miggu\bootstrap_demo\Oliver_demo\js" />
       <recent name="G:\miggu\bootstrap_demo\Oliver_demo\login" />
       <recent name="G:\miggu\bootstrap_demo\Oliver_demo\js\lib" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\js" />
+      <recent name="G:\miggu\bootstrap_demo\Oliver_demo" />
+      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\json" />
+      <recent name="G:\miggu\bootstrap_demo\Oliver_demo\img" />
+      <recent name="G:\miggu\bootstrap_demo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -371,6 +326,8 @@
       <workItem from="1507967215287" duration="308000" />
       <workItem from="1507967680394" duration="8517000" />
       <workItem from="1508033850713" duration="6634000" />
+      <workItem from="1508114559034" duration="26523000" />
+      <workItem from="1508149528894" duration="3820000" />
     </task>
     <task id="LOCAL-00001" summary="默认的">
       <created>1506340041077</created>
@@ -383,7 +340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313611000" />
+    <option name="totallyTimeSpent" value="343954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,29 +353,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1380597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110341154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32853982" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -434,12 +390,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/login.html" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/json/demo.json" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/index.js" />
@@ -456,14 +411,10 @@
     <entry file="file://$PROJECT_DIR$/Oliver_demo/css/lib/style.css" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/css/pool-name-set.css" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_general_set.html" />
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_copy_set.html" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/memcachedList.html" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/index.html" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/echart.html" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/cir.html" />
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/cold_warm_set.html" />
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/memcachedList.js" />
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
@@ -483,20 +434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/getnode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/getnode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/json/router.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -512,13 +449,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/json/routerlist_genreal.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/cold_warm.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -546,13 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/memcached.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/json/physical.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -574,60 +497,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/memcached.js">
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/pool_copy_set.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="48" selection-end-column="38" />
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/memcached.html">
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3510">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="7" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="234">
+          <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/mcrouter.json">
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/cold_warm_set.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="186">
+          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/cold_warm.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/css/node.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="104">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/mcrouter.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/memcached.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="272" column="95" lean-forward="false" selection-start-line="272" selection-start-column="71" selection-end-line="272" selection-end-column="95" />
+        <state relative-caret-position="6188">
+          <caret line="238" column="116" lean-forward="false" selection-start-line="238" selection-start-column="69" selection-end-line="238" selection-end-column="116" />
           <folding>
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7560#7566#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#7;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/mcrouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="114" column="26" lean-forward="true" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
+        <state relative-caret-position="2080">
+          <caret line="80" column="2" lean-forward="false" selection-start-line="80" selection-start-column="2" selection-end-line="91" selection-end-column="5" />
           <folding>
-            <marker date="1508064314486" expanded="true" signature="1366:2889" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2257:2868" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2328:2429" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2383:2404" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2536:2665" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2618:2640" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2730:2836" ph="..." />
-            <marker date="1508064314486" expanded="true" signature="2787:2810" ph="..." />
+            <element signature="e#4331#5683#0" expanded="false" />
+            <marker date="1508145391743" expanded="true" signature="1369:2957" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2268:2280" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2281:2936" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2359:2460" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2414:2435" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2583:2726" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2679:2701" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2798:2904" ph="..." />
+            <marker date="1508145391743" expanded="true" signature="2855:2878" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/json/memcachedView.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/memcached.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="37" />
+          <folding>
+            <element signature="e#4463#5815#0" expanded="false" />
+            <marker date="1508150849637" expanded="true" signature="763:2006" ph="..." />
+            <marker date="1508150849637" expanded="false" signature="1317:1329" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1330:1985" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1408:1509" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1463:1484" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1632:1775" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1728:1750" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1847:1953" ph="..." />
+            <marker date="1508150849637" expanded="true" signature="1904:1927" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/getnode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/getnode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="184" column="116" lean-forward="false" selection-start-line="184" selection-start-column="116" selection-end-line="184" selection-end-column="116" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6052#6058#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/memcached.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="247" column="29" lean-forward="true" selection-start-line="247" selection-start-column="29" selection-end-line="247" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7136#7142#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7442#7448#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#1;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#3;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7952#7958#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#8263#8269#0" expanded="true" />
           </folding>
         </state>
       </provider>

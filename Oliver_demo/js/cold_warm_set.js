@@ -5,15 +5,15 @@ function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/cold_warm.json",               // 常规设置获取进行请求地址  变量：pageContext
+		url: "./json/cold_warm.json",               // 初次加载常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
 			if(data.status=="success"){
 				if (data.message=="") {
 					data = {
 						"name": "''",
-						"wildcard": [{}],
+						"wildcard": [""],
 						"policies": {
-							"''": [{}]
+							"''": [""]
 						}
 					};
 				}else{
@@ -24,7 +24,7 @@ function PoolGeneralHtml() {
 				routeOperateHtml_warm = "";
 				wildardHtml = "";
 				default_wildardHtml = "";
-				/* todo 加载所有option */
+				/* todo 加载所有select选者框 option */
 				defaultSelect = selectlist;      //默认路由配置中的数组
 				defaultSelect.cold.map(function (value, key) {             // todo 每个遍历所有option
 					return routeOperateHtml_cold = routeOperateHtml_cold + `<option value=${value} key=${key}>${value}</option>`;
@@ -34,20 +34,11 @@ function PoolGeneralHtml() {
 				});
 
 				/* todo 默认路由配置*/
-				var wildcardLength = data.wildcard.length;
 				var default_type_key=0;
 				data.wildcard.map(function (value, key) {             //默认路由配置
 					if(typeof (value)=="object"){
 						return wildardHtml = wildardHtml + `<tr class="select_option_box">
 											<td  style="padding-left:0;" key="${key}">
-													<a href="javascript:;" class="add_backup">
-															<span class="label label-success">Cold</span>
-													</a>
-                          <div class="form-group" style="display:inline-block">
-												      <select key="${key}" data-size="9" data-type="cold" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-												        ${routeOperateHtml_cold}
-												      </select>
-												   </div>  
                             <a href="javascript:;" class="add_backup">
 															<span class="label label-success">Warm</span>
 														</a>
@@ -55,30 +46,62 @@ function PoolGeneralHtml() {
 													      <select key="${key}" data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
 													        ${routeOperateHtml_warm}
 													      </select>
-													   </div> 
-														<a href="javascript:;" class="delte_route_operate_default">
+													   </div>
+													   	<a href="javascript:;" class="delte_route_operate_default">
                                 <span class="label label-danger">Delete</span>
-                            </a>
+                            	</a> 
+													   	<a href="javascript:;" class="add_cold">
+																<span class="label label-success">AddCold</span>
+															</a>
+															<div style="display:none;"  class="add_cold_box">
+																		<a href="javascript:;" class="add_backup">
+																				<span class="label label-success">Cold</span>
+																		</a>
+					                          <div class="form-group" style="display:inline-block">
+																	      <select key="${key}" data-size="9" data-type="cold" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+																	        ${routeOperateHtml_cold}
+																	      </select>
+																	  </div>
+																	  <a href="javascript:;" class="delete_cold">
+																			<span class="label label-danger">DeleteCold</span>
+																		</a>
+															</div>
                           </td>
                       </tr>`;
 						default_type_key++;
 					}else if(value!="===请选择==="){
-						/*添加默认的路由*/
+
 						return   default_wildardHtml=default_wildardHtml+`<tr class="select_option_box">
-											<td  style="padding-left:0;" key="${key}"> 
-                            <a href="javascript:;" class="add_backup">
-															<span class="label label-success">Warm</span>
-														</a>
-														<div class="form-group" style="display:inline-block">
-													      <select key="${key}" data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-													        ${routeOperateHtml_warm}
-													      </select>
-													   </div> 
-														<a href="javascript:;" class="delte_route_operate_default">
-                                <span class="label label-danger">Delete</span>
-                            </a>
-                          </td>
-                      </tr>`;
+    <td style="padding-left:0;">
+      <a href="javascript:;" class="add_backup">
+				<span class="label label-success">Warm</span>
+			</a>
+			<div class="form-group" style="display:inline-block">
+		      <select key=${key} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+		        ${routeOperateHtml_warm}
+		      </select>
+		  </div>
+		  <a href="javascript:;" class="delte_route_operate_default">
+          <span class="label label-danger">Delete</span>
+      </a> 
+	    <a href="javascript:;" class="add_cold">
+				<span class="label label-success">AddCold</span>
+			</a>
+			<div style="display:none;"  class="add_cold_box">
+				<a href="javascript:;" class="add_backup">
+					<span class="label label-success">Cold</span>
+				</a>
+		    <div class="form-group" style="display:inline-block">
+		      <select key=${key} data-size="9" data-type="cold" class=" selectpicker option-search" data-live-search="true" title="===请选择===">
+		        ${routeOperateHtml_cold}
+		      </select>
+		    </div>
+		    <a href="javascript:;" class="delete_cold">
+					<span class="label label-danger">DeleteCold</span>
+				</a>
+			</div>
+    </td>
+  </tr>`;     /*待用*/
 
 					}
 				});
@@ -94,18 +117,9 @@ function PoolGeneralHtml() {
 					policy_router_arr = data.policies[key];
 
 					policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
-
 						if(typeof (value)==="object"){
 							operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
                                    <td style="padding-left:0;">
-                                   		<a href="javascript:;" class="delte_route_operate_success">
-                                         <span class="label label-success">Cold</span>
-                                     	</a>
-                                      <div class="form-group" style="display:inline-block">
-		                                      <select data-size="9" key=${index} data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																								${routeOperateHtml_cold}     
-																					</select>
-																		  </div>
 																		  <a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Warm</span>
                                      	</a>
@@ -114,9 +128,26 @@ function PoolGeneralHtml() {
 																								${routeOperateHtml_warm}     
 																					</select>
 																		  </div>
-                                     <a href="javascript:;" class="delte_route_operate_default">
+																		  <a href="javascript:;" class="delte_route_operate_default">
                                          <span class="label label-danger">Delete</span>
-                                     </a>
+                                     	</a>
+                                     	<a href="javascript:;" class="add_cold">
+																				<span class="label label-success">AddCold</span>
+																			</a>
+																			<div style="display:none;"  class="add_cold_box">
+                                      <div class="form-group" style="display:inline-block">
+		                                      <select data-size="9" key=${index} data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																								${routeOperateHtml_cold}     
+																					</select>
+																		  </div>
+																		  <a href="javascript:;" class="delete_cold">
+																				<span class="label label-danger">DeleteCold</span>
+																			</a>
+																			
+																		</div>
+																		  
+																		  
+                                     
                                      
                                    </td>
                                  </tr>`;
@@ -131,9 +162,23 @@ function PoolGeneralHtml() {
 													        ${routeOperateHtml_warm}
 													      </select>
 													   </div> 
+													   
 														<a href="javascript:;" class="delte_route_operate_default">
                                 <span class="label label-danger">Delete</span>
                             </a>
+                            <a href="javascript:;" class="add_cold">
+																				<span class="label label-success">AddCold</span>
+																			</a>
+																			<div style="display:none;"  class="add_cold_box">
+																					<div class="form-group" style="display:inline-block">
+		                                      <select data-size="9" key=${index} data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																								${routeOperateHtml_cold}     
+																					</select>
+																		  </div>
+																		  <a href="javascript:;" class="delete_cold">
+																				<span class="label label-danger">DeleteCold</span>
+																			</a>
+																			</div>
                           </td>
                       </tr>`;
 						}
@@ -157,6 +202,7 @@ function PoolGeneralHtml() {
                                <tbody class="add_server_one_body">
                                   <!--操作路由池中select的个数-->
 																		      ${operatePolicyChildHTml}
+																		      ${operate_default_wildardHtml}
                                </tbody>
                              </table>
                            </td>
@@ -165,7 +211,7 @@ function PoolGeneralHtml() {
 
                            <td style="text-align:left;">
                              <a href="javascript:;" class="add_server_btn">
-                               <span class="label label-success" >添加服务器</span>
+                               <span class="label label-success" >添加路由池</span>
                              </a>
                            </td>
                          </tr>
@@ -175,23 +221,8 @@ function PoolGeneralHtml() {
                     </tr>
                     
                     <!--策略中添加变量-->
-                    <tr>
-                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
-                    <td class="" style="text-align:left;">
-                    <table class="">
-                      <tbody class="add_defalut_box">
-                       		${operate_default_wildardHtml}
-                      </tbody>
-                    </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:left;">
-                      <a href="javascript:;" class="add_default_router">
-                        <span class="label label-success" >添加服务器</span>
-                      </a>
-                    </td>
-                  </tr>
+                  
+                 
                   <tr >
                       <td colspan="2">
                         <a href="javascript:;" class="delte_policy">
@@ -202,7 +233,7 @@ function PoolGeneralHtml() {
                 </table>`;
 				}
 				//策略end
-				//整个布局变量
+				//页面初次加载的整个布局变量
 				var general_set_data = `<div class="adv-table editable-table">     
               <table class="table table-striped table-hover table-bordered"  align="center">
                 <caption class="mcrouter_title">路由前缀</caption>
@@ -228,9 +259,10 @@ function PoolGeneralHtml() {
                     <td class="" style="width:20%;" rowspan="2" >路由操作</td>
                     <td class="" style="text-align:left;">
                     <table class="add_server_one">
-
+										
                       <tbody class="add_server_one_body" id="route_operate">
                           ${wildardHtml}
+                          ${default_wildardHtml}
                       </tbody>
                     </table>
                     </td>
@@ -238,27 +270,12 @@ function PoolGeneralHtml() {
                   <tr>
                     <td style="text-align:left;">
                       <a href="javascript:;" class="add_server_btn">
-                        <span class="label label-success" >添加服务器</span>
+                        <span class="label label-success" >添加路由池</span>
                       </a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
-                    <td class="" style="text-align:left;">
-                    <table class="add_defalut_content">
-                      <tbody class="add_defalut_box">
-                       		${default_wildardHtml}
-                      </tbody>
-                    </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:left;">
-                      <a href="javascript:;" class="add_default_router">
-                        <span class="label label-success" >添加服务器</span>
-                      </a>
-                    </td>
-                  </tr>
+                  
+                
                 </tbody>
               </table>
               <div class="strategy_box">
@@ -276,24 +293,25 @@ function PoolGeneralHtml() {
 				$(".general_set_box").append(general_set_data);
 				$('.option-search').selectpicker('refresh');
 				//对路由池操作的进行选定,默认路由进行操作选中
-				var deault_key=0;
 				data.wildcard.map(function (value, key) {
 					if(typeof (value)=="object"){
-						$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.cold);               //默认路由配置 cold
-						$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.warm);               //默认路由配置  warm
-						deault_key++;
-					}else{
-						$('.add_defalut_content tr').eq(key-deault_key).find("select").selectpicker('val', value);
+						$('#route_operate .select_option_box').eq(key).find('.add_cold_box').css("display","inline-block");
+						$('#route_operate .select_option_box').eq(key).find("select").eq(1).selectpicker('val', value.cold);               //默认路由配置 cold
+						$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value.warm);               //默认路由配置  warm
+					}else  if(typeof (value)=="string"){
+						$('#route_operate .select_option_box').eq(key).find("select").eq(0).selectpicker('val', value);
+
 					}
 				});
-				// todo 对操作路由进行选定
+				// todo 对操作策略路由进行选定
 				routerPolicyKey = 0;
 				for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
 					var deault_policy_key=0;
 					data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
 						if(typeof (value)=="object"){
-							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.cold);
-							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.warm);
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find(".add_cold_box").css("display","inline-block");
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(1).selectpicker('val', value.cold);
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.warm);
 							deault_policy_key++;
 						}else{
 							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_defalut_box").find(".select_option_box").eq(key-deault_policy_key).find("select").selectpicker('val', value);
@@ -394,28 +412,49 @@ $("body").on("click", ".add_server_btn", function () {
 	var add_server_html = `<tr class="select_option_box">
     <td style="padding-left:0;">
       <a href="javascript:;" class="add_backup">
-				<span class="label label-success">Cold</span>
-			</a>
-	    <div class="form-group" style="display:inline-block">
-	      <select key=${add_num} data-size="9" data-type="cold" class=" selectpicker option-search" data-live-search="true" title="===请选择===">
-	        ${routeOperateHtml_cold}
-	      </select>
-	    </div>
-      <a href="javascript:;" class="add_backup">
 				<span class="label label-success">Warm</span>
 			</a>
 			<div class="form-group" style="display:inline-block">
 		      <select key=${add_num} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
 		        ${routeOperateHtml_warm}
 		      </select>
-		  </div> 
-			<a href="javascript:;" class="delte_route_operate_default">
+		  </div>
+		  <a href="javascript:;" class="delte_route_operate_default">
           <span class="label label-danger">Delete</span>
-      </a>
+      </a> 
+	    <a href="javascript:;" class="add_cold">
+				<span class="label label-success">AddCold</span>
+			</a>
+			<div style="display:none;"  class="add_cold_box">
+				<a href="javascript:;" class="add_backup">
+					<span class="label label-success">Cold</span>
+				</a>
+		    <div class="form-group" style="display:inline-block">
+		      <select key=${add_num} data-size="9" data-type="cold" class=" selectpicker option-search" data-live-search="true" title="===请选择===">
+		        ${routeOperateHtml_cold}
+		      </select>
+		    </div>
+		    <a href="javascript:;" class="delete_cold">
+					<span class="label label-danger">DeleteCold</span>
+				</a>
+			</div>
     </td>
   </tr>`;
 	$(this).parent().parent().prev().find(".add_server_one_body").append(add_server_html);
 	$('.selectpicker').selectpicker('refresh');
+});
+// 添加cold池
+$('body').on('click', ".add_cold", function () {
+	//$('.add_backup>span').removeClass("label-success").addClass("label-primary");
+	$(this).next().css("display", "inline-block");
+});
+//隐藏cold的事件
+$("body").on('click', ".delete_cold", function () {
+	$(this).prev().find("select").val("");
+	// console.log($(this).prev().find("select").val());
+	$(this).parent().css("display", "none");
+	$('.selectpicker').selectpicker('refresh');
+
 });
 //删除该策略
 $("body").on('click', '.delte_policy', function () {
@@ -444,14 +483,6 @@ $('body').on("click", ".add_strategy", function () {
                                  <tr class="select_option_box">
                                    <td style="padding-left:0;">
                                    		<a href="javascript:;" class="delte_route_operate_success">
-                                         <span class="label label-success">Cold</span>
-                                     	</a>
-                                      <div class="form-group" style="display:inline-block">
-																		      <select key="0" data-size="9"  data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
-																		        ${routeOperateHtml_cold}
-																		      </select>
-																		  </div>
-																		  <a href="javascript:;" class="delte_route_operate_success">
                                          <span class="label label-success">Warm</span>
                                      	</a>
                                      	<div class="form-group" style="display:inline-block">
@@ -459,9 +490,24 @@ $('body').on("click", ".add_strategy", function () {
 																		        ${routeOperateHtml_warm}
 																		      </select>
 																		  </div>
-                                     	<a href="javascript:;" class="delte_route_operate_default">
+                                   		<a href="javascript:;" class="delte_route_operate_default">
                                          <span class="label label-danger">Delete</span>
                                      	</a>
+                                      
+																		  <a href="javascript:;" class="add_cold">
+																				<span class="label label-success">AddCold</span>
+																			</a>
+																			<div style="display:none;"  class="add_cold_box">
+																					<div class="form-group" style="display:inline-block">
+																		      <select key="0" data-size="9"  data-type="cold" class="selectpicker option-search" data-live-search="true" title="===请选择===">
+																		        ${routeOperateHtml_cold}
+																		      </select>
+																		  		</div>
+																		  		<a href="javascript:;" class="delete_cold">
+																						<span class="label label-danger">DeleteCold</span>
+																					</a>
+																			</div>
+                                     
                                      
                                    </td>
                                  </tr>
@@ -474,7 +520,7 @@ $('body').on("click", ".add_strategy", function () {
 
                            <td style="text-align:left;">
                              <a href="javascript:;" class="add_server_btn">
-                               <span class="label label-success" >添加服务器</span>
+                               <span class="label label-success" >添加路由池</span>
                              </a>
                            </td>
                          </tr>
@@ -482,25 +528,6 @@ $('body').on("click", ".add_strategy", function () {
                        </table>
                       </td>
                     </tr>
-                    <!--添加一条策略-->
-                    <tr>
-                    <td class="" style="width:20%;" rowspan="2" >默认路由</td>
-                    <td class="" style="text-align:left;">
-                    <table class="">
-                      <tbody class="add_defalut_box">
-                       		
-                      </tbody>
-                    </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:left;">
-                      <a href="javascript:;" class="add_default_router zz">
-                        <span class="label label-success" >添加服务器</span>
-                      </a>
-                    </td>
-                  </tr>
-                    
                     <tr >
                       <td colspan="2">
                         <a href="javascript:;" class="delte_policy">
@@ -525,19 +552,19 @@ $('body').on("click", '.submit_general_set_data', function () {
 		/*处理提交的时候的选择内容为"===请选择==="*/
 		if($(value).find("select").eq(0).val()!=""&&$(value).find("select").eq(1).val()!=""){
 			router_selected_obj.type="WarmUpRoute";
-			router_selected_obj.cold="PoolRoute|"+$(value).find("select").eq(0).val();
-			router_selected_obj.warm="PoolRoute|"+$(value).find("select").eq(1).val();
+			router_selected_obj.cold="PoolRoute|"+$(value).find("select").eq(1).val();
+			router_selected_obj.warm="PoolRoute|"+$(value).find("select").eq(0).val();
 			router_selected.push( router_selected_obj );
-		}else{
-				judge_router_reporte=true;        /*默认路由操作判断*/
+		}else if($(value).find("select").eq(0).val()!=""){
+			router_selected.push("PoolRoute|"+$(value).find("select").eq(0).val());
 		}
 	});
 	/*默认路由的配置中的默认路由进行提交*/
-	$('.add_defalut_content .add_defalut_box tr').map(function(key,value){
-		if($(value).find("select").val()!=""){
-			router_selected.push($(value).find("select").val());
-		}
-	});
+	// $('.add_defalut_content .add_defalut_box tr').map(function(key,value){
+	// 	if($(value).find("select").val()!=""){
+	// 		router_selected.push($(value).find("select").val());
+	// 	}
+	// });
   // console.log(router_selected);
 	/*冷暖池处理对象 end*/
 	// todo 操作策略参数操作数据传参数
@@ -553,20 +580,17 @@ $('body').on("click", '.submit_general_set_data', function () {
 				if($(value).find("select").eq(0).val()!="" && $(value).find("select").eq(1).val()!=""){
 					router_policy_obj={};
 					router_policy_obj.type="WarmUpRoute";
-					router_policy_obj.cold="PoolRoute|"+$(value).find("select").eq(0).val();
-					router_policy_obj.warm="PoolRoute|"+$(value).find("select").eq(1).val();
-					router_policy.push( router_policy_obj );
+					router_policy_obj.cold="PoolRoute|"+$(value).find("select").eq(1).val();
+					router_policy_obj.warm="PoolRoute|"+$(value).find("select").eq(0).val();
+					router_policy.push( router_policy_obj);
 					judge_polic_option=0;
-				}else{
+				}else if($(value).find("select").eq(0).val()!=""){
+					router_policy.push("PoolRoute|"+$(value).find("select").eq(0).val());
+					judge_polic_option=0;
+				}else if($(value).find("select").eq(0).val()==""){
 					judge_polic_option=1;
 				}
 			});
-
-				$(value).find(".add_defalut_box tr").map(function (key,value) {
-					if($(value).find("select").val()!="") {
-						router_policy.push("PoolRoute|"+$(value).find("select").val());
-					}
-				});
 
 			policiesArr[$(value).find(".operate_policy").find("input.pre_router_name").val()]=router_policy;
 			judge_polic_name=0
@@ -583,10 +607,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 	 }else if (router_selected.length == 0) {
 		 $('.tip-message').html("请将默认路由配置填写完整!");
 		 $('#messageModal').modal('show');
-	}else if(judge_router_reporte){
-		 $('.tip-message').html("请将路由填写完成");
-		 $('#messageModal').modal('show');
-	 }else if(judge_polic_name==1 && judge_polic_option!=1){
+	}else if(judge_polic_name==1 && judge_polic_option!=1){
 		 $('.tip-message').html("路由策略的名字为空");
 		 $('#messageModal').modal('show');
 	 }else if(judge_polic_name!=1 && judge_polic_option==1){
