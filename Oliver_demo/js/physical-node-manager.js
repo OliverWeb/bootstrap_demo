@@ -1,6 +1,13 @@
 //物理节点管理
 /*页面初次加载的时候的*/
 $(function(){
+	$("body").on("click",".sk_item_pic",function(){
+		$('.tip-message').html("暂未开放");
+		$('#messageModal').modal('show');
+		setTimeout(function(){
+			$('#messageModal').modal('hide');
+		},1000);
+	});
 	$.ajax({
 		type: "get",
 		url: "./json/physical.json",                  // 保存的提交的链接的地址
@@ -58,20 +65,15 @@ $('.add_servers_save').click(function(){
 	$.ajax({
 		type: "get",
 		url: "./json/router.json",                  // 保存的提交的链接的地址
-		data:datas,
 		success:function (data) {
 			if(data.status=="success"){
-				if(data.message!=""){
-					var server_li_html=` <li>
-                  <div class="sk_item_pic">
-                    <a href="#" class="sk_item_pic_lk">
-                      <img src="img/ip.png" title="" class="sk_item_img">
-                      <p class="sk_item_name">${data_ip}</p>
-                    </a>
-                  </div>
-                </li>`;
-					$('.server_list').append(server_li_html);
-				}
+				$('#add_server_modal').modal('hide');
+				$('.tip-message').html("保存成功");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+					// location.reload();
+				},1000);
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
@@ -82,23 +84,15 @@ $('.add_servers_save').click(function(){
 
 		},
 		error:function () {
-			$('.tip-message').html("提交地址保存异常");
+			$('.tip-message').html("服务器异常");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
-				location.reload();
+				// location.reload();
 			},1000);
 		}
 	});
-	$('#add_server_modal').modal('hide');
-	$('.tip-message').html("保存成功");
-	$('#messageModal').modal('show');
-	setTimeout(function(){
-		$('#messageModal').modal('hide');
-		location.reload();
-	},1000);
 });
-
 
 /*添加服务器*/
 

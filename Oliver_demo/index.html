@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- BEGIN META -->
   <meta charset="utf-8">
@@ -32,6 +30,15 @@
     a:hover{
       color: #797979;
     }
+    #editable-sample a{
+        display: inline-block;
+        width: 100%;
+    }
+    .editable-table td:hover,.editable-table th:hover{
+      background-color: #D1D3D3!important;
+    }
+   
+    
   </style>
 </head>
 
@@ -178,7 +185,7 @@
         <section class="panel">
           <div class="panel-body">
             <div class="adv-table editable-table ">
-              <table class="table table-striped table-hover table-bordered"  align="center">
+              <table class="table table-striped  table-bordered"  align="center">
                 <caption class="mcrouter_title">mcrouter配置</caption>
                 <tbody>
                 <tr>
@@ -191,7 +198,7 @@
                 </tbody>
               </table>
               
-              <table class="table table-striped table-hover table-bordered" id="editable-sample" align="center">
+              <table class="table table-striped  table-bordered" id="editable-sample" align="center">
                 <!--<caption class="mcrouter_title">mcrouter配置</caption>-->
                 
                 <tbody>
@@ -219,7 +226,7 @@
                   </tr>
                   <tr class="">
                    
-                    <td class="">
+                    <td class="general">
                       <a href="pool_general_set.html">设置</a>
                     </td>
                     <td class="">
@@ -246,14 +253,6 @@
     </section>
     <!-- END MAIN CONTENT -->
     <!-- BEGIN FOOTER -->
-    <footer class="site-footer">
-      <div class="text-center">
-        2013 &copy; Olive Admin by <a href="" target="_blank">Custom Theme</a>.
-        <a href="http://www.mycodes.net" class="go-top">
-               <i class="fa fa-angle-up"></i>
-               </a>
-      </div>
-    </footer>
     <!-- END FOOTER -->
     <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">

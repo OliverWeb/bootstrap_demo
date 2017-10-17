@@ -19,7 +19,6 @@ function PoolGeneralHtml() {
 				}else{
 					data=data.message;
 				}
-
 				routeOperateHtml_cold = "";
 				routeOperateHtml_warm = "";
 				wildardHtml = "";

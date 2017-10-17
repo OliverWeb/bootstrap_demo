@@ -94,7 +94,7 @@ function PoolGeneralHtml() {
 
                            <td style="text-align:left;">
                              <a href="javascript:;" class="add_server_btn">
-                               <span class="label label-success" >添加服务器</span>
+                               <span class="label label-success" >添加路由池</span>
                              </a>
                            </td>
                          </tr>
@@ -144,7 +144,7 @@ function PoolGeneralHtml() {
                   <tr>
                     <td style="text-align:left;">
                       <a href="javascript:;" class="add_server_btn">
-                        <span class="label label-success" >添加服务器</span>
+                        <span class="label label-success" >添加路由池</span>
                       </a>
                     </td>
                   </tr>
@@ -308,7 +308,7 @@ $('body').on("click", ".add_strategy", function () {
 
                            <td style="text-align:left;">
                              <a href="javascript:;" class="add_server_btn">
-                               <span class="label label-success" >添加服务器</span>
+                               <span class="label label-success" >添加路由池</span>
                              </a>
                            </td>
                          </tr>

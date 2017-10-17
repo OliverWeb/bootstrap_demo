@@ -27,13 +27,26 @@
   <link href="css/lib/style.css" rel="stylesheet">
   <!-- THEME BASIC CSS -->
   <link href="css/lib/style-responsive.css" rel="stylesheet">
-  <link href="css/pool-name-set.css" rel="stylesheet">
+  <!--<link href="css/pool-name-set.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="css/lib/bootstrap-select.css">
   <!-- THEME BASIC RESPONSIVE  CSS -->
   <!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
 	<script src="js/lib/respond.min.js"></script>
 	<![endif]-->
-  <!-- END STYLESHEET -->
+  <style>
+    .bootstrap-select.btn-group .dropdown-menu li{
+      border-bottom: 1px #eee solid;
+    }
+    *::-webkit-input-placeholder {
+      color: #ACA9A9 !important;
+    }
+    tr td:first-child{
+      text-align: center;
+      vertical-align: middle;
+      line-height: 30px!important;
+    }
+  </style>
 </head>
 
 <body>
@@ -186,19 +199,29 @@
                     <tbody>
                     <tr>
                       <td>HOST</td>
-                      <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                      <td class="hostbox">
+                        <!--<input class="form-control" type="text" id="HOST" value="" placeholder="请输入名称">-->
+                        <select  data-size="9" class="selectpicker option-search hostList" data-live-search="true" title="===请选择===">
+                        
+                        </select>
+                      </td>
                     </tr>
                     <tr>
                       <td>PORT</td>
-                      <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                      <td class="portbox">
+                        <!--<input class="form-control" type="text" id="PORT" value="" placeholder="请输入名称">-->
+                        <select  title="请选择HOST" disabled data-size="9" class="selectpicker option-search portList" data-live-search="true" title="===请选择===">
+                        
+                        </select>
+                      </td>
                     </tr>
                     <tr>
-                      <td><span style="color: red">*&nbsp;<span> <span style="color: #797979">KEY</span></td>
-                      <td><input class="form-control" type="text" name="id"  value="" placeholder="请输入名称"></td>
+                      <td><span style="color: red">*<span> <span style="color: #797979">KEY</span></td>
+                      <td><input style="width: 220px" class="form-control" type="text" id="key"  value="" placeholder="请输入key"></td>
                     </tr>
                     <tr>
                       <td>VALUE</td>
-                      <td><input class="form-control" type="text" name="id" value="" placeholder="请输入名称"></td>
+                      <td><input style="width: 220px" class="form-control" type="text" id="value" value="" placeholder="请输入value"></td>
                     </tr>
                     </tbody>
                   </table>
@@ -244,7 +267,9 @@
   <script src="assets/data-tables/DT_bootstrap.js"></script>
   <script src="js/lib/respond.min.js"></script>
   <script src="js/lib/common-scripts.js"></script>
+  <script src="js/lib/bootstrap-select.js"></script>
   <script src="js/getnode.js"></script>
+  
   <script>
     $(function(){
       $('.node-sub').show();

@@ -46,7 +46,7 @@ $("body").on("click",".pool_delete",function() {
 		      $.ajax({
 		       type: "POST",
 		       dataType: "json", //服务端接收的数据类型
-		       url: "./json/copy.json",               // todo   点击删除   进行提交地址
+		       url: "./json/copy.json",               // todo   点击删除的提交的地址   进行提交地址
 		       data: datas,
 		       success: function(data) {
 		           if(data.status=="success"){
