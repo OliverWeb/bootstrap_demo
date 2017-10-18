@@ -1,7 +1,7 @@
 {"message":[{
   "logPath": "logPath",
   "numProxies": "numProxies",
-  "port": "port",
+  "port": "8888",
   "configFile": "configFile",
   "routePrefix": "routePrefix",
   "bigValueSplitThreshold": "bigValueSplitThreshold",
@@ -15,7 +15,7 @@
   {
     "logPath": "logPath",
     "numProxies": "numProxies",
-    "port": "port",
+    "port": "8088",
     "configFile": "configFile",
     "routePrefix": "routePrefix",
     "bigValueSplitThreshold": "bigValueSplitThreshold",

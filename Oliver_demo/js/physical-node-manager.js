@@ -1,6 +1,12 @@
 //物理节点管理
 /*页面初次加载的时候的*/
+var timerlog;
 $(function(){
+	$(document).on("show.bs.modal", "#add_server_modal", function(){
+
+		$(this).css("overflow-y", "scroll");
+		// 防止出现滚动条，出现的话，你会把滚动条一起拖着走的
+	});
 	$("body").on("click",".sk_item_pic",function(){
 		$('.tip-message').html("暂未开放");
 		$('#messageModal').modal('show');
@@ -41,14 +47,48 @@ $('#add_servers').click(function(){
 	$('#add_server_modal').modal('show');
 	$("input").val("");
 });
-//保存服务事件
-var ip1 = document.getElementById("ip1");
-var	ip2 = document.getElementById("ip2");
-var ip3 = document.getElementById("ip3");
-var ip4 = document.getElementById("ip4");
-/*进行验证start*/
+/*log打印日志的方法*/
+function  getLog(ip){
+	$.ajax({
+		post:"get",
+		url:"./json/log.json",
+		data:"ip="+ip,
+		success:function(data){
+			if(data.status=="success"){
+				if(data.message!=""){
+					var result=data.message;
+					var len = (result).length;
+					if (len > 0) {
+						for (var i = 0; i < len; i++) {
+							$("#information").append(result[i] + "<br/>");
+							$('#information').scrollTop($('#information')[0].scrollHeight);
+							if (result[i].indexOf("@end") != -1) {
+								clearInterval(timerlog);
+								$('.tip-message').html("操作成功");
+								$('#messageModal').modal('show');
+								setTimeout(function(){
+									$('#messageModal').modal('hide');
+								},1000);
+								$(".logclose").click(function () {   //点击关闭的时候进行的停止请求
+									$('#logModal').modal('hide');
+									$("#information").empty();
+									location.reload();
+								})
+							}
+						}
+					}
+				}
+			}else{
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+			}
+		},
+		error:function(data){
 
-/*进行验证end*/
+		}
+	});
+}
+//保存服务事件
 $('.add_servers_save').click(function(){
 	if($("#ip1").val()==""||$("#ip2").val()==""||$("#ip3").val()==""||$("#ip4").val()==""){
 		$('.tip-message').html("请将内容填写完整!!!");
@@ -58,22 +98,40 @@ $('.add_servers_save').click(function(){
 		},1000);
 		return;
 	}
+	var b = new Base64();
+	var pwd=$("#ip3").val();
+	var rootpwd=$("#ip4").val();
+	if (pwd.length > 0) {
+		$("#ip3").val(b.encode(pwd));
+	}
+	if (rootpwd.length > 0) {
+		$("#ip4").val(b.encode(rootpwd));
+	}
 	var datas=$("form").serialize();
-	// console.log(datas);
 	data_ip=$('#ip1').val();
 	console.log(datas);
 	$.ajax({
 		type: "get",
-		url: "./json/router.json",                  // 保存的提交的链接的地址
+		url: "./json/logip.json",                  // 保存的提交的链接的地址
+		data:datas,
 		success:function (data) {
 			if(data.status=="success"){
-				$('#add_server_modal').modal('hide');
-				$('.tip-message').html("保存成功");
-				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
-					// location.reload();
-				},1000);
+				if(data.message!=""){
+					$('#add_server_modal').modal('hide');
+					/*打印日志*/
+					$('#logModal').modal('show');
+					$('#logModal').unbind("click"); //移除click
+					timerlog=setInterval(function(){
+						getLog(data.message);
+					},1000);
+					//点击关闭的时候进行的停止请求
+					$(".logclose").click(function () {
+						$('#logModal').modal('hide');
+						clearInterval(timerlog);
+						$("#information").empty();
+					});
+				}
+
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');

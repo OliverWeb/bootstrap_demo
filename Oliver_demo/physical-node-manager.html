@@ -145,12 +145,12 @@
               </a>
             <ul class="sub node-sub">
               <li>
-                <a href="physical-node-manager.html">
+                <a style="color:#428bca" href="physical-node-manager.html">
                     物理节点管理
                   </a>
               </li>
               <li>
-                <a href="mcrouterList.html">
+                <a  href="mcrouterList.html">
                     Mcrouter节点
                   </a>
               </li>
@@ -241,26 +241,40 @@
         </div>
         
     </section>
-    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-            <h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
-          </div>
-          <div class="modal-body">
-            <div class="tip-message" style="font-size: 16px;text-align: center"></div>
+    </section>
+  <!--log模态登录框-->
+  <div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="logclose">×</span>
+          </button>
+          <h4 class="modal-title" style="font-weight:bold;">初始化日志</h4>
+        </div>
+        <div class="modal-body">
+          <div id="information" class="" style="width:100%; height: 700px; padding: 5px 5px;left:7%;top:60px; overflow-y:scroll; background:#000; color:#25fff7">
           </div>
         </div>
       </div>
     </div>
-    </section>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN FOOTER -->
-    
-    <!-- END FOOTER -->
+  </div>
+  <!--消息提示框-->
+  <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
+        </div>
+        <div class="modal-body">
+          <div class="tip-message" style="font-size: 16px;text-align: center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
   <!-- END SECTION -->
 
@@ -282,14 +296,22 @@
   <!-- DATATABLE JS  -->
   <script src="js/lib/respond.min.js"></script>
   <!-- RESPOND JS  -->
+  <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/lib/common-scripts.js"></script>
   <script src="js/physical-node-manager.js"></script>
+  <script src="js/lib/base64.js"></script>
   <!-- BASIC COMMON JS  -->
   <!-- <script src="js/editable-pool-name-set.js"></script> -->
   <!-- EDITABLE TABLE JS  -->
   <script>
     $(function(){
       $('.node-sub').show();
+    });
+    $(document).on("show.bs.modal", "#logModal", function(){
+	    $(this).draggable({
+         handle: ".modal-header"   // 只能点击头部拖动
+	    });
+	    $(this).css("overflow", "hidden"); // 防止出现滚动条，出现的话，你会把滚动条一起拖着走的
     });
   </script>
   <!-- END JS -->

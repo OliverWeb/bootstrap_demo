@@ -1,5 +1,7 @@
 	var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 // Mcrouter js
+	var editType="add";
+	var addPort="";
 		$(function () {
 			/*监听表单框的中的(是否开启流量控制)*/
 			if($("#md_3").is(":checked")){
@@ -33,9 +35,9 @@
 			/*页面进行请求咱咱先布局*/
 			$.ajax({
 				type:"get",
-				url:"./json/mcrouter.json",               //页面初次加载数据请求的地址   根路径pageContext
+				url:"./json/mcrouter.json",               //页面初次加载数据请求的地址   url: "../config/node/getMcrouterNodes?mcrouter_ip=" + ip
+				data:"mcrouter_ip="+IpValur,
 				success:function (data) {
-					// console.log(data);
 					if(data.status=="success"){
 						if(data.message!=""){
 							data.message.map(function(value,key){
@@ -79,6 +81,8 @@
 	});
 	/*页面进行请求咱咱先布局  end*/
 	$("body").on("click",".modify",function(){     //点击编辑,修改
+		editType ="edit";
+		addPort=$(this).parent().parent().find(".port").html();
 		$('#add_mcrouter_modle').modal('show');
 		$("input.logPath").val( $(this).parent().parent().find(".logPath").html());
 		$("input.numProxies").val( $(this).parent().parent().find(".numProxies").html());
@@ -91,8 +95,37 @@
 		$("input.targetMaxPendingRequests").val( $(this).parent().parent().find(".destinationRateLimiting").html());
 	});
 	$("#add_mcrouter").click(function(){         //点击添加的
+		editType="add";
 		document.getElementById('server_form').reset();
 		$('#add_mcrouter_modle').modal('show');
+	});
+	/*点击查看的代码*/
+	$("body").on("click",".view",function(){
+	  if($(this).prev().hasClass("off")){
+		  $('.tip-message').html("服务器已停止，暂不支持查看具体信息");
+		  $('#messageModal').modal('show');
+		  setTimeout(function(){
+			  $('#messageModal').modal('hide');
+		  },1000);
+	  }else{
+	  	$.ajax({
+	  		post:"get",
+	  		url:"",
+	  		success:function(data){
+	  			if(data.status=="success"){
+	  				if(data.message!=""){
+							/*对页面进行填充*/
+					  }
+				  }else{
+					  $('.tip-message').html(data.message);
+					  $('#viewModal').modal('show');
+				  }
+	  		},
+	  		error:function(data){
+
+	  		}
+	  	});
+	  }
 	});
 	/*点击开启和关闭的*/
 	$('body').on('click','.opneBtn',function(){
@@ -170,38 +203,37 @@
 			},1000);
 			return;
 		};
-
-		/*变淡序列化,进行提交表单信息*/
-		var datas=$("form").serialize();
-		if($("input.port").val()!=""){
-			datas=datas+"&port="+$("input.port").val();
-		}
-		if($("input.bigValueSplitThreshold").val()!=""){
-			datas=datas+"&bigValueSplitThreshold="+$("input.bigValueSplitThreshold").val();
-		}
-		if($("input.targetMaxInflightRequest").val()!=""){
-			datas=datas+"&targetMaxInflightRequest="+$("input.targetMaxInflightRequest").val();
-		}
-		if($("#md_3").is(":checked")){
-			datas=datas+"&destinationRateLimiting=0"+"&targetMaxInflightRequest"+$('input.targetMaxInflightRequest').val();
+		var McrouterValue={};
+		/*表单序列化,进行提交表单信息*/
+		McrouterValue.logPath=$("input.logPath").val();
+		McrouterValue.numProxies=$("input.numProxies").val();
+		McrouterValue.port=$("input.port").val();
+		McrouterValue.configFile=$("input.configFile").val();
+		McrouterValue.routePrefix=$("input.routePrefix").val();
+		McrouterValue.bigValueSplitThreshold=$("input.bigValueSplitThreshold").val();
+		McrouterValue.targetMaxInflightRequest=$("input.targetMaxInflightRequest").val();
+		McrouterValue.targetMaxPendingRequests=$("input.targetMaxPendingRequests").val();
+		McrouterValue.maxClientOutstandingRequest=$("input.maxClientOutstandingRequest").val();
+		McrouterValue.destinationRateLimiting=$("#md_3").is(":checked")==true? destinationRateLimiting:"";
+		McrouterValue.disabled="1";
+		console.log(McrouterValue);
+		if(editType=="add"){
+			var port=$("input.port").val();
 		}else{
-			datas=datas+"&destinationRateLimiting=1";
-		}
-		// console.log(datas);
-		data_ip=$('#ip1').val();
-		// var dataArr=datas.split("&");
-		// console.log(datas);
-		// var parentObj=[];
-		// dataArr.map(function(value,key){
-		// 	childObj={};
-		// 	var childArr=value.split("=");
-		// 	childObj[childArr[0]]=childArr[1];
-		// 	parentObj.push(childObj);
-		// });
-		// console.log(parentObj);
+			var port=addPort;
+		};
+
+		var data={
+			"value": McrouterValue,
+			"server":IpValur,
+			"tmpPrefix":"/cache-center/nodes/mcrouter/" + IpValur + "/" + port,
+			"editType":editType
+		};
+		console.log(data);
 			$.ajax({
 				type:"get",
 				url:"./json/mcrouter.json",               // 点击保存数据请求的地址   根路径pageContext
+				data:data,
 				success:function (data) {
 					if(data.status=="success"){
 						$('#add_mcrouter_modle').modal('hide');
@@ -223,12 +255,7 @@
 					}
 				},
 				error:function(){
-
 				}
 			});
-
-
-
-
 	});
 });

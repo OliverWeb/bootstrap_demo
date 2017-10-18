@@ -3,7 +3,7 @@ $(function () {
 	server_li_html=[];
 	$.ajax({
 		type: "get",
-		url: "./json/iplist.json",                              //pageContext根路径的地址
+		url: "./json/iplist.json",                              //页面处理加载时候的页面
 		success:function (data) {
 			if(data.status=="success"){
 				if(data.message!=""){
