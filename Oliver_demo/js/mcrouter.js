@@ -54,12 +54,12 @@
 											    <td class="destinationRateLimiting">${value.destinationRateLimiting}</td>
 											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
 											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
-											    <td style="width: 210px">
+											    <td style="width: 220px">
 											    		<button type="button" class="modify btn btn-primary btn-sm">
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class='btn btn-sm opneBtn ${value.disabled==1?"btn-success  on":"btn-default off"}'>
+													   <button type="button" class='btn btn-sm openBtn ${value.disabled==1?"btn-success  on":"btn-default off"}'>
 													  <span> ${value.disabled==1?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
@@ -81,6 +81,13 @@
 	});
 	/*页面进行请求咱咱先布局  end*/
 	$("body").on("click",".modify",function(){     //点击编辑,修改
+		if($(this).parent().parent().find(".destinationRateLimiting").html()!=""){
+			$("#md_3").attr("checked","true");
+			$("input.targetMaxInflightRequest").removeAttr("disabled");
+		}else{
+			$("#md_3").removeAttr("checked");
+			$("input.targetMaxInflightRequest").attr("disabled","disabled");
+		}
 		editType ="edit";
 		addPort=$(this).parent().parent().find(".port").html();
 		$('#add_mcrouter_modle').modal('show');
@@ -101,6 +108,11 @@
 	});
 	/*点击查看的代码*/
 	$("body").on("click",".view",function(){
+		addPort=$(this).parent().parent().find(".port").html();
+		var datas={
+			"server":IpValur,
+			"port":addPort
+		};
 	  if($(this).prev().hasClass("off")){
 		  $('.tip-message').html("服务器已停止，暂不支持查看具体信息");
 		  $('#messageModal').modal('show');
@@ -110,7 +122,8 @@
 	  }else{
 	  	$.ajax({
 	  		post:"get",
-	  		url:"",
+	  		url:"",      //"${pageContext.request.contextPath}/config/dashboard/command_exe"
+			  data:datas,
 	  		success:function(data){
 	  			if(data.status=="success"){
 	  				if(data.message!=""){
@@ -128,12 +141,26 @@
 	  }
 	});
 	/*点击开启和关闭的*/
-	$('body').on('click','.opneBtn',function(){
+	$('body').on('click','.openBtn',function(){
 		$(this).attr("disabled","disabled");
 		var _this=this;
+		addPort=$(this).parent().parent().find(".port").html();
+		var datas={
+			"server":IpValur,
+			"key":"/cache-center/nodes/mcrouter/" + IpValur + "/" + addPort
+		};
+		console.log(datas);
+		if($(this).hasClass("on")){
+			 operateUrl="./json/mcrouter.json";     //"${pageContext.request.contextPath}/mcrouter/operation/start_mcrouter"
+			console.log("on");
+		}else{
+			operateUrl="./json/mcrouter.json";    //"${pageContext.request.contextPath}/mcrouter/operation/stop_mcrouter"
+			console.log("off");
+		}
 		$.ajax({
-			url:"./json/mcrouter.json",                          //操作开启和关闭的的请求地址
+			url:operateUrl,                          //操作开启和关闭的的请求地址
 			type:"get",
+			data:datas,
 			success:function(data){
 				if(data.status=="success"){
 					$('.tip-message').html("设置成功!");
@@ -141,7 +168,6 @@
 						$(_this).find("span").html("禁用");
 						$(_this).removeClass("on btn-success").addClass("off btn-default");
 						$(_this).parent().parent().first().find(".openbox").removeClass("on").addClass("off").html("已禁用");
-
 					}else{
 						$(_this).find("span").html("开启");
 						$(_this).removeClass("off btn-default").addClass("on btn-success");

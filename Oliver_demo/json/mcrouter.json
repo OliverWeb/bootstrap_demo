@@ -8,7 +8,7 @@
   "targetMaxInflightRequest": "targetMaxInflightRequest",
   "targetMaxPendingRequests":"targetMaxPendingRequests",
   "maxClientOutstandingRequest":"maxClientOutstandingRequest",
-  "destinationRateLimiting":"destinationRateLimiting",
+  "destinationRateLimiting":"",
   "disabled": "0",
   "key": "tmpPrefix"
   },
