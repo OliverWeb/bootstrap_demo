@@ -51,7 +51,7 @@
 											    <td class="routePrefix">${value.routePrefix}</td>
 											    <td class="bigValueSplitThreshold">${value.bigValueSplitThreshold}</td>
 											    <td class="maxClientOutstandingRequest">${value.maxClientOutstandingRequest}</td>
-											    <td class="destinationRateLimiting">${value.destinationRateLimiting}</td>
+											    <td class="destinationRateLimiting">${value.destinationRateLimiting==""?"关":"开"}</td>
 											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
 											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
 											    <td style="width: 220px">
@@ -80,8 +80,28 @@
 		}
 	});
 	/*页面进行请求咱咱先布局  end*/
-	$("body").on("click",".modify",function(){     //点击编辑,修改
-		if($(this).parent().parent().find(".destinationRateLimiting").html()!=""){
+	$("body").on("click",".modify",function(){     //点击编辑,修改  edit
+		addPort=$(this).parent().parent().find(".port").html();
+		var portList=[];
+		console.log($(".add_mcrouter_list").find("tr").length);
+		$('input.port').blur(function () {
+			var targetPort=$('input.port').val();
+			$(".add_mcrouter_list").find("tr").map(function(key,value){
+				portList.push($(value).find(".port").html());
+			});
+			portList.map(function(value,key){
+				if(value==targetPort&&addPort!=targetPort){
+					$('.tip-message').html("监听端口号已存在,请换一个!!");
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+					},1000);
+				}
+			});
+		});
+
+		/*进行判断是否选中*/
+		if($(this).parent().parent().find(".destinationRateLimiting").html()=="开"){
 			$("#md_3").attr("checked","true");
 			$("input.targetMaxInflightRequest").removeAttr("disabled");
 		}else{
@@ -89,7 +109,6 @@
 			$("input.targetMaxInflightRequest").attr("disabled","disabled");
 		}
 		editType ="edit";
-		addPort=$(this).parent().parent().find(".port").html();
 		$('#add_mcrouter_modle').modal('show');
 		$("input.logPath").val( $(this).parent().parent().find(".logPath").html());
 		$("input.numProxies").val( $(this).parent().parent().find(".numProxies").html());
@@ -101,15 +120,35 @@
 		$("input.targetMaxInflightRequest").val( $(this).parent().parent().find(".targetMaxInflightRequest").html());
 		$("input.targetMaxPendingRequests").val( $(this).parent().parent().find(".destinationRateLimiting").html());
 	});
-	$("#add_mcrouter").click(function(){         //点击添加的
+	$("#add_mcrouter").click(function(){         //点击添加的  add
+		/*判断是否已存在端口号*/
+		var portList=[];
+		$('input.port').blur(function () {
+			var targetPort=$('input.port').val();
+			$(".add_mcrouter_list").find("tr").map(function(key,value){
+				portList.push($(value).find(".port").html());
+			});
+			portList.map(function(value,key){
+				if(value==targetPort){
+					$('.tip-message').html("监听端口号已存在,请换一个!!");
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+					},1000);
+				}
+			});
+		});
+		/*判断是否已存在端口号 end */
 		editType="add";
+		$("#md_3").removeAttr("checked");
+		$(".flightRequest").attr("disabled","disabled");
 		document.getElementById('server_form').reset();
 		$('#add_mcrouter_modle').modal('show');
 	});
 	/*点击查看的代码*/
 	$("body").on("click",".view",function(){
 		addPort=$(this).parent().parent().find(".port").html();
-		var datas={
+		var submitData={
 			"server":IpValur,
 			"port":addPort
 		};
@@ -122,8 +161,8 @@
 	  }else{
 	  	$.ajax({
 	  		post:"get",
-	  		url:"",      //"${pageContext.request.contextPath}/config/dashboard/command_exe"
-			  data:datas,
+	  		url:"./json/memcached.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
+			  data:submitData,
 	  		success:function(data){
 	  			if(data.status=="success"){
 	  				if(data.message!=""){
@@ -145,11 +184,11 @@
 		$(this).attr("disabled","disabled");
 		var _this=this;
 		addPort=$(this).parent().parent().find(".port").html();
-		var datas={
+		var submitData={
 			"server":IpValur,
 			"key":"/cache-center/nodes/mcrouter/" + IpValur + "/" + addPort
 		};
-		console.log(datas);
+		console.log(submitData);
 		if($(this).hasClass("on")){
 			 operateUrl="./json/mcrouter.json";     //"${pageContext.request.contextPath}/mcrouter/operation/start_mcrouter"
 			console.log("on");
@@ -160,7 +199,7 @@
 		$.ajax({
 			url:operateUrl,                          //操作开启和关闭的的请求地址
 			type:"get",
-			data:datas,
+			data:submitData,
 			success:function(data){
 				if(data.status=="success"){
 					$('.tip-message').html("设置成功!");
@@ -197,9 +236,8 @@
 			}
 		});
 	});
-	$(".add_servers_mcrouter").click(function(){      //点击保存
+	$(".add_servers_mcrouter").click(function(){      //点击保存  提交
 		/*判断之前的判断*/
-		var numexp = /^([0-9]|[1-9]\d|[1-9]\d{2}|[1-9]\d{3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/;      //正则验证
 		if($("input.logPath").val()==""){      //所填内容的判断
 			$('.tip-message').html("请将日志文件路径填写完整!");
 			$('#messageModal').modal('show');
@@ -229,37 +267,37 @@
 			},1000);
 			return;
 		};
-		var McrouterValue={};
+		var submitValue={};
 		/*表单序列化,进行提交表单信息*/
-		McrouterValue.logPath=$("input.logPath").val();
-		McrouterValue.numProxies=$("input.numProxies").val();
-		McrouterValue.port=$("input.port").val();
-		McrouterValue.configFile=$("input.configFile").val();
-		McrouterValue.routePrefix=$("input.routePrefix").val();
-		McrouterValue.bigValueSplitThreshold=$("input.bigValueSplitThreshold").val();
-		McrouterValue.targetMaxInflightRequest=$("input.targetMaxInflightRequest").val();
-		McrouterValue.targetMaxPendingRequests=$("input.targetMaxPendingRequests").val();
-		McrouterValue.maxClientOutstandingRequest=$("input.maxClientOutstandingRequest").val();
-		McrouterValue.destinationRateLimiting=$("#md_3").is(":checked")==true? destinationRateLimiting:"";
-		McrouterValue.disabled="1";
-		console.log(McrouterValue);
+		submitValue.logPath=$("input.logPath").val();
+		submitValue.numProxies=$("input.numProxies").val();
+		submitValue.port=$("input.port").val();
+		submitValue.configFile=$("input.configFile").val();
+		submitValue.routePrefix=$("input.routePrefix").val();
+		submitValue.bigValueSplitThreshold=$("input.bigValueSplitThreshold").val();
+		submitValue.targetMaxInflightRequest=$("input.targetMaxInflightRequest").val();
+		submitValue.targetMaxPendingRequests=$("input.targetMaxPendingRequests").val();
+		submitValue.maxClientOutstandingRequest=$("input.maxClientOutstandingRequest").val();
+		submitValue.destinationRateLimiting=$("#md_3").is(":checked")==true? destinationRateLimiting:"";
+		submitValue.disabled="1";
+		console.log(submitValue);
 		if(editType=="add"){
 			var port=$("input.port").val();
 		}else{
 			var port=addPort;
 		};
 
-		var data={
-			"value": McrouterValue,
+		var submitData={
+			"value": submitValue,
+			"prefix":"/cache-center/nodes/mcrouter/" + IpValur + "/" + port,
 			"server":IpValur,
-			"tmpPrefix":"/cache-center/nodes/mcrouter/" + IpValur + "/" + port,
 			"editType":editType
 		};
-		console.log(data);
+		console.log(submitData);
 			$.ajax({
 				type:"get",
-				url:"./json/mcrouter.json",               // 点击保存数据请求的地址   根路径pageContext
-				data:data,
+				url:"./json/mcrouter.json",               // 点击 提交 保存数据请求的地址   submit   "../mcrouter/operation/set_mcrouter_node" ,
+				data:submitData,
 				success:function (data) {
 					if(data.status=="success"){
 						$('#add_mcrouter_modle').modal('hide');

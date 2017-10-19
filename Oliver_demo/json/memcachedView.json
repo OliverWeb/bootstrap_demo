@@ -1,2 +1,18 @@
-{"message":{"evictions":"evictions"},
+{"message":{
+  "evictions":"evictions",
+  "memory_usage":"memory_usage",
+  "threads":"threads",
+  "hit_rate":"hit_rate",
+  "miss_rate":"miss_rate",
+  "cmd_set":"cmd_set",
+  "read_rate":"read_rate",
+  "write_rate":"write_rate",
+  "evictions":"evictions",
+  "rusage_user":"rusage_user",
+  "rusage_system":"rusage_system",
+  "curr_items":"curr_items",
+  "total_items":"total_items",
+  "curr_connection":"curr_connection",
+  "total_connection":"total_connection"
+},
   "status":"success"}

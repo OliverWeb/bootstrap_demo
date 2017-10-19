@@ -3,7 +3,7 @@ $(function () {
 	server_li_html=[];
 	$.ajax({
 		type: "get",
-		url: "./json/iplist.json",
+		url: "./json/iplist.json",            // '${pageContext.request.contextPath}/jsp/memcached_node_config.jsp'
 		success:function (data) {
 			if(data.status=="success"){
 				if(data.message!=""){

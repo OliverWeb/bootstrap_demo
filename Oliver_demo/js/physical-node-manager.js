@@ -1,6 +1,24 @@
 //物理节点管理
 /*页面初次加载的时候的*/
 var timerlog;
+/*验证ip start*/
+function isValidIP(ip) {
+	var reg =  /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+	return reg.test(ip);
+}
+function valieIP(){
+	var ip = $('#ip1').val();
+	if(isValidIP(ip)){
+		console.log("有效");
+	}else{
+		$('.tip-message').html("请输入正确ip地址");
+		$('#messageModal').modal('show');
+		setTimeout(function(){
+			$('#messageModal').modal('hide');
+		},1000);
+	}
+};
+/*验证ip start*/
 $(function(){
 	$(document).on("show.bs.modal", "#add_server_modal", function(){
 
@@ -51,7 +69,7 @@ $('#add_servers').click(function(){
 function  getLog(ip){
 	$.ajax({
 		post:"get",
-		url:"./json/log.json",
+		url:"./json/log.json",                            //  '${pageContext.request.contextPath}/config/getInitLogs?ip=' + ip,
 		data:"ip="+ip,
 		success:function(data){
 			if(data.status=="success"){
@@ -68,7 +86,7 @@ function  getLog(ip){
 								$('#messageModal').modal('show');
 								setTimeout(function(){
 									$('#messageModal').modal('hide');
-								},1000);
+								},2000);
 								$(".logclose").click(function () {   //点击关闭的时候进行的停止请求
 									$('#logModal').modal('hide');
 									$("#information").empty();
@@ -112,7 +130,7 @@ $('.add_servers_save').click(function(){
 	console.log(datas);
 	$.ajax({
 		type: "get",
-		url: "./json/logip.json",                  // 保存的提交的链接的地址
+		url: "./json/logip.json",      // 保存的提交的链接的地址   save  ,submit, "${pageContext.request.contextPath}/config/node/addNewServer"
 		data:datas,
 		success:function (data) {
 			if(data.status=="success"){
