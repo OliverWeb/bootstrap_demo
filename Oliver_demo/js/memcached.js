@@ -136,6 +136,14 @@ $(function () {
 	});
 	/*查看详情*/
 	$('body').on("click",".view",function(){
+		if($(this).prev().hasClass("off")){
+			$('.tip-message').html("服务器已停止，暂不支持查看具体信息`  !");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}
 		$("#ViewModal").modal('show');
 		addPort=$(this).parent().parent().find(".port").html();
 		var submitData={

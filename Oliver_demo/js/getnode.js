@@ -31,7 +31,7 @@ $(function(){
 							var selectValue=$('.hostList').val();
 							$.ajax({
 								post:"get",
-								url:"./json/port.json",                    //../config/node/getMcrouterNodes?mcrouter_ip="+res.value,
+								url:"./json/port.json",                    // ../config/node/getMcrouterNodes,
 								data:"mcrouter_ip="+selectValue,
 								success:function(data){
 									if(data.status="success"){
@@ -105,7 +105,7 @@ $(function(){
 			success:function (data) {
 				if(data.status=="success"){
 					$("#value").val(data.message);
-					$('.tip-message').html("设置成功");
+					$('.tip-message').html("获取成功");
 					$('#messageModal').modal('show');
 					setTimeout(function(){
 						$('#messageModal').modal('hide');

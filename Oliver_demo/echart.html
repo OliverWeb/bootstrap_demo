@@ -7,11 +7,12 @@
 	<meta name="author" content="Custom Theme">
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<title>Chart</title>
-	<link href="css/lib/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-	<link href="css/lib/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON STYLESHEET -->
-	<link href="css/lib/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
-	<link href="css/lib/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
+	<link href="css/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="css/lib/bootstrap-reset.css" rel="stylesheet">
+	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="css/lib/style.css" rel="stylesheet">
+	<link href="css/lib/style-responsive.css" rel="stylesheet">
+	<link href="css/layout.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
 	<script src="js/lib/respond.min.js"></script>
@@ -21,78 +22,35 @@
 </head>
 <body>
 <section id="container" class="">
-	<!-- BEGIN HEADER -->
 	<header class="header white-bg">
-		<!-- SIDEBAR TOGGLE BUTTON -->
-		<div class="sidebar-toggle-box">
-			<div data-placement="right" class="fa fa-bars tooltips">
-			</div>
-		</div>
-		<!-- SIDEBAR TOGGLE BUTTON  END-->
 		<a href="index.html" class="logo">
 			NODE
 			<span>
             后台管理系统
           </span>
 		</a>
-		<!-- START HEADER  NAV -->
-		<!-- 提示消息窗口 -->
-		<nav class="nav notify-row" id="top_menu" style="margin-left:15px;">
-			
-			<ul class="nav top-menu">
-				<!-- START NOTIFY NOTIFICATION BAR  顶部提醒消息 -->
-				
-				<li id="header_notification_bar" class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-						<i class="fa fa-bell-o">
-						</i>
-						<span class="badge bg-warning">
-                  0
-                </span>
-					</a>
-				</li>
-				<!-- END NOTIFY NOTIFICATION BAR -->
-			
-			</ul>
-		
-		
-		</nav>
-		<!-- END HEADER NAV -->
-		
-		<!-- START USER LOGIN DROPDOWN  -->
 		
 		<div class="top-nav ">
 			<ul class="nav pull-right top-menu">
-				<li>
-					<input type="text" class="form-control search" placeholder="Search">
-				</li>
-				<li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-						<img alt="" src="img/avatar1_small.jpg">
-						<span class="username">
-                  Pruthvi
-                </span>
-						<b class="caret">
-						</b>
-					</a>
-					<ul class="dropdown-menu extended logout">
-						<li class="log-arrow-up">
-						</li>
-						<li>
-							<a href="login.html">
-								<i class="fa fa-key">
-								</i>
-								Log Out
-							</a>
-						</li>
+				<div class="dropdown" >
+					<span class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
+						<button type="button" class="btn btn-default btn-sm personal" >
+					<span class="glyphicon glyphicon-user"></span> User
+					</button>
+					</span>
+					<ul class="dropdown-menu loginOut">
+						<a href="login.html">
+							<li>
+								<span class="glyphicon glyphicon-off"></span>退出
+							</li>
+						</a>
 					</ul>
-				</li>
+				
+				</div>
 			</ul>
 		</div>
 		<!-- END USER LOGIN DROPDOWN  -->
 	</header>
-	<!-- END HEADER -->
-	<!-- BEGIN SIDEBAR -->
 	<aside>
 		<div id="sidebar" class="nav-collapse">
 			<ul class="sidebar-menu" id="nav-accordion">
@@ -114,9 +72,6 @@
 						</i>
 						<span>
                    NODE
-                 </span>
-						<span class="label label-info span-sidebar">
-                   4
                  </span>
 					</a>
 					<ul class="sub node-sub">

@@ -1,0 +1,16 @@
+#main-content{
+	margin-left: 9%;
+}
+#sidebar{
+	width: 9%;
+}
+.header>a>span{
+	margin-left: 24px;
+}
+.personal{
+	margin-top:10px;
+}
+.loginOut{
+	min-width: 65px;
+	text-align: center;
+}
