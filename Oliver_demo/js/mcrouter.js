@@ -147,26 +147,31 @@
 	});
 	/*点击查看的代码*/
 	$("body").on("click",".view",function(){
+		$("#viewModal").modal('show');
 		addPort=$(this).parent().parent().find(".port").html();
 		var submitData={
 			"server":IpValur,
 			"port":addPort
 		};
-	  if($(this).prev().hasClass("off")){
-		  $('.tip-message').html("服务器已停止，暂不支持查看具体信息");
-		  $('#messageModal').modal('show');
-		  setTimeout(function(){
-			  $('#messageModal').modal('hide');
-		  },1000);
-	  }else{
 	  	$.ajax({
 	  		post:"get",
-	  		url:"./json/memcached.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
+	  		url:"./json/mcrouterView.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
 			  data:submitData,
 	  		success:function(data){
 	  			if(data.status=="success"){
 	  				if(data.message!=""){
-							/*对页面进行填充*/
+						  $("#pid").val(data.message.pid);
+						  $("#curr_connections").val(data.message.curr_connections);
+						  $("#cmd_get").val(data.message.cmd_get);
+						  $("#get_hits").val(data.message.get_hits);
+						  $("#get_misses").val(data.message.get_misses);
+						  $("#cmd_set").val(data.message.cmd_set);
+						  $("#delete_hits").val(data.message.delete_hits);
+						  $("#delete_misses").val(data.message.delete_misses);
+						  $("#bytes_read").val(data.message.bytes_read);
+						  $("#bytes_written").val(data.message.bytes_written);
+						  $("#limit_maxbytes").val(data.message.limit_maxbytes);
+						  $("#bytes").val(data.message.bytes);
 					  }
 				  }else{
 					  $('.tip-message').html(data.message);
@@ -177,7 +182,7 @@
 
 	  		}
 	  	});
-	  }
+
 	});
 	/*点击开启和关闭的*/
 	$('body').on('click','.openBtn',function(){

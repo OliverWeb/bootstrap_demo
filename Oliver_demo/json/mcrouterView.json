@@ -1,0 +1,15 @@
+{"message":{
+  "pid":"pid",
+  "curr_connections":"curr_connections",
+  "cmd_get":"cmd_get",
+  "get_hits":"get_hits",
+  "get_misses":"get_misses",
+  "cmd_set":"cmd_set",
+  "delete_hits":"delete_hits",
+  "delete_misses":"delete_misses",
+  "bytes_read":"bytes_read",
+  "bytes_written":"bytes_written",
+  "limit_maxbytes":"limit_maxbytes",
+  "bytes":"bytes"
+},
+  "status":"success"}

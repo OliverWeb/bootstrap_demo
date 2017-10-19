@@ -1,3 +1,4 @@
+var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 $(function(){
 	$('body').on('shown.bs.select', '.selectpicker', function (e) {
 		$('.bs-searchbox input').attr("placeholder","请输入搜索内容...");
@@ -6,12 +7,11 @@ $(function(){
 	var hostList="";
 	$.ajax({
 		post:"get",
-		url:"./json/host.json",
+		url:"./json/host.json",          //"../config/getMcrouterNodeList"
 		success:function(data){
 			if(data.status=="success"){
 				if(data.message!=""){
 					var datas=data.message;
-					console.log(datas);
 					datas.map(function(value,key){
 						return hostList = hostList + `<option value=${value} key=${key}>${value}</option>`;
 					});
@@ -28,9 +28,11 @@ $(function(){
 					$('body').on('hidden.bs.select', '.hostList', function (e) {
 						var portList="";
 						if($('.hostList').val()!=""){
+							var selectValue=$('.hostList').val();
 							$.ajax({
 								post:"get",
-								url:"./json/port.json",
+								url:"./json/port.json",                    //../config/node/getMcrouterNodes?mcrouter_ip="+res.value,
+								data:"mcrouter_ip="+selectValue,
 								success:function(data){
 									if(data.status="success"){
 										if(data.message!=""){
@@ -94,14 +96,15 @@ $(function(){
 		var hostname=$(".hostList").val();
 		var port=$(".portList").val();
 		var key=$("#key").val();
-		var datas="key="+key+"&hostname="+hostname+"&port="+port;
-		console.log(datas);
+		var targetData="key="+key+"&hostname="+hostname+"&port="+port;
+		console.log(targetData);
 		$.ajax({
 			type:"get",
-			url:"./json/mcrouter.json",               // 点击保存进行提交数据请求的地址   根路径pageContext
+			url:"./json/getNode.json", // 点击保存进行提交数据请求的地址"${pageContext.request.contextPath}/config/node/getMcrouterValue?key="+val+"&hostname="+host+"&port="+port,
+			data:targetData,
 			success:function (data) {
 				if(data.status=="success"){
-					$('#add_mcrouter_modle').modal('hide');
+					$("#value").val(data.message);
 					$('.tip-message').html("设置成功");
 					$('#messageModal').modal('show');
 					setTimeout(function(){

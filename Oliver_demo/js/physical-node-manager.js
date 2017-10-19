@@ -1,3 +1,4 @@
+var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 //物理节点管理
 /*页面初次加载的时候的*/
 var timerlog;

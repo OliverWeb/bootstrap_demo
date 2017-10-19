@@ -314,62 +314,75 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-            <h4 class="modal-title" style="font-weight:bold;">提示信息</h4>
+            <h4 class="modal-title" style="font-weight:bold;">详情</h4>
           </div>
           <div class="modal-body">
-            <table class="table table-striped table-hover table-bordered"  align="center">
-    
-              <tr>
-                <td>日志文件路径：</td>
-                <td><input id="logPath" class="easyui-textbox" style="width: 166px;height:27px" required="true"/></td>
-              </tr>
-              <tr>
-                <td>处理客户端请求线程数量：</td>
-                <td><input id="numProxies" class="easyui-textbox" style="width: 166px;height:27px" required="true"/>
-                </td>
-              </tr>
-              <tr>
-                <td>监听端口号：</td>
-                <td><input id="port" class="easyui-textbox" style="width: 166px;height:27px"/></td>
-              </tr>
-              <tr>
-                <td>配置文件路径：</td>
-                <td><input id="configFile" class="easyui-textbox" style="width: 166px;height:27px" required="true"/>
-                </td>
-              </tr>
-              <tr>
-                <td>默认路由前缀：</td>
-                <td><input id="routePrefix" class="easyui-textbox" style="width: 166px;height:27px" required="true"/>
-                </td>
-              </tr>
-              <tr>
-                <td>大数据分段发送截取长度：</td>
-                <td><input id="bigValueSplitThreshold" class="easyui-textbox" style="width: 166px;height:27px"/></td>
-              </tr>
-              <tr>
-                <td>客户端最大链接数：</td>
-                <td><input id="maxClientOutstandingRequest" class="easyui-textbox" style="width: 166px;height:27px"/>
-                </td>
-              </tr>
-              <tr>
-                <td>是否开启流量控制：</td>
-                <td><input class="easyui-combobox" id="destinationRateLimiting" name="destinationRateLimiting" data-options="panelWidth: 166,panelHeight: 'auto',formatter: formatItem" required="true"/>
-                </td>
-              </tr>
-              <tr>
-                <td>限制发送请求的速度(须开启流控)：</td>
-                <td><input id="targetMaxInflightRequest" class="easyui-textbox" style="width: 166px;height:27px"/></td>
-              </tr>
-              <tr>
-                <td>未发送数据缓存最大值：</td>
-                <td><input id="targetMaxPendingRequests" class="easyui-textbox" style="width: 166px;height:27px"/></td>
-              </tr>
-              <tr>
-                <td colspan="2" align="center"><a href="javascript:;" onclick="commit()"
-                                                  class="easyui-linkbutton" iconCls="icon-ok"
-                                                  style="width: 50%; height: 32px"></a></td>
-              </tr>
-            </table>
+          
+            <form id="show-status">
+              <table class="table table-striped table-hover table-bordered"  align="center">
+                <tr title="">
+                  <td></td>
+                  <td><input class="form-control" readonly id="pid"  />
+                  </td>
+                </tr>
+                <tr title="">
+                  <td></td>
+                  <td><input class="form-control" readonly id="curr_connections"  />
+                  </td>
+                </tr>
+                <tr title="当前线程数量">
+                  <td></td>
+                  <td><input class="form-control" readonly id="cmd_get"  />
+                  </td>
+                </tr>
+                <tr title="命中率">
+                  <td></td>
+                  <td><input class="form-control" readonly id="get_hits" />
+                  </td>
+                </tr>
+                <tr title="miss率">
+                  <td></td>
+                  <td><input class="form-control" readonly id="get_misses" />
+                  </td>
+                </tr>
+                <tr title="写入请求数">
+                  <td></td>
+                  <td><input class="form-control" readonly id="cmd_set"  />
+                  </td>
+                </tr>
+                <tr title="读取数据占总数据流量的比值">
+                  <td></td>
+                  <td><input class="form-control" readonly id="delete_hits" />
+                  </td>
+                </tr>
+                <tr title="">
+                  <td></td>
+                  <td><input class="form-control" readonly id="delete_misses"  />
+                  </td>
+                </tr>
+                <tr title="cpu用户时间">
+                  <td></td>
+                  <td><input class="form-control" readonly id="bytes_read" />
+                  </td>
+                </tr>
+                <tr title="cpu系统时间">
+                  <td></td>
+                  <td><input class="form-control" readonly id="bytes_written"  />
+                  </td>
+                </tr>
+                <tr title="当前数据量">
+                  <td></td>
+                  <td><input class="form-control" readonly id="limit_maxbytes"  />
+                  </td>
+                </tr>
+                <tr title="历史累计数据量">
+                  <td></td>
+                  <td><input class="form-control" readonly id="bytes"  />
+                  </td>
+                </tr>
+              </table>
+            </form>
+        
           </div>
         </div>
       </div>
