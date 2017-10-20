@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.governance.mapper.GatewayIpMapper">
+
+	<insert id="insertList" parameterType="java.util.List"> 		
+		insert into gateway_ip(ip,port,status,createtime,registertime,updatetime) values
+		<foreach collection="list" item="obj" index="index" separator="," >  
+			(#{obj.ip},#{obj.port},#{obj.status},#{obj.createtime},#{obj.registertime},#{obj.updatetime})
+		</foreach>
+	</insert> 
+
+	<select id="list"  resultType="GatewayIp">
+		select id,ip,port,status,createtime,registertime,updatetime from gateway_ip
+	</select>
+</mapper>  
+

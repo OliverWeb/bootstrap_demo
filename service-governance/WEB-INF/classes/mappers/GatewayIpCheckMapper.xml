@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.governance.mapper.GatewayIpCheckMapper">
+
+	<insert id="insert" parameterType="GatewayIpCheck">
+		insert into gateway_ip_check(ip,port,beforestatus,beforeweight,beforebeta,beforeconnections,beforefails,status,weight,beta,connections,fails,createtime) values(#{ip},#{port},#{beforeStatus},#{beforeWeight},#{beforeBeta},#{beforeConnections},#{beforeFails},#{status},#{weight},#{beta},#{connections},#{fails},#{createtime})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from gateway_ip_check where id=#{id}
+	</delete>
+
+	
+	<select id="list"  resultType="GatewayIpCheck">
+		select id,ip,port,beforestatus,beforeweight,beforebeta,beforeconnections,beforefails,status,weight,beta,connections,fails,createtime from gateway_ip_check order by createtime desc,ip
+	</select>
+	
+</mapper>  
+

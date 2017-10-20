@@ -35,7 +35,7 @@ $(function(){
 	});
 	$.ajax({
 		type: "get",
-		url: "./json/physical.json",                  // 保存的提交的链接的地址
+		url: "./json/physical.json",                  // ${pageContext.request.contextPath}/config/server_list
 		success:function (data) {
 				if(data.status=="success"){
 					if(data.message!=""){

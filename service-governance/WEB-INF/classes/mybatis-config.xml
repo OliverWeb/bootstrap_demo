@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- changes from the defaults -->
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+
+	<!-- 实体类,简称 -设置别名 -->
+	<typeAliases>
+		<typeAlias alias="GatewayService" type="cn.migu.governance.bean.GatewayService" />
+		<typeAlias alias="GatewayCheck" type="cn.migu.governance.bean.GatewayCheck" />
+		<typeAlias alias="GatewayChecked" type="cn.migu.governance.bean.GatewayChecked" />
+		<typeAlias alias="GatewayIp" type="cn.migu.governance.bean.GatewayIp" />
+		<typeAlias alias="MicroService" type="cn.migu.governance.bean.MicroService" />
+		<typeAlias alias="MicroServiceIpCheck" type="cn.migu.governance.bean.MicroServiceIpCheck" />
+		<typeAlias alias="MicroServiceIpChecked" type="cn.migu.governance.bean.MicroServiceIpChecked" />
+		<typeAlias alias="MicroServiceCheck" type="cn.migu.governance.bean.MicroServiceCheck" />
+		<typeAlias alias="MicroServiceChecked" type="cn.migu.governance.bean.MicroServiceChecked" />
+		<typeAlias alias="MicroServiceMock" type="cn.migu.governance.bean.MicroServiceMock" />
+		<typeAlias alias="MicroServiceMethodCheck" type="cn.migu.governance.bean.MicroServiceMethodCheck" />
+		<typeAlias alias="MicroServiceMethodChecked" type="cn.migu.governance.bean.MicroServiceMethodChecked" />
+		<typeAlias alias="GatewayIpCheck" type="cn.migu.governance.bean.GatewayIpCheck" />
+		<typeAlias alias="GatewayIpChecked" type="cn.migu.governance.bean.GatewayIpChecked" />
+	</typeAliases>
+	<!-- 实体接口映射资源 -->
+	<!-- 说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml -->
+<!-- 	<mappers>
+		<mapper resource="WEB-INF/mappers/UserMapper.xml" />
+	</mappers> -->
+
+
+</configuration>

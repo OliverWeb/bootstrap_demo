@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.governance.mapper.MicroServiceCheckedMapper">
+
+	<insert id="insert" parameterType="MicroServiceChecked">
+		insert into micro_service_checked(servicenameandversion,beforeinfo,info,createtime) values(#{serviceNameAndVersion},#{beforeInfo},#{info},#{createtime})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from micro_service_checked where id=#{id}
+	</delete>
+	
+	<select id="list"  resultType="MicroServiceChecked">
+		select id,servicenameandversion,beforeinfo,info,createtime from micro_service_checked order by createtime desc,servicenameandversion
+	</select>
+	
+</mapper>  
+

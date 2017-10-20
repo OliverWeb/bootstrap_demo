@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.governance.mapper.MicroServiceIpMapper">
+
+	<insert id="insertList" parameterType="java.util.List"> 		
+		insert into micro_service_ip(servicenameandversion,ip,port,status,createtime,registertime,updatetime) values
+		<foreach collection="list" item="obj" index="index" separator="," >  
+			(#{obj.serviceNameAndVersion},#{obj.ip},#{obj.port},#{obj.status},#{obj.createtime},#{obj.registertime},#{obj.updatetime})
+		</foreach>
+	</insert> 
+
+	<select id="list"  resultType="MicroService">
+		select id,servicenameandversion,ip,port,status,createtime,registertime,updatetime from micro_service_ip
+	</select>
+</mapper>  
+

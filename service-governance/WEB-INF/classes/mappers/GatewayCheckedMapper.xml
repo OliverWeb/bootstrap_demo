@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.governance.mapper.GatewayCheckedMapper">
+
+	<insert id="insert" parameterType="GatewayChecked">
+		insert into gateway_checked(action,gatewayservicename,beforeinfo,info,createtime) values(#{action},#{gatewayServiceName},#{beforeInfo},#{info},#{createtime})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from gateway_checked where id=#{id}
+	</delete>
+	
+	<select id="list"  resultType="GatewayChecked">
+		select id,action,gatewayservicename,beforeinfo,info,createtime from gateway_checked order by createtime desc,gatewayservicename 
+	</select>
+	
+</mapper>  
+
