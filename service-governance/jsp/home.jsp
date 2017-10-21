@@ -18,10 +18,11 @@
 </head>
 <style>
 html,body{height:100%;}
+
 </style>
 <body style="overflow:-Scroll;overflow-y:hidden;overflow-x:hidden" >
 	<div style="margin: -10px 0;text-align:right" class="login"><a href='javascript:void(0)' class='tologin'>未登录</a></div>
-	<h1 align="center">SERVICE-GOVERNANCE</h1>
+	<h1 align="center">SERVICE</h1>
 	<div class="easyui-layout" style="width: 100%; height: 90%;">
 		<div data-options="region:'west',split:true" title="菜单栏"
 			style="width: 150px;">
