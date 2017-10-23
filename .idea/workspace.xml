@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="默认的">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/bootstrap-switch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/count.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/draggable-portlet.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/editable-table.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/form-component.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/form-validation-script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/ga.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/gmaps-scripts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/gmaps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/gritter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/hover-dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery-ui-1.9.2.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.circliful.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.customSelect.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.sparkline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.stepy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.tagsinput.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.ui.touch-punch.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/jquery.validate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/modernizr.custom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/morris-script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/nestable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/sliders.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/sparkline-chart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/tasks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/toucheffects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/js/lib/tree.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/clndr.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/gallery.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/invoice-print.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/jquery.circliful.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/jquery.stepy.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Oliver_demo/css/lib/table-responsive.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +26,21 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="cold_warm_set.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Oliver_demo/cold_warm_set.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#a#0;n#header#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#939#943#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -343,7 +334,7 @@
       <workItem from="1508459176009" duration="2365000" />
       <workItem from="1508476316558" duration="8073000" />
       <workItem from="1508717330554" duration="8758000" />
-      <workItem from="1508726532258" duration="378000" />
+      <workItem from="1508726532258" duration="503000" />
     </task>
     <task id="LOCAL-00001" summary="默认的">
       <created>1506340041077</created>
@@ -356,7 +347,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446449000" />
+    <option name="totallyTimeSpent" value="446574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -369,6 +360,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -378,7 +370,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32853982" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15778251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15778251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -528,6 +520,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -829,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/cold_warm_set.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="442">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#header#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#939#943#0" expanded="true" />
