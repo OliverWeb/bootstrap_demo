@@ -5,7 +5,7 @@
 	width: 9%;
 }
 .header>a>span{
-	margin-left: 24px;
+	margin-left:0;
 }
 .personal{
 	margin-top:10px;
@@ -13,4 +13,11 @@
 .loginOut{
 	min-width: 65px;
 	text-align: center;
+}
+/*用于常规设置的样式*/
+.add_server_one td{
+	text-align:left;
+}
+.logo>span{
+	text-transform : capitalize;
 }

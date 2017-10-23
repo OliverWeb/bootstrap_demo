@@ -1,196 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BEGIN META -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Custom Theme">
-  <!-- END META -->
-
-  <!-- BEGIN SHORTCUT ICON -->
   <link rel="shortcut icon" href="">
-  <!-- END SHORTCUT ICON -->
   <title>Editable Table</title>
-
-  <!-- BEGIN STYLESHEET -->
   <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-  <!-- BOOTSTRAP CSS -->
   <link href="css/lib/bootstrap-reset.css" rel="stylesheet">
-  <!-- BOOTSTRAP CSS -->
   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <!-- FONT AWESOME ICON STYLESHEET -->
-    <link rel="stylesheet" type="text/css" href="assets/jquery-multi-select/css/multi-select.css">
-  <!-- DATATABLE CSS -->
   <link href="css/lib/style.css" rel="stylesheet">
-  <!-- THEME BASIC CSS -->
   <link href="css/lib/style-responsive.css" rel="stylesheet">
   <link href="css/pool-name-set.css" rel="stylesheet">
-   <!-- 表单选择框 -->
-   <link href="css/lib/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-<link href="css/lib/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-<link href="css/lib/bootstrap-select.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-
-<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-fileupload/bootstrap-fileupload.css"><!-- BOOTSTRAP FILEUPLOAD PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css"><!-- BOOTSTRAP WYSIHTML5 PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css"><!-- BOOTSTRAP DATEPICKER PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-timepicker/compiled/timepicker.css"><!-- BOOTSTRAP TIMEPICKER PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css"><!-- BOOTSTRAP COLORPICKER PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker-bs3.css"><!-- DATERANGE PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/bootstrap-datetimepicker/css/datetimepicker.css"><!-- DATETIMEPICKER PLUGIN CSS -->
-<link rel="stylesheet" type="text/css" href="assets/jquery-multi-select/css/multi-select.css"><!-- JQUERY MULTI SELECT PLUGIN CSS -->
-<link href="css/lib/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
-<link href="css/lib/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
-
-  <!-- THEME BASIC RESPONSIVE  CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/jquery-multi-select/css/multi-select.css"><!-- JQUERY MULTI SELECT PLUGIN CSS -->
+  <link href="css/layout.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
   <!--[if lt IE 9]>
   <script src="js/lib/html5shiv.js"></script>
   <script src="js/lib/respond.min.js"></script>
   <![endif]-->
-  <!-- END STYLESHEET -->
 </head>
-
 <body>
-  <!-- BEGIN SECTION -->
   <section id="container" class="">
-    <!-- 相同部分开始 -->
     <header class="header white-bg">
-      <!-- SIDEBAR TOGGLE BUTTON -->
-      <div class="sidebar-toggle-box">
-        <div data-placement="right" class="fa fa-bars tooltips">
-        </div>
-      </div>
-      <!-- SIDEBAR TOGGLE BUTTON  END-->
       <a href="index.html" class="logo">
-          NODE
-          <span>
-            后台管理系统
-          </span>
-        </a>
-      <!-- START HEADER  NAV -->
-      <!-- 提示消息窗口 -->
-      <nav class="nav notify-row" id="top_menu" style="margin-left:15px;">
-
-        <ul class="nav top-menu">
-          <!-- START NOTIFY NOTIFICATION BAR  顶部提醒消息 -->
-
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-bell-o">
-                </i>
-                <span class="badge bg-warning">
-                  0
-                </span>
-              </a>
-          </li>
-          <!-- END NOTIFY NOTIFICATION BAR -->
-
-        </ul>
-
-
-      </nav>
-      <!-- END HEADER NAV -->
-
-      <!-- START USER LOGIN DROPDOWN  -->
-
+        NODE-<span style="font-size: 18px">后台管理系统=&gt;池名称</span>
+      </a>
       <div class="top-nav ">
         <ul class="nav pull-right top-menu">
-          <li>
-            <input type="text" class="form-control search" placeholder="Search">
-          </li>
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="">
-                <span class="username">
-                  Pruthvi
-                </span>
-                <b class="caret">
-                </b>
+          <div class="dropdown" >
+					<span class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
+						<button type="button" class="btn btn-default btn-sm personal" >
+					<span class="glyphicon glyphicon-user"></span> User
+					</button>
+					</span>
+            <ul class="dropdown-menu loginOut">
+              <a href="login.html">
+                <li>
+                  <span class="glyphicon glyphicon-off"></span>退出
+                </li>
               </a>
-            <ul class="dropdown-menu extended logout">
-              <li class="log-arrow-up">
-              </li>
-              <li>
-                <a href="login.html">
-                    <i class="fa fa-key">
-                    </i>
-                    Log Out
-                  </a>
-              </li>
             </ul>
-          </li>
+          </div>
         </ul>
       </div>
-      <!-- END USER LOGIN DROPDOWN  -->
     </header>
     <aside>
       <div id="sidebar" class="nav-collapse">
         <ul class="sidebar-menu" id="nav-accordion">
           <li class="sub-menu">
             <a href="index.html">
-                <i class="fa fa-laptop">
-                </i>
-                <span>
-                  POOL
-                </span>
-                <!-- <span class="label label-success span-sidebar">
-                  4
-                </span> -->
-              </a>
+              <i class="fa fa-laptop">
+              </i>
+              <span>
+                   POOL
+                 </span>
+            </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-                <i class="fa fa-book">
-                </i>
-                <span>
-                  NODE
-                </span>
-                <span class="label label-info span-sidebar">
-                  4
-                </span>
-              </a>
+              <i class="fa fa-book">
+              </i>
+              <span>
+                   NODE
+                 </span>
+            </a>
             <ul class="sub node-sub">
               <li>
                 <a href="physical-node-manager.html">
-                    物理节点管理
-                  </a>
+                  物理节点管理
+                </a>
               </li>
               <li>
                 <a href="mcrouterList.html">
-                    Mcrouter节点
-                  </a>
+                  Mcrouter节点
+                </a>
               </li>
               <li>
                 <a href="memcachedList.html">
-                    Memcache节点
-                  </a>
+                  Memcache节点
+                </a>
               </li>
               <li>
                 <a href="getnode.html">
-                    GetNode
-                  </a>
+                  GetNode
+                </a>
               </li>
             </ul>
           </li>
           <!-- 图表 -->
           <li class="sub-menu">
             <a href="echart.html">
-                <i class=" fa fa-bar-chart-o">
-                </i>
-                <span>
-                  Charts
-                </span>
-              </a>
+              <i class=" fa fa-bar-chart-o">
+              </i>
+              <span>
+                   Charts
+                 </span>
+            </a>
           </li>
-
+      
         </ul>
       </div>
     </aside>
-   <!-- 相同部分结束 -->
-    <!-- BEGIN MAIN CONTENT -->
     <section id="main-content">
-      <!-- BEGIN WRAPPER  -->
       <section class="wrapper site-min-height">
         <section class="panel">
           <div class="panel-body">
@@ -222,12 +132,8 @@
             </div>
           </div>
         </section>
-
       </section>
-      <!-- END WRAPPER  -->
     </section>
-    
-    <!-- END FOOTER -->
     <!-- 表格模设置态框 -->
     <div class="modal fade" id="setModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -347,40 +253,18 @@
   </div>
 </div>
   </section>
-  <!-- END SECTION -->
-  <!-- 表格模态框 -->
-  <!-- BEGIN JS -->
   <script src="js/lib/jquery-1.8.3.min.js"></script>
-
   <script src="js/lib/bootstrap.min.js"></script>
-
   <script src="js/lib/jquery.dcjqaccordion.2.7.js"></script>
-
   <script src="js/lib/jquery.scrollTo.min.js"></script>
-
   <script src="js/lib/jquery.nicescroll.js"></script>
-
-  <script src="assets/data-tables/jquery.dataTables.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-
-    <script src="js/lib/respond.min.js" ></script><!-- RESPOND JS  -->
-    <script src="assets/fuelux/js/spinner.min.js"></script><!-- FUELUX JS  -->
-    <script src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script><!-- BOOTSTRAP FILEUPLOAD JS  -->
-    <script src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script><!-- BOOTSTRAP wysihtml5 JS  -->
-    <script src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script><!-- BOOTSTRAP wysihtml5 JS  -->
-    <script src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script><!-- BOOTSTRAP DATEPICKER JS  -->
-    <script src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script><!-- BOOTSTRAP DATETIMEPICKER JS  -->
-    <script src="assets/bootstrap-daterangepicker/moment.min.js"></script>
-    <script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script><!-- BOOTSTRAP DATERANGEPICKER JS  -->
-    <script src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"> </script><!-- BOOTSTRAP COLORPICKER JS  -->
-    <script src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script><!-- BOOTSTRAP TIMEPICKER JS  -->
-    <script src="js/lib/bootstrap-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
-    <script src="assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
-    <script src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
-
-    <script src="js/lib/common-scripts.js" ></script>
-    <script src="js/lib/advanced-form-components.js" ></script>
+  <script src="js/lib/respond.min.js" ></script><!-- RESPOND JS  -->
+  <script src="js/lib/common-scripts.js" ></script>
+  <script src="assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
+  <script src="js/lib/bootbox.min.js"></script>
+  <script src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+  <script src="js/lib/advanced-form-components.js" ></script>
+  <script src="js/lib/common-scripts.js" ></script>
     <script src="js/pool-name-set.js"></script>
   <script>
 	  $(function(){

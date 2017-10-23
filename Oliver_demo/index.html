@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BEGIN META -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Custom Theme">
-  <!-- END META -->
   <link rel="shortcut icon" href="img/favicon.ico">
   <title>Editable Table</title>
   <link href="css/lib/bootstrap.min.css" rel="stylesheet">
@@ -14,15 +12,12 @@
   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="css/lib/style.css" rel="stylesheet">
   <link href="css/lib/style-responsive.css" rel="stylesheet">
-  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-  <!--<link href="https://unpkg.com/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">-->
-  <!--<link href="css/main.css" rel="stylesheet">-->
+  <link href="css/layout.css" rel="stylesheet">
   <link href="css/pool-name-set.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="js/lib/html5shiv.js"></script>
   <script src="js/lib/respond.min.js"></script>
   <![endif]-->
-  <!-- END STYLESHEET -->
   <style>
     a{
       color: #797979;
@@ -37,150 +32,91 @@
     .editable-table td:hover,.editable-table th:hover{
       background-color: #D1D3D3!important;
     }
-   
-    
   </style>
 </head>
-
 <body>
-  <!-- BEGIN SECTION -->
   <section id="container" class="">
-    <!-- 相同部分开始 -->
     <header class="header white-bg">
-      <!-- SIDEBAR TOGGLE BUTTON -->
-      <div class="sidebar-toggle-box">
-        <div data-placement="right" class="fa fa-bars tooltips">
-        </div>
-      </div>
-      <!-- SIDEBAR TOGGLE BUTTON  END-->
       <a href="index.html" class="logo">
-          NODE
-          <span>
-            后台管理系统
-          </span>
-        </a>
-      <!-- START HEADER  NAV -->
-      <!-- 提示消息窗口 -->
-      <nav class="nav notify-row" id="top_menu" style="margin-left:15px;">
-
-        <ul class="nav top-menu">
-          <!-- START NOTIFY NOTIFICATION BAR  顶部提醒消息 -->
-
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-bell-o">
-                </i>
-                <span class="badge bg-warning">
-                  0
-                </span>
-              </a>
-          </li>
-          <!-- END NOTIFY NOTIFICATION BAR -->
-
-        </ul>
-
-
-      </nav>
-
-      <!-- START USER LOGIN DROPDOWN  -->
-
+        NODE-<span style="font-size: 18px">后台管理系统=&gt;POOL</span>
+      </a>
       <div class="top-nav ">
         <ul class="nav pull-right top-menu">
-          <li>
-            <input type="text" class="form-control search" placeholder="Search">
-          </li>
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="">
-                <span class="username">
-                  Pruthvi
-                </span>
-                <b class="caret">
-                </b>
+          <div class="dropdown" >
+					<span class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
+						<button type="button" class="btn btn-default btn-sm personal" >
+					<span class="glyphicon glyphicon-user"></span> User
+					</button>
+					</span>
+            <ul class="dropdown-menu loginOut">
+              <a href="login.html">
+                <li>
+                  <span class="glyphicon glyphicon-off"></span>退出
+                </li>
               </a>
-            <ul class="dropdown-menu extended logout">
-              <li class="log-arrow-up">
-              </li>
-              <li>
-                <a href="login.html">
-                    <i class="fa fa-key">
-                    </i>
-                    Log Out
-                  </a>
-              </li>
             </ul>
-          </li>
+          </div>
         </ul>
       </div>
-      <!-- END USER LOGIN DROPDOWN  -->
     </header>
     <aside>
       <div id="sidebar" class="nav-collapse">
         <ul class="sidebar-menu" id="nav-accordion">
           <li class="sub-menu">
             <a href="index.html">
-                <i class="fa fa-laptop">
-                </i>
-                <span>
-                  POOL
-                </span>
-                <!-- <span class="label label-success span-sidebar">
-                  4
-                </span> -->
-              </a>
+              <i class="fa fa-laptop">
+              </i>
+              <span>
+                   POOL
+                 </span>
+            </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-                <i class="fa fa-book">
-                </i>
-                <span>
-                  NODE
-                </span>
-                <span class="label label-info span-sidebar">
-                  4
-                </span>
-              </a>
+              <i class="fa fa-book">
+              </i>
+              <span>
+                   NODE
+                 </span>
+            </a>
             <ul class="sub node-sub">
               <li>
                 <a href="physical-node-manager.html">
-                    物理节点管理
-                  </a>
+                  物理节点管理
+                </a>
               </li>
               <li>
                 <a href="mcrouterList.html">
-                    Mcrouter节点
-                  </a>
+                  Mcrouter节点
+                </a>
               </li>
               <li>
                 <a href="memcachedList.html">
-                    Memcache节点
-                  </a>
+                  Memcache节点
+                </a>
               </li>
               <li>
                 <a href="getnode.html">
-                    GetNode
-                  </a>
+                  GetNode
+                </a>
               </li>
             </ul>
           </li>
           <!-- 图表 -->
           <li class="sub-menu">
             <a href="echart.html">
-                <i class=" fa fa-bar-chart-o">
-                </i>
-                <span>
-                  Charts
-                </span>
-              </a>
+              <i class=" fa fa-bar-chart-o">
+              </i>
+              <span>
+                   Charts
+                 </span>
+            </a>
           </li>
-
+      
         </ul>
       </div>
     </aside>
-   <!-- 相同部分结束 -->
-    <!-- BEGIN MAIN CONTENT -->
     <section id="main-content">
-      <!-- BEGIN WRAPPER  -->
       <section class="wrapper site-min-height">
         <section class="panel">
           <div class="panel-body">
@@ -197,13 +133,9 @@
                 </tr>
                 </tbody>
               </table>
-              
               <table class="table table-striped  table-bordered" id="editable-sample" align="center">
-                <!--<caption class="mcrouter_title">mcrouter配置</caption>-->
-                
                 <tbody>
                 <tr>
-                
                   <th class="">常规模式</th>
                   <th class="">复制池</th>
                   <th class="">冷暖存预热</th>
@@ -225,7 +157,6 @@
                     </form>
                   </tr>
                   <tr class="">
-                   
                     <td class="general">
                       <a href="pool_general_set.html">设置</a>
                     </td>
@@ -240,20 +171,14 @@
                     <td class="">查看明细</td>
                     <td class="">查看明细</td>
                     <td class="">查看明细</td>
-               
                   </tr>
-
                 </tbody>
               </table>
             </div>
           </div>
         </section>
       </section>
-      <!-- END WRAPPER  -->
     </section>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN FOOTER -->
-    <!-- END FOOTER -->
     <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -270,28 +195,13 @@
       </div>
     </div>
   </section>
-  <!-- END SECTION -->
-
-  <!-- BEGIN JS -->
   <script src="js/lib/jquery-1.8.3.min.js"></script>
-  <!-- BASIC JS LIABRARY 1.8.3 -->
   <script src="js/lib/bootstrap.min.js"></script>
-  <!-- BOOTSTRAP JS  -->
   <script src="js/lib/jquery.dcjqaccordion.2.7.js"></script>
-  <!-- ACCORDING JS -->
   <script src="js/lib/jquery.scrollTo.min.js"></script>
-  <!-- SCROLLTO JS  -->
   <script src="js/lib/jquery.nicescroll.js"></script>
-  <!-- NICESCROLL JS  -->
-  <script src="assets/data-tables/jquery.dataTables.js"></script>
-  <!-- DATATABLE JS  -->
-  <script src="assets/data-tables/DT_bootstrap.js"></script>
-  <!-- DATATABLE JS  -->
   <script src="js/lib/respond.min.js"></script>
-  <!-- RESPOND JS  -->
   <script src="js/lib/common-scripts.js"></script>
   <script src="js/index.js"></script>
- 
 </body>
-
 </html>

@@ -1,34 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- BEGIN META -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Custom Theme">
-  <!-- END META -->
-
-  <!-- BEGIN SHORTCUT ICON -->
   <link rel="shortcut icon" href="img/favicon.ico">
-  <!-- END SHORTCUT ICON -->
   <title>Editable Table</title>
-
-  <!-- BEGIN STYLESHEET -->
   <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-  <!-- BOOTSTRAP CSS -->
   <link href="css/lib/bootstrap-reset.css" rel="stylesheet">
-  <!-- BOOTSTRAP CSS -->
   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <!-- FONT AWESOME ICON STYLESHEET -->
-
-  <!-- DATATABLE CSS -->
   <link href="css/lib/style.css" rel="stylesheet">
-  <!-- THEME BASIC CSS -->
   <link href="css/lib/style-responsive.css" rel="stylesheet">
-  <!--<link href="css/pool-name-set.css" rel="stylesheet">-->
   <link rel="stylesheet" href="css/lib/bootstrap-select.css">
-  <!-- THEME BASIC RESPONSIVE  CSS -->
+  <link rel="stylesheet" href="css/layout.css">
   <!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
 	<script src="js/lib/respond.min.js"></script>
@@ -47,147 +32,89 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- BEGIN SECTION -->
   <section id="container" class="">
-    <!-- 相同部分开始 -->
     <header class="header white-bg">
-      <!-- SIDEBAR TOGGLE BUTTON -->
-      <div class="sidebar-toggle-box">
-        <div data-placement="right" class="fa fa-bars tooltips">
-        </div>
-      </div>
-      <!-- SIDEBAR TOGGLE BUTTON  END-->
-      <a href="index.html" class="logo">
-          NODE
-          <span>
-            后台管理系统
-          </span>
-        </a>
-      <!-- START HEADER  NAV -->
-      <!-- 提示消息窗口 -->
-      <nav class="nav notify-row" id="top_menu" style="margin-left:15px;">
-
-        <ul class="nav top-menu">
-          <!-- START NOTIFY NOTIFICATION BAR  顶部提醒消息 -->
-
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-bell-o">
-                </i>
-                <span class="badge bg-warning">
-                  0
-                </span>
-              </a>
-          </li>
-          <!-- END NOTIFY NOTIFICATION BAR -->
-
-        </ul>
-
-
-      </nav>
-      <!-- END HEADER NAV -->
-
-      <!-- START USER LOGIN DROPDOWN  -->
-
-      <div class="top-nav ">
-        <ul class="nav pull-right top-menu">
-          <li>
-            <input type="text" class="form-control search" placeholder="Search">
-          </li>
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src=>
-                <span class="username">
-                  Pruthvi
-                </span>
-                <b class="caret">
-                </b>
-              </a>
-            <ul class="dropdown-menu extended logout">
-              <li class="log-arrow-up">
-              </li>
+    <a href="index.html" class="logo">
+      NODE-<span style="font-size: 18px;text-transform : capitalize">后台管理系统=&gt;GetNode</span>
+    </a>
+    <div class="top-nav ">
+      <ul class="nav pull-right top-menu">
+        <div class="dropdown" >
+					<span class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
+						<button type="button" class="btn btn-default btn-sm personal" >
+					<span class="glyphicon glyphicon-user"></span> User
+					</button>
+					</span>
+          <ul class="dropdown-menu loginOut">
+            <a href="login.html">
               <li>
-                <a href="login.html">
-                    <i class="fa fa-key">
-                    </i>
-                    Log Out
-                  </a>
+                <span class="glyphicon glyphicon-off"></span>退出
               </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!-- END USER LOGIN DROPDOWN  -->
-    </header>
+            </a>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </header>
     <aside>
       <div id="sidebar" class="nav-collapse">
         <ul class="sidebar-menu" id="nav-accordion">
           <li class="sub-menu">
             <a href="index.html">
-                <i class="fa fa-laptop">
-                </i>
-                <span>
-                  POOL
-                </span>
-                <!-- <span class="label label-success span-sidebar">
-                  4
-                </span> -->
-              </a>
+              <i class="fa fa-laptop">
+              </i>
+              <span>
+                   POOL
+                 </span>
+            </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-                <i class="fa fa-book">
-                </i>
-                <span>
-                  NODE
-                </span>
-                <span class="label label-info span-sidebar">
-                  4
-                </span>
-              </a>
+              <i class="fa fa-book">
+              </i>
+              <span>
+                   NODE
+                 </span>
+            </a>
             <ul class="sub node-sub">
               <li>
                 <a href="physical-node-manager.html">
-                    物理节点管理
-                  </a>
+                  物理节点管理
+                </a>
               </li>
               <li>
                 <a href="mcrouterList.html">
-                    Mcrouter节点
-                  </a>
+                  Mcrouter节点
+                </a>
               </li>
               <li>
                 <a href="memcachedList.html">
-                    Memcache节点
-                  </a>
+                  Memcache节点
+                </a>
               </li>
               <li>
-                <a style="color:#428bca" href="getnode.html">
-                    GetNode
-                  </a>
+                <a href="getnode.html">
+                  GetNode
+                </a>
               </li>
             </ul>
           </li>
           <!-- 图表 -->
           <li class="sub-menu">
             <a href="echart.html">
-                <i class=" fa fa-bar-chart-o">
-                </i>
-                <span>
-                  Charts
-                </span>
-              </a>
+              <i class=" fa fa-bar-chart-o">
+              </i>
+              <span>
+                   Charts
+                 </span>
+            </a>
           </li>
-
+      
         </ul>
       </div>
     </aside>
-   <!-- 相同部分结束 -->
-    <!-- BEGIN MAIN CONTENT -->
     <section id="main-content">
-      <!-- BEGIN WRAPPER  -->
       <section class="wrapper site-min-height">
         <section class="panel">
           <div class="panel-body">
@@ -199,7 +126,6 @@
                     <tr>
                       <td>HOST</td>
                       <td class="hostbox">
-                        <!--<input class="form-control" type="text" id="HOST" value="" placeholder="请输入名称">-->
                         <select  data-size="9" class="selectpicker option-search hostList" data-live-search="true" title="===请选择===">
                         
                         </select>
@@ -208,7 +134,6 @@
                     <tr>
                       <td>PORT</td>
                       <td class="portbox">
-                        <!--<input class="form-control" type="text" id="PORT" value="" placeholder="请输入名称">-->
                         <select  title="请选择HOST" disabled data-size="9" class="selectpicker option-search portList" data-live-search="true" title="===请选择===">
                         
                         </select>
@@ -228,15 +153,12 @@
                     <button type="button" class="btn btn-info btn-sm add_servers_save">GET</button>
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>
         </section>
       </section>
     </section>
-    
-  
     <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -252,29 +174,20 @@
         </div>
       </div>
     </div>
-  
   </section>
-
-
-  <!-- BEGIN JS -->
   <script src="js/lib/jquery-1.8.3.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="js/lib/jquery.scrollTo.min.js"></script>
   <script src="js/lib/jquery.nicescroll.js"></script>
-  <script src="assets/data-tables/jquery.dataTables.js"></script>
-  <script src="assets/data-tables/DT_bootstrap.js"></script>
   <script src="js/lib/respond.min.js"></script>
   <script src="js/lib/common-scripts.js"></script>
   <script src="js/lib/bootstrap-select.js"></script>
   <script src="js/getnode.js"></script>
-  
   <script>
     $(function(){
       $('.node-sub').show();
     });
   </script>
-  <!-- END JS -->
 </body>
-
 </html>
