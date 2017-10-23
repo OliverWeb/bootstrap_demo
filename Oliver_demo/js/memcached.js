@@ -25,29 +25,32 @@ $(function () {
 	var mcrouerIpsIndex=url.indexOf('ip');
 	if(mcrouerIpsIndex!=-1){
 		url=url.substring(mcrouerIpsIndex);
+		console.log(url);
 		var 	IpsIndex=url.indexOf("&");
 		if(IpsIndex!=-1){
-			var IpValur=url.substring("ip".length+1,IpsIndex);
+			var IpValur=url.substring("ip".length,IpsIndex);
 		}else{
-			var IpValur=url.substring("ips".length+1);
+			var IpValur=url.substring("ips".length);
 		}
 		$('.ipValue').html("mcrouter服务器 IP:"+IpValur);      //进行ip赋值
 		/*赋值结束 end*/
 	}
    /*页面加载请求*/
+
 	$.ajax({
 		type:"get",
 		url:"./json/memcached.json",               //页面初次加载数据请求的地址   根路径pageContext
+		data:"memcached_ip="+IpValur,
 		success:function (data) {
 			if(data.status=="success"){
 				if(data.message!=""){
 					data.message.map(function(value,key){
 						var memcached_list=`
 											    <tr>
-											    <td><div class='openbox ${value.disabled==1?"on":"off"} '>${value.disabled==1?"已开启":"已禁用"}</div></td>
+											    <td><div class='openbox ${value.disabled==1?"on":"off"} '>${value.disabled=="1"?"已开启":"已禁用"}</div></td>
 											    <td class="ipAddress">${value.ipAddress}</td>
 											    <td class="port">${value.port}</td>
-											    <td class="udpPort">${value.udpPort}</td>
+											    <td class="udpPort">${value.udpPort}</td> 
 											    <td class="memoryMaxSize">${value.memoryMaxSize}</td>
 											    <td class="connectNum">${value.connectNum}</td>
 											    <td class="user">${value.user}</td>
@@ -57,8 +60,8 @@ $(function () {
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class='btn btn-sm openBtn ${value.disabled==1?"btn-success  on":"btn-default off"}'>
-													  <span> ${value.disabled==1?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
+													   <button type="button" class='btn btn-sm openBtn ${value.disabled=="1"?"btn-success  on":"btn-default off"}'>
+													  <span> ${value.disabled=="1"?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
 													   <button type="button" class="view btn btn-sm btn-info">
@@ -297,9 +300,9 @@ $(function () {
 		};
 
 		var submitData={
-			"value": submitValue,
+			"value": JSON.stringify(submitValue),
 			"server":IpValur,
-			"tmpPrefix":"/cache-center/nodes/mcrouter/" + IpValur + "/" + tcpport,
+			"prefix":"/cache-center/nodes/memcached/" + IpValur + "/" + tcpport,
 			"editType":editType
 		};
 		console.log(submitData);

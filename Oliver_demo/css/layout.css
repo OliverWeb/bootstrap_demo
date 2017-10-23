@@ -21,3 +21,7 @@
 .logo>span{
 	text-transform : capitalize;
 }
+.modal-title{
+	text-align: center;
+	font-size:0.18rem;
+}
