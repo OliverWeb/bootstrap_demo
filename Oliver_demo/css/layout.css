@@ -72,7 +72,7 @@
 	margin-bottom: 0;
 }
 .form-control{
-	height: 0.45rem;
+	height: 0.4rem;
 	color: #797979;
 }
 td{
@@ -82,9 +82,6 @@ td{
 /*对模态框的设置 end*/
 
 /*对按钮样式的的设置*/
-.btn{
-	padding:0.03rem 0.08rem;
-}
 .header{
 	min-height: 0.39rem;
 }
@@ -112,7 +109,7 @@ ul.sidebar-menu{
 	margin-top: 0.65rem;
 }
 .mcrouter_title{
-	font-size: 0.33rem !important;
+	font-size: 0.23rem !important;
 }
 .pool-table td{
 	width: 33.3%;
@@ -122,4 +119,22 @@ ul.sidebar-menu{
 }
 #view_td .view_contain{
 	width: 71%;
+}
+.editable-table table{
+	margin-bottom:0.1rem;
+}
+.dropdown-menu li{
+	border-bottom: 1px #eee solid;
+}
+.form-group{
+	margin-bottom: 0!important;
+}
+.add_server_one{
+	margin-bottom: 0!important;
+}
+.select_option_box td{
+	padding-left: 0!important;
+}
+.operate_policy tr td table tbody tr td{
+	padding-left: 0!important;
 }

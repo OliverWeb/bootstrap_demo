@@ -164,24 +164,25 @@
 		};
 	  	$.ajax({
 	  		post:"get",
-	  		url:"./json/mcrouterView.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
+	  		url:"./json/memcachedView.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
 			  data:submitData,
 	  		success:function(data){
 	  			if(data.status=="success"){
-	  				if(data.message!=""){
-						  $("#pid").val(data.message.pid);
-						  $("#curr_connections").val(data.message.curr_connections);
-						  $("#cmd_get").val(data.message.cmd_get);
-						  $("#get_hits").val(data.message.get_hits);
-						  $("#get_misses").val(data.message.get_misses);
-						  $("#cmd_set").val(data.message.cmd_set);
-						  $("#delete_hits").val(data.message.delete_hits);
-						  $("#delete_misses").val(data.message.delete_misses);
-						  $("#bytes_read").val(data.message.bytes_read);
-						  $("#bytes_written").val(data.message.bytes_written);
-						  $("#limit_maxbytes").val(data.message.limit_maxbytes);
-						  $("#bytes").val(data.message.bytes);
-					  }
+					  var dataM=data.message;
+					  $("#evictions").val(dataM.evictions);
+					  $("#memory_usage").val(dataM.memory_usage);
+					  $("#threads").val(dataM.threads);
+					  $("#hit_rate").val(dataM.hit_rate);
+					  $("#miss_rate").val(dataM.miss_rate);
+					  $("#cmd_set").val(dataM.cmd_set);
+					  $("#read_rate").val(dataM.read_rate);
+					  $("#write_rate").val(dataM.write_rate);
+					  $("#rusage_user").val(dataM.rusage_user);
+					  $("#rusage_system").val(dataM.rusage_system);
+					  $("#curr_items").val(dataM.curr_items);
+					  $("#total_items").val(dataM.total_items);
+					  $("#curr_connection").val(dataM.curr_connection);
+					  $("#total_connection").val(dataM.total_connection);
 				  }else{
 					  $('.tip-message').html(data.message);
 					  $('#viewModal').modal('show');

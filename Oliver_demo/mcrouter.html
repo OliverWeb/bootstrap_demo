@@ -243,67 +243,76 @@
             <h4 class="modal-title" style="font-weight:bold;">详情</h4>
           </div>
           <div class="modal-body">
-          
             <form id="show-status">
               <table class="table table-striped table-hover table-bordered"  align="center">
-                <tr title="">
-                  <td></td>
-                  <td><input class="form-control" readonly id="pid"  />
+                <tr title="LRU回收item数量，判断内存是否已满，如果不为零并且数值走高说明内存不足">
+                  <td>正在回收的数据数量（条目）</td>
+                  <td><input class="form-control" readonly id="evictions"  />
                   </td>
                 </tr>
-                <tr title="">
-                  <td></td>
-                  <td><input class="form-control" readonly id="curr_connections"  />
+                <tr title="内存使用率，当前使用内存站总内存的比值">
+                  <td>内存使用率</td>
+                  <td><input class="form-control" readonly id="memory_usage"  />
                   </td>
                 </tr>
                 <tr title="当前线程数量">
-                  <td></td>
-                  <td><input class="form-control" readonly id="cmd_get"  />
+                  <td>当前处理线程数量</td>
+                  <td><input class="form-control" readonly id="threads"  />
                   </td>
                 </tr>
                 <tr title="命中率">
-                  <td></td>
-                  <td><input class="form-control" readonly id="get_hits" />
+                  <td>命中率</td>
+                  <td><input class="form-control" readonly id="hit_rate" />
                   </td>
                 </tr>
                 <tr title="miss率">
-                  <td></td>
-                  <td><input class="form-control" readonly id="get_misses" />
+                  <td>miss率</td>
+                  <td><input class="form-control" readonly id="miss_rate" />
                   </td>
                 </tr>
                 <tr title="写入请求数">
-                  <td></td>
+                  <td>写入请求数</td>
                   <td><input class="form-control" readonly id="cmd_set"  />
                   </td>
                 </tr>
                 <tr title="读取数据占总数据流量的比值">
-                  <td></td>
-                  <td><input class="form-control" readonly id="delete_hits" />
+                  <td>读取数据占总数据流量的比值</td>
+                  <td><input class="form-control" readonly id="read_rate" />
                   </td>
                 </tr>
-                <tr title="">
-                  <td></td>
-                  <td><input class="form-control" readonly id="delete_misses"  />
+                <tr title="写书数据占总数据流量的比值">
+                  <td>写入数据占总数据流量的比值</td>
+                  <td><input class="form-control" readonly id="write_rate"  />
                   </td>
                 </tr>
                 <tr title="cpu用户时间">
-                  <td></td>
-                  <td><input class="form-control" readonly id="bytes_read" />
+                  <td>cpu用户时间</td>
+                  <td><input class="form-control" readonly id="rusage_user" />
                   </td>
                 </tr>
                 <tr title="cpu系统时间">
-                  <td></td>
-                  <td><input class="form-control" readonly id="bytes_written"  />
+                  <td>cpu系统时间</td>
+                  <td><input class="form-control" readonly id="rusage_system"  />
                   </td>
                 </tr>
                 <tr title="当前数据量">
-                  <td></td>
-                  <td><input class="form-control" readonly id="limit_maxbytes"  />
+                  <td>当前数据量</td>
+                  <td><input class="form-control" readonly id="curr_items"  />
                   </td>
                 </tr>
                 <tr title="历史累计数据量">
-                  <td></td>
-                  <td><input class="form-control" readonly id="bytes"  />
+                  <td>历史累计数据量</td>
+                  <td><input class="form-control" readonly id="total_items"  />
+                  </td>
+                </tr>
+                <tr title="当前连接数">
+                  <td>当前连接数</td>
+                  <td><input class="form-control" readonly id="curr_connection"  />
+                  </td>
+                </tr>
+                <tr title="历史累计连接数">
+                  <td>历史累计连接数</td>
+                  <td><input id="total_connection" class="form-control"/>
                   </td>
                 </tr>
               </table>
