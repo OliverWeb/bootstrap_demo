@@ -43,7 +43,7 @@
 							data.message.map(function(value,key){
 								var mcrouter_list=`
 											    <tr>
-											    <td><div class='openbox ${value.disabled==1?"on":"off"} '>${value.disabled==1?"已开启":"已禁用"}</div></td>
+											    <td><div class='openbox ${value.disabled=="1"?"off":"on"} '>${value.disabled==1?"已禁用":"已开启"}</div></td>
 											    <td class="logPath">${value.logPath}</td>
 											    <td class="numProxies">${value.numProxies}</td>
 											    <td class="port">${value.port}</td>
@@ -51,7 +51,7 @@
 											    <td class="routePrefix">${value.routePrefix}</td>
 											    <td class="bigValueSplitThreshold">${value.bigValueSplitThreshold}</td>
 											    <td class="maxClientOutstandingRequest">${value.maxClientOutstandingRequest}</td>
-											    <td class="destinationRateLimiting">${value.destinationRateLimiting==""?"关":"开"}</td>
+											    <td class="destinationRateLimiting">${value.destinationRateLimiting!="1"?"关":"开"}</td>
 											    <td class="targetMaxInflightRequest">${value.targetMaxInflightRequest}</td>
 											    <td class="targetMaxPendingRequests">${value.targetMaxPendingRequests}</td>
 											    <td style="width: 220px">
@@ -118,7 +118,7 @@
 		$("input.bigValueSplitThreshold").val( $(this).parent().parent().find(".bigValueSplitThreshold").html());
 		$("input.maxClientOutstandingRequest").val( $(this).parent().parent().find(".maxClientOutstandingRequest").html());
 		$("input.targetMaxInflightRequest").val( $(this).parent().parent().find(".targetMaxInflightRequest").html());
-		$("input.targetMaxPendingRequests").val( $(this).parent().parent().find(".destinationRateLimiting").html());
+		$("input.targetMaxPendingRequests").val( $(this).parent().parent().find(".targetMaxPendingRequests").html());
 	});
 	$("#add_mcrouter").click(function(){         //点击添加的  add
 		/*判断是否已存在端口号*/
@@ -291,7 +291,7 @@
 		submitValue.targetMaxInflightRequest=$("input.targetMaxInflightRequest").val();
 		submitValue.targetMaxPendingRequests=$("input.targetMaxPendingRequests").val();
 		submitValue.maxClientOutstandingRequest=$("input.maxClientOutstandingRequest").val();
-		submitValue.destinationRateLimiting=$("#md_3").is(":checked")==true? destinationRateLimiting:"";
+		submitValue.destinationRateLimiting=$("#md_3").is(":checked")==true? "1":"0";
 		submitValue.disabled="1";
 		console.log(submitValue);
 		if(editType=="add"){

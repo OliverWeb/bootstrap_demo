@@ -34,15 +34,15 @@ $(function () {
 		$('.ipValue').html("memcached服务器 IP:"+IpValur);      //进行ip赋值
 		/*赋值结束 end*/
 	}
-   /*页面加载请求*/
+	/*页面加载请求*/
 	$.ajax({
 		type:"get",
-		url:"./json/memcached.json",               //页面初次加载数据请求的地址   根路径pageContext
+		url:pageContext+"/config/node/getMemcachedNodes",               //页面初次加载数据请求的地址   根路径pageContext../config/node/getMemcachedNodes?memcached_ip=
 		data:"memcached_ip="+IpValur,
 		success:function (data) {
 			if(data.status=="success"){
 				if(data.message!=""){
-					data.message.map(function(value,key){
+					JSON.parse(data.message).map(function(value,key){
 						var memcached_list=`
 											    <tr>
 											    <td><div class='openbox ${value.disabled=="1"?"off":"on"} '>${value.disabled=="1"?"已禁用":"已启用"}</div></td>
@@ -58,7 +58,7 @@ $(function () {
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class='btn btn-sm openBtn ${value.disabled=="1"?"btn-success  on":"btn-default off"}'>
+													   <button type="button" class='btn btn-sm openBtn ${value.disabled=="1"?"btn-success on":"btn-defalut off"}'>
 													  <span> ${value.disabled=="1"?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>
@@ -154,12 +154,12 @@ $(function () {
 		console.log(submitData);
 		$.ajax({
 			type:"get",
-			url:"./json/memcachedView.json",      //查看详情的地址  ${pageContext.request.contextPath}/config/dashboard/command_exe
-			// data:submitData,
+			url:pageContext+"/config/dashboard/command_exe",      //查看详情的地址  ${pageContext.request.contextPath}/config/dashboard/command_exe
+			data:JSON.stringify(submitData),
 			success:function(data){
 				if(data.status=="success"){
 					if(data.message!=""){
-						var dataM=data.message;
+						var dataM=JSON.parse(data.message)
 						$("#evictions").val(dataM.evictions);
 						$("#memory_usage").val(dataM.memory_usage);
 						$("#threads").val(dataM.threads);
@@ -192,21 +192,21 @@ $(function () {
 			}
 		});
 	});
-  /*点击开启和关闭*/
+	/*点击开启和关闭*/
 	$('body').on('click','.openBtn',function(){
 		$(this).attr("disabled","disabled");
 		var _this=this;
 		addPort=$(this).parent().parent().find(".port").html();
 		var submitData={
 			"server":IpValur,
-			"key":addPort
+			"key":JSON.stringify(addPort)
 		};
 		console.log(submitData);
 		if($(this).hasClass("on")){
-			operateUrl="./json/mcrouter.json";     //""${pageContext.request.contextPath}/memcached/operation/start_memcached""
+			operateUrl=pageContext+"/memcached/operation/start_memcached";     //""${pageContext.request.contextPath}/memcached/operation/start_memcached""
 			console.log("on");
 		}else{
-			operateUrl="./json/mcrouter.json";    //"${pageContext.request.contextPath}/memcached/operation/stop_memcached"
+			operateUrl=pageContext+"/memcached/operation/stop_memcached";    //"${pageContext.request.contextPath}/memcached/operation/stop_memcached"
 			console.log("off");
 		}
 		$.ajax({
@@ -307,7 +307,7 @@ $(function () {
 		console.log(submitData);
 		$.ajax({
 			type: "get",
-			url: "./json/mcrouter.json",               //保存 添加提交  根路径pageContext
+			url:pageContext+"/memcached/operation/set_memcache_node",               //保存 添加提交  根路径pageContext
 			data:submitData,
 			success: function (data) {
 				if(data.status=="success"){

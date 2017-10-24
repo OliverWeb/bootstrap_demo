@@ -1,8 +1,8 @@
 #main-content{
-	margin-left: 9%;
+	margin-left:2.2rem;
 }
 #sidebar{
-	width: 9%;
+	width: 2.2rem;
 }
 .header>a>span{
 	margin-left:0;
@@ -21,7 +21,86 @@
 .logo>span{
 	text-transform : capitalize;
 }
+/*对模态框的设置 start*/
 .modal-title{
 	text-align: center;
 	font-size:0.18rem;
+}
+#logModal .modal-dialog{
+	width: 6rem;
+}
+#logModal .modal-body{
+	padding-top:0.1rem;
+	padding-bottom: 0.1rem;
+	padding-left: 0.1rem;
+	padding-right:0;
+}
+#logModal .modal-dialog{
+	width: 11rem;
+}
+#messageModal .modal-body{
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
+}
+#messageModal .modal-dialog{
+	width: 4rem;
+}
+#add_server_modal .modal-body{
+	padding: 0.15rem;
+}
+.tip-message{
+	font-size: 0.2rem!important;
+	font-weight: 500;
+}
+
+#information{
+	height: 6rem!important;
+}
+.modal-header{
+	padding: 0.08rem;
+}
+.modal-footer{
+	margin-top: 0;
+}
+.modal-footer{
+	padding: 0.1rem 0.1rem 0.1rem  0.1rem;
+}
+.modal-body .table{
+	margin-bottom: 0;
+}
+.form-control{
+	height: 0.45rem;
+	color: #000000;
+}
+td{
+	padding:0.1rem!important;
+	
+}
+/*对模态框的设置 end*/
+
+/*对按钮样式的的设置*/
+.btn{
+	padding:0.03rem 0.08rem;
+}
+.header{
+	min-height: 0.39rem;
+}
+.logo span{
+	font-size: 0.22rem!important;
+}
+.header .logo{
+	font-size: 0.25rem;
+}
+a.logo{
+	margin-top:0.10rem;
+	margin-bottom:0.10rem;
+}
+.wrapper{
+	margin-top:0.58rem;
+}
+.personal{
+	margin-top:0;
+}
+.top-nav{
+	margin-top:0.1rem;
 }
