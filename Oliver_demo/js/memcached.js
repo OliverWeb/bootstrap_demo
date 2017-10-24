@@ -149,7 +149,8 @@ $(function () {
 		addPort=$(this).parent().parent().find(".port").html();
 		var submitData={
 			"server":IpValur,
-			"port":addPort
+			"port":addPort,
+			"command":"stats"
 		};
 		console.log(submitData);
 		$.ajax({

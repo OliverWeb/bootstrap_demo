@@ -51,8 +51,11 @@
 .tip-message{
 	font-size: 0.2rem!important;
 	font-weight: 500;
+	text-align: center;
 }
-
+.label{
+	padding: 0.5em 0.5em;
+}
 #information{
 	height: 6rem!important;
 }
@@ -70,7 +73,7 @@
 }
 .form-control{
 	height: 0.45rem;
-	color: #000000;
+	color: #797979;
 }
 td{
 	padding:0.1rem!important;
@@ -97,10 +100,26 @@ a.logo{
 }
 .wrapper{
 	margin-top:0.58rem;
+	padding:0.1rem;
 }
 .personal{
 	margin-top:0;
 }
 .top-nav{
 	margin-top:0.1rem;
+}
+ul.sidebar-menu{
+	margin-top: 0.65rem;
+}
+.mcrouter_title{
+	font-size: 0.33rem !important;
+}
+.pool-table td{
+	width: 33.3%;
+}
+.marginTop{
+	padding-top: 0.05rem!important;
+}
+#view_td .view_contain{
+	width: 71%;
 }

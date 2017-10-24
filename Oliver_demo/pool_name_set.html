@@ -103,8 +103,8 @@
     <section id="main-content">
       <section class="wrapper site-min-height">
         <section class="panel">
-          <div class="panel-body">
-            <div class="adv-table editable-table ">
+          <div class="panel-body marginTop">
+            <div class="adv-table  editable-table ">
               <table class="table table-striped table-hover table-bordered" id="pool_name_set" align="center">
                 <caption class="mcrouter_title">分片池配置</caption>
                 <thead>
@@ -225,7 +225,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td style="width:15%;">
+                      <td style="width:20%;">
                         <input disabled type="text" class="viw_title pool_name_title  form-control" value="">
                       </td>
                       <td id="view_td">
@@ -269,6 +269,21 @@
   <script>
 	  $(function(){
 		  $('.node-sub').show();
+		  /*监控浏览器的窗口 start*/
+		  var whdef = 100/1920;// 表示750的设计图,使用50PX的默认值
+		  var wH = window.innerHeight;// 手机窗口的高度
+		  var wW = window.innerWidth;// 手机窗口的宽度
+		  var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+		  $('html').css('font-size', rem + "px");
+		  $(window).resize(function () { // 绑定到窗口的这个事件中
+			  var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+			  var wH = window.innerHeight;// 当前窗口的高度
+			  var wW = window.innerWidth;// 当前窗口的宽度
+			  var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+			  console.log(wW);
+			  $('html').css('font-size', rem + "px");
+		  });
+		  /*监控浏览器的窗口 end*/
 	  });
   </script>
 </body>

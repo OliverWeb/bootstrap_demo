@@ -119,9 +119,9 @@
     <section id="main-content">
       <section class="wrapper site-min-height">
         <section class="panel">
-          <div class="panel-body">
-            <div class="adv-table editable-table ">
-              <table class="table table-striped  table-bordered"  align="center">
+          <div class="panel-body marginTop">
+            <div class="adv-table editable-table pool-table">
+              <table class="table   table-bordered"  align="center">
                 <caption class="mcrouter_title">mcrouter配置</caption>
                 <tbody>
                 <tr>
@@ -133,7 +133,7 @@
                 </tr>
                 </tbody>
               </table>
-              <table class="table table-striped  table-bordered" id="editable-sample" align="center">
+              <table class="table   table-bordered" id="editable-sample" align="center">
                 <tbody>
                 <tr>
                   <th class="">常规模式</th>
@@ -203,5 +203,24 @@
   <script src="js/lib/respond.min.js"></script>
   <script src="js/lib/common-scripts.js"></script>
   <script src="js/index.js"></script>
+  <script>
+    $(function () {
+	    /*监控浏览器的窗口 start*/
+	    var whdef = 100/1920;// 表示750的设计图,使用50PX的默认值
+	    var wH = window.innerHeight;// 手机窗口的高度
+	    var wW = window.innerWidth;// 手机窗口的宽度
+	    var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+	    $('html').css('font-size', rem + "px");
+	    $(window).resize(function () { // 绑定到窗口的这个事件中
+		    var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+		    var wH = window.innerHeight;// 当前窗口的高度
+		    var wW = window.innerWidth;// 当前窗口的宽度
+		    var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+		    console.log(wW);
+		    $('html').css('font-size', rem + "px");
+	    });
+	    /*监控浏览器的窗口 end*/
+    });
+  </script>
 </body>
 </html>
