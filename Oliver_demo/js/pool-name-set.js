@@ -138,8 +138,8 @@ function join_server(){
 //模态框- 分片池设置, 进行选择已加入服务和未加入服务
 $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进行操作的
   pool_input_name=$(this).parent().prev().find('.pool_input_name').val();
-  if(pool_input_name==""){
-	  $('.tip-message').html("请填写池名称");
+  if(!textExp(pool_input_name,/^[0-9a-zA-Z]+$/)){
+	  $('.tip-message').html("请填写正确的池名称");
 	  $('#messageModal').modal('show');
 	  return;
   }
@@ -376,14 +376,10 @@ function pool_name(){
 // todo 页面刚开始加载时候的执行的函数
 $(function() {
 	pool_name();
-	$("body").on("blur","input.pool_input_name",function(){
-		function textExp(n) {
-			var reg = /^(\/?)([0-9a-zA-Z]+)$/g;
-			return reg.test(n);
-		}
-		console.log(textExp($(this).val()));
-		console.log($(this).val());
-	});
 });
+/*验证格式fun*/
+function textExp(val,reg){
+	return reg.test(val);
+}
 //分片池首页的请求加载  end
 
