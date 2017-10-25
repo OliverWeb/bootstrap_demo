@@ -36,14 +36,14 @@
   <section id="container" class="">
     <header class="header white-bg">
     <a href="index.html" class="logo">
-      NODE-<span style="font-size: 18px;text-transform : capitalize">后台管理系统=&gt;GetNode</span>
+      NODE-<span style="font-size: 18px;text-transform : capitalize">后台管理系统=&gt;获取缓存数据</span>
     </a>
     <div class="top-nav ">
       <ul class="nav pull-right top-menu">
         <div class="dropdown" >
 					<span class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
 						<button type="button" class="btn btn-default btn-sm personal" >
-					<span class="glyphicon glyphicon-user"></span> User
+					<span class="glyphicon glyphicon-user"></span><span class="username">User</span>
 					</button>
 					</span>
           <ul class="dropdown-menu loginOut">
@@ -95,7 +95,7 @@
               </li>
               <li>
                 <a href="getnode.html">
-                  GetNode
+                  获取缓存数据
                 </a>
               </li>
             </ul>
@@ -145,7 +145,7 @@
                     </tr>
                     <tr>
                       <td>VALUE</td>
-                      <td><input style="width: 220px" class="form-control" type="text" id="value" value="" placeholder="请点击get获取value,无需填写"></td>
+                      <td><input style="width: 220px" class="form-control" type="text" id="value" value="" readonly placeholder="请点击get获取value"></td>
                     </tr>
                     </tbody>
                   </table>
@@ -202,6 +202,21 @@
 		    $('html').css('font-size', rem + "px");
 	    });
 	    /*监控浏览器的窗口 end*/
+	    /*将获取cookie进行设置cookie*/
+	    function getCookie(name) {
+		    var arr = document.cookie.split('; ');
+		    var i = 0;
+		    for (i = 0; i < arr.length; i++) {
+			    var arr2 = arr[i].split('=');
+			    if (arr2[0] == name) {
+				    var getC = decodeURIComponent(arr2[1]);
+				    return getC;
+			    }
+		    }
+		    return '';
+	    }
+	    $(".username").html(getCookie("username"));
+	    /*将获取cookie进行设置cookie结束*/
     });
   </script>
 </body>

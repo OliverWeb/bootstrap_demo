@@ -1,21 +1,6 @@
 /*根路径 用于ajax请求地址的添加*/
 var pageContext = document.location.pathname.substr(0,document.location.pathname.substr(1).indexOf("/")+1);   //获取的根路径操作
 /// /登录表单提交的
-/*
-	TODO 表单验证的需求
-	TODO * 表单元素获取焦点时 - 显示输入提示内容
-	TODO * 表单元素失去焦点时 - 完成表单元素的验证
-	TODO   * 验证失败 - 给出失败的信息
-	TODO   * 验证成功 - 给出成功的信息
-	TODO * class的说明
-	TODO   * 隐藏和显示的class
-	TODO     * .show - 显示
-	TODO     * .hide - 隐藏
-	TODO   * 表示不同含义的class
-	TODO     * .control-default - 提示信息
-	TODO     * .control-error - 错误信息
-	TODO     * .control-success - 成功信息
- */
 var username = document.getElementById("username");
 var usernameTip = document.getElementById("usernameTip");
 //TODO 绑定获取焦点事件
@@ -43,6 +28,8 @@ username.onblur = function(){
 	if(username.validity.valid&&password.validity.valid){
 		console.log(1);
 		$('#node_login').addClass("node_login");
+	}else{
+		$('#node_login').removeClass("node_login");
 	}
 };
 //TODO 密码的表单验证
@@ -67,36 +54,44 @@ password.onblur = function(){
 	//鼠标离开进行判断
 	if(username.validity.valid&&password.validity.valid){
 		$('#node_login').addClass("node_login");
+	}else{
+		$('#node_login').removeClass("node_login");
 	}
 };
 //ajax提交代码
 $('body').on('click','.node_login',function () {
+	/*进行base加密转化处理*/
+	  var b = new Base64();
+	$('#password').val(b.encode($('#password').val()));
 		var username=$("#username").val();
 		var password=$('#password').val();
 		var data="username="+username+"&"+"username="+password;
 		console.log(data);
 		//点击跳转后的页面
-	window.location.href="index.html"+"?"+"username="+username;
 		$.ajax({
 			url:"./json/router.json",             //pageContext这个一个根路径的变量,记得进行拼接
 			type:"post",
 			data:data,
-			// data:JSON.stringify({"name":name,"pwd":pwd}),
 			success: function (data) {
-
+				if(data.message!=""){}
+				setCookie("username",$("#username").val(),24);
+				setCookie("password",$("#password").val(),24);
+				window.location.href="index.html";
 			},
 			error: function () {
 				console.log("登录提交异常");
 			}
 		});
 });
-//	var options = {
-//		elem : document.getElementById("password"),
-//		elemTip : document.getElementById("passwordTip"),
-//		msg : document.getElementById("passwordTip").innerHTML,
-//		elemText : "密码"
-//	}
-//	validityForm(options);
+/*这里进行设置cookie*/
+function setCookie(name,value,hours){
+	var name = encodeURIComponent(name);
+	var value = encodeURIComponent(value);
+	var expires = new Date();
+	expires.setTime(expires.getTime() + hours*3600000);
+	_expires = (typeof hours) == "string" ? "" : ";expires=" + expires.toUTCString();
+	document.cookie = name + "=" + value + _expires;
+}
 
 // todo 动画开始
 var count_particles, stats, update;
@@ -117,3 +112,5 @@ update = function() {
 };
 requestAnimationFrame(update);
 //表单动画结束
+
+

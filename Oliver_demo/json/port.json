@@ -1,7 +1,59 @@
 {"message":[
-  "8888",
-  "8284",
-  "8282",
-  "828223"
-
-],"status":"success"}
+  {
+    "numProxies": "3",
+    "destinationRateLimiting": "",
+    "logPath": "3",
+    "port": "3",
+    "routePrefix": "3",
+    "configFile": "3",
+    "targetMaxInflightRequest": "",
+    "maxClientOutstandingRequest": "",
+    "disabled": "1",
+    "bigValueSplitThreshold": "3",
+    "targetMaxPendingRequests": "关",
+    "key": "/cache-center/nodes/mcrouter/192.168.81.102/3"
+  },
+  {
+    "numProxies": "7",
+    "destinationRateLimiting": "1",
+    "logPath": "7",
+    "port": "7",
+    "routePrefix": "7",
+    "configFile": "7",
+    "targetMaxInflightRequest": "7",
+    "maxClientOutstandingRequest": "",
+    "disabled": "1",
+    "bigValueSplitThreshold": "7",
+    "targetMaxPendingRequests": "关",
+    "key": "/cache-center/nodes/mcrouter/192.168.81.102/7"
+  },
+  {
+    "numProxies": "2",
+    "destinationRateLimiting": "1",
+    "logPath": "2",
+    "port": "2",
+    "routePrefix": "2",
+    "configFile": "2",
+    "targetMaxInflightRequest": "111",
+    "maxClientOutstandingRequest": "2",
+    "disabled": "1",
+    "bigValueSplitThreshold": "2",
+    "targetMaxPendingRequests": "2",
+    "key": "/cache-center/nodes/mcrouter/192.168.81.102/2"
+  },
+  {
+    "numProxies": "1",
+    "destinationRateLimiting": "1",
+    "logPath": "1",
+    "port": "1",
+    "routePrefix": "1",
+    "configFile": "1",
+    "targetMaxInflightRequest": "1",
+    "maxClientOutstandingRequest": "1",
+    "disabled": "1",
+    "bigValueSplitThreshold": "1",
+    "targetMaxPendingRequests": "1",
+    "key": "/cache-center/nodes/mcrouter/192.168.81.102/1"
+  }
+]
+,"status":"success"}

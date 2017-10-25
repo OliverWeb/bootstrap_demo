@@ -134,6 +134,7 @@ ul.sidebar-menu{
 }
 .operate_policy tr td table tbody tr td{
 	padding-left: 0!important;
+	padding-bottom: 0!important;
 }
 .mcrouterNum th{
 	padding: 0!important;
@@ -188,9 +189,35 @@ ul.sidebar-menu{
 .memecache07{
 	width: 5%;
 }
-
-
-
+.btn{
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+}
+span.label{
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+}
+.top-nav{
+	position:absolute;
+	margin-top:0;
+	top: 50%;
+	right:0.1rem;
+	transform: translate(0, -50%);
+}
+.top-nav:before{
+	content: " ";
+	display: table;
+}
+.top-nav:after{
+	clear: both;
+}
+.editable-table>table>tbody>tr td>div{
+	width: 36%!important;
+}
 
 
 

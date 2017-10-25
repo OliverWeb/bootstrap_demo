@@ -37,8 +37,9 @@ $(function(){
 									if(data.status="success"){
 										if(data.message!=""){
 											var datas=data.message;
+
 											datas.map(function(value,key){
-												return portList = portList + `<option value=${value} key=${key}>${value}</option>`;
+												return portList = portList + `<option value=${value.port} key=${key}>${value.port}</option>`;
 											});
 											var portHTMl=`<div class="form-group" style="display:inline-block;margin-bottom: 0">
                           <select  data-size="9" class="selectpicker option-search portList" data-live-search="true" title="===请选择===">
@@ -94,7 +95,7 @@ $(function(){
 		};
 		/*提交的数据内容*/
 		var hostname=$(".hostList").val();
-		var port=$(".portList").val();
+		var port=$("select.portList").val();
 		var key=$("#key").val();
 		var targetData="key="+key+"&hostname="+hostname+"&port="+port;
 		console.log(targetData);
