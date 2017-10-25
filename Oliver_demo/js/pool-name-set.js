@@ -376,6 +376,14 @@ function pool_name(){
 // todo 页面刚开始加载时候的执行的函数
 $(function() {
 	pool_name();
+	$("body").on("blur","input.pool_input_name",function(){
+		function textExp(n) {
+			var reg = /^(\/?)([0-9a-zA-Z]+)$/g;
+			return reg.test(n);
+		}
+		console.log(textExp($(this).val()));
+		console.log($(this).val());
+	});
 });
 //分片池首页的请求加载  end
 
