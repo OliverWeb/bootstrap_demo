@@ -427,6 +427,8 @@ $('body').on("click", '.submit_general_set_data', function () {
 		$('#messageModal').modal('show');
 		return;
 	}
+	/*对百分比进行校验*/
+
 	/*验证前缀的名字*/
 	var arrRouterName=[];
 	$(".pre_router_name").map(function(key,value){
@@ -461,6 +463,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 	});
 	// todo 操作策略参数
 	var policyArr = [];
+	var pass;
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		Routepool_did = [];
 		Routepool = [];
@@ -468,9 +471,8 @@ $('body').on("click", '.submit_general_set_data', function () {
 		$(value).find(".router_policy_selcte").map(function (key, value) {
 			if($(value).find('select').eq(1).val()!=""&&$(value).find('select').eq(0).val()!=""){
 				if($(value).find(".percentage").val()==""){
-					$('.tip-message').html("请填写本分比例");
-					$('#messageModal').modal('show');
 					pass=false;
+					console.log(pass);
 				}else{
 					Routepool_did.push({
 						"type": "PoolRoute",
@@ -541,6 +543,12 @@ $('body').on("click", '.submit_general_set_data', function () {
 				"policies": JSON.stringify(dataobj)
 			};
 		}
+		console.log(pass);
+		if(!pass){
+			$('.tip-message').html("请填写本分比例");
+			$('#messageModal').modal('show');
+			return;
+		}
 		console.log(datas);
 		$.ajax({
 			type: "post",
@@ -554,7 +562,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 						$('#messageModal').modal('show');
 						setTimeout(function(){
 							$('#messageModal').modal('hide');
-							location.reload();
+							// location.reload();
 						},1000);
 					}
 				}else{
@@ -603,50 +611,6 @@ $(function () {
 	});
 });
 
-/* todo 代码待使用 请勿删除*/
-/*对option重复option进行判定*/
-// $("body").on('click','#route_operate .bootstrap-select',function () {
-// 	console.log(123);
-// 	// $('.router_operate').find('[value=pool02]').remove();
-// 	// $('.router_operate').selectpicker('refresh');
-//
-// });
-// $('body').on('hidden.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('shown.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('changed.bs.select','.router_operate', function (e) {
-// 	// clickedIndex，newValue，oldValue。
-//   console.log(e);
-// });
-// // $(function(){//这里是进行获取我们选中的值
-// // 	$('body').on('change','select.selectpicker', function(){
-// // 		selectedValue = $('.selectpicker option:selected').val();
-// // 	});
-// // 	//上面这里是进行获取选中的值
-// // 	$('body').on('changed.bs.select','.router_operate', function (e, clickedIndex, newValue, oldValue) {
-// // 		var arr_select=[];
-// // 		clickOptionIndex=clickedIndex;
-// // 		selectValue=newValue;
-// // 		console.log(clickOptionIndex);
-// // 		var selectIndex=$(this).attr("key");
-// // 		/*获取当前路由操作中select的个数*/
-// // 		$('#route_operate select').map(function (key,value) {
-// // 				if(key!=selectIndex){
-// // 					arr_select.push(value);
-// // 				}
-// // 		});
-// // 		/*对其他的数据进行处理*/
-// // 		arr_select.map(function (value,key) {
-// // 			console.log(value);
-// // 			$(value).find('[value='+selectedValue+']').hide();
-// // 			$('.router_operate').selectpicker('refresh');
-// // 		});
-// //
-// // 	});
-// });
 
 
 
