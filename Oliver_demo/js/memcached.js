@@ -1,6 +1,9 @@
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 var editType="add";   //修改的类型
 var addPort="";     //端口号
+function textExp(val,reg){
+	return reg.test(val);
+}
 /*验证ip start*/
 function isValidIP(ip) {
 	var reg =  /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
@@ -253,29 +256,52 @@ $(function () {
 		});
 	});
 	$(".add_servers_memcached").click(function(){      //  点击保存的触发事件 submit
-		if($("input.ipAddress").val()==""){      //所填内容的判断
-			$('.tip-message').html("请将绑定ip填写完整!");
+		var ip = $('input.ipAddress').val();
+		if(!isValidIP(ip)){      //所填内容的判断
+			$('.tip-message').html("请正确填写绑定IP");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.port").val()==""){
-			$('.tip-message').html("请填写TCP端口!");
+		}else if(!textExp($("input.port").val(),/^[0-9]+$/)){
+			$('.tip-message').html("请正确填写TCP端口!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.memoryMaxSize").val()==""){
-			$('.tip-message').html("请填写内存!");
+		}else if(!textExp($("input.udpPort").val(),/^[0-9]*$/)){
+			$('.tip-message').html("请正确填写UDP端口!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.connectNum").val()==""){
-			$('.tip-message').html("请填写连接数!");
+		}
+		else if(!textExp($("input.memoryMaxSize").val(),/^[0-9]+$/)){
+			$('.tip-message').html("请正确填写内存!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.connectNum").val(),/^[0-9]+$/)){
+			$('.tip-message').html("请正确填写连接数!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.user").val(),/^([_0-9A-Za-z]*)$/)){
+			$('.tip-message').html("请正确填写用户名,不能还有特殊字符!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.pidFile").val(),/^([_0-9A-Za-z\/-]*)$/) || $("input.pidFile").val().indexOf("//")!=-1){
+			$('.tip-message').html("请正确填写PID文件路径!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');

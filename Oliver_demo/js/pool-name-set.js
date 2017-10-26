@@ -138,7 +138,7 @@ function join_server(){
 //模态框- 分片池设置, 进行选择已加入服务和未加入服务
 $('body').on("click", ".pool_edit", function() {        //点击编辑按钮进行操作的
   pool_input_name=$(this).parent().prev().find('.pool_input_name').val();
-  if(!textExp(pool_input_name,/^[0-9a-zA-Z]+$/)){
+  if(!textExp(pool_input_name,/^[0-9a-zA-Z]+$/)){   //正则验证
 	  $('.tip-message').html("请填写正确的池名称");
 	  $('#messageModal').modal('show');
 	  return;
@@ -277,7 +277,11 @@ function viewsearch() {
 };
 //  todo 异步进行提交分片池配置
 function fenpianchi_submit() {
- console.log("key:"+click_index);
+	if(!textExp($("input.pool_name_title").val(),/^[0-9a-zA-Z]+$/)){   //正则验证
+		$('.tip-message').html("请填写正确的池名称");
+		$('#messageModal').modal('show');
+		return;
+	}
   var servers = [];//提交数组
   var did_join_html=$(".ms-elem-selectable:visible").find('span');
   for(var i=0;i<(did_join_html.length);i++){
@@ -296,12 +300,12 @@ function fenpianchi_submit() {
   console.log(datas);
   $.ajax({
     type: "POST",
-    dataType: "json", //服务端接收的数据类型
     url:"./json/demo.json",               // todo  点击保存提交的请求地址
     data: datas,
     success: function(data) {
       if(data.status=="success"){
 	      $('.tip-message').html("保存成功");
+	      $('#setModal').modal('hide');
 	      $('#messageModal').modal('show');
 	      setTimeout(function(){
 		      $('#messageModal').modal('hide');
@@ -326,6 +330,7 @@ function fenpianchi_submit() {
 };
 $('body').on("click", ".pool_submit_btn", function() {
 	fenpianchi_submit();          //分片次进行提交
+
 });
 
 /*分片次第一次加载pool_name*/

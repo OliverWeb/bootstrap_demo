@@ -216,7 +216,7 @@ span.label{
 	clear: both;
 }
 .editable-table>table>tbody>tr td>div{
-	width: 36%!important;
+	/*width: 36%!important;*/
 }
 
 

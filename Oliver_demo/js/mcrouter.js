@@ -1,5 +1,8 @@
 	var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 // Mcrouter js
+	function textExp(val,reg){
+		return reg.test(val);
+	}
 	var editType="add";
 	var addPort="";
 		$(function () {
@@ -253,35 +256,74 @@
 	});
 	$(".add_servers_mcrouter").click(function(){      //点击保存  提交
 		/*判断之前的判断*/
-		if($("input.logPath").val()==""){      //所填内容的判断
-			$('.tip-message').html("请将日志文件路径填写完整!");
+		if(!textExp($("input.logPath").val(),/^([_0-9A-Za-z\/-]+)$/) || $("input.logPath").val().indexOf("//")!=-1){      //所填内容的判断
+			$('.tip-message').html("请正确填写日志文件路径!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.numProxies").val()==""){
-			$('.tip-message').html("请将请求线程数量填写完整!");
+		}else if(!textExp($("input.numProxies").val(),/^[0-9]+$/)){
+			$('.tip-message').html("请正确填写求线程数量!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.configFile").val()==""){
-			$('.tip-message').html("请将配置文件路径填写完整!");
+		}else if(!textExp($("input.port").val(),/^[0-9]+$/)){
+			$('.tip-message').html("请正确填写监听端口号!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
-		}else if($("input.routePrefix").val()==""){
-			$('.tip-message').html("请将默认路由前缀填写完整!");
+		}else if(!textExp($("input.configFile").val(),/^([_0-9A-Za-z\/-]+)$/) || $("input.configFile").val().indexOf("//")!=-1){
+			$('.tip-message').html("请填写配置文件路径!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.routePrefix").val(),/^([_0-9A-Za-z\/-]+)$/) || $("input.routePrefix").val().indexOf("//")!=-1){
+			$('.tip-message').html("请正确填写默认路由前缀!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.bigValueSplitThreshold").val(),/^[0-9]*$/)){
+			$('.tip-message').html("请正确填写截取长度!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}
+		else if(!textExp($("input.maxClientOutstandingRequest").val(),/^[0-9]*$/)){
+			$('.tip-message').html("请正确填写客户端最大连接数!");
+			$('#messageModal').modal('show');
+			setTimeout(function(){
+				$('#messageModal').modal('hide');
+			},1000);
+			return;
+		}else if(!textExp($("input.targetMaxPendingRequests").val(),/^[0-9]*$/)){
+			$('.tip-message').html("请正确填写未发送数据缓存最大值!");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');
 			},1000);
 			return;
 		};
+		if($("#md_3").is(":checked")){
+			if(!textExp($("input.targetMaxInflightRequest").val(),/^[0-9]*$/)){
+				$('.tip-message').html("请正确填写限制发送请求的速度!");
+				$('#messageModal').modal('show');
+				setTimeout(function(){
+					$('#messageModal').modal('hide');
+				},1000);
+				return;
+			};
+		}
 		var submitValue={};
 		/*表单序列化,进行提交表单信息*/
 		submitValue.logPath=$("input.logPath").val();

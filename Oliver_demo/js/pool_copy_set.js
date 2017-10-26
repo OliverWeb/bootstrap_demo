@@ -1,6 +1,9 @@
 //  todo 常规设置
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 //页面加载的时候进行请求数据
+function textExp(val,reg){
+	return reg.test(val);
+}
 function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
@@ -419,6 +422,24 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
+	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
+		$('.tip-message').html("请填写正确的路由前缀名称");
+		$('#messageModal').modal('show');
+		return;
+	}
+	/*验证前缀的名字*/
+	var arrRouterName=[];
+	$(".pre_router_name").map(function(key,value){
+		arrRouterName.push($(value).val());
+	});
+	console.log(arrRouterName);
+	for(var key in arrRouterName){
+		if(arrRouterName[key]==""|| !textExp(arrRouterName[key],/^[_0-9a-zA-Z-]+$/)){
+			$('.tip-message').html("请填写正确填写前缀路由");
+			$('#messageModal').modal('show');
+			return;
+		}
+	}
 	route_prefix_title = "";
 	router_selected = [];                // select中的选择项
 	route_prefix_title = $("#route_prefix_title").val();              // todo 路由前缀的名称

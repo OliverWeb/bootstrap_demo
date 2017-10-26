@@ -1,5 +1,8 @@
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 //物理节点管理
+function textExp(val,reg){
+	return reg.test(val);
+}
 /*页面初次加载的时候的*/
 var timerlog;
 /*验证ip start*/
@@ -109,6 +112,30 @@ function  getLog(ip){
 }
 //保存服务事件
 $('.add_servers_save').click(function(){
+	var ip = $('#ip1').val();
+	if(!isValidIP(ip)){
+		$('.tip-message').html("请输入正确ip地址");
+		$('#messageModal').modal('show');
+		setTimeout(function(){
+			$('#messageModal').modal('hide');
+		},1000);
+		return;
+	}
+  if(!textExp($('#ip2').val(),/^([_0-9A-Za-z\/-]+)$/) || $("#ip2").val().indexOf("//")!=-1){
+	  $('.tip-message').html("请填写正确安装路径");
+	  $('#messageModal').modal('show');
+	  return;
+  }
+	if(!textExp($('#ip3').val(),/^([_0-9A-Za-z\/-]+)$/)){
+		$('.tip-message').html("请填写正确的用户密码,不能包含特殊字符");
+		$('#messageModal').modal('show');
+		return;
+	}
+	if(!textExp($('#ip4').val(),/^([_0-9A-Za-z\/-]+)$/)){
+		$('.tip-message').html("请填写正确root权限密码");
+		$('#messageModal').modal('show');
+		return;
+	}
 	if($("#ip1").val()==""||$("#ip2").val()==""||$("#ip3").val()==""||$("#ip4").val()==""){
 		$('.tip-message').html("请将内容填写完整!!!");
 		$('#messageModal').modal('show');

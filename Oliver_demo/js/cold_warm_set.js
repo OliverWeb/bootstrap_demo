@@ -1,6 +1,9 @@
 //  todo 常规设置
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 //页面加载的时候进行请求数据
+function textExp(val,reg){
+	return reg.test(val);
+}
 function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
@@ -313,7 +316,7 @@ function PoolGeneralHtml() {
 							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".router_policy_selcte").eq(key).find("select").eq(0).selectpicker('val', value.warm);
 							deault_policy_key++;
 						}else{
-							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_defalut_box").find(".select_option_box").eq(key-deault_policy_key).find("select").selectpicker('val', value);
+							$(".strategy_box table.add_strategy_box").eq(routerPolicyKey).find(".add_server_one_body").find(".select_option_box").eq(key).find("select").selectpicker('val', value);
 						}
 					});
 					routerPolicyKey++;
@@ -383,27 +386,27 @@ $('body').on("click", ".delte_route_operate_default", function () {
 	$(this).parent().parent().remove();
 });
 //添加默认路由数据
-$("body").on("click", ".add_default_router", function () {
-	var  warm_index=$(this).parents(".parent_box").find("[data-type=warm]").length;
-
-	var default_router_child=`<tr class="select_option_box">
-											<td  style="padding-left:0;" > 
-                            <a href="javascript:;" class="add_backup">
-															<span class="label label-success">Warm</span>
-														</a>
-														<div class="form-group" style="display:inline-block">
-													      <select key=${warm_index} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-													        ${routeOperateHtml_warm}
-													      </select>
-													   </div> 
-														<a href="javascript:;" class="delte_route_operate_default">
-                                <span class="label label-danger">Delete</span>
-                            </a>
-                          </td>
-                      </tr>`;
-	$(this).parent().parent().prev().find(".add_defalut_box").append(default_router_child);
-	$('.selectpicker').selectpicker('refresh');
-});
+// $("body").on("click", ".add_default_router", function () {
+// 	var  warm_index=$(this).parents(".parent_box").find("[data-type=warm]").length;
+//
+// 	var default_router_child=`<tr class="select_option_box">
+// 											<td  style="padding-left:0;" >
+//                             <a href="javascript:;" class="add_backup">
+// 															<span class="label label-success">Warm</span>
+// 														</a>
+// 														<div class="form-group" style="display:inline-block">
+// 													      <select key=${warm_index} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
+// 													        ${routeOperateHtml_warm}
+// 													      </select>
+// 													   </div>
+// 														<a href="javascript:;" class="delte_route_operate_default">
+//                                 <span class="label label-danger">Delete</span>
+//                             </a>
+//                           </td>
+//                       </tr>`;
+// 	$(this).parent().parent().prev().find(".add_defalut_box").append(default_router_child);
+// 	$('.selectpicker').selectpicker('refresh');
+// });
 // 添加路由前缀名称的一条数据
 $("body").on("click", ".add_server_btn", function () {
 	var add_num = $(this).parent().parent().prev().find(".select_option_box").length;
@@ -540,6 +543,24 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
+	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
+		$('.tip-message').html("请填写正确的路由前缀名称");
+		$('#messageModal').modal('show');
+		return;
+	}
+	/*验证前缀的名字*/
+	var arrRouterName=[];
+	$(".pre_router_name").map(function(key,value){
+		arrRouterName.push($(value).val());
+	});
+	console.log(arrRouterName);
+	for(var key in arrRouterName){
+		if(arrRouterName[key]==""|| !textExp(arrRouterName[key],/^[_0-9a-zA-Z-]+$/)){
+			$('.tip-message').html("请填写正确填写前缀路由");
+			$('#messageModal').modal('show');
+			return;
+		}
+	}
 	var judge_router_reporte,judge_polic_name=1,judge_polic_option=1;
 	route_prefix_title = "";
 	router_selected = [];                // select中的选择项
