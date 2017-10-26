@@ -221,6 +221,15 @@ span.label{
 td{
 	vertical-align: middle!important;
 }
+.nodechart>div:first-child{
+	 width: 100%!important;
+	/*height: 300px!important;*/
+}
+.nodechart>div>canvas{
+	width: 100%!important;
+	/*height: 300px!important;*/
+	
+}
 
 
 
