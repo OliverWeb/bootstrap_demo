@@ -1,4 +1,7 @@
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
+function textExp(val,reg){
+	return reg.test(val);
+}
 $(function(){
 	$('body').on('shown.bs.select', '.selectpicker', function (e) {
 		$('.bs-searchbox input').attr("placeholder","请输入搜索内容...");
@@ -85,8 +88,8 @@ $(function(){
 			},1000);
 			return;
 		}
-		if($("#key").val()==""){      //所填内容的判断
-			$('.tip-message').html("请输入key值");
+		if(!textExp($("#key").val(),/^([_0-9A-Za-z]+)$/)){      //所填内容的判断
+			$('.tip-message').html("请输入正确的key");
 			$('#messageModal').modal('show');
 			setTimeout(function(){
 				$('#messageModal').modal('hide');

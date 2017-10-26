@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="10/25 修改的验证之前的代码提交">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/css/layout.css" afterPath="$PROJECT_DIR$/Oliver_demo/css/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/getnode.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/getnode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/memcached.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/json/demo.json" afterPath="$PROJECT_DIR$/Oliver_demo/json/demo.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" afterPath="$PROJECT_DIR$/Oliver_demo/mcrouter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" afterPath="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,9 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>鼠标离开进行判断</find>
-      <find>node_login</find>
-      <find>username</find>
       <find>User</find>
       <find>user</find>
       <find>登录</find>
@@ -67,14 +56,17 @@
       <find>add_defalut_box</find>
       <find>保存</find>
       <find>valieIP</find>
-      <find>add_servers_save</find>
       <find>add_servers_mcrouter</find>
       <find>截取</find>
-      <find>textExp</find>
       <find>checked</find>
       <find>add_servers_memcached</find>
       <find>add_servers_</find>
       <find>isValidIP</find>
+      <find>table-striped</find>
+      <find>查看</find>
+      <find>服务器已停止</find>
+      <find>textExp</find>
+      <find>add_servers_save</find>
     </findStrings>
     <replaceStrings>
       <replace>cmrsdk.toast</replace>
@@ -119,7 +111,6 @@
         <option value="$PROJECT_DIR$/Oliver_demo/json/getNode.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/json/port.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/css/login.css" />
-        <option value="$PROJECT_DIR$/Oliver_demo/js/getnode.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/login.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/cold_warm_set.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/echart.html" />
@@ -135,14 +126,15 @@
         <option value="$PROJECT_DIR$/Oliver_demo/json/demo.json" />
         <option value="$PROJECT_DIR$/Oliver_demo/pool_name_set.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool-name-set.js" />
-        <option value="$PROJECT_DIR$/Oliver_demo/css/layout.css" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/cold_warm_set.js" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/css/layout.css" />
         <option value="$PROJECT_DIR$/Oliver_demo/mcrouter.html" />
         <option value="$PROJECT_DIR$/Oliver_demo/js/mcrouter.js" />
-        <option value="$PROJECT_DIR$/Oliver_demo/js/memcached.js" />
+        <option value="$PROJECT_DIR$/Oliver_demo/js/getnode.js" />
       </list>
     </option>
   </component>
@@ -372,7 +364,7 @@
       <workItem from="1508891514218" duration="23023000" />
       <workItem from="1508926917335" duration="5245000" />
       <workItem from="1508938013973" duration="2969000" />
-      <workItem from="1508977520086" duration="19513000" />
+      <workItem from="1508977520086" duration="20351000" />
     </task>
     <task id="LOCAL-00001" summary="默认的">
       <created>1506340041077</created>
@@ -392,7 +384,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="538422000" />
+    <option name="totallyTimeSpent" value="539260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/getnode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="41" column="80" lean-forward="false" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -681,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouterList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="85" column="22" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/memcached.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -735,14 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5421">
-          <caret line="219" column="1" lean-forward="true" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1129,14 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="193" column="61" lean-forward="true" selection-start-line="193" selection-start-column="61" selection-end-line="193" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/pool_general_set.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1260,24 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/mcrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="258" column="110" lean-forward="true" selection-start-line="258" selection-start-column="7" selection-end-line="258" selection-end-column="110" />
-          <folding>
-            <marker date="1509003210762" expanded="true" signature="1510:3113" ph="..." />
-            <marker date="1509003210762" expanded="false" signature="2424:2436" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2437:3092" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2515:2616" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2570:2591" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2739:2882" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2835:2857" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="2954:3060" ph="..." />
-            <marker date="1509003210762" expanded="true" signature="3011:3034" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/js/physical-node-manager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -1287,6 +1231,87 @@
             <marker date="1509000850269" expanded="true" signature="1384:1623" ph="..." />
             <marker date="1509000850269" expanded="true" signature="1440:1598" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3644">
+          <caret line="245" column="47" lean-forward="false" selection-start-line="245" selection-start-column="47" selection-end-line="245" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#section#0;n#section#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5875#5881#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6350#6356#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#1;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6668#6674#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#2;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#3;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6954#6960#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#3;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7266#7272#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#td#0;n#tr#4;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#7;n#tbody#0;n#form#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/mcrouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="258" column="64" lean-forward="false" selection-start-line="258" selection-start-column="7" selection-end-line="258" selection-end-column="64" />
+          <folding>
+            <marker date="1509004853906" expanded="true" signature="1510:3113" ph="..." />
+            <marker date="1509004853906" expanded="false" signature="2424:2436" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2437:3092" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2515:2616" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2570:2591" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2739:2882" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2835:2857" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="2954:3060" ph="..." />
+            <marker date="1509004853906" expanded="true" signature="3011:3034" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/js/getnode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="88" column="13" lean-forward="true" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+          <folding>
+            <marker date="1509005131147" expanded="true" signature="752:789" ph="..." />
+            <marker date="1509005131147" expanded="true" signature="790:1032" ph="..." />
+            <marker date="1509005131147" expanded="true" signature="926:1001" ph="..." />
+            <marker date="1509005131147" expanded="true" signature="1861:1898" ph="..." />
+            <marker date="1509005131147" expanded="true" signature="1899:2141" ph="..." />
+            <marker date="1509005131147" expanded="true" signature="2035:2110" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/mcrouterList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="221" column="35" lean-forward="false" selection-start-line="221" selection-start-column="35" selection-end-line="221" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
