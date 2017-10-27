@@ -422,6 +422,7 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
+	pass=true;  //百分比是否可以通过进行提交
 	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
@@ -449,6 +450,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 	router_selected_did = [];
 	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
 		if($(value).find("select").eq(1).val()!=""&&$(value).find("select").eq(0).val()!=""){
+			/*默认路由中的百分比进行操作判断的*/
+			if($(value).find(".percentage").val()==""){
+				pass=false;
+			}
 			router_selected_did.push({
 				"type": "PoolRoute",
 				"pool":  $(value).find("select").eq(0).val(),
@@ -463,11 +468,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 	});
 	// todo 操作策略参数
 	var policyArr = [];
-	var pass;
+
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		Routepool_did = [];
 		Routepool = [];
-		pass=true;  //百分比是否可以通过进行提交
 		$(value).find(".router_policy_selcte").map(function (key, value) {
 			if($(value).find('select').eq(1).val()!=""&&$(value).find('select').eq(0).val()!=""){
 				if($(value).find(".percentage").val()==""){
@@ -495,10 +499,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-
+	if(!pass){
+		$('.tip-message').html("请填备份分比例");
+		$('#messageModal').modal('show');
+		return;
+	}
 	if (router_selected_did.length==0 || route_prefix_title == "") {
 		if (route_prefix_title == "") {
-
 			$('.tip-message').html("请输入路由前缀名称");
 			$('#messageModal').modal('show');
 			return;
@@ -510,7 +517,6 @@ $('body').on("click", '.submit_general_set_data', function () {
 		}
 	} else if(pass){
 		policyArr.map(function (value, key) {               //对操作的策略进行判断是否为空
-
 			if (value.Routealiases == "" && value.Routepool.length != 0) {
 				$('.tip-message').html("前缀名称和路由操作必须都进行填写或两者都不填");
 				$('#messageModal').modal('show');
@@ -542,12 +548,6 @@ $('body').on("click", '.submit_general_set_data', function () {
 				"wildcard":JSON.stringify(router_selected_did),
 				"policies": JSON.stringify(dataobj)
 			};
-		}
-		console.log(pass);
-		if(!pass){
-			$('.tip-message').html("请填写本分比例");
-			$('#messageModal').modal('show');
-			return;
 		}
 		console.log(datas);
 		$.ajax({
