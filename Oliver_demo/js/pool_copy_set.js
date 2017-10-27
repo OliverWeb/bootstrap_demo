@@ -422,11 +422,14 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
+	pass=true;  //百分比是否可以通过进行提交
 	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
 		return;
 	}
+	/*对百分比进行校验*/
+
 	/*验证前缀的名字*/
 	var arrRouterName=[];
 	$(".pre_router_name").map(function(key,value){
@@ -447,6 +450,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 	router_selected_did = [];
 	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
 		if($(value).find("select").eq(1).val()!=""&&$(value).find("select").eq(0).val()!=""){
+			/*默认路由中的百分比进行操作判断的*/
+			if($(value).find(".percentage").val()==""){
+				pass=false;
+			}
 			router_selected_did.push({
 				"type": "PoolRoute",
 				"pool":  $(value).find("select").eq(0).val(),
@@ -461,16 +468,15 @@ $('body').on("click", '.submit_general_set_data', function () {
 	});
 	// todo 操作策略参数
 	var policyArr = [];
+
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		Routepool_did = [];
 		Routepool = [];
-		pass=true;  //百分比是否可以通过进行提交
 		$(value).find(".router_policy_selcte").map(function (key, value) {
 			if($(value).find('select').eq(1).val()!=""&&$(value).find('select').eq(0).val()!=""){
 				if($(value).find(".percentage").val()==""){
-					$('.tip-message').html("请填写本分比例");
-					$('#messageModal').modal('show');
 					pass=false;
+					console.log(pass);
 				}else{
 					Routepool_did.push({
 						"type": "PoolRoute",
@@ -493,10 +499,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-
+	if(!pass){
+		$('.tip-message').html("请填备份分比例");
+		$('#messageModal').modal('show');
+		return;
+	}
 	if (router_selected_did.length==0 || route_prefix_title == "") {
 		if (route_prefix_title == "") {
-
 			$('.tip-message').html("请输入路由前缀名称");
 			$('#messageModal').modal('show');
 			return;
@@ -508,7 +517,6 @@ $('body').on("click", '.submit_general_set_data', function () {
 		}
 	} else if(pass){
 		policyArr.map(function (value, key) {               //对操作的策略进行判断是否为空
-
 			if (value.Routealiases == "" && value.Routepool.length != 0) {
 				$('.tip-message').html("前缀名称和路由操作必须都进行填写或两者都不填");
 				$('#messageModal').modal('show');
@@ -554,7 +562,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 						$('#messageModal').modal('show');
 						setTimeout(function(){
 							$('#messageModal').modal('hide');
-							location.reload();
+							// location.reload();
 						},1000);
 					}
 				}else{
@@ -603,50 +611,6 @@ $(function () {
 	});
 });
 
-/* todo 代码待使用 请勿删除*/
-/*对option重复option进行判定*/
-// $("body").on('click','#route_operate .bootstrap-select',function () {
-// 	console.log(123);
-// 	// $('.router_operate').find('[value=pool02]').remove();
-// 	// $('.router_operate').selectpicker('refresh');
-//
-// });
-// $('body').on('hidden.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('shown.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('changed.bs.select','.router_operate', function (e) {
-// 	// clickedIndex，newValue，oldValue。
-//   console.log(e);
-// });
-// // $(function(){//这里是进行获取我们选中的值
-// // 	$('body').on('change','select.selectpicker', function(){
-// // 		selectedValue = $('.selectpicker option:selected').val();
-// // 	});
-// // 	//上面这里是进行获取选中的值
-// // 	$('body').on('changed.bs.select','.router_operate', function (e, clickedIndex, newValue, oldValue) {
-// // 		var arr_select=[];
-// // 		clickOptionIndex=clickedIndex;
-// // 		selectValue=newValue;
-// // 		console.log(clickOptionIndex);
-// // 		var selectIndex=$(this).attr("key");
-// // 		/*获取当前路由操作中select的个数*/
-// // 		$('#route_operate select').map(function (key,value) {
-// // 				if(key!=selectIndex){
-// // 					arr_select.push(value);
-// // 				}
-// // 		});
-// // 		/*对其他的数据进行处理*/
-// // 		arr_select.map(function (value,key) {
-// // 			console.log(value);
-// // 			$(value).find('[value='+selectedValue+']').hide();
-// // 			$('.router_operate').selectpicker('refresh');
-// // 		});
-// //
-// // 	});
-// });
 
 
 

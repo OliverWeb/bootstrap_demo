@@ -13,9 +13,9 @@ $("#add_pool").click(function() {
                         <div class="" style="width:30%;display:inline-block;">
                           <input class="form-control pool_input_name" type="text" name="id" value="" placeholder="请输入名称">
                         </div>
-                        <a class="pool_delete" href="javascript:;" key=${did_creat_length}>
+                       <!-- <a class="pool_delete" href="javascript:;" key=${did_creat_length}>
                           <span class="label label-danger" >Delete</span>
-                        </a>
+                        </a> -->
                     </td>
                     <td><a class="pool_edit" key=${did_creat_length} href="javascript:;"><span class="label label-success">Edit</span></a></td>
                     <td><a class="pool_view" key=${did_creat_length} href="javascript:;"><span class="label label-primary">Detail</span></a></td>
@@ -355,7 +355,7 @@ function pool_name(){
                         <input disabled="disabled" name="poolNameb" class="form-control pool_input_name" type="text" value="${value.substring(value.lastIndexOf("/")+1)}" placeholder="请输入名称">
                       </form>
                   </div>
-                  <a class="pool_delete" href="javascript:;" key=${key}><span class="label label-danger" >Delete</span></a>
+                  <!--<a class="pool_delete" href="javascript:;" key=${key}><span class="label label-danger" >Delete</span></a>-->
               </td>
               <td><a class="pool_edit" key=${key} href="javascript:;"><span class="label label-success">Edit</span></a></td>
               <td><a class="pool_view" key=${key} href="javascript:;"><span class="label label-primary">Detail</span></a></td>

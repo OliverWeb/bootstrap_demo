@@ -1,8 +1,10 @@
 #main-content{
-	margin-left:2.2rem;
+	/*margin-left:2.2rem;*/
+	margin-left:11.5%;
 }
 #sidebar{
-	width: 2.2rem;
+	/*width: 2.2rem;*/
+	width: 11.5%;
 }
 .header>a>span{
 	margin-left:0;
@@ -80,7 +82,8 @@ td{
 
 /*对按钮样式的的设置*/
 .header{
-	min-height: 0.39rem;
+	min-height: 3%;
+	max-height: 0.58rem;
 }
 .logo span{
 	font-size: 0.22rem!important;
