@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="10/25 修改的验证之前的代码提交">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/css/layout.css" afterPath="$PROJECT_DIR$/Oliver_demo/css/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" afterPath="$PROJECT_DIR$/Oliver_demo/js/pool_copy_set.js" />
-    </list>
+    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="10/25 修改的验证之前的代码提交" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -353,7 +349,7 @@
       <workItem from="1508938013973" duration="2969000" />
       <workItem from="1508977520086" duration="30746000" />
       <workItem from="1509019510470" duration="345000" />
-      <workItem from="1509063026215" duration="4760000" />
+      <workItem from="1509063026215" duration="4929000" />
     </task>
     <task id="LOCAL-00001" summary="默认的">
       <created>1506340041077</created>
@@ -373,7 +369,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="554760000" />
+    <option name="totallyTimeSpent" value="554929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
