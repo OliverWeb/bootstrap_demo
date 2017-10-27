@@ -1,9 +1,10 @@
 //  todo 常规设置
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 /*验证格式fun*/
-function textExp(val,reg){
+function textExp(val, reg) {
 	return reg.test(val);
 }
+
 //页面加载的时候进行请求数据
 function PoolGeneralHtml() {
 	$.ajax({
@@ -11,9 +12,9 @@ function PoolGeneralHtml() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/router.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
-			if(data.status=="success"){
+			if (data.status == "success") {
 
-				if (data.message=="") {
+				if (data.message == "") {
 					data = {
 						"name": "''",
 						"wildcard": ["===请选择==="],
@@ -21,8 +22,8 @@ function PoolGeneralHtml() {
 							"''": ["===请选择==="]
 						}
 					};
-				}else{
-					data=data.message;
+				} else {
+					data = data.message;
 				}
 
 				routeOperateHtml = "";
@@ -182,23 +183,22 @@ function PoolGeneralHtml() {
 					routerPolicyKey++;
 				}
 				//操作路由选定结束
-			}else{
+			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 			}
-
 
 
 		},
 		error: function () {
 			$('.tip-message').html("常规设置请求异常");
 			$('#messageModal').modal('show');
-			setTimeout(function(){
+			setTimeout(function () {
 				$('#messageModal').modal('hide');
-			},1000);
+			}, 1000);
 		}
 	});
 };
@@ -210,16 +210,16 @@ function selectOption() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  变量：pageContext
 		success: function (data) {
-			if(data.status=="success"){
-				if(data.message!=""){
-					selectlist=data.message;   //todo  展示所有的option 选择
+			if (data.status == "success") {
+				if (data.message != "") {
+					selectlist = data.message;   //todo  展示所有的option 选择
 				}
-			}else{
+			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 			}
 
 
@@ -249,7 +249,7 @@ $('body').on("click", ".delte_route_operate_default", function () {
 });
 // 添加路由前缀名称的一条数据
 $("body").on("click", ".add_server_btn", function () {
-	var  add_num=$(this).parent().parent().prev().find(".select_option_box").length;
+	var add_num = $(this).parent().parent().prev().find(".select_option_box").length;
 
 	var add_server_html = `<tr class="select_option_box">
     <td style="padding-left:0;">
@@ -334,7 +334,7 @@ $('body').on("click", ".add_strategy", function () {
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
 
-	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
+	if (!textExp($("#route_prefix_title").val(), /^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//") != -1) {   //正则验证
 		console.log(123);
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
@@ -342,13 +342,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 	}
 
 	/*验证前缀的名字*/
-	var arrRouterName=[];
-	$(".pre_router_name").map(function(key,value){
+	var arrRouterName = [];
+	$(".pre_router_name").map(function (key, value) {
 		arrRouterName.push($(value).val());
 	});
 	console.log(arrRouterName);
-	for(var key in arrRouterName){
-		if(arrRouterName[key]==""|| !textExp(arrRouterName[key],/^[_0-9a-zA-Z-]+$/)){
+	for (var key in arrRouterName) {
+		if (arrRouterName[key] == "" || !textExp(arrRouterName[key], /^[_0-9a-zA-Z-]+$/)) {
 			$('.tip-message').html("请填写正确填写前缀路由");
 			$('#messageModal').modal('show');
 			return;
@@ -365,12 +365,12 @@ $('body').on("click", '.submit_general_set_data', function () {
 //遍历数组
 	for (var i = 0; i < router_selected.length; i++) {
 		if (router_selected_did.indexOf(router_selected[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-			router_selected_did.push("PoolRoute|" +router_selected[i]);
+			router_selected_did.push("PoolRoute|" + router_selected[i]);
 		}
 	}
 	/*数组去重 end*/
-	for(var i=0; i<router_selected_did.length; i++) {
-		if(router_selected_did[i] == "PoolRoute|===请选择===") {
+	for (var i = 0; i < router_selected_did.length; i++) {
+		if (router_selected_did[i] == "PoolRoute|===请选择===") {
 			router_selected_did.splice(i, 1);
 
 		}
@@ -390,7 +390,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 //遍历数组
 		for (var i = 0; i < Routepool.length; i++) {
 			if (Routepool_did.indexOf(Routepool[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
-				Routepool_did.push("PoolRoute|"+ Routepool[i]);
+				Routepool_did.push("PoolRoute|" + Routepool[i]);
 			}
 		}
 		/*对数组进行屈从end*/
@@ -440,20 +440,20 @@ $('body').on("click", '.submit_general_set_data', function () {
 			return;
 		}
 
-    var dataobj={};
-		policyArr.map(function(value,index){
-			if(value.Routealiases!=""&&value.Routepool.length!=0){
-				dataobj[value.Routealiases]=value.Routepool;
+		var dataobj = {};
+		policyArr.map(function (value, index) {
+			if (value.Routealiases != "" && value.Routepool.length != 0) {
+				dataobj[value.Routealiases] = value.Routepool;
 			}
 		});
-		if(JSON.stringify(dataobj)=="{}"){
+		if (JSON.stringify(dataobj) == "{}") {
 			$('.tip-message').html("请将操作策略填写完整");
 			$('#messageModal').modal('show');
 			return;
-		}else{
+		} else {
 			var datas = {
 				"aliases": route_prefix_title,
-				"wildcard":JSON.stringify(router_selected_did),
+				"wildcard": JSON.stringify(router_selected_did),
 				"policies": JSON.stringify(dataobj)
 			};
 		}
@@ -466,27 +466,27 @@ $('body').on("click", '.submit_general_set_data', function () {
 			url: "./json/router.json",               // 提交地址 变量：pageContext
 			data: datas,
 			success: function (data) {
-				if(data.status=="success"){
-						$('.tip-message').html("保存成功");
-						$('#messageModal').modal('show');
-						setTimeout(function(){
-							$('#messageModal').modal('hide');
-							// location.reload();
-						},1000);
-				}else{
+				if (data.status == "success") {
+					$('.tip-message').html("保存成功");
+					$('#messageModal').modal('show');
+					setTimeout(function () {
+						$('#messageModal').modal('hide');
+						// location.reload();
+					}, 1000);
+				} else {
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
-					setTimeout(function(){
+					setTimeout(function () {
 						$('#messageModal').modal('hide');
-					},1000);
+					}, 1000);
 				}
 			},
 			error: function () {
 				$('.tip-message').html("服务器异常");
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 			}
 		});
 	}
@@ -498,20 +498,20 @@ $(function () {
 		var _this = this;
 		var arr_select = [];
 		var selectIndex = $(this).attr("key");
-		var tr_length=$(this).parent().parent().parent().parent().find("tr");
+		var tr_length = $(this).parent().parent().parent().parent().find("tr");
 		console.log(selectIndex);
 
 		tr_length.map(function (key, value) {
 			if (key != selectIndex) {
-				if($(value).find('.filter-option').html()!="===请选择==="){
-					 var arr_optioned=$(value).find('.filter-option').html();
-				}else{
-					var arr_optioned="pool";
+				if ($(value).find('.filter-option').html() != "===请选择===") {
+					var arr_optioned = $(value).find('.filter-option').html();
+				} else {
+					var arr_optioned = "pool";
 				}
 				arr_select.push(arr_optioned);
 			}
 		});
-	
+
 		arr_select.map(function (value, key) {
 			$(_this).find('[value=' + value + ']').hide();
 			$('.selectpicker').selectpicker('refresh');
@@ -519,86 +519,27 @@ $(function () {
 	});
 
 
-
 	/*操作策略的的名字不能重复*/
-	$('body').on('blur','.pre_router_name',function () {
+	$('body').on('blur', '.pre_router_name', function () {
 		$(this).removeClass("inputVal");
-		var input_value=$(this).val();
-		pre_router_name_arr=[];
-		$('.inputVal').map(function (key,value) {
-			if($(value).val()!=""){
+		var input_value = $(this).val();
+		pre_router_name_arr = [];
+		$('.inputVal').map(function (key, value) {
+			if ($(value).val() != "") {
 				pre_router_name_arr.push($(value).val());
 			}
 		});
 
-		pre_router_name_arr.map(function (value,key) {
-			if(input_value==value){
+		pre_router_name_arr.map(function (value, key) {
+			if (input_value == value) {
 				$('.tip-message').html("前缀路由名字重复");
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 				return false;
 			}
 
 		});
 	});
 });
-
-/* todo 代码待使用 请勿删除*/
-/*对option重复option进行判定*/
-// $("body").on('click','#route_operate .bootstrap-select',function () {
-// 	console.log(123);
-// 	// $('.router_operate').find('[value=pool02]').remove();
-// 	// $('.router_operate').selectpicker('refresh');
-//
-// });
-// $('body').on('hidden.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('shown.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('changed.bs.select','.router_operate', function (e) {
-// 	// clickedIndex，newValue，oldValue。
-//   console.log(e);
-// });
-// // $(function(){//这里是进行获取我们选中的值
-// // 	$('body').on('change','select.selectpicker', function(){
-// // 		selectedValue = $('.selectpicker option:selected').val();
-// // 	});
-// // 	//上面这里是进行获取选中的值
-// // 	$('body').on('changed.bs.select','.router_operate', function (e, clickedIndex, newValue, oldValue) {
-// // 		var arr_select=[];
-// // 		clickOptionIndex=clickedIndex;
-// // 		selectValue=newValue;
-// // 		console.log(clickOptionIndex);
-// // 		var selectIndex=$(this).attr("key");
-// // 		/*获取当前路由操作中select的个数*/
-// // 		$('#route_operate select').map(function (key,value) {
-// // 				if(key!=selectIndex){
-// // 					arr_select.push(value);
-// // 				}
-// // 		});
-// // 		/*对其他的数据进行处理*/
-// // 		arr_select.map(function (value,key) {
-// // 			console.log(value);
-// // 			$(value).find('[value='+selectedValue+']').hide();
-// // 			$('.router_operate').selectpicker('refresh');
-// // 		});
-// //
-// // 	});
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -385,28 +385,6 @@ $(function () {
 $('body').on("click", ".delte_route_operate_default", function () {
 	$(this).parent().parent().remove();
 });
-//添加默认路由数据
-// $("body").on("click", ".add_default_router", function () {
-// 	var  warm_index=$(this).parents(".parent_box").find("[data-type=warm]").length;
-//
-// 	var default_router_child=`<tr class="select_option_box">
-// 											<td  style="padding-left:0;" >
-//                             <a href="javascript:;" class="add_backup">
-// 															<span class="label label-success">Warm</span>
-// 														</a>
-// 														<div class="form-group" style="display:inline-block">
-// 													      <select key=${warm_index} data-size="9" data-type="warm" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
-// 													        ${routeOperateHtml_warm}
-// 													      </select>
-// 													   </div>
-// 														<a href="javascript:;" class="delte_route_operate_default">
-//                                 <span class="label label-danger">Delete</span>
-//                             </a>
-//                           </td>
-//                       </tr>`;
-// 	$(this).parent().parent().prev().find(".add_defalut_box").append(default_router_child);
-// 	$('.selectpicker').selectpicker('refresh');
-// });
 // 添加路由前缀名称的一条数据
 $("body").on("click", ".add_server_btn", function () {
 	var add_num = $(this).parent().parent().prev().find(".select_option_box").length;
@@ -585,12 +563,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 	// 		router_selected.push($(value).find("select").val());
 	// 	}
 	// });
-  // console.log(router_selected);
 	/*冷暖池处理对象 end*/
 	// todo 操作策略参数操作数据传参数
 	var policyArr = [],
-		  Routepool = [];
-			policiesArr={};
+		  Routepool = [];policiesArr={};
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		// console.log($(value).find(".operate_policy").find("input.pre_router_name").val());
 		router_policy=[];
@@ -620,8 +596,8 @@ $('body').on("click", '.submit_general_set_data', function () {
 
 	});
 	/* 判断内容是否可以满足提交的需求  start*/
-  // console.log(judge_polic_name);
-	 if(route_prefix_title==""){
+	//console.log(judge_polic_name);
+	  if(route_prefix_title==""){
 		 $('.tip-message').html("请填写路由前缀名称");
 		 $('#messageModal').modal('show');
 	 }else if (router_selected.length == 0) {
@@ -653,12 +629,12 @@ $('body').on("click", '.submit_general_set_data', function () {
 			data: datas,
 			success: function (data) {
 				if(data.status=="success"){
-						$('.tip-message').html("保存成功");
-						$('#messageModal').modal('show');
-						setTimeout(function(){
-							$('#messageModal').modal('hide');
-							// location.reload()
-						},1000);
+					$('.tip-message').html("保存成功");
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+						// location.reload()
+					 },1000);
 				}else{
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
@@ -755,59 +731,3 @@ $(function () {
 });
 
 /* todo 代码待使用 请勿删除*/
-/*对option重复option进行判定*/
-// $("body").on('click','#route_operate .bootstrap-select',function () {
-// 	console.log(123);
-// 	// $('.router_operate').find('[value=pool02]').remove();
-// 	// $('.router_operate').selectpicker('refresh');
-//
-// });
-// $('body').on('hidden.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('shown.bs.select','.router_operate', function (e) {
-//
-// });
-// $('body').on('changed.bs.select','.router_operate', function (e) {
-// 	// clickedIndex，newValue，oldValue。
-//   console.log(e);
-// });
-// // $(function(){//这里是进行获取我们选中的值
-// // 	$('body').on('change','select.selectpicker', function(){
-// // 		selectedValue = $('.selectpicker option:selected').val();
-// // 	});
-// // 	//上面这里是进行获取选中的值
-// // 	$('body').on('changed.bs.select','.router_operate', function (e, clickedIndex, newValue, oldValue) {
-// // 		var arr_select=[];
-// // 		clickOptionIndex=clickedIndex;
-// // 		selectValue=newValue;
-// // 		console.log(clickOptionIndex);
-// // 		var selectIndex=$(this).attr("key");
-// // 		/*获取当前路由操作中select的个数*/
-// // 		$('#route_operate select').map(function (key,value) {
-// // 				if(key!=selectIndex){
-// // 					arr_select.push(value);
-// // 				}
-// // 		});
-// // 		/*对其他的数据进行处理*/
-// // 		arr_select.map(function (value,key) {
-// // 			console.log(value);
-// // 			$(value).find('[value='+selectedValue+']').hide();
-// // 			$('.router_operate').selectpicker('refresh');
-// // 		});
-// //
-// // 	});
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-

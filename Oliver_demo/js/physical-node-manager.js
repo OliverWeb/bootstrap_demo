@@ -121,11 +121,11 @@ $('.add_servers_save').click(function(){
 		},1000);
 		return;
 	}
-  if(!textExp($('#ip2').val(),/^([_0-9A-Za-z\/-]+)$/) || $("#ip2").val().indexOf("//")!=-1){
-	  $('.tip-message').html("请填写正确安装路径");
-	  $('#messageModal').modal('show');
-	  return;
-  }
+		if(!textExp($('#ip2').val(),/^([_0-9A-Za-z\/-]+)$/) || $("#ip2").val().indexOf("//")!=-1){
+		$('.tip-message').html("请填写正确安装路径");
+		$('#messageModal').modal('show');
+		return;
+		}
 	if(!textExp($('#ip3').val(),/^([_0-9A-Za-z\/-]+)$/)){
 		$('.tip-message').html("请填写正确的用户密码,不能包含特殊字符");
 		$('#messageModal').modal('show');

@@ -1,38 +1,39 @@
 //  todo 常规设置
 var pageContext = document.location.pathname.substr(0, document.location.pathname.substr(1).indexOf("/") + 1);   //获取的根路径操作
 //页面加载的时候进行请求数据
-function textExp(val,reg){
+function textExp(val, reg) {
 	return reg.test(val);
 }
+
 function PoolGeneralHtml() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/copy.json",               // 常规设置获取进行请求地址  变量：pageContext
 		success: function (data) {   // 加载页面展示的数据
-		  if(data.status=="success"){
-			  if (data.message== "") {
-				  data = {
-					  "name": "''",
-					  "wildcard": ["===请选择==="],
-					  "policies": {
-						  "''": ["===请选择==="]
-					  }
-				  };
-			  }else{
-				  data=data.message;
-			  }
-			  routeOperateHtml = "";
-			  wildardHtml = "";
-			  /* todo 加载所有option */
-			  defaultSelect = selectlist;      //默认路由配置中的数
-			  defaultSelect.map(function (value, key) {             // todo 每个遍历所有option
-				  return routeOperateHtml = routeOperateHtml + `<option value=${value} key=${key}>${value}</option>`;
-			  });
-			  /* todo 默认路由配置*/
-			  var wildcardLength = data.wildcard.length;
-			  data.wildcard.map(function (value, key) {             //默认路由配置
-				  return wildardHtml = wildardHtml + `<tr class="select_option_box">
+			if (data.status == "success") {
+				if (data.message == "") {
+					data = {
+						"name": "''",
+						"wildcard": ["===请选择==="],
+						"policies": {
+							"''": ["===请选择==="]
+						}
+					};
+				} else {
+					data = data.message;
+				}
+				routeOperateHtml = "";
+				wildardHtml = "";
+				/* todo 加载所有option */
+				defaultSelect = selectlist;      //默认路由配置中的数
+				defaultSelect.map(function (value, key) {             // todo 每个遍历所有option
+					return routeOperateHtml = routeOperateHtml + `<option value=${value} key=${key}>${value}</option>`;
+				});
+				/* todo 默认路由配置*/
+				var wildcardLength = data.wildcard.length;
+				data.wildcard.map(function (value, key) {             //默认路由配置
+					return wildardHtml = wildardHtml + `<tr class="select_option_box">
 											<td class="02"  style="padding-left:0;" key="${key}">
                           <div class="form-group" style="display:inline-block">
 												      <select key="${key}" data-size="9" class="selectpicker option-search router_operate" data-live-search="true" title="===请选择===">
@@ -61,18 +62,18 @@ function PoolGeneralHtml() {
 												</div>
                           </td>
                       </tr>`
-			  });
-			  /* todo 操作策略变量*/
-			  var operatePolicyHTml = "",
-				  policy_router_index = 0,       //  浅醉路由的的名称下标
-				  RouterPolicyIndex = 0;         //  操作策略的--table--子内容的下标
-			  for (var key in data.policies) { // todo  进行循环有多少个策略
-				  var policy_router_arr = [];   //将数组进行判空
-				  operatePolicyChildHTml = "";    //将策略中的select 进行清空
-				  // console.log("属性：" + key + ",值："+ data.policies[key]);
-				  policy_router_arr = data.policies[key];
-				  policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
-					  operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
+				});
+				/* todo 操作策略变量*/
+				var operatePolicyHTml = "",
+					policy_router_index = 0,       //  浅醉路由的的名称下标
+					RouterPolicyIndex = 0;         //  操作策略的--table--子内容的下标
+				for (var key in data.policies) { // todo  进行循环有多少个策略
+					var policy_router_arr = [];   //将数组进行判空
+					operatePolicyChildHTml = "";    //将策略中的select 进行清空
+					// console.log("属性：" + key + ",值："+ data.policies[key]);
+					policy_router_arr = data.policies[key];
+					policy_router_arr.map(function (value, index) {           // todo 操作池中中select,进行填充
+						operatePolicyChildHTml = operatePolicyChildHTml + `<tr class="router_policy_selcte select_option_box">
                                    <td style="padding-left:0;">
                                       <div class="form-group" style="display:inline-block">
 		                                      <select data-size="9" key=${index} class="selectpicker option-search" data-live-search="true" title="===请选择===">
@@ -104,8 +105,8 @@ function PoolGeneralHtml() {
 			</div>
                                    </td>
                                  </tr>`;
-				  });
-				  operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
+					});
+					operatePolicyHTml = operatePolicyHTml + `<table key=${RouterPolicyIndex++} class="add_strategy_box table table-striped table-hover table-bordered"  align="center">   
                   <tbody class="operate_policy">
                     <tr>
                       <td class="policy_router" style="width:20%;" >前缀路由</td>
@@ -148,10 +149,10 @@ function PoolGeneralHtml() {
                     </tr>
                   </tbody>
                 </table>`;
-			  }
-			  //策略end
-			  //整个布局变量
-			  var general_set_data = `<div class="adv-table editable-table">     
+				}
+				//策略end
+				//整个布局变量
+				var general_set_data = `<div class="adv-table editable-table">     
               <table class="table table-striped table-hover table-bordered"  align="center">
                 <caption class="mcrouter_title">路由前缀</caption>
                 <tbody>
@@ -200,54 +201,54 @@ function PoolGeneralHtml() {
                 <span class="label label-success">保存</span>
               </a>
             </div>`;
-			  $(".general_set_box").append(general_set_data);
-			  $('.option-search').selectpicker('refresh');
-			  //对默认路由此操作的option进行选定
-			  // console.log(data.wildcard);
-			  data.wildcard.map(function (value, key) {
-				  /*对返回数据的类型进行判断*/
-				  if(typeof (value)=="object"){
-					  $('#route_operate .select_option_box').eq(key).find('.add_backup_box').css("display","inline-block");
-					  $('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value.pool);               //默认路由配置
-					  $('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(1).selectpicker('val', value.shadows[0].target);  //默认路由配置
-					  $('#route_operate .select_option_box').eq(key).find('input').val(value.shadows[0].key_fraction_range[1]);
+				$(".general_set_box").append(general_set_data);
+				$('.option-search').selectpicker('refresh');
+				//对默认路由此操作的option进行选定
+				// console.log(data.wildcard);
+				data.wildcard.map(function (value, key) {
+					/*对返回数据的类型进行判断*/
+					if (typeof (value) == "object") {
+						$('#route_operate .select_option_box').eq(key).find('.add_backup_box').css("display", "inline-block");
+						$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value.pool);               //默认路由配置
+						$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(1).selectpicker('val', value.shadows[0].target);  //默认路由配置
+						$('#route_operate .select_option_box').eq(key).find('input').val(value.shadows[0].key_fraction_range[1]);
 
-				  }else if(typeof (value)=="string"){
-					  $('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value);               //默认路由配置
-				  }
-			  });
+					} else if (typeof (value) == "string") {
+						$('#route_operate .select_option_box').eq(key).find('select.router_operate').eq(0).selectpicker('val', value);               //默认路由配置
+					}
+				});
 
-			  // todo 对操作策略进行选定
-			  routerPolicyKey = 0;
-			  for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
+				// todo 对操作策略进行选定
+				routerPolicyKey = 0;
+				for (var key in data.policies) {     //这列是进行遍历有多少个操作策略
 
-				  data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
-					  if(typeof (value)=="object"){
-						  $(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find(".add_backup_box").css("display","inline-block");
-						  $(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value.pool);
-						  $(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(1).selectpicker('val', value.shadows[0].target);
-						  $(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("input").val(value.shadows[0].key_fraction_range[1]);
-					  }else if(typeof (value)=="string"){
-						  $(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value);
-					  }
+					data.policies[key].map(function (value, key) {     //  操作策略的操作路由池
+						if (typeof (value) == "object") {
+							$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find(".add_backup_box").css("display", "inline-block");
+							$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value.pool);
+							$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(1).selectpicker('val', value.shadows[0].target);
+							$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("input").val(value.shadows[0].key_fraction_range[1]);
+						} else if (typeof (value) == "string") {
+							$(".add_strategy_box").eq(routerPolicyKey).find(".select_option_box").eq(key).find("select.selectpicker").eq(0).selectpicker('val', value);
+						}
 
-				  });
-				  routerPolicyKey++;
-			  }
-			  //操作路由选定结束
-		  }else{
-			  $('.tip-message').html(data.message);
-			  $('#messageModal').modal('show');
-			  setTimeout(function(){
-				  $('#messageModal').modal('hide');
-			  },1000);
-		  }
+					});
+					routerPolicyKey++;
+				}
+				//操作路由选定结束
+			} else {
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+				setTimeout(function () {
+					$('#messageModal').modal('hide');
+				}, 1000);
+			}
 		},
 		error: function () {
 			$('#messageModal').modal('show');
-			setTimeout(function(){
+			setTimeout(function () {
 				$('#messageModal').modal('hide');
-			},1000);
+			}, 1000);
 		}
 	});
 };
@@ -259,16 +260,16 @@ function selectOption() {
 		dataType: "json", //服务端接收的数据类型
 		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  变量：pageContext
 		success: function (data) {
-			if(data.status=="success"){
-				if(data.message!=""){
+			if (data.status == "success") {
+				if (data.message != "") {
 					selectlist = data.message;   //  todo  展示所有的option 选择
 				}
-			}else{
+			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 			}
 		},
 		complete: function () {
@@ -288,10 +289,8 @@ $('body').on('click', ".add_backup", function () {
 //表单的删除的备份事件
 $("body").on('click', ".delete_backup", function () {
 	$(this).prev().find("select").val("");
-	// console.log($(this).prev().find("select").val());
 	$(this).parent().css("display", "none");
 	$('.selectpicker').selectpicker('refresh');
-
 });
 //删除默认路由配置
 $('body').on("click", ".delte_route_operate_default", function () {
@@ -299,7 +298,7 @@ $('body').on("click", ".delte_route_operate_default", function () {
 });
 // 添加路由前缀名称的一条数据
 $("body").on("click", ".add_server_btn", function () {
-	var  add_num=$(this).parent().parent().prev().find(".select_option_box").length;
+	var add_num = $(this).parent().parent().prev().find(".select_option_box").length;
 
 	var add_server_html = `<tr class="router_policy_selcte select_option_box">
     <td style="padding-left:0;">
@@ -422,8 +421,8 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
-	pass=true;  //百分比是否可以通过进行提交
-	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
+	pass = true;  //百分比是否可以通过进行提交
+	if (!textExp($("#route_prefix_title").val(), /^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//") != -1) {   //正则验证
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
 		return;
@@ -431,13 +430,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 	/*对百分比进行校验*/
 
 	/*验证前缀的名字*/
-	var arrRouterName=[];
-	$(".pre_router_name").map(function(key,value){
+	var arrRouterName = [];
+	$(".pre_router_name").map(function (key, value) {
 		arrRouterName.push($(value).val());
 	});
 	console.log(arrRouterName);
-	for(var key in arrRouterName){
-		if(arrRouterName[key]==""|| !textExp(arrRouterName[key],/^[_0-9a-zA-Z-]+$/)){
+	for (var key in arrRouterName) {
+		if (arrRouterName[key] == "" || !textExp(arrRouterName[key], /^[_0-9a-zA-Z-]+$/)) {
 			$('.tip-message').html("请填写正确填写前缀路由");
 			$('#messageModal').modal('show');
 			return;
@@ -449,21 +448,21 @@ $('body').on("click", '.submit_general_set_data', function () {
 	/* router_selected_did 提交的路由操作的内容*/
 	router_selected_did = [];
 	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
-		if($(value).find("select").eq(1).val()!=""&&$(value).find("select").eq(0).val()!=""){
+		if ($(value).find("select").eq(1).val() != "" && $(value).find("select").eq(0).val() != "") {
 			/*默认路由中的百分比进行操作判断的*/
-			if($(value).find(".percentage").val()==""){
-				pass=false;
+			if ($(value).find(".percentage").val() == "") {
+				pass = false;
 			}
 			router_selected_did.push({
 				"type": "PoolRoute",
-				"pool":  $(value).find("select").eq(0).val(),
+				"pool": $(value).find("select").eq(0).val(),
 				"shadows": [{
-					"target": "PoolRoute|"+$(value).find("select").eq(1).val(),
+					"target": "PoolRoute|" + $(value).find("select").eq(1).val(),
 					"key_fraction_range": [0, $(value).find(".percentage").val()]
 				}]
 			});
-		}else if($(value).find("select").eq(0).val()!=""){
-			router_selected_did.push("PoolRoute|"+$(value).find("select").eq(0).val());
+		} else if ($(value).find("select").eq(0).val() != "") {
+			router_selected_did.push("PoolRoute|" + $(value).find("select").eq(0).val());
 		}
 	});
 	// todo 操作策略参数
@@ -472,24 +471,26 @@ $('body').on("click", '.submit_general_set_data', function () {
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		Routepool_did = [];
 		Routepool = [];
+		pass = true;  //百分比是否可以通过进行提交
 		$(value).find(".router_policy_selcte").map(function (key, value) {
-			if($(value).find('select').eq(1).val()!=""&&$(value).find('select').eq(0).val()!=""){
-				if($(value).find(".percentage").val()==""){
-					pass=false;
-					console.log(pass);
-				}else{
+			if ($(value).find('select').eq(1).val() != "" && $(value).find('select').eq(0).val() != "") {
+				if ($(value).find(".percentage").val() == "") {
+					$('.tip-message').html("请填写本分比例");
+					$('#messageModal').modal('show');
+					pass = false;
+				} else {
 					Routepool_did.push({
 						"type": "PoolRoute",
-						"pool":  $(value).find('select').eq(0).val(),
+						"pool": $(value).find('select').eq(0).val(),
 						"shadows": [{
-							"target": "PoolRoute|"+$(value).find('select').eq(1).val(),
+							"target": "PoolRoute|" + $(value).find('select').eq(1).val(),
 							"index_range": [0, 2],
 							"key_fraction_range": [0, $(value).find(".percentage").val()]
 						}]
 					});
 				}
-			}else if($(value).find('select').eq(0).val()!=""){
-				Routepool_did.push("PoolRoute|"+$(value).find('select').eq(0).val());
+			} else if ($(value).find('select').eq(0).val() != "") {
+				Routepool_did.push("PoolRoute|" + $(value).find('select').eq(0).val());
 			}
 		});
 		policyArr.push(
@@ -499,23 +500,23 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-	if(!pass){
+	if (!pass) {
 		$('.tip-message').html("请填备份分比例");
 		$('#messageModal').modal('show');
 		return;
 	}
-	if (router_selected_did.length==0 || route_prefix_title == "") {
+	if (router_selected_did.length == 0 || route_prefix_title == "") {
 		if (route_prefix_title == "") {
 			$('.tip-message').html("请输入路由前缀名称");
 			$('#messageModal').modal('show');
 			return;
-		} else if (router_selected_did.length==0) {
+		} else if (router_selected_did.length == 0) {
 
 			$('.tip-message').html("请选择默认路由配置");
 			$('#messageModal').modal('show');
 
 		}
-	} else if(pass){
+	} else if (pass) {
 		policyArr.map(function (value, key) {               //对操作的策略进行判断是否为空
 			if (value.Routealiases == "" && value.Routepool.length != 0) {
 				$('.tip-message').html("前缀名称和路由操作必须都进行填写或两者都不填");
@@ -532,20 +533,20 @@ $('body').on("click", '.submit_general_set_data', function () {
 			$('.tip-message').html("默认路由配置的路由操作请添加");
 			$('#messageModal').modal('show');
 		}
-		var dataobj={};
-		policyArr.map(function(value,index){
-			if(value.Routealiases!=""&&value.Routepool.length!=0){
-				dataobj[value.Routealiases]=value.Routepool;
+		var dataobj = {};
+		policyArr.map(function (value, index) {
+			if (value.Routealiases != "" && value.Routepool.length != 0) {
+				dataobj[value.Routealiases] = value.Routepool;
 			}
 		});
-		if(JSON.stringify(dataobj)=="{}"){
+		if (JSON.stringify(dataobj) == "{}") {
 			$('.tip-message').html("请将操作策略填写完整");
 			$('#messageModal').modal('show');
 			return;
-		}else{
+		} else {
 			var datas = {
 				"aliases": route_prefix_title,
-				"wildcard":JSON.stringify(router_selected_did),
+				"wildcard": JSON.stringify(router_selected_did),
 				"policies": JSON.stringify(dataobj)
 			};
 		}
@@ -556,29 +557,29 @@ $('body').on("click", '.submit_general_set_data', function () {
 			url: "./json/copy.json",               // 提交地址 变量：pageContext
 			data: datas,
 			success: function (data) {
-				if(data.status=="success"){
-					if(data.message!=""){
+				if (data.status == "success") {
+					if (data.message != "") {
 						$('.tip-message').html("保存成功");
 						$('#messageModal').modal('show');
-						setTimeout(function(){
+						setTimeout(function () {
 							$('#messageModal').modal('hide');
 							// location.reload();
-						},1000);
+						}, 1000);
 					}
-				}else{
+				} else {
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
-					setTimeout(function(){
+					setTimeout(function () {
 						$('#messageModal').modal('hide');
-					},1000);
+					}, 1000);
 				}
 			},
 			error: function () {
 				$('.tip-message').html("服务器异常");
 				$('#messageModal').modal('show');
-				setTimeout(function(){
+				setTimeout(function () {
 					$('#messageModal').modal('hide');
-				},1000);
+				}, 1000);
 			}
 		});
 	}
@@ -590,15 +591,15 @@ $(function () {
 		var _this = this;
 		var arr_select = [];
 		var selectIndex = $(this).attr("key");
-		var tr_length=$(this).parent().parent().parent().parent().find("tr");
+		var tr_length = $(this).parent().parent().parent().parent().find("tr");
 		// console.log(selectIndex);
 
 		tr_length.map(function (key, value) {
 			if (key != selectIndex) {
-				if($(value).find('.filter-option').html()!="===请选择==="){
-					var arr_optioned=$(value).find('.filter-option').html();
-				}else{
-					var arr_optioned="pool";
+				if ($(value).find('.filter-option').html() != "===请选择===") {
+					var arr_optioned = $(value).find('.filter-option').html();
+				} else {
+					var arr_optioned = "pool";
 				}
 				arr_select.push(arr_optioned);
 			}
@@ -610,17 +611,3 @@ $(function () {
 		});
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

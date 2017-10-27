@@ -40,7 +40,6 @@ $(function(){
 									if(data.status="success"){
 										if(data.message!=""){
 											var datas=data.message;
-
 											datas.map(function(value,key){
 												return portList = portList + `<option value=${value.port} key=${key}>${value.port}</option>`;
 											});
@@ -100,8 +99,11 @@ $(function(){
 		var hostname=$(".hostList").val();
 		var port=$("select.portList").val();
 		var key=$("#key").val();
-		var targetData="key="+key+"&hostname="+hostname+"&port="+port;
-		console.log(targetData);
+		var targetData={
+			"key":key,
+			"hostname":hostname,
+			"port":port
+		}
 		$.ajax({
 			type:"get",
 			url:"./json/getNode.json", // 点击保存进行提交数据请求的地址"${pageContext.request.contextPath}/config/node/getMcrouterValue?key="+val+"&hostname="+host+"&port="+port,

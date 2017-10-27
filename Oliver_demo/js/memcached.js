@@ -61,7 +61,7 @@ $(function () {
 													      修改<i class="fa fa-pencil-square-o">
 													   </i>
 													  </button>
-													   <button type="button" class='btn btn-sm openBtn ${value.disabled=="1"?"btn-success  on":"btn-default off"}'>
+													  <button type="button" class='btn btn-sm openBtn ${value.disabled=="1"?"btn-success  on":"btn-default off"}'>
 													  <span> ${value.disabled=="1"?"开启":"禁用"} </span><i class="glyphicon glyphicon-off">
 													    </i>
 													  </button>

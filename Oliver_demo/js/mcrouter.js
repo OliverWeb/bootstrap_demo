@@ -46,7 +46,7 @@
 							data.message.map(function(value,key){
 								var mcrouter_list=`
 											    <tr>
-											    <td><div class='openbox ${value.disabled=="1"?"off":"on"} '>${value.disabled==1?"已禁用":"已开启"}</div></td>
+											    <td><div class='openbox ${value.disabled=="1"?"off":"on"} '>${value.disabled==1?"已开启":"已禁用"}</div></td>
 											    <td class="logPath">${value.logPath}</td>
 											    <td class="numProxies">${value.numProxies}</td>
 											    <td class="port">${value.port}</td>
@@ -165,12 +165,12 @@
 			"port":addPort,
 			"command":"stats"
 		};
-	  	$.ajax({
-	  		post:"get",
-	  		url:"./json/memcachedView.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
-			  data:submitData,
-	  		success:function(data){
-	  			if(data.status=="success"){
+		$.ajax({
+			post:"get",
+				url:"./json/memcachedView.json",      //  查看详情 "${pageContext.request.contextPath}/config/dashboard/command_exe"
+				data:submitData,
+				success:function(data){
+				  if(data.status=="success"){
 					  var dataM=data.message;
 					  $("#evictions").val(dataM.evictions);
 					  $("#memory_usage").val(dataM.memory_usage);
@@ -190,11 +190,11 @@
 					  $('.tip-message').html(data.message);
 					  $('#viewModal').modal('show');
 				  }
-	  		},
-	  		error:function(data){
+				},
+				error:function(data){
 
-	  		}
-	  	});
+				}
+		    });
 
 	});
 	/*点击开启和关闭的*/

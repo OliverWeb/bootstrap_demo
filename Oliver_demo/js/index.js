@@ -42,7 +42,7 @@ $(":radio").click(function(){
 	$.ajax({
 		type:"post",
 		url:"./json/copy.json",                    //提交的地址   pageContext
-		data:"name"+datas,
+		data:"name="+datas,
 		success:function (data) {
 			if(data.status=="success"){
 				$('.tip-message').html("设置成功");
