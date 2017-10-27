@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="10/25 修改的验证之前的代码提交">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="2d43ecc9-c574-458d-aa23-cb81860780ae" name="默认的" comment="10/25 修改的验证之前的代码提交" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,18 +20,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Oliver_demo/index.html">
+      <file leaf-file-name="layout.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Oliver_demo/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-936">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1509068966993" expanded="false" signature="1284:1299" ph="..." />
-                <marker date="1509068966993" expanded="false" signature="1308:1312" ph="&gt;" />
-                <marker date="1509068966993" expanded="false" signature="3903:3920" ph="..." />
-                <marker date="1509068966993" expanded="false" signature="6357:6374" ph="..." />
-                <marker date="1509068966993" expanded="false" signature="6482:6516" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -237,25 +229,6 @@
               <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
               <item name="css" type="cbb8eebc:String" user="css" />
             </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
-              <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
-              <item name="js" type="cbb8eebc:String" user="js" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
-              <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
-              <item name="js" type="cbb8eebc:String" user="js" />
-              <item name="lib" type="cbb8eebc:String" user="lib" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="bootstrap_demo" type="cbb8eebc:String" user="bootstrap_demo" />
-              <item name="Oliver_demo" type="cbb8eebc:String" user="Oliver_demo" />
-              <item name="json" type="cbb8eebc:String" user="json" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -405,7 +378,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="541031000" />
+    <option name="totallyTimeSpent" value="541157000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -856,18 +829,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oliver_demo/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1233">
-          <caret line="225" column="28" lean-forward="false" selection-start-line="225" selection-start-column="28" selection-end-line="225" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Oliver_demo/echart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3135">
           <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Oliver_demo/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
