@@ -126,7 +126,7 @@ function PoolGeneralHtml() {
                     <td class="" style="width:20%;">路由前缀名称</td>
                     <td class="" style="text-align:left;">
                       <div class="" style="width:30%;display:inline-block;">
-                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name} placeholder="请输入名称">
+                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name.substring("/cache_center/".length,data.name.lastIndexOf('/'))} placeholder="请输入名称">
                       </div>
                     </td>
                   </tr>
@@ -208,7 +208,7 @@ function selectOption() {
 	$.ajax({
 		type: "get",
 		dataType: "json", //服务端接收的数据类型
-		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  变量：pageContext
+		url: "./json/routerlist_genreal.json",               // 请求选择框中的所有选项option  选择框中的池配置   变量：pageContext
 		success: function (data) {
 			if (data.status == "success") {
 				if (data.message != "") {
@@ -217,12 +217,10 @@ function selectOption() {
 			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function () {
-					$('#messageModal').modal('hide');
-				}, 1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					window.history.back();       /*返回返回上一个网页*/
+				})
 			}
-
-
 		},
 		complete: function () {
 			PoolGeneralHtml();
@@ -333,9 +331,8 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
-
-	if (!textExp($("#route_prefix_title").val(), /^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//") != -1) {   //正则验证
-		console.log(123);
+	if (!textExp($("#route_prefix_title").val(), /^[_0-9a-zA-Z-]+$/)) {   //正则验证
+		console.log(alert);  //false
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
 		return;
@@ -452,7 +449,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 			return;
 		} else {
 			var datas = {
-				"aliases": route_prefix_title,
+				"aliases": "/cache_center/"+route_prefix_title+"/",
 				"wildcard": JSON.stringify(router_selected_did),
 				"policies": JSON.stringify(dataobj)
 			};

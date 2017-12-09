@@ -7,7 +7,7 @@ $(function () {
 		success:function (data) {
 			if(data.status=="success"){
 				if(data.message!=""){
-					data.message.map(function (value,key) {
+					data.message.sort().map(function (value,key) {
 						server_li_html=server_li_html+` <li>
                   <div class="sk_item_pic">
                     <a href="#" class="sk_item_pic_lk">

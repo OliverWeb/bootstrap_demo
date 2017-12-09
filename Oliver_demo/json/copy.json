@@ -1,6 +1,6 @@
 {
   "message": {
-	"name": "路由前缀名称test",
+	"name": "/cache_center/normal/",
 	"wildcard": [ {
 	  "type": "PoolRoute",
 	  "pool": "pool01",

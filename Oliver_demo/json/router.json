@@ -1,6 +1,6 @@
 {
   "message": {
-	"name": "/cache-center/mcroutersetup/normall",
+	"name": "/cache-center/normal/",
 	"wildcard": ["pool01","pool04"],
 	"policies": {
 	  "策略1": ["pool01","pool04"],

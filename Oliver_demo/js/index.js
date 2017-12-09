@@ -17,20 +17,22 @@ $(function () {
 		url:"./json/index.json",                  //首次进入的请求地址  pageContext
 		success:function (data) {
 			if(data.status=="success"){
-				console.log(data.message);
 				if(data.message!=""){
 					$("."+data.message).attr("checked","checked");
 				}
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
-				},1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					location.reload();
+				})
 			}
 		},error:function () {
 			$('.tip-message').html("服务器异常");
 			$('#messageModal').modal('show');
+			$('#messageModal').on('hide.bs.modal', function () {
+				location.reload();
+			})
 
 		}
 	});
@@ -54,13 +56,16 @@ $(":radio").click(function(){
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
+				$('#messageModal').on('hide.bs.modal', function () {
 					location.reload();
-				},1000);
+				})
 			}
 		},error:function(){
-
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
+			$('#messageModal').on('hide.bs.modal', function () {
+				location.reload();
+			})
 		}
 	})
 });

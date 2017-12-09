@@ -14,10 +14,22 @@
   <link href="css/lib/style-responsive.css" rel="stylesheet">
   <link href="css/node.css" rel="stylesheet">
   <link href="css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lib/bootstrap-select.css">
   <!--[if lt IE 9]>
 	<script src="js/lib/html5shiv.js"></script>
 	<script src="js/lib/respond.min.js"></script>
 	<![endif]-->
+  <style>
+    .bootstrap-select{
+      width: 100% !important;
+    }
+    .ipListBox>div{
+      width: 100%;
+    }
+    .filter-option{
+      font-size: 14px!important;
+    }
+  </style>
 </head>
 <body>
   <section id="container" class="">
@@ -126,7 +138,7 @@
                        <td class="memecache05">内存</td>
                        <td class="memecache06">连接数</td>
                        <td class="memecache07">用户名</td>
-                       <td class="memecache08">PID文件路径</td>
+                       <!--<td class="memecache08">PID文件路径</td>-->
                        <td class="memecache09">操作</td>
                      </tr>
                     </thead>
@@ -153,7 +165,11 @@
                         <tbody>
                         <tr>
                           <td><span style="color: red">*&nbsp;<span> <span style="color: #797979">绑定IP</span></td>
-                          <td><input class="form-control ipAddress" type="text" onblur="valieIP();" name="ipAddress" value="" placeholder="请输入名称"></td>
+                          <td class="" style="text-align: left">
+                            <input class="form-control ipAddress" type="text" name="ipAddress" value=""  disabled="disabled" >
+                            <!--<select data-size="9" class="selectpicker option-search ipAddress" title="===请选择===">-->
+                            <!--</select>-->
+                          </td>
                         </tr>
                         <tr>
                           <td><span style="color: red">*&nbsp;<span><span style="color: #797979">TCP端口</span></td>
@@ -175,10 +191,10 @@
                           <td>用户名</td>
                           <td><input class="form-control user" type="text"  value="" placeholder="请输入名称"></td>
                         </tr>
-                        <tr>
-                          <td>PID文件路径</td>
-                          <td><input class="form-control pidFile" type="text" value="" placeholder="请输入名称"></td>
-                        </tr>
+                        <!--<tr>-->
+                          <!--<td>PID文件路径</td>-->
+                          <!--<td><input class="form-control pidFile" type="text" value="" placeholder="请输入名称"></td>-->
+                        <!--</tr>-->
                         </tbody>
                       </form>
                     </table>
@@ -304,6 +320,7 @@
   <script src="js/lib/jquery.nicescroll.js"></script>
   <script src="js/lib/respond.min.js"></script>
   <script src="js/lib/common-scripts.js"></script>
+  <script src="js/lib/bootstrap-select.js"></script>
   <script src="js/memcached.js"></script>
   <script>
     $(function(){

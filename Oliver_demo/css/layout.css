@@ -71,7 +71,7 @@
 	margin-bottom: 0;
 }
 .form-control{
-	height: 0.4rem;
+
 	color: #797979;
 }
 td{
@@ -140,33 +140,32 @@ ul.sidebar-menu{
 	padding-bottom: 0!important;
 }
 .mcrouterNum th{
-	padding: 0!important;
 	vertical-align: middle!important;
 }
-.mcrouter01{
-	width: 4%;
-}
-.mcrouter03{
-	width: 4%;
-}
-.mcrouter07{
-	width: 4%;
-}
-.mcrouter08{
-	width: 4%;
-}
-.mcrouter09{
-	width: 4%;
-}
-.mcrouter10{
-	 width: 4%;
- }
-.mcrouter11{
-	width: 4%;
-}
-.mcrouter04{
-	width: 4%;
-}
+/*.mcrouter01{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter03{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter07{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter08{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter09{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter10{*/
+	 /*width: 4%;*/
+ /*}*/
+/*.mcrouter11{*/
+	/*width: 4%;*/
+/*}*/
+/*.mcrouter04{*/
+	/*width: 4%;*/
+/*}*/
 .memcacheNum td{
 	padding-left:0!important;
 	padding-right:0!important;
@@ -174,24 +173,24 @@ ul.sidebar-menu{
 .add_memcached_list td{
 	vertical-align:middle!important;
 }
-.memecache01{
-	width: 5%;
-}
-.memecache03{
-	width: 5%;
-}
-.memecache04{
-	width: 5%;
-}
-.memecache05{
-	width: 5%;
-}
-.memecache06{
-	width: 5%;
-}
-.memecache07{
-	width: 5%;
-}
+/*.memecache01{*/
+	/*width: 5%;*/
+/*}*/
+/*.memecache03{*/
+	/*width: 5%;*/
+/*}*/
+/*.memecache04{*/
+	/*width: 5%;*/
+/*}*/
+/*.memecache05{*/
+	/*width: 5%;*/
+/*}*/
+/*.memecache06{*/
+	/*width: 5%;*/
+/*}*/
+/*.memecache07{*/
+	/*width: 5%;*/
+/*}*/
 .btn{
 	padding: 5px 10px;
 	font-size: 12px;
@@ -233,6 +232,10 @@ td{
 	/*height: 300px!important;*/
 	
 }
+.bootstrap-select .dropdown-toggle{
+	padding: 7px 12px;
+}
+
 
 
 

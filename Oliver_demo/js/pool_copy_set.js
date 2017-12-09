@@ -160,7 +160,7 @@ function PoolGeneralHtml() {
                     <td class="" style="width:20%;">路由前缀名称</td>
                     <td class="" style="text-align:left;">
                       <div class="" style="width:30%;display:inline-block;">
-                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name} placeholder="请输入名称">
+                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name.substring("/cache_center/".length,data.name.lastIndexOf('/'))} placeholder="请输入名称">
                       </div>
                     </td>
                   </tr>
@@ -239,16 +239,17 @@ function PoolGeneralHtml() {
 			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function () {
-					$('#messageModal').modal('hide');
-				}, 1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					location.reload();
+				})
 			}
 		},
 		error: function () {
+			$('.tip-message').html("服务器异常");
 			$('#messageModal').modal('show');
-			setTimeout(function () {
-				$('#messageModal').modal('hide');
-			}, 1000);
+			$('#messageModal').on('hide.bs.modal', function () {
+				location.reload();
+			})
 		}
 	});
 };
@@ -267,10 +268,17 @@ function selectOption() {
 			} else {
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function () {
-					$('#messageModal').modal('hide');
-				}, 1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					window.history.back();       /*返回返回上一个网页*/
+				})
 			}
+		},
+		error:function(){
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
+			$('#messageModal').on('hide.bs.modal', function () {
+				window.history.back();       /*返回返回上一个网页*/
+			})
 		},
 		complete: function () {
 			PoolGeneralHtml();
@@ -420,9 +428,11 @@ $('body').on("click", ".add_strategy", function () {
 	$('.option-search').selectpicker('refresh');
 });
 //提交内容的地址的
-$('body').on("click", '.submit_general_set_data', function () {
-	pass = true;  //百分比是否可以通过进行提交
-	if (!textExp($("#route_prefix_title").val(), /^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//") != -1) {   //正则验证
+$('body').on("click", '.submit_general_set_data', function () {                //进行提交保存
+	var dataobj = {};
+	var datas;
+	var pass = 0;  //百分比是否可以通过进行提交
+	if (!textExp($("#route_prefix_title").val(), /^[_0-9A-Za-z-]+$/)) {   //正则验证
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
 		return;
@@ -434,10 +444,10 @@ $('body').on("click", '.submit_general_set_data', function () {
 	$(".pre_router_name").map(function (key, value) {
 		arrRouterName.push($(value).val());
 	});
-	console.log(arrRouterName);
+	// console.log(arrRouterName);
 	for (var key in arrRouterName) {
 		if (arrRouterName[key] == "" || !textExp(arrRouterName[key], /^[_0-9a-zA-Z-]+$/)) {
-			$('.tip-message').html("请填写正确填写前缀路由");
+			$('.tip-message').html("请填写正确填写前缀路由" );
 			$('#messageModal').modal('show');
 			return;
 		}
@@ -450,8 +460,8 @@ $('body').on("click", '.submit_general_set_data', function () {
 	$('#route_operate tr').map(function (key, value) {        //todo  获取路由操作中的值
 		if ($(value).find("select").eq(1).val() != "" && $(value).find("select").eq(0).val() != "") {
 			/*默认路由中的百分比进行操作判断的*/
-			if ($(value).find(".percentage").val() == "") {
-				pass = false;
+			if (isNaN($(value).find(".percentage").val()) || $(value).find(".percentage").val() == "" || $(value).find(".percentage").val()<0 ||$(value).find(".percentage").val()>1) {
+				pass +=1;
 			}
 			router_selected_did.push({
 				"type": "PoolRoute",
@@ -467,17 +477,16 @@ $('body').on("click", '.submit_general_set_data', function () {
 	});
 	// todo 操作策略参数
 	var policyArr = [];
-
 	$(".add_strategy_box").map(function (key, value) {      //对操作策略进行循环便利
 		Routepool_did = [];
 		Routepool = [];
-		pass = true;  //百分比是否可以通过进行提交
+		// pass = true;  //百分比是否可以通过进行提交
 		$(value).find(".router_policy_selcte").map(function (key, value) {
 			if ($(value).find('select').eq(1).val() != "" && $(value).find('select').eq(0).val() != "") {
-				if ($(value).find(".percentage").val() == "") {
+				if (isNaN($(value).find(".percentage").val()) || $(value).find(".percentage").val() == "" || $(value).find(".percentage").val()<0 ||$(value).find(".percentage").val()>1) {
 					$('.tip-message').html("请填写本分比例");
 					$('#messageModal').modal('show');
-					pass = false;
+					pass+=1;
 				} else {
 					Routepool_did.push({
 						"type": "PoolRoute",
@@ -500,8 +509,8 @@ $('body').on("click", '.submit_general_set_data', function () {
 			}
 		);
 	});
-	if (!pass) {
-		$('.tip-message').html("请填备份分比例");
+	if (pass>0) {
+		$('.tip-message').html("请填正确填写备份分比例(0~1)");
 		$('#messageModal').modal('show');
 		return;
 	}
@@ -511,13 +520,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 			$('#messageModal').modal('show');
 			return;
 		} else if (router_selected_did.length == 0) {
-
 			$('.tip-message').html("请选择默认路由配置");
 			$('#messageModal').modal('show');
 
 		}
-	} else if (pass) {
+	} else if (pass==0) {
 		policyArr.map(function (value, key) {               //对操作的策略进行判断是否为空
+			// console.log(value);
 			if (value.Routealiases == "" && value.Routepool.length != 0) {
 				$('.tip-message').html("前缀名称和路由操作必须都进行填写或两者都不填");
 				$('#messageModal').modal('show');
@@ -533,7 +542,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 			$('.tip-message').html("默认路由配置的路由操作请添加");
 			$('#messageModal').modal('show');
 		}
-		var dataobj = {};
+
 		policyArr.map(function (value, index) {
 			if (value.Routealiases != "" && value.Routepool.length != 0) {
 				dataobj[value.Routealiases] = value.Routepool;
@@ -544,13 +553,13 @@ $('body').on("click", '.submit_general_set_data', function () {
 			$('#messageModal').modal('show');
 			return;
 		} else {
-			var datas = {
-				"aliases": route_prefix_title,
+			 datas = {
+				"aliases": "/cache_center/"+route_prefix_title+"/",
 				"wildcard": JSON.stringify(router_selected_did),
 				"policies": JSON.stringify(dataobj)
 			};
 		}
-		console.log(datas);
+		// console.log(datas);
 		$.ajax({
 			type: "post",
 			dataType: "json", //服务端接收的数据类型
@@ -569,19 +578,20 @@ $('body').on("click", '.submit_general_set_data', function () {
 				} else {
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
-					setTimeout(function () {
-						$('#messageModal').modal('hide');
-					}, 1000);
+					$('#messageModal').on('hide.bs.modal', function () {
+					  location.reload();
+					})
 				}
 			},
 			error: function () {
 				$('.tip-message').html("服务器异常");
 				$('#messageModal').modal('show');
-				setTimeout(function () {
-					$('#messageModal').modal('hide');
-				}, 1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					location.reload();
+				})
 			}
 		});
+
 	}
 });
 /*对于重复option事情的处理*/

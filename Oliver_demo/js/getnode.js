@@ -110,15 +110,9 @@ $(function(){
 			data:targetData,
 			success:function (data) {
 				if(data.status=="success"){
-					$("#value").val(data.message);
-					$('.tip-message').html("获取成功");
-					$('#messageModal').modal('show');
-					setTimeout(function(){
-						$('#messageModal').modal('hide');
-						// location.reload();
-					},1000);
+					$('.getValue').html(data.message);
+					$('#getValue').modal('show');
 				}else{
-					$('#add_mcrouter_modle').modal('hide');
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
 					setTimeout(function(){

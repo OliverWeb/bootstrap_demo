@@ -244,7 +244,7 @@ function PoolGeneralHtml() {
                     <td class="" style="width:20%;">路由前缀名称</td>
                     <td class="" style="text-align:left;">
                       <div class="" style="width:30%;display:inline-block;">
-                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name} placeholder="请输入名称">
+                          <input class="form-control route_prefix_title" type="text" id="route_prefix_title" value=${data.name.substring("/cache_center/".length,data.name.lastIndexOf('/'))} placeholder="请输入名称">
                       </div>
                     </td>
                   </tr>
@@ -325,18 +325,18 @@ function PoolGeneralHtml() {
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
-				},1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					location.reload();
+				})
 			}
 
 		},
 		error: function () {
 			$('.tip-message').html("常规设置请求异常");
 			$('#messageModal').modal('show');
-			setTimeout(function(){
-				$('#messageModal').modal('hide');
-			},1000);
+			$('#messageModal').on('hide.bs.modal', function () {
+				location.reload();
+			})
 		}
 	});
 };
@@ -356,11 +356,18 @@ function selectOption() {
 			}else{
 				$('.tip-message').html(data.message);
 				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
-				},1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					window.history.back();       /*返回返回上一个网页*/
+				})
 			}
 
+		},
+		error:function(){
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
+			$('#messageModal').on('hide.bs.modal', function () {
+				window.history.back();       /*返回返回上一个网页*/
+			})
 		},
 		complete: function () {
 			PoolGeneralHtml();
@@ -521,7 +528,7 @@ $('body').on("click", ".add_strategy", function () {
 });
 //提交内容的地址的
 $('body').on("click", '.submit_general_set_data', function () {
-	if(!textExp($("#route_prefix_title").val(),/^([_0-9A-Za-z\/-]+)$/) || $("#route_prefix_title").val().indexOf("//")!=-1){   //正则验证
+	if(!textExp($("#route_prefix_title").val(),/^[_0-9A-Za-z\/-]+$/)){   //正则验证
 		$('.tip-message').html("请填写正确的路由前缀名称");
 		$('#messageModal').modal('show');
 		return;
@@ -616,7 +623,7 @@ $('body').on("click", '.submit_general_set_data', function () {
 			  return;
 		  }else{
 			  var datas = {
-				  "name": route_prefix_title,
+				  "name": "/cache_center/"+route_prefix_title+"/",
 				  "wildcard": JSON.stringify(router_selected),
 				  "policies": JSON.stringify(policiesArr)
 			  };
@@ -638,18 +645,18 @@ $('body').on("click", '.submit_general_set_data', function () {
 				}else{
 					$('.tip-message').html(data.message);
 					$('#messageModal').modal('show');
-					setTimeout(function(){
-						$('#messageModal').modal('hide');
-					},1000);
+					$('#messageModal').on('hide.bs.modal', function () {
+						location.reload();
+					})
 				}
 
 			},
 			error: function () {
-				$('.tip-message').html("提交异常");
+				$('.tip-message').html("服务器异常");
 				$('#messageModal').modal('show');
-				setTimeout(function(){
-					$('#messageModal').modal('hide');
-				},1000);
+				$('#messageModal').on('hide.bs.modal', function () {
+					location.reload();
+				})
 			}
 		});
 	}
@@ -730,4 +737,5 @@ $(function () {
 	});
 });
 
-/* todo 代码待使用 请勿删除*/
+
+

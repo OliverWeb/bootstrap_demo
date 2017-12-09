@@ -92,6 +92,7 @@ function join_server() {
 		dataType: "json",
 		success: function (data) {
 			if (data.status == "success") {
+				$('#setModal').modal('show');
 				data = data.message;
 				console.log(data);
 				if (click_index != -1) {     //页面初始数据     新添加的数据,未加载的要进行全部显示
@@ -126,16 +127,16 @@ function join_server() {
 				$('.multi-select').multiSelect('refresh'); //刷新多选下拉标签
 
 			} else {
-				alert(data.message);
+				$('.tip-message').html(data.message);
+				$('#messageModal').modal('show');
+				return false;
 			}
 
 		},
 		error: function () {
 			$('.tip-message').html("服务器异常");
 			$('#messageModal').modal('show');
-			setTimeout(function () {
-				$('#messageModal').modal('hide');
-			}, 1000);
+
 		}
 	});
 }
@@ -143,13 +144,12 @@ function join_server() {
 //模态框- 分片池设置, 进行选择已加入服务和未加入服务
 $('body').on("click", ".pool_edit", function () {        //点击编辑按钮进行操作的
 	pool_input_name = $(this).parent().prev().find('.pool_input_name').val();
-	if (!textExp(pool_input_name, /^[0-9a-zA-Z]+$/)) {   //正则验证
+	if (!textExp(pool_input_name, /^[0-9a-zA-Z_-]+$/)) {   //正则验证
 		$('.tip-message').html("请填写正确的池名称");
 		$('#messageModal').modal('show');
 		return;
 	}
 	$('.pool_name_title').val(pool_input_name);
-	$('#setModal').modal('show');
 	title_value = $(this).parent().prev().find("input").val();   //用于提交数据用
 	if ($(this).attr("key")) {
 		click_index = parseFloat($(this).attr("key"));
@@ -185,8 +185,7 @@ $('body').on("click", ".pool_edit", function () {        //点击编辑按钮进
 											value +
 											"</option>"));
 									});
-								}
-								;
+								};
 							}
 						} else {
 							$('.multi-select').empty();//清空下拉标签
@@ -201,6 +200,7 @@ $('body').on("click", ".pool_edit", function () {        //点击编辑按钮进
 			},
 			complete: function () {
 				join_server();     //加载去servers列表数据请求
+
 			},
 			error: function () {
 				$('.tip-message').html("编辑获取异常");
@@ -223,6 +223,7 @@ $('body').on("click", ".pool_edit", function () {        //点击编辑按钮进
 //  todo 查看加入列表信息 信息模态框
 $('body').on("click", ".pool_view", function () {
 	$(".viw_title").val("");
+	$('#view_detail').val("");
 	$('.view_list').empty();
 	$('#viewModal').modal('show');
 	var view_key = $(this).attr("key");   //点击的key值
@@ -239,11 +240,14 @@ $('body').on("click", ".pool_view", function () {
 			success: function (data) {
 				if (data.status == "success") {
 					data = data.message;
-					_data_server_list = data;           //这里_data为
+					_data_server_list = data.sort();           //这里_data为
+					view_result = data.sort();
+					_view_result = data.sort();
 					if (view_key < _data_length) {
 						_data_server_list.map(function (value, key) {
 							var view_list = `<li>${value}</li>`;
 							$('.view_list').append(view_list);
+
 						});
 					}
 				} else {
@@ -265,35 +269,39 @@ $('body').on("click", ".pool_view", function () {
 
 //键盘按键弹起时执行
 //键盘按键弹起时执行
-$(function () {
-	view_result = [];
-	_view_result = [];
-	$('.view_list li').each(function (index) {
-		view_result.push($(this).html());
-		_view_result.push($(this).html());
-	});
-	view_result.sort();
-	_view_result.sort();
-});
+// $(function () {
+// 	view_result = [];
+// 	_view_result = [];
+// 	$('.view_list li').each(function (index) {
+// 		view_result.push($(this).html());
+// 		_view_result.push($(this).html());
+// 	});
+// 	view_result.sort();
+// 	_view_result.sort();
+// });
 
 function viewsearch() {
 	var str = $.trim($('#view_detail').val().toString()); //去掉两头空格
-	if (str == '') {
+	if (str!='') {
 		$(".view_list").empty();
-		for (var key in _view_result) {
-			$(".view_list").append("<li>" + view_result[key] + "</li>");
+		for (var key in view_result) {
+			if(view_result[key].indexOf(str)!=-1){
+				$(".view_list").append("<li>" + view_result[key] + "</li>");
+			}
 		}
 		return false;
+	}else{
+		$(".view_list").empty();
+		for (var key in view_result) {
+			if(view_result[key].indexOf(str)!=-1){
+				$(".view_list").append("<li>" + view_result[key] + "</li>");
+			}
+		}
 	}
 };
 
 //  todo 异步进行提交分片池配置
 function fenpianchi_submit() {
-	if (!textExp($("input.pool_name_title").val(), /^[0-9a-zA-Z]+$/)) {   //正则验证
-		$('.tip-message').html("请填写正确的池名称");
-		$('#messageModal').modal('show');
-		return;
-	}
 	var servers = [];//提交数组
 	var did_join_html = $(".ms-elem-selectable:visible").find('span');
 	for (var i = 0; i < (did_join_html.length); i++) {

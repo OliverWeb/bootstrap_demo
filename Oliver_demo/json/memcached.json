@@ -1,6 +1,6 @@
 {"message":[{
-  "ipAddress": "ipAddress",
-  "port": "8888",
+  "ipAddress": "10.73.158.191",
+  "port": "1",
   "udpPort": "udpPort",
   "memoryMaxSize": "123",
   "connectNum": "connectNum",
@@ -10,8 +10,19 @@
   "key": "tmpPrefix"
   },
   {
-    "ipAddress": "ipAddress",
-    "port": "0000",
+    "ipAddress": "10.73.158.192",
+    "port": "3",
+    "udpPort": "udpPort",
+    "memoryMaxSize": "1230",
+    "connectNum": "connectNum",
+    "user": "user",
+    "pidFile": "pidFile",
+    "disabled": "1",
+    "key": "tmpPrefix"
+  },
+  {
+    "ipAddress": "10.73.158.192",
+    "port": "2",
     "udpPort": "udpPort",
     "memoryMaxSize": "1230",
     "connectNum": "connectNum",

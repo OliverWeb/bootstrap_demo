@@ -1,0 +1,53 @@
+{"message":{
+  "aliases": ["e"],
+  "route": {
+    "policies": {
+      "e": {
+        "operation_policies": {
+          "add": {
+            "children": ["PoolRoute|pool"],
+            "type": "AllSyncRoute"
+          },
+          "set": {
+            "children": ["PoolRoute|pool"],
+            "type": "AllSyncRoute"
+          },
+          "get": {
+            "children": ["PoolRoute|pool"],
+            "type": "LatestRoute"
+          },
+          "delete": {
+            "children": ["PoolRoute|pool"],
+            "type": "AllSyncRoute"
+          }
+        },
+        "default_policy": "PoolRoute|remote_pool",
+        "type": "OperationSelectorRoute"
+      }
+    },
+    "type": "PrefixSelectorRoute",
+    "wildcard": {
+      "operation_policies": {
+        "add": {
+          "children": ["PoolRoute|pool"],
+          "type": "AllSyncRoute"
+        },
+        "set": {
+          "children": ["PoolRoute|pool"],
+          "type": "AllSyncRoute"
+        },
+        "get": {
+          "children": ["PoolRoute|pool"],
+          "type": "LatestRoute"
+        },
+        "delete": {
+          "children": ["PoolRoute|pool"],
+          "type": "AllSyncRoute"
+        }
+      },
+      "default_policy": "PoolRoute|remote_pool",
+      "type": "OperationSelectorRoute"
+    }
+  }
+},
+  "status":"success"}

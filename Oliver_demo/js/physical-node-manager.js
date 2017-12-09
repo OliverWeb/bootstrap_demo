@@ -38,11 +38,11 @@ $(function(){
 	});
 	$.ajax({
 		type: "get",
-		url: "./json/physical.json",                  // ${pageContext.request.contextPath}/config/server_list
+		url: "./json/iplist.json",                  // ${pageContext.request.contextPath}/config/server_list
 		success:function (data) {
 				if(data.status=="success"){
 					if(data.message!=""){
-						data.message.map(function(value,key){
+						data.message.sort().map(function(value,key){
 							var server_li_html=` <li>
                   <div class="sk_item_pic">
                     <a href="#" class="sk_item_pic_lk">
@@ -76,32 +76,24 @@ function  getLog(ip){
 		url:"./json/log.json",                            //  '${pageContext.request.contextPath}/config/getInitLogs?ip=' + ip,
 		data:"ip="+ip,
 		success:function(data){
-			if(data.status=="success"){
-				if(data.message!=""){
-					var result=data.message;
-					var len = (result).length;
-					if (len > 0) {
-						for (var i = 0; i < len; i++) {
-							$("#information").append(result[i] + "<br/>");
-							$('#information').scrollTop($('#information')[0].scrollHeight);
-							if (result[i].indexOf("@end") != -1) {
-								clearInterval(timerlog);
-								$('.tip-message').html("操作成功");
-								$('#messageModal').modal('show');
-								setTimeout(function(){
-									$('#messageModal').modal('hide');
-								},2000);
-								$(".logclose").click(function () {   //点击关闭的时候进行的停止请求
-									$('#logModal').modal('hide');
-									$("#information").empty();
-									location.reload();
-								})
-							}
-						}
-					}
+			if(data.length>0){
+				$("#information").append(data[0] + "<br/>");
+				$('#information').scrollTop($('#information')[0].scrollHeight);
+				if (data[0].indexOf("@end") != -1) {
+					clearInterval(timerlog);
+					$('.tip-message').html("操作成功");
+					$('#messageModal').modal('show');
+					setTimeout(function(){
+						$('#messageModal').modal('hide');
+						location.reload();
+					},2000);
+					$(".logclose").click(function () {   //点击关闭的时候进行的停止请求
+						$('#logModal').modal('hide');
+						$("#information").empty();
+					})
 				}
 			}else{
-				$('.tip-message').html(data.message);
+				$('.tip-message').html(data);
 				$('#messageModal').modal('show');
 			}
 		},
@@ -126,12 +118,12 @@ $('.add_servers_save').click(function(){
 		$('#messageModal').modal('show');
 		return;
 		}
-	if(!textExp($('#ip3').val(),/^([_0-9A-Za-z\/-]+)$/)){
-		$('.tip-message').html("请填写正确的用户密码,不能包含特殊字符");
+	if($('#ip4').val()==""){
+		$('.tip-message').html("请填写正确的用户密码");
 		$('#messageModal').modal('show');
 		return;
 	}
-	if(!textExp($('#ip4').val(),/^([_0-9A-Za-z\/-]+)$/)){
+	if($('#ip4').val()==""){
 		$('.tip-message').html("请填写正确root权限密码");
 		$('#messageModal').modal('show');
 		return;
