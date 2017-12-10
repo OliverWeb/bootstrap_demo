@@ -55,18 +55,19 @@ $(function(){
 									}
 								},
 								error:function(data){
-
+									$('.tip-message').html("服务器异常");
+									$('#messageModal').modal('show');
 								}
 							});
 						}else{
-
 						}
 					});
 					}
 			}
 		},
 		error:function(data){
-
+			$('.tip-message').html("服务器异常");
+			$('#messageModal').modal('show');
 		}
 	});
 	/*点击保存*/
@@ -131,5 +132,34 @@ $(function(){
 
 
 	});
-
+	/*点击删除按钮*/
+	$(".delte_servers_save").click(function(){
+		/*提交的数据内容*/
+		var hostname=$(".hostList").val();
+		var port=$("select.portList").val();
+		var key=$("#key").val();
+		var targetData={
+			"key":key,
+			"hostname":hostname,
+			"port":port
+		};
+		$.ajax({
+			type:"get",
+			url:"./json/getNode.json", // pageContext+"/config/node/getMcrouterValue"   删除地址
+			data:targetData,
+			success:function (data) {
+				if(data.status=="success"){
+					$('.tip-message').html("删除成功");
+					$('#messageModal').modal('show');
+				}else{
+					$('.tip-message').html(data.message);
+					$('#messageModal').modal('show');
+				}
+			},
+			error:function(){
+				$('.tip-message').html("服务器异常");
+				$('#messageModal').modal('show');
+			}
+		});
+	});
 });

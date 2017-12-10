@@ -6,7 +6,8 @@
   <meta name="description" content="">
   <meta name="author" content="Custom Theme">
   <link rel="shortcut icon" href="">
-  <title>Editable Table</title>
+  <title>物理节点管理</title>
+  <link rel="shortcut icon" href="img/favicon.ico">
   <link href="css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="css/lib/bootstrap-reset.css" rel="stylesheet">
   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -24,6 +25,11 @@
     }
     #server_form td{
       vertical-align: middle;
+    }
+    .mcrouterNum th{
+        padding: 0!import\
+        
+        ant;
     }
   </style>
 </head>
@@ -90,7 +96,7 @@
               </li>
               <li>
                 <a href="getnode.html">
-                  获取缓存数据
+                  操作缓存数据
                 </a>
               </li>
             </ul>
@@ -123,8 +129,35 @@
                 </button>
               </div>
             </div>
+            <!--表格数据的进行显示-->
+            <table class="table  table-hover table-bordered dataTable" id="" aria-describedby="editable-sample_info">
+              <thead>
+              <tr class="mcrouterNum">
+                <th class="mcrouter01">IP</th>
+                <th class="mcrouter02">账号</th>
+                <th class="mcrouter03">cpu核心数量</th>
+                <th class="mcrouter04">物理cpu数量</th>
+                <th class="mcrouter07">频率</th>
+                <th class="mcrouter08">内存大小</th>
+                <th class="mcrouter09">当前使用量</th>
+                <th class="mcrouter10">硬盘大小</th>
+                <th class="mcrouter11">使用量</th>
+                <th class="mcrouter12">网卡配置</th>
+                <th class="mcrouter12">
+                  <button type="button" class="modify btn btn-danger btn-sm">
+                    删除
+                  </button>
+                </th>
+              </tr>
+              </thead>
+              <tbody class="add_mcrouter_list" style="text-align: center">
+              </tbody>
+            </table>
           </div>
         </section>
+        
+        
+        
       </section>
       <!-- 模态框 -->
       <div class="modal fade" id="add_server_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
