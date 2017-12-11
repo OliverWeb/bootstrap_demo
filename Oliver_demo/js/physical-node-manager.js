@@ -43,14 +43,23 @@ $(function(){
 				if(data.status=="success"){
 					if(data.message!=""){
 						data.message.sort().map(function(value,key){
-							var server_li_html=` <li>
-                  <div class="sk_item_pic">
-                    <a href="#" class="sk_item_pic_lk">
-                      <img src="img/ip.png" title="" class="sk_item_img">
-                      <p class="sk_item_name">${value}</p>
-                    </a>
-                  </div>
-                </li>`;
+							var server_li_html=` <div class="ip-item">
+										  <div class="sk_item_pic" style="float: left">
+				                    <a href="#" class="sk_item_pic_lk">
+				                      <img src="img/ip.png" title="" class="sk_item_img">
+				                      <p class="sk_item_name">${value}</p>
+				                    </a>
+										  </div>
+										  <div class="ip-right" style="display: inline-block;height: 90px;">
+												  <div  style=" display: -webkit-flex; ">
+												  	<span>cpu核心数量：</span><span>物理cpu数量：</span><span>频率：</span><span>内容大小：</span>
+													</div>
+												  <div class="row2" style="" display: -webkit-flex;">
+												  	<span>当前使用量：</span><span>硬盘大小：</span><span>使用量：</span><span>网卡配置：</span>
+													</div>
+											</div>
+										 
+                </div>`;
 							$('.server_list').append(server_li_html);
 						});
 					}
