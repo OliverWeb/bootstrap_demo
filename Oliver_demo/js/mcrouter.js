@@ -7,7 +7,7 @@ function textExp(val, reg) {
 var editType = "add";
 var addPort = "";
 $(function () {
-1	/*监听表单框的中的(是否开启流量控制)*/
+/*监听表单框的中的(是否开启流量控制)*/
 	if ($("#md_3").is(":checked")) {
 		$('.flightRequest').removeAttr("disabled");
 	} else {

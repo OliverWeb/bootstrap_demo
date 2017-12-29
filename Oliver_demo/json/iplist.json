@@ -1,1 +1,18 @@
-{"message":["10.73.158.194","10.73.158.193","10.73.158.191","10.73.158.199","10.73.158.195"],"status":"success"}
+{"message":
+[
+
+  {"ip":"900.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) 0GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"300.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"800.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"400.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"200.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"600.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"},
+
+  {"ip":"700.200.38.9","hostname":"newarch","cpunumb":"8","cputype":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","ramtotal":" 16432.0 MB","ramused":" 2074.0 MB","disktotal":"68GB","diskused":"18%","ipconfig":"8  Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz","totalofphysicalcpu":"1"}
+],
+  "status":"success"}
